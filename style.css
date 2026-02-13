@@ -1,0 +1,132 @@
+.mon-header{
+    font-family : Century Gothic ;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #eae3d8;
+    padding: 15px 40px;
+}
+
+.header-left,
+.header-center,
+.header-right{
+    flex: 1;                /* ← clé du centrage réel */
+    display: flex;
+    align-items: center;
+}
+
+.header-left{
+    justify-content: flex-start;
+}
+
+.header-center{
+    justify-content: center;
+}
+
+.header-center img{
+    height: 110px;
+    width: 350px;
+}
+
+.header-right{
+    font-family : Century Gothic ;
+    justify-content: flex-end;
+}
+
+.header-right nav{
+    font-family : Century Gothic ;
+    display: flex;
+    gap: 15px;
+}
+
+.search-bar{
+    width: 300px;
+    height: 35px;
+    background: white;
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
+}
+
+.search-bar input{
+    border: none;
+    outline: none;
+    width: 100%;
+    background: white;
+}
+
+.icon{
+  font-size: 18px;
+  opacity: 0.6;
+  margin-right: 10px;
+}
+
+.mon-espace {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #f7b6d2;
+    border-radius: 20px;
+    text-decoration: none;
+    color: black;
+}
+
+.mon-espaced {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #eae3d8;
+    border-radius: 20px;
+    text-decoration: none;
+    color: black;
+}
+
+
+/*Responsive*/
+@media (max-width: 768px){
+
+  .mon-header{
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+
+  /* Ordre des éléments */
+  .header-center{
+    order: 1;   /* logo en premier */
+  }
+
+  .header-left{
+    order: 2;   /* barre en dessous */
+  }
+
+  .header-right{
+    order: 3;   /* liens en dernier */
+  }
+
+  .header-left,
+  .header-center,
+  .header-right{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .mon-espace {
+    display: inline-block;
+    padding: 6px 14px;
+    background-color: #f7b6d2;
+    border-radius: 15px;
+    text-decoration: none;
+    color: black;
+}
+
+.mon-espaced {
+    display: inline-block;
+    padding: 6px 14px;
+    background-color: #eae3d8;
+    border-radius: 15px;
+    text-decoration: none;
+    color: black;
+}
+
+}
