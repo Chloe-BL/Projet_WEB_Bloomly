@@ -55,8 +55,9 @@ nav {
     padding: 20px;
 }
 
+/* Pour que ce soit sur la même ligne */
 .no-wrap {
-    white-space: nowrap;
+    white-space: nowrap; 
 }
 
 .button {

@@ -34,7 +34,7 @@
         <br><br>
 
         <nav class="navbar">
-            <a class="active" href="#">Mon Espace</a>
+            <a class="active">Mon Espace</a>
             <a href="comptepilote.html">Comptes Pilotes</a>                
             <a href="compteetudiant.html">Comptes Etudiants</a>
         </nav>
@@ -48,11 +48,12 @@
                 <img src="../assets/profil.png" alt="Photo de profil" class="profil">
             </div>
 
-            <div style="display:inline-block;">
+            <div style="display:inline-block;"> <!-- Pour mettre les bloc à côté de l'image -->
                 <div class="ligne">
                     <div class="bloc">
                         <p>Civilité</p>
-                        <input type ="checkbox" alt="Homme"><input type ="checkbox" alt="Femme">
+                        <input type="checkbox"> Homme <br>
+                        <input type="checkbox"> Femme
                     </div>
 
                     <div class="bloc">
@@ -61,7 +62,7 @@
                     </div>
 
                     <div class="bloc">
-                        <p class="no-wrap">Numéro de téléphone</p>
+                        <p class="no-wrap">Numéro de téléphone</p> 
                         <input type = "text">
                     </div>
                 </div>
@@ -82,18 +83,28 @@
         </div>
     </body>
 
-    <footer>
-        <center>
+    <footer class="mon-footer">
             <p>© 2026 Bloomly - Tous droits réservés.</p>
-            <footer align="right">
-                <img src="" alt="Logo Bloomly">
-            </footer>
-            <nav>
+            
+            <nav class="navb">
                 <a href="..\a-propos.html">A propos de nous</a>
                 <a href="..\mentions-legales.html">Mentions légales</a>
                 <a href="..\cookies.html">Cookies</a>
             </nav>
-        </center>
-    </footer>
 
+            <div class="right">
+                <img src="../assets/logo1.png" alt="Logo Bloomly" class="logo">
+            </div>
+
+            <div class="reseaux">
+                <a href="https://instagram.com" target="_blank">
+                    <img src="../assets/instagram.png" alt="Instagram"></a>
+
+                <a href="https://twitter.com" target="_blank">
+                    <img src="../assets/twitter.png" alt="Twitter"></a>
+
+                <a href="https://linkedin.com" target="_blank">
+                    <img src="../assets/linkedin.png" alt="LinkedIn"></a>
+            </div>
+    </footer>
 </html>

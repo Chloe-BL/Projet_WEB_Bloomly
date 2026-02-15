@@ -1,3 +1,4 @@
+/* HEADER */
 .mon-header{
     font-family : Century Gothic ;
     display: flex;
@@ -82,8 +83,52 @@
     font-weight: bold;
 }
 
+/* FOOTER */
+.mon-footer {
+    font-family : Century Gothic ;
+    text-align: center;
+    background-color: #eae3d8;
+    position: relative;
+    padding: 5px 2px;
+}
 
-/*Responsive*/
+.right {
+    margin-left: auto;
+}
+
+navb {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
+.navb a {
+    color: #afb779; 
+    text-decoration: none;
+    font-size: 20px;
+    font-family : Century Gothic ;
+}
+
+.logo {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    height: 60px;
+    width: 200px;
+}
+
+.reseaux {
+    display: flex;
+    gap: 15px;
+}
+
+.reseaux img {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+
+/* RESPONSIVE */
 @media (max-width: 768px){
 
   .mon-header{

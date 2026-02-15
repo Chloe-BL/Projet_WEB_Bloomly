@@ -3,6 +3,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="../style.css">
+        <link rel="stylesheet" href="../chloe_style.css">
         <title>Vos Annonces</title>
     </head>
     <body>
@@ -27,11 +28,16 @@
                 </nav>
             </div>
         </header>
-        <nav align="center">
-            <strong>Vos annonces</strong>
-            <a href="admin_brouillons_off.html">Vos brouillons</a>
-            <a href="admin_archives_off.html">Vos archives</a>
+
+        <br><br>
+        
+        <nav class="navbar">
+            <a class="active" href="#">Mon Espace</a>
+            <a href="comptepilote.html">Comptes Pilotes</a>                
+            <a href="compteetudiant.html">Comptes Etudiants</a>
         </nav>
+        <div class="sous-nav"></div>
+
         <h1>Consulter vos annonces</h1>
         <p>Retrouvez ici l'ensemble des offres de stage que vous avez publiées.</p>
         <p>Vous pouvez suivre les candidatures en temps réel, modifier les descriptions ou clore les sessions de recrutement terminées.</p>
@@ -48,17 +54,28 @@
             <p>Stage de 2 mois en Maintenance Industrielle et Robotique</p>
         </div>
     </body>
-    <footer>
-        <center>
+    <footer class="mon-footer">
             <p>© 2026 Bloomly - Tous droits réservés.</p>
-            <footer align="right">
-                <img src="" alt="Logo Bloomly">
-            </footer>
-            <nav>
+            
+            <nav class="navb">
                 <a href="..\a-propos.html">A propos de nous</a>
                 <a href="..\mentions-legales.html">Mentions légales</a>
                 <a href="..\cookies.html">Cookies</a>
             </nav>
-        </center>
+
+            <div class="right">
+                <img src="../assets/logo1.png" alt="Logo Bloomly" class="logo">
+            </div>
+
+            <div class="reseaux">
+                <a href="https://instagram.com" target="_blank">
+                    <img src="../assets/instagram.png" alt="Instagram"></a>
+
+                <a href="https://twitter.com" target="_blank">
+                    <img src="../assets/twitter.png" alt="Twitter"></a>
+
+                <a href="https://linkedin.com" target="_blank">
+                    <img src="../assets/linkedin.png" alt="LinkedIn"></a>
+            </div>
     </footer>
 </html>
