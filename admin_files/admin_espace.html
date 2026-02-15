@@ -3,6 +3,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="../style.css">
+        <link rel="stylesheet" href="../chloe_style.css">
         <title>Mon espace</title>
     </head>
     <body>
@@ -21,44 +22,64 @@
             </div>
             
             <div class="header-right">
-                <nav>
-                    <a class="mon-espaced"href="..\index.html">Se déconnecter</a>
-                    <a class="mon-espace" href="admin_espace.html">Mon espace</a>
-                </nav>
-            </div>
+            <nav>
+                <a class="mon-espaced"href="..\index.html">Se déconnecter</a>
+                <a class="mon-espace" href="admin_espace.html">Mon espace</a>
+            </nav>
+        </div>
+    </div>
 
         </header>
 
-        <nav align="center">
-            <strong>Mes informations</strong>
-            <a href="comptepilote.html">Comptes Pilotes</a>
+        <br><br>
+
+        <nav class="navbar">
+            <a class="active" href="#">Mon Espace</a>
+            <a href="comptepilote.html">Comptes Pilotes</a>                
             <a href="compteetudiant.html">Comptes Etudiants</a>
         </nav>
-
-        <h1>Mon espace</h1>
-        <p>Retrouvez ici l'ensemble de vos informations personnelles</p>
-        <br><br>
-        <img src="" alt="Photo de profil">
-
-        <p>Civilité</p>
-        <input type ="checkbox" alt="Homme"><input type ="checkbox" alt="Femme">
-
-        <p>Nom et Prénom</p>
-        <input type = "text">
-
-        <p>Numéro de téléphone</p>
-        <input type = "text">
-
-        <p>Votre identifiant</p>
-        <p>KjiopTRA56hu</p>
-
-        <a href="..\comptes\mdp.html">Mot de passe oublié ?</a>
-
-        <br><br>
-
-        <input type="button">Modifier vos informations</button>
+        <div class="sous-nav"></div>
         
+        <div class="contour">
+            <h1>Mon espace</h1>
+            <p>Retrouvez ici l'ensemble de vos informations personnelles</p>
 
+            <div style="display:inline-block;vertical-align:top;">
+                <img src="../assets/profil.png" alt="Photo de profil" class="profil">
+            </div>
+
+            <div style="display:inline-block;">
+                <div class="ligne">
+                    <div class="bloc">
+                        <p>Civilité</p>
+                        <input type ="checkbox" alt="Homme"><input type ="checkbox" alt="Femme">
+                    </div>
+
+                    <div class="bloc">
+                        <p>Nom et Prénom</p>
+                        <input type = "text">
+                    </div>
+
+                    <div class="bloc">
+                        <p class="no-wrap">Numéro de téléphone</p>
+                        <input type = "text">
+                    </div>
+                </div>
+
+                <div class="ligne">
+                    <div class="bloc">
+                        <p>Votre identifiant</p>
+                        <p>KjiopTRA56hu</p>
+                    </div>
+                    <div class="bloc">
+                        <a class="no-wrap" href="..\comptes\mdp.html">Mot de passe oublié ?</a>
+                    </div>
+                    <div class="bloc">
+                        <a class="modifier" href="modifier_compte.html">Modifier vos informations</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </body>
 
     <footer>

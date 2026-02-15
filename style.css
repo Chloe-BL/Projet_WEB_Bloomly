@@ -65,7 +65,7 @@
 .mon-espace {
     display: inline-block;
     padding: 10px 20px;
-    background-color: #f7b6d2;
+    background-color: #afb779;
     border-radius: 20px;
     text-decoration: none;
     color: black;
@@ -102,7 +102,7 @@
   }
 
   .header-right{
-    order: 3;   /* liens en dernier */
+    order: 3;   
   }
 
   .header-left,
@@ -116,7 +116,7 @@
   .mon-espace {
     display: inline-block;
     padding: 6px 14px;
-    background-color: #f7b6d2;
+    background-color: #afb779;
     border-radius: 15px;
     text-decoration: none;
     color: black;

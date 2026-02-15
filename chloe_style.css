@@ -1,0 +1,97 @@
+.body {
+    font-family: 'Century Gothic';
+}
+.sous-nav {
+    text-align: center;
+    border-top: 2px solid #afb779;
+    margin-top: 5px;
+    padding-top: 10px;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
+.navbar a {
+    color: #afb779; 
+    text-decoration: none;
+    font-size: 20px;
+    font-family : Century Gothic ;
+}
+
+.navbar a:hover {
+    font-weight: bold;
+}
+
+.active {
+    font-weight: bold;
+}
+
+.contour {
+    font-family: Century Gothic;
+    padding: 20px;
+    margin: 40px auto;
+    background-color: white;
+    border-radius: 20px;
+    width: 75%;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
+}
+
+.profil {
+    display: flex;
+    width: 250px;
+    height: 250px;
+}
+
+.ligne{
+    display: flex;
+    gap: 60px;
+}
+
+.bloc{
+    flex: 2;
+    padding: 20px;
+}
+
+.no-wrap {
+    white-space: nowrap;
+}
+
+.button {
+    display: flex;
+    background-color: #afb779;
+    color: black;
+    border-radius: 20px;
+}
+
+.modifier{
+    display: inline-block;
+    padding: 6px 14px;
+    background-color: #c1c2bf;
+    border-radius: 15px;
+    text-decoration: none;
+    color: black;
+}
+
+/*Responsive*/
+@media (max-width: 768px){
+    .nav {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .navbar a {
+        color: #afb779; 
+        text-decoration: none;
+        font-size: 12px;
+        font-family : Century Gothic ;
+    }
+
+    .ligne{
+        display: block;
+    }
+
+}
