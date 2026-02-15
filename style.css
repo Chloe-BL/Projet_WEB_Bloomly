@@ -10,7 +10,7 @@
 .header-left,
 .header-center,
 .header-right{
-    flex: 1;                /* ← clé du centrage réel */
+    flex: 1;               
     display: flex;
     align-items: center;
 }
@@ -69,6 +69,7 @@
     border-radius: 20px;
     text-decoration: none;
     color: black;
+    font-weight: bold;
 }
 
 .mon-espaced {
@@ -78,6 +79,7 @@
     border-radius: 20px;
     text-decoration: none;
     color: black;
+    font-weight: bold;
 }
 
 
@@ -118,6 +120,7 @@
     border-radius: 15px;
     text-decoration: none;
     color: black;
+    font-weight: bold;
 }
 
 .mon-espaced {
@@ -127,6 +130,6 @@
     border-radius: 15px;
     text-decoration: none;
     color: black;
+    font-weight: bold;
 }
-
 }

@@ -2,24 +2,31 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="..\style.css">
+        <link rel="stylesheet" href="../style.css">
         <title>Vos Brouillons</title>
     </head>
     <body>
-        <header>
-            <center>
-               <img src="" alt="Logo Bloomly">
-            </center>
-            <header align="left">
-                <a href="..\recherche.html">Rechercher une offre</a>
+
+        <header class="mon-header">
+
+            <div class="header-left">
+                <div class="search-bar">
+                    <span class="icon">🔍</span>
+                    <input type="text" placeholder="Rechercher ">
+                </div>
+            </div>
+
+            <div class="header-center">
+                <img src="../assets/logo1.png" alt="Logo Bloomly" >
+            </div>
             
-                <header align="right">
-                    <nav>
-                        <a href="..\index.html">Se déconnecter</a>
-                        <a href="admin_espace.html">Mon espace</a>
-                    </nav>
-                </header>
-            </header>
+            <div class="header-right">
+                <nav>
+                    <a class="mon-espaced"href="..\index.html">Se déconnecter</a>
+                    <a class="mon-espace" href="admin_espace.html">Mon espace</a>
+                </nav>
+            </div>
+
         </header>
         <nav align="center">
             <a href="admin_off.html">Vos Annonces</a>
