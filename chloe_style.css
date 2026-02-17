@@ -1,3 +1,5 @@
+/* Partie asmin_espace*/
+
 .body {
     font-family: 'Century Gothic';
 }
@@ -76,6 +78,39 @@ nav {
     color: black;
 }
 
+/*partie listes*/
+
+.liste {
+    align-items: center;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.bloc-liste {
+    gap: 20px;
+    margin-top: 20px;
+    margin-left: 20px;
+    background-color: white;
+    border-radius: 20px;
+    width: 25%;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
+    font-family: Century Gothic;
+}
+
+.bloc-liste img {
+    width: 350px;
+    height: 200px;
+    margin: 10px;
+}
+
+.bloc-liste p {
+    margin-left: 20px;
+    font-size: 15px;
+    padding: 18px;
+}
+
 /*Responsive*/
 @media (max-width: 768px){
     .nav {
@@ -93,6 +128,30 @@ nav {
 
     .ligne{
         display: block;
+        justify-content: center;
     }
 
+    .liste{
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* centre les blocs horizontalement */
+        gap: 20px;
+    }
+
+    .bloc-liste {
+        justify-content: center;
+        gap: 20px;
+        background-color: white;
+        border-radius: 20px;
+        width: 85%;
+        box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
+        font-family: Century Gothic;
+    }
+
+    .bloc-liste img {
+        width: 85%;
+        height: auto;
+        display: block;
+        margin: 20px auto; /* centre l'image */
+    }
 }
