@@ -1,8 +1,10 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="..\style.css">
+        <link rel="stylesheet" href="../ambre_style.css">
+
         <title>Accueil Pilote</title>
     </head>
     <body>
@@ -22,7 +24,7 @@
             <div class="header-right">
                 <nav>
                     <a class="mon-espaced"href="..\index.html">Se déconnecter</a>
-                    <a class="mon-espace" href="admin_espace.html">Mon espace</a>
+                    <a class="mon-espace" href="pilot_espace.html">Mon espace</a>
                 </nav>
             </div>
 
@@ -30,11 +32,16 @@
 
         <h1>Bonjour ! Que voulez vous consulter ?</h1>
 
-            <a href="pilot_offres.html">Vos offres</a>
-            <h4>Consultez vos offres et apportez des modifications</h4>
-
-            <a href="pilot_entreprise.html">Vos entreprises</a>
-            <h4>Consultez vos entreprises et apportez des modifications</h4>
+         <div class="container-flex">
+         <div class="card">
+            <a class="liens-accueil" href="pilot_offres.html">Vos offres</a>
+            <h2>Consulter vos offres et apporter des modifications</h2>
+        </div>
+         <div class="card">
+            <a class="liens-accueil" href="pilot_entreprise.html">Vos entreprises</a>
+            <h2>Consulter vos entreprises et apporter des modifications</h2>
+        </div>
+        </div>
     </body>
 
     <footer>
