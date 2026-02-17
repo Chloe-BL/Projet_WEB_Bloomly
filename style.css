@@ -177,4 +177,27 @@ navb {
     color: black;
     font-weight: bold;
 }
+
+.navb a {
+    display: block;
+    color: #afb779; 
+    text-decoration: none;
+    font-size: 10px;
+    font-family : Century Gothic ;
+}
+
+.reseaux img {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.logo {
+    display: block;
+    right: 20px;
+    bottom: 20px;
+    height: 30px;
+    width: 100px;
+}
+
 }

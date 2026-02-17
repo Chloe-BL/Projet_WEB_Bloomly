@@ -1,8 +1,14 @@
 /* Partie asmin_espace*/
 
 .body {
-    font-family: 'Century Gothic';
+    font-family: Century Gothic;
 }
+
+.police {
+    font-family: Century Gothic;
+    margin-left: 20px;
+}
+
 .sous-nav {
     text-align: center;
     border-top: 2px solid #afb779;
@@ -100,15 +106,28 @@ nav {
 }
 
 .bloc-liste img {
-    width: 350px;
-    height: 200px;
-    margin: 10px;
+    width: 250px;
+    height: auto;
+    margin: 40px;
 }
 
 .bloc-liste p {
     margin-left: 20px;
     font-size: 15px;
     padding: 18px;
+}
+
+.ajouter{
+    display: flex;
+    justify-content: center;
+    padding: 10px 20px;
+    background-color: #afb779;
+    border-radius: 20px;
+    text-decoration: none;
+    color: black;
+    margin-bottom: 20px;
+    width: 325px;
+    font-family: Century Gothic;
 }
 
 /*Responsive*/
