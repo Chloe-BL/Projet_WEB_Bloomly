@@ -185,6 +185,9 @@ textarea {
     font-size: 15px;
 }
 
+.italique {
+    font-style: italic;
+}
 
 @media (max-width: 768px) {
    .container-flex {
