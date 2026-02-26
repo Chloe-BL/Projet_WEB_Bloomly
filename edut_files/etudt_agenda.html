@@ -6,13 +6,14 @@
 
     <meta charset="utf-8">
     <link rel="stylesheet" href="..\style.css">
+    <link rel="stylesheet" href="..\chloe_style.css">
 
     <title>Agenda étudiant</title>
 
   </head>
 
 
-  <body>
+  <body class="back">
 
            <header class="mon-header">
 
@@ -36,23 +37,61 @@
 
         </header>
 
-         <p>Retrouvez ici l'ensemble des offres auxquelles vous avez postulé, leur descritpion, les dates de postulation, leur état d'avancement...</p>
+        <br><br>
+
+        <nav class="navbar">
+            <a href="etudt_inf.html">Mon Espace</a>
+            <a class="active">Mon Agenda</a>                
+            <a href="etudt_wishlist.html">Ma wishlist</a>
+        </nav>
+        <div class="sous-nav"></div>
+
+         <p class="police">Retrouvez ici l'ensemble des offres auxquelles vous avez postulé, leur descritpion et leurs dates de postulation.</p>
+
+         <div class="petite-liste">
+            <div class="bloc-petite-liste">
+                <p>Alternance en Cybersécurité</p>
+                <p>Date de postulation : 15/09/2024</p>
+            </div>
+
+            <div class="bloc-petite-liste">
+                <p>Stage de 6 mois en Embarqué</p>
+                <p>Date de postulation : 20/10/2024</p>
+            </div>
+
+            <div class="bloc-petite-liste">
+                <p>Stage de 3 mois en Data Science</p>
+                <p>Date de postulation : 05/11/2024</p>
+            </div>
+
+         </div>
         
   </body>
 
 
-    <footer>
-        <center>
+    <footer class="mon-footer">
             <p>© 2026 Bloomly - Tous droits réservés.</p>
-            <footer align="right">
-                <img src="" alt="Logo Bloomly">
-            </footer>
-            <nav>
-                <a href="a-propos.html">A propos de nous</a>
-                <a href="mentions-legales.html">Mentions légales</a>
-                <a href="cookies.html">Cookies</a>
+            
+            <nav class="navb">
+                <a href="..\a-propos.html">A propos de nous</a>
+                <a href="..\mentions-legales.html">Mentions légales</a>
+                <a href="..\cookies.html">Cookies</a>
             </nav>
-        </center>
+
+            <div class="right">
+                <img src="../assets/logo1.png" alt="Logo Bloomly" class="logo">
+            </div>
+
+            <div class="reseaux">
+                <a href="https://instagram.com" target="_blank">
+                    <img src="../assets/instagram.png" alt="Instagram"></a>
+
+                <a href="https://twitter.com" target="_blank">
+                    <img src="../assets/twitter.png" alt="Twitter"></a>
+
+                <a href="https://linkedin.com" target="_blank">
+                    <img src="../assets/linkedin.png" alt="LinkedIn"></a>
+            </div>
     </footer>
 
 </html>

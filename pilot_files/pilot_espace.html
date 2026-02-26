@@ -3,11 +3,12 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="..\style.css">
-        <link rel="stylesheet" href="../ambre_style.css">
+        <link rel="stylesheet" href="..\ambre_style.css">
+        <link rel="stylesheet" href="..\chloe_style.css">
         
-        <title>Accueil Administrateur</title>
+        <title>Mon Espace</title>
     </head>
-    <body>
+    <body class="back">
         <header class="mon-header">
 
             <div class="header-left">
@@ -30,50 +31,82 @@
 
         </header>
 
-        <nav align="center">
-            <strong>Mes informations</strong>
-            <a href="compteetudiant.html">Mes Etudiants</a>
-            <a href="pilot_statistiques.html">Statistiques</a>
+        <br><br>
+
+        <nav class="navbar">
+            <a class="active">Mon Espace</a>
+            <a href="compteetudiant.html">Mes Etudiants</a>       
         </nav>
-
-        <h1>Mon espace</h1>
-        <p>Retrouvez ici l'ensemble de vos informations personnelles</p>
-        <br><br>
-        <img src="" alt="Photo de profil">
-
-        <p>Civilité</p>
-        <input type ="checkbox" alt="Homme"><input type ="checkbox" alt="Femme">
-
-        <p>Nom et Prénom</p>
-        <input type = "text">
-
-        <p>Numéro de téléphone</p>
-        <input type = "text">
-
-        <p>Votre identifiant</p>
-        <p>KjiopTRA56hu</p>
-
-        <a href="..\comptes\mdp.html">Mot de passe oublié ?</a>
-
-        <br><br>
-
-        <input type="button">Modifier vos informations</button>
+        <div class="sous-nav"></div>
         
+        <div class="contour">
+            <h1>Mon espace</h1>
+            <p>Retrouvez ici l'ensemble de vos informations personnelles</p>
+
+            <div style="display:inline-block;vertical-align:top;">
+                <img src="../assets/profil.png" alt="Photo de profil" class="profil">
+            </div>
+
+            <div style="display:inline-block;"> <!-- Pour mettre les bloc à côté de l'image -->
+                <div class="ligne">
+                    <div class="bloc">
+                        <p>Civilité</p>
+                        <input type="checkbox"> Homme <br>
+                        <input type="checkbox"> Femme
+                    </div>
+
+                    <div class="bloc">
+                        <p>Nom et Prénom</p>
+                        <input type = "text">
+                    </div>
+
+                    <div class="bloc">
+                        <p class="no-wrap">Numéro de téléphone</p> 
+                        <input type = "text">
+                    </div>
+                </div>
+
+                <div class="ligne">
+                    <div class="bloc">
+                        <p class="no-wrap">Adresse mail</p> 
+                        <input type = "text">
+                    </div>
+                    <div class="bloc">
+                        <p>Votre identifiant</p>
+                        <p>KjiopTRA56hu</p>
+                    </div>
+                    <div class="bloc">
+                        <a class="no-wrap" href="..\comptes\mdp.html">Mot de passe oublié ?</a>
+                    </div>
+                </div>
+            </div>
+        </div>
 
     </body>
 
-    <footer>
-        <center>
+    <footer class="mon-footer">
             <p>© 2026 Bloomly - Tous droits réservés.</p>
-            <footer align="right">
-                <img src="" alt="Logo Bloomly">
-            </footer>
-            <nav>
+            
+            <nav class="navb">
                 <a href="..\a-propos.html">A propos de nous</a>
                 <a href="..\mentions-legales.html">Mentions légales</a>
                 <a href="..\cookies.html">Cookies</a>
             </nav>
-        </center>
+
+            <div class="right">
+                <img src="../assets/logo1.png" alt="Logo Bloomly" class="logo">
+            </div>
+
+            <div class="reseaux">
+                <a href="https://instagram.com" target="_blank">
+                    <img src="../assets/instagram.png" alt="Instagram"></a>
+
+                <a href="https://twitter.com" target="_blank">
+                    <img src="../assets/twitter.png" alt="Twitter"></a>
+
+                <a href="https://linkedin.com" target="_blank">
+                    <img src="../assets/linkedin.png" alt="LinkedIn"></a>
+            </div>
     </footer>
 
 </html>
