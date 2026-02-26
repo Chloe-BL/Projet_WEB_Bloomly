@@ -159,6 +159,33 @@ h4 {
   font-weight: bold;
 }
 
+textarea {
+    width: 80%;
+    border: 1px solid #c06c84;
+    min-height: 150px;
+    margin-bottom: 40px;
+    margin-top: 20px;
+}
+
+.CV {
+    margin-top: 20px;
+    margin-bottom: 40px;
+    font-family: Century Gothic;
+}
+
+.envoie{
+    margin-bottom: 40px;  
+    margin-left: 60px;    
+    background-color: #c06c84; 
+    color: #fff0f2; 
+    border: none;          
+    padding: 10px 35px;       
+    border-radius: 3px;      
+    font-family: Century Gothic;
+    font-size: 15px;
+}
+
+
 @media (max-width: 768px) {
    .container-flex {
         display: flex;
@@ -171,15 +198,29 @@ h4 {
     }
 
     h1{
-    font-size : 24px;
+    font-size : 20px;
     }
 
     h2{
-        font-size : 20px;
+        font-size : 17px;
     }
 
     .liens-accueil {
         font-size: 22px;
     }
 
+    .haut-offre {
+    flex-direction: column;
+    text-align: center;  
+    }
+ 
+   .actions {
+    flex-direction: column; 
+    width: 100%;   
+    text-align: center;      
+   }
+
+   .bouton {
+    text-align: center;
+   }
 }
