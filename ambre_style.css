@@ -115,6 +115,7 @@ nav {
 .sous-titre {
   text-decoration: underline;
   font-weight: 500;
+  margin-left: 40px;
 }
 
 .titre {
