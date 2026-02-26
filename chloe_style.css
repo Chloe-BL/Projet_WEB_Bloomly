@@ -4,6 +4,10 @@
     font-family: Century Gothic;
 }
 
+.back {
+    background-color: #fff0f2;
+}
+
 .police {
     font-family: Century Gothic;
     margin-left: 20px;
@@ -129,6 +133,31 @@ nav {
     width: 325px;
     font-family: Century Gothic;
 }
+
+.petite-liste {
+    align-items: center;
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.bloc-petite-liste {
+    gap: 20px;
+    margin-top: 20px;
+    margin-left: 20px;
+    background-color: white;
+    border-radius: 20px;
+    width: 80%;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
+    font-family: Century Gothic;
+}
+
+.bloc-petite-liste p {
+    margin-left: 20px;
+    font-size: 15px;
+    padding: 18px;
+}
+
 
 /*Responsive*/
 @media (max-width: 768px){
