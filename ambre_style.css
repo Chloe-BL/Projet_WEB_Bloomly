@@ -103,6 +103,37 @@ nav {
 }
 
 
+.cadre {       
+  background-color: #e9e0e1;   
+  border-radius: 10px;  
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left:30px;
+  padding-right: 30px;
+}
+
+.sous-titre {
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+.titre {
+    text-align: left;
+    margin-left: 50px;
+}
+
+.categ {
+    background-color: #fff0f2; 
+    padding-left: 60px;
+    padding-right: 60px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+h4 {
+    color: #c06c84;
+}
+
 @media (max-width: 768px) {
    .container-flex {
         display: flex;
