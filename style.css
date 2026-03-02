@@ -162,26 +162,26 @@ navb {
   .mon-espace {
     display: inline-block;
     padding: 6px 14px;
-    background-color: #afb779;
+    background-color: #e1dec4;
     border-radius: 15px;
     text-decoration: none;
-    color: black;
+    color: #07490a;
     font-weight: bold;
 }
 
 .mon-espaced {
     display: inline-block;
     padding: 6px 14px;
-    background-color: #eae3d8;
+    background-color: #f8f5e9;
     border-radius: 15px;
     text-decoration: none;
-    color: black;
+    color: #07490a;
     font-weight: bold;
 }
 
 .navb a {
     display: block;
-    color: #afb779; 
+    color: #999c80; 
     text-decoration: none;
     font-size: 10px;
     font-family : Century Gothic ;

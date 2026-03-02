@@ -15,7 +15,7 @@
 
 .sous-nav {
     text-align: center;
-    border-top: 2px solid #afb779;
+    border-top: 2px solid #999c80;
     margin-top: 5px;
     padding-top: 10px;
 }
@@ -27,7 +27,7 @@ nav {
 }
 
 .navbar a {
-    color: #afb779; 
+    color: #999c80; 
     text-decoration: none;
     font-size: 20px;
     font-family : Century Gothic ;
@@ -74,7 +74,7 @@ nav {
 
 .button {
     display: flex;
-    background-color: #afb779;
+    background-color: #999c80;
     color: black;
     border-radius: 20px;
 }
@@ -125,7 +125,7 @@ nav {
     display: flex;
     justify-content: center;
     padding: 10px 20px;
-    background-color: #afb779;
+    background-color: #999c80;
     border-radius: 20px;
     text-decoration: none;
     color: black;
@@ -168,7 +168,7 @@ nav {
     }
 
     .navbar a {
-        color: #afb779; 
+        color: #999c80; 
         text-decoration: none;
         font-size: 12px;
         font-family : Century Gothic ;
