@@ -88,44 +88,47 @@
 .mon-footer {
     font-family : Century Gothic ;
     text-align: center;
-    background-color: #eae3d8;
-    position: relative;
-    padding: 5px 2px;
+    background-color: #999c80;
+    padding: 20px 10px;
 }
 
-.right {
-    margin-left: auto;
+.mon-footer-left{
+    margin-top: 23px;
+    margin-left: 20px;
+    float:left;
+    align-items: center;
 }
 
-navb {
-    display: flex;
-    justify-content: center;
-    gap: 40px;
+.mon-footer-center{
+    display: inline-block;
+    flex-direction: column;
+    margin-bottom: 10px;
 }
 
-.navb a {
-    color: #afb779; 
+.mon-footer-center a{
+    color: #e1dec4;
     text-decoration: none;
-    font-size: 20px;
-    font-family : Century Gothic ;
 }
 
-.logo {
-    position: absolute;
-    right: 20px;
-    bottom: 20px;
-    height: 60px;
-    width: 200px;
+.mon-footer-center a:hover{
+    color: #e1dec4;
+    font-weight: bold;
 }
 
-.reseaux {
-    display: flex;
-    gap: 15px;
+.mon-footer-right{
+    margin-bottom: 20px;
+    margin-right: 20px;
+    float : right;
 }
 
-.reseaux img {
-    width: 40px;
-    height: 40px;
+.mon-footer-right img{
+    height: 100px;
+    width: 80px;
+}
+
+.mon-footer-left img {
+    width: 50px;
+    height: 50px;
     cursor: pointer;
 }
 
@@ -179,26 +182,50 @@ navb {
     font-weight: bold;
 }
 
-.navb a {
-    display: block;
-    color: #999c80; 
-    text-decoration: none;
-    font-size: 10px;
+
+/* FOOTER */
+.mon-footer {
     font-family : Century Gothic ;
+    text-align: center;
+    background-color: #999c80;
+    padding: 80px 10px;
 }
 
-.reseaux img {
-    width: 20px;
-    height: 20px;
-    cursor: pointer;
+.mon-footer-center{
+    order: 1;   
 }
 
-.logo {
-    display: block;
-    right: 20px;
-    bottom: 20px;
-    height: 30px;
-    width: 100px;
+.mon-footer-left{
+    margin-left: 133px;
+    order: 2;  
 }
+
+.mon-footer-right{
+    margin-left: 50px;
+    order: 3;   
+}
+
+.mon-footer-left,
+.mon-footer-center,
+.mon-footer-right{
+    display: flex-column;
+}
+
+.mon-footer-center nav{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.mon-footer-left img{
+    height: 40px;
+    width: 40px;
+}
+
+.mon-footer-right img{
+    height: 70px;
+    width: 50px;
+}
+
 
 }
