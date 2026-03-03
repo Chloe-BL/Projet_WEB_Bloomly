@@ -1,0 +1,184 @@
+/* ============================= */
+/*           GLOBAL              */
+/* ============================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Century Gothic, sans-serif;
+    background-color: #fff0f2; /* couleur groupe */
+    color: #000;
+    min-height: 100vh;
+}
+
+/* ============================= */
+/*            HEADER             */
+/* ============================= */
+
+header {
+    background-color: white;
+    border-bottom: 2px solid #afb779;
+    padding: 15px 40px;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Bouton recherche */
+.btn-search {
+    background-color: #e9e0e1;
+    border: 1px solid #999c80;
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-family: Century Gothic;
+    cursor: pointer;
+}
+
+.btn-search:hover {
+    background-color: #d9d9d9;
+}
+
+/* Lien Se connecter */
+.link {
+    text-decoration: none;
+    color: #e1dec4;
+    margin-right: 20px;
+    font-weight: bold;
+}
+
+.link:hover {
+    color: #07490a;
+}
+
+/* Bouton S'inscrire */
+.btn-dark {
+    background-color: #e1dec4;
+    color: black;
+    padding: 8px 18px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-family: Century Gothic;
+}
+
+.btn-dark:hover {
+    background-color: #d9d9d9;
+    font-weight: bold;
+}
+/* ============================= */
+/*        SECTION PRINCIPALE     */
+/* ============================= */
+
+main {
+    padding: 40px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ============================= */
+/*           CONTENU             */
+/* ============================= */
+
+.p-p {
+    background-color: white;
+    padding: 30px;
+    border-radius: 20px;
+    width: 70%;
+    margin: auto;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.1);
+    line-height: 1.6;
+}
+
+
+/* ============================= */
+/*            FORMULAIRE         */
+/* ============================= */
+
+.form-box {
+    justify-content: center;
+    align-items: center;
+    width: 600px;
+    background-color: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
+}
+
+label {
+    margin-top: 15px;
+    display: block;
+}
+
+input, textarea, select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #999c80;
+    border-radius: 10px;
+    font-family: Century Gothic;
+}
+
+input:focus, textarea:focus, select:focus {
+    outline: none;
+    border-color: #afb779;
+}
+
+.large {
+    margin-top: 20px;
+    background-color: #d9d9d9;
+    border: none;
+    color: black;
+    padding: 10px;
+    border-radius: 20px;
+    cursor: pointer;
+    width: 60%;
+    font-family: Century Gothic;
+}
+
+.large:hover {
+    background-color: #a6a3a3;
+    font-family: Century Gothic;
+}
+
+/* ============================= */
+/*            FOOTER             */
+/* ============================= */
+
+footer {
+    background-color: #d9d9d9;
+    padding: 20px;
+    margin-top: 50px;
+}
+
+.footer-links {
+    text-align: center;
+}
+
+.footer-links p {
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.footer-links a {
+    text-decoration: none;
+    color: #999c80;
+    margin: 0 15px;
+}
+
+.footer-links a:hover {
+    font-weight: bold;
+}
