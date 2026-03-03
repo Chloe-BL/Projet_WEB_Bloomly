@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Ajout Etudiant</title>
+    
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../chloe_style.css">
+</head>
+
+<body>
+<header class="mon-header">
+
+            <div class="header-left">
+                <div class="search-bar">
+                    <span class="icon">🔍</span>
+                    <input type="text" placeholder="Rechercher ">
+                </div>
+            </div>
+
+            <div class="header-center">
+                <img src="../assets/logo_bloomly.png" alt="Logo Bloomly" >
+            </div>
+            
+            <div class="header-right">
+                <nav>
+                    <a class="mon-espaced"href="index.html">Se déconnecter</a>
+                    <a class="mon-espace" href="admin_espace.html">Mon espace</a>
+                </nav>
+            </div>
+
+        </header>
+
+        <body>
+            <div class="contour">
+            <h1>Ajouter un nouveau compte étudiant !</h1>
+            <p>Merci de compléter l'ensemble de ces informations.</p>
+
+            <div style="display:inline-block;"> <!-- Pour mettre les bloc à côté de l'image -->
+                <div class="ligne">
+                    <div class="bloc">
+                        <p>Nom</p>
+                        <input type = "text">
+                    </div>
+
+                    <div class="bloc">
+                        <p>Nom</p>
+                        <input type = "text">
+                    </div>
+
+                    <div class="bloc">
+                        <p class="no-wrap">Numéro de téléphone</p> 
+                        <input type = "text">
+                    </div>
+                </div>
+
+                <div class="ligne">
+                    <div class="bloc">
+                        <p>Adresse mail</p> 
+                        <input type = "text">
+                    </div>
+                    <div class="bloc">
+                        <p class="decaler">Civilité</p>
+                        <input type="checkbox"> Stage <br>
+                        <input type="checkbox"> Alternance
+                    </div>
+                    <div class="bloc">
+                        <div class="decaler"></div>
+                            <label for="age">Âge</label>
+                            <input id="age" name="age" type="number" min="0" max="120" step="1" />
+                        </div>
+                    </div>
+                    <div class="ligne">
+                        <div class="bloc">
+                            <div class="left"></div>
+                                <a class="modifier" href="compteetudiant.html">Créer le compte</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </body>
+
+<footer class="mon-footer">
+
+            <div class="mon-footer-left">
+                <a href="https://instagram.com" target="_blank">
+                    <img src="assets/instagram.png" alt="Instagram"></a>
+
+                <a href="https://twitter.com" target="_blank">
+                    <img src="assets/twitter.png" alt="Twitter"></a>
+
+                <a href="https://linkedin.com" target="_blank">
+                    <img src="assets/linkedin.png" alt="LinkedIn"></a>
+            </div>
+            
+            <div class="mon-footer-center">
+                <p>© 2026 Bloomly - Tous droits réservés.</p>
+                <nav>
+                    <a href="../a-propos.html">A propos de nous</a>
+                    <a href="../mentions-legales.html">Mentions légales</a>
+                    <a href="../cookies.html">Cookies</a>
+                </nav>
+            </div>
+
+            <div class="mon-footer-right">
+                    <img src="../assets/mini_logo_bloomly.png" alt="Logo Bloomly" class="logo">
+            </div>         
+
+    </footer>
+
+</body>
+</html>
