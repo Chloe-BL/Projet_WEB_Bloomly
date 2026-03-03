@@ -81,11 +81,15 @@ nav {
 
 .modifier{
     display: inline-block;
-    padding: 6px 14px;
+    padding: 6px 24px;
     background-color: #c1c2bf;
     border-radius: 15px;
     text-decoration: none;
     color: black;
+}
+
+.decaler{
+    margin-left : 20px;
 }
 
 /*partie listes*/
@@ -157,6 +161,7 @@ nav {
     font-size: 15px;
     padding: 18px;
 }
+
 
 
 /*Responsive*/
