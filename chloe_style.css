@@ -81,7 +81,7 @@ nav {
 
 .modifier{
     display: inline-block;
-    padding: 6px 24px;
+    padding: 6px 14px;
     background-color: #c1c2bf;
     border-radius: 15px;
     text-decoration: none;
@@ -166,7 +166,6 @@ nav {
     padding : 20px;
     margin-right : 180px;
 }
-
 
 /*Responsive*/
 @media (max-width: 768px){
