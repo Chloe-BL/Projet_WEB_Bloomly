@@ -167,6 +167,11 @@ nav {
     margin-right : 180px;
 }
 
+.left {
+    margin-left : 880px;
+    margin-bottom: 20px;
+}
+
 /*Responsive*/
 @media (max-width: 768px){
     .nav {
@@ -209,5 +214,10 @@ nav {
         height: auto;
         display: block;
         margin: 20px auto; /* centre l'image */
+    }
+
+    .left {
+        margin-left: 80px;
+        margin-bottom: 20px;
     }
 }
