@@ -158,6 +158,10 @@ nav {
     padding: 18px;
 }
 
+.num {
+    padding : 20px;
+    margin-right : 180px;
+}
 
 /*Responsive*/
 @media (max-width: 768px){

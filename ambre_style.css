@@ -189,6 +189,15 @@ textarea {
     font-style: italic;
 }
 
+.num {
+    padding : 20px;
+    margin-right : 180px;
+}
+
+.creer {
+    margin-left: 20px;
+}
+
 @media (max-width: 768px) {
    .container-flex {
         display: flex;
