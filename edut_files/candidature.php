@@ -40,3 +40,30 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['cv'])) {
 
 bonjour
 ?>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Candidature envoyée</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<h1>Candidature envoyée avec succès</h1>
+
+<p>Merci pour votre candidature. Votre CV a bien été transmis.</p>
+
+<p><a href="index.html">Retour à l'accueil</a></p>
+
+</body>
+</html>
+
+<?php
+
+    } else {
+        die("Échec du déplacement du fichier");
+    }
+
+}
+?>
