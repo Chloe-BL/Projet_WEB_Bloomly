@@ -37,4 +37,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['cv'])) {
         die("Échec du déplacement du fichier");
     }
 }
+
+bonjour
 ?>
