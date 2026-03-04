@@ -44,12 +44,14 @@
     <br>
     <textarea id="Lettre" name="Lettre" placeholder="Pourquoi vous ? Décrivez vous..." required> </textarea>
     <br>
-    <label for="cv"> Insérer votre CV </label>
+    <form action="candidature.php" method="POST" enctype="multipart/form-data">
+    <label for="cv"> Insérer votre CV (2Mo max) </label>
     <br>
-    <input type="file" id="cv" class="CV" name="cv" accept=".jpg,.jpeg,.png" required />
+    <input type="file" id="cv" class="CV" name="cv" accept=".pdf" required />
     </div>
 
     <input type="submit" class="envoie" value="Je valide ma candidature">
+    </form>
 
   </body>
 
