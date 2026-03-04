@@ -7,13 +7,13 @@ $format = ['pdf'];
 $uploadDir = 'upload/';
 $max_file_size = 2 * 1024 * 1024; // 2 Mo
 
-// ✅ Si on arrive ici sans formulaire (GET), on affiche juste un message
+// Si on arrive ici sans formulaire (GET), on affiche juste un message
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     echo "Ouvre la page candidature.html et envoie le formulaire (ne lance pas candidature.php directement).";
     exit;
 }
 
-// ✅ Vérifs de base pour éviter les notices/fatal
+// Vérifs de base pour éviter les notices/fatal
 if (!isset($_FILES['cv'])) {
     die("Aucun fichier reçu (name=\"cv\").");
 }
@@ -61,7 +61,7 @@ $destination = $uploadDir . $fileName;
 
 // Déplacement fichier
 if (move_uploaded_file($file['tmp_name'], $destination)) {
-    echo "<h2>Candidature envoyée ✅</h2>";
+    echo "<h2>Candidature envoyée </h2>";
     echo '<p><a href="' . htmlspecialchars($destination) . '" target="_blank">Voir le fichier</a></p>';
     echo "<p><strong>Lettre :</strong><br>" . nl2br(htmlspecialchars($lettre)) . "</p>";
 } else {
