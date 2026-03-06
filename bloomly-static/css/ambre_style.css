@@ -231,28 +231,28 @@ textarea {
         display: flex;
         flex-direction: column;
         align-items: center;
-    }
+   }
 
     .container-flex div {
         width: 85%;  
-    }
+   }
 
     h1{
     font-size : 20px;
-    }
+   }
 
     h2{
         font-size : 17px;
-    }
+   }
 
     .liens-accueil {
         font-size: 22px;
-    }
+   }
 
     .haut-offre {
     flex-direction: column;
     text-align: center;  
-    }
+   }
  
    .actions {
     flex-direction: column; 
@@ -275,7 +275,7 @@ textarea {
     margin-left: 53px;
     margin-top: 25px;
     margin-bottom: 20px;
-    }
+   }
 
     .recherche-bar-profil input{
     border: none;
@@ -283,12 +283,24 @@ textarea {
     width: 80%;
     background: white;
     justify-content: center;
-    }
+   }
 
     .loupe{
     font-size: 18px;
     opacity: 0.6;
     margin-right: 10px;
     margin-left: 10px;
-    }
+   }
+
+    .img-acc-off {
+    width: 65%;
+    margin-bottom: 30px;
+    margin-left: 65px;
+   }
+
+    .img-acc-ent {
+    width: 45%;
+    margin-bottom: 10px;
+    margin-left: 95px;
+   }
 }
