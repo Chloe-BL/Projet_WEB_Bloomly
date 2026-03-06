@@ -33,6 +33,11 @@ nav {
     font-family : Century Gothic ;
 }
 
+.cache {
+    display: flex;
+    gap: 25px;
+}
+
 .navbar a:hover {
     font-weight: bold;
 }
@@ -172,6 +177,14 @@ nav {
     margin-bottom: 20px;
 }
 
+#interrupteur {
+    display: none;
+}
+
+.burger {
+    display: none;
+}
+
 /*Responsive*/
 @media (max-width: 768px){
     .nav {
@@ -180,11 +193,44 @@ nav {
         gap: 20px;
     }
 
+    .cache{
+        display: none;
+        gap: 20px;
+        gap: 12px;
+        width: 100%;
+    }
+
+    .navbar {
+        flex-direction: column;
+        padding: 15px 20px;
+    }
+
     .navbar a {
+        display : flex;
         color: #999c80; 
         text-decoration: none;
-        font-size: 12px;
+        font-size: 20px;
         font-family : Century Gothic ;
+        padding: 6px 0;
+    }
+
+    .burger{
+        display: block;
+        font-size: 30px;
+        cursor: pointer;
+        margin-right : 90%;
+    }
+
+    .sous-nav {
+        display : none;
+    }
+
+    #interrupteur:checked + .burger + .cache {
+        display: block;
+    }
+
+    #interrupteur {
+        display: none;
     }
 
     .ligne{
