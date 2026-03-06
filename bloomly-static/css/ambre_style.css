@@ -74,7 +74,7 @@ a:hover {
 }
 
 .navbar a {
-    color: #afb779; 
+    color: #999c80; 
     text-decoration: none;
     font-size: 20px;
     font-family : Century Gothic ;
@@ -93,7 +93,7 @@ nav {
 
 .sous-nav {
     text-align: center;
-    border-top: 2px solid #afb779;
+    border-top: 2px solid #999c80;
     margin-top: 5px;
     padding-top: 10px;
 }
@@ -198,6 +198,34 @@ textarea {
     margin-left: 20px;
 }
 
+
+.recherche-bar-profil{
+    width: 300px;
+    height: 35px;
+    background: white;
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    margin-left: 560px;
+    margin-top: 25px;
+    margin-bottom: 20px;
+}
+
+.recherche-bar-profil input{
+    border: none;
+    outline: none;
+    width: 80%;
+    background: white;
+    justify-content: center;
+}
+
+.loupe{
+  font-size: 18px;
+  opacity: 0.6;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
 @media (max-width: 768px) {
    .container-flex {
         display: flex;
@@ -235,4 +263,32 @@ textarea {
    .bouton {
     text-align: center;
    }
+
+
+   .recherche-bar-profil{
+    width: 300px;
+    height: 35px;
+    background: white;
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    margin-left: 53px;
+    margin-top: 25px;
+    margin-bottom: 20px;
+    }
+
+    .recherche-bar-profil input{
+    border: none;
+    outline: none;
+    width: 80%;
+    background: white;
+    justify-content: center;
+    }
+
+    .loupe{
+    font-size: 18px;
+    opacity: 0.6;
+    margin-right: 10px;
+    margin-left: 10px;
+    }
 }
