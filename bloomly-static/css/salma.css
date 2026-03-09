@@ -153,3 +153,31 @@ input:focus, textarea:focus, select:focus {
     font-family: Century Gothic;
 }
 
+
+@media (max-width: 768px) {
+    main {
+        flex-direction: column;
+        padding: 20px;
+    }
+ 
+    .form-box, .image-box {
+        width: 100%;
+    }
+ 
+    .image-box {
+        height: 200px;
+        margin-top: 20px;
+    }
+ 
+    .mon-header, .mon-footer {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 10px;
+    }
+ 
+    .search-bar {
+        width: 100%;
+    }
+}
+
