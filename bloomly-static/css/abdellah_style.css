@@ -57,9 +57,7 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.10);
 }
 
-.pagination a:hover {
-    background-color: #e1dec4;
-}
+
 
 .pagination .active-page {
     background-color: #999c80;
