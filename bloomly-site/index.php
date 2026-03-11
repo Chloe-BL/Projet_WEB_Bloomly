@@ -19,8 +19,8 @@ elseif ($page === 'candidature') {
     $controller -> candidature();
 }
 
-elseif ($page === '/bloomly-site.local/edut_files/edut_ent') {
-    $controller -> edut_ent();
+elseif ($page === 'pilot_offres') {
+    $controller -> liste();
 }
 
 else {

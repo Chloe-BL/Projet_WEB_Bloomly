@@ -46,7 +46,7 @@ class TestController
     ]);
 }
 
-    public function edut_entr(){
+    public function liste(){
         $entreprises = ["NexoraTech",
             "SynaptIQ Solutions",
             "TechVortex",
@@ -103,8 +103,8 @@ class TestController
 
         $pagination = new Pagination($entreprises, $parPage, $page);
 
-        echo $this -> twig -> render('annonces.twig', [
-            'entreprisesPage' => $pagination -> getItemsForPage(),
+        echo $this -> twig -> render('pilot_offres.twig', [
+            'entreprisesPage' => $pagination -> getEntreprisesPage(),
             'page' => $pagination -> getPage(),
             'totalPages' => $pagination -> getTotalPages()
         ]);

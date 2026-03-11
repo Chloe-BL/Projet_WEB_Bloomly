@@ -32,15 +32,15 @@
             <span class="disabled">Précédent</span>
         {% endif %} 
 
-        {% for i in 1.. totalPages %}  {# Pour i de 1 à la fin #}
-            {% if i === page}
+        {% for i in 1..pagination.TotalPages %}  {# Pour i de 1 à la fin #}
+            {% if i === page %}
                 <span class="active-page"> {{i}}</span>
             {% else %} 
-                <a href="?page=<?= {{i}} ?>"> {{i}}</a>
+                <a href="?page={{i}}"> {{i}}</a>
             {% endif %}
         {% endfor %}
 
-        {% if page < totalPages %}
+        {% if page < pagination.TotalPages %}
             <a href="?page={{page + 1}}">Suivant</a>
         {% else %}
             <span class="disabled">Suivant</span>
