@@ -1,10 +1,83 @@
+<?php
+$entreprises = [
+    "NexoraTech",
+    "SynaptIQ Solutions",
+    "TechVortex",
+    "SecureFlow Systems",
+    "DataNova",
+    "CloudBridge",
+    "InnovaDev",
+    "CyberSphere",
+    "SoftWave",
+    "FutureLabs",
+    "AlphaCode",
+    "BlueMatrix",
+    "Quantum IT",
+    "NetFusion",
+    "DevSpark",
+    "InfoPulse",
+    "SkyWare",
+    "HexaDigital",
+    "CodeFactory",
+    "BrightSystems",
+    "NovaLink",
+    "SmartCore",
+    "ByteWorks",
+    "GreenSoft",
+    "InfraTech",
+    "OptimaWeb",
+    "DataCraft",
+    "PixelForge",
+    "Visionary Tech",
+    "Proxima Dev",
+    "Sigma Networks",
+    "AeroCode",
+    "Delta Systems",
+    "Fusion Labs",
+    "OmniTech",
+    "Prime Solutions",
+    "LogicBloom",
+    "CyberNest",
+    "CloudHive",
+    "HyperNova",
+    "IntelliSoft",
+    "NextGen Digital",
+    "Orbit Systems",
+    "SecureMind",
+    "TechRoots",
+    "VisionCode",
+    "WaveLogic",
+    "ZenIT",
+    "MetaSoft",
+    "Digital Horizon"
+];
+
+$parPage = 9;
+
+$page = isset($_GET['page']) ? (int) $_GET['page'] : 1;
+
+if ($page < 1) {
+    $page = 1;
+}
+
+$totalEntreprises = count($entreprises);
+$totalPages = (int) ceil($totalEntreprises / $parPage);
+
+if ($page > $totalPages) {
+    $page = $totalPages;
+}
+
+$debut = ($page - 1) * $parPage;
+$entreprisesPage = array_slice($entreprises, $debut, $parPage);
+?>
+
+<!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="../style.css">
-        <link rel="stylesheet" href="../ambre_style.css">
-        <link rel="stylesheet" href="../chloe_style.css">
+
+        <link rel="stylesheet" href="../abdellah_style.css">
 
         <title>Annonces d'offres</title>
     </head>
@@ -45,56 +118,36 @@
         <p class="police">Vous pouvez modifier ou supprimer vos annonces à tout moment.</p>
 
         <div class="liste">
-            <div class="bloc-liste">
-                <a href="pilot_ex_offre.html"><img src="../assets/annonce.png" alt="Image d'une annonce"></a>
-                <p>Alternance en Cybersécurité</p>
-            </div>
-
-            <div class="bloc-liste">
-                <img src="../assets/annonce.png" alt="Image d'une annonce">
-                <p>Stage de 6 mois en Embarqué</p>
-            </div>
-
-            <div class="bloc-liste">
-                <img src="../assets/annonce.png" alt="Image d'une annonce">
-                <p>Stage de 3 mois en Datascience</p>
-            </div>
+    <?php foreach ($entreprisesPage as $entreprise): ?>
+        <div class="bloc-liste">
+            <img src="../assets/annonce.png" alt="Image d'une annonce">
+            <p><?= htmlspecialchars($entreprise) ?></p>
         </div>
-            
-        <div class="liste">
-            <div class="bloc-liste">
-                <img src="../assets/annonce.png" alt="Image d'une annonce">
-                <p>Stage de 3 mois en Développement</p>
-            </div>
+    <?php endforeach; ?>
+</div>
 
-            <div class="bloc-liste">
-                <img src="../assets/annonce.png" alt="Image d'une annonce">
-                <p>Stage en Développement Full Stack</p>
-            </div>
+    <div class="pagination">
+        <?php if ($page > 1): ?>
+            <a href="?page=<?= $page - 1 ?>">Précédent</a>
+        <?php else: ?>
+            <span class="disabled">Précédent</span>
+        <?php endif; ?>
 
-            <div class="bloc-liste">
-                <img src="../assets/annonce.png" alt="Image d'une annonce">
-                <p>Alternance en Systèmes et Réseaux</p>
-            </div>
-        </div>
+        <?php for ($i = 1; $i <= $totalPages; $i++): ?>
+            <?php if ($i === $page): ?>
+                <span class="active-page"><?= $i ?></span>
+            <?php else: ?>
+                <a href="?page=<?= $i ?>"><?= $i ?></a>
+            <?php endif; ?>
+        <?php endfor; ?>
 
-        <div class="liste">
-            <div class="bloc-liste">
-                <img src="../assets/annonce.png" alt="Image d'une annonce">
-                <p>Stage en tests intrusion</p>
-            </div>
+        <?php if ($page < $totalPages): ?>
+            <a href="?page=<?= $page + 1 ?>">Suivant</a>
+        <?php else: ?>
+            <span class="disabled">Suivant</span>
+        <?php endif; ?>
+    </div>
 
-            <div class="bloc-liste">
-                <img src="../assets/annonce.png" alt="Image d'une annonce">
-                <p>Stage en Virtualisation</p>
-            </div>
-
-            <div class="bloc-liste">
-                <img src="../assets/annonce.png" alt="Image d'une annonce">
-                <p>Alternance en Infrastructure IT</p>
-            </div>
-        </div>
-    </body>
 
     <footer class="mon-footer">
 
@@ -121,6 +174,6 @@
             <div class="mon-footer-right">
                     <img src="../assets/mini_logo_bloomly.png" alt="Logo Bloomly" class="logo">
             </div>         
-
-    </footer>
+        </footer>
+</body>
 </html>
