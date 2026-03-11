@@ -11,9 +11,13 @@ $page = $_GET['page'] ?? '/bloomly-site.local/index';
 
 $controller = new TestController();
 
-if ($page === '/bloomly-site.local/index') {
-    $controller->index();
+if ($page === 'accueil_user') {
+    $controller->accueil_user();
 } 
+
+elseif ($page === 'choix_section') {
+    $controller -> choix_section();
+}
 
 elseif ($page === 'candidature') {
     $controller -> candidature();

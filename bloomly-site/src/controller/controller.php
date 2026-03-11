@@ -46,76 +46,91 @@ class TestController
     ]);
 }
 
-    public function liste(){
+    public function liste( array $items, $section){
 
-        $type = $_GET['page'] ?? 'offres'; 
-
-        $entreprises = ["NexoraTech",
-            "SynaptIQ Solutions",
-            "TechVortex",
-            "SecureFlow Systems",
-            "DataNova",
-            "CloudBridge",
-            "InnovaDev",
-            "OmniTech",
-            "Prime Solutions",
-            "LogicBloom",
-            "CyberNest",
-            "CloudHive",
-            "HyperNova",
-            "IntelliSoft",
-            "NextGen Digital",
-            "Orbit Systems",
-            "SecureMind",
-            "TechRoots",
-            "VisionCode",
-            "WaveLogic",
-            "ZenIT",
-            "MetaSoft",
-            "Digital Horizon"];
-
-        $offres = [
-            "Stage Développeur Web - NexoraTech",
-            "Stage Data Analyst - SynaptIQ Solutions",
-            "Stage Développeur Backend - TechVortex",
-            "Stage Cybersécurité - SecureFlow Systems",
-            "Stage Data Science - DataNova",
-            "Stage Cloud Computing - CloudBridge",
-            "Stage Développeur Full Stack - InnovaDev",
-            "Stage DevOps - OmniTech",
-            "Stage Développeur Java - Prime Solutions",
-            "Stage Développeur Frontend - LogicBloom",
-            "Stage Sécurité Informatique - CyberNest",
-            "Stage Architecte Cloud - CloudHive",
-            "Stage Intelligence Artificielle - HyperNova",
-            "Stage Développeur Python - IntelliSoft",
-            "Stage Développeur Mobile - NextGen Digital",
-            "Stage Infrastructure IT - Orbit Systems",
-            "Stage Analyste Sécurité - SecureMind",
-            "Stage Développeur PHP - TechRoots",
-            "Stage Développeur Logiciel - VisionCode",
-            "Stage Data Engineer - WaveLogic",
-            "Stage Support IT - ZenIT",
-            "Stage Développeur Node.js - MetaSoft",
-            "Stage Développeur React - Digital Horizon"
-        ];
-
-        if ($type === 'offres') {
-            $items = $offres;
-        } else {
-            $items = $entreprises;
-        }
-            
         $parPage = 9;
         $page = isset($_GET['p']) ? (int) $_GET['p'] : 1;
 
         $pagination = new Pagination($items, $parPage, $page);
 
-        echo $this -> twig -> render('pilot_offres.twig', [
+        echo $this -> twig -> render('listes.twig', [
             'itemsPage' => $pagination -> getItemsPage(),
             'page' => $pagination -> getPage(),
             'totalPages' => $pagination -> getTotalPages(),
-            'type' => $type
+            'section' => $section
         ]);
     }
+
+    public function accueil_user(){
+        echo $this -> twig -> render('accueil_user.twig');
+    }
+
+    public function choix_section(){
+        $section = $_GET['section'] ?? '';
+
+        $entreprises = [
+        "NexoraTech",
+        "SynaptIQ Solutions",
+        "TechVortex",
+        "SecureFlow Systems",
+        "DataNova",
+        "CloudBridge",
+        "InnovaDev",
+        "OmniTech",
+        "Prime Solutions",
+        "LogicBloom",
+        "CyberNest",
+        "CloudHive",
+        "HyperNova",
+        "IntelliSoft",
+        "NextGen Digital",
+        "Orbit Systems",
+        "SecureMind",
+        "TechRoots",
+        "VisionCode",
+        "WaveLogic",
+        "ZenIT",
+        "MetaSoft",
+        "Digital Horizon"
+    ];
+
+    $offres = [
+        "Stage Développeur Web - NexoraTech",
+        "Stage Data Analyst - SynaptIQ Solutions",
+        "Stage Développeur Backend - TechVortex",
+        "Stage Cybersécurité - SecureFlow Systems",
+        "Stage Data Science - DataNova",
+        "Stage Cloud Computing - CloudBridge",
+        "Stage Développeur Full Stack - InnovaDev",
+        "Stage DevOps - OmniTech",
+        "Stage Développeur Java - Prime Solutions",
+        "Stage Développeur Frontend - LogicBloom",
+        "Stage Sécurité Informatique - CyberNest",
+        "Stage Architecte Cloud - CloudHive",
+        "Stage Intelligence Artificielle - HyperNova",
+        "Stage Développeur Python - IntelliSoft",
+        "Stage Développeur Mobile - NextGen Digital",
+        "Stage Infrastructure IT - Orbit Systems",
+        "Stage Analyste Sécurité - SecureMind",
+        "Stage Développeur PHP - TechRoots",
+        "Stage Développeur Logiciel - VisionCode",
+        "Stage Data Engineer - WaveLogic",
+        "Stage Support IT - ZenIT",
+        "Stage Développeur Node.js - MetaSoft",
+        "Stage Développeur React - Digital Horizon"
+    ];
+
+        if ($section === 'offres') {
+            $this -> liste($offres, $section);
+            return;
+        }
+        elseif ($section === 'entreprises') {
+            $this -> liste($entreprises, $section);
+            return;
+        }
+        else {
+            echo "Erreur";
+        }
+    }
+
 }
