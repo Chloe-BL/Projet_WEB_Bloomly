@@ -42,15 +42,71 @@ class TestController
     echo $this -> twig -> render('candidature.twig', // render sert à afficher le template Twig
     // C'est un tableau associatif qui permet de passer des variables au template Twig
     [ 
-        'title' => 'Candidature à une offre', // On utilisera : {{ title }}
         'message' => $message // On utilisera : {{ message }}
     ]);
 }
 
     public function edut_entr(){
-        echo $this -> twig-> render('liste_ent.twig', 
-        [
-            'title' => 'Liste des entreprises'
+        $entreprises = ["NexoraTech",
+            "SynaptIQ Solutions",
+            "TechVortex",
+            "SecureFlow Systems",
+            "DataNova",
+            "CloudBridge",
+            "InnovaDev",
+            "CyberSphere",
+            "SoftWave",
+            "FutureLabs",
+            "AlphaCode",
+            "BlueMatrix",
+            "Quantum IT",
+            "NetFusion",
+            "DevSpark",
+            "InfoPulse",
+            "SkyWare",
+            "HexaDigital",
+            "CodeFactory",
+            "BrightSystems",
+            "NovaLink",
+            "SmartCore",
+            "ByteWorks",
+            "GreenSoft",
+            "InfraTech",
+            "OptimaWeb",
+            "DataCraft",
+            "PixelForge",
+            "Visionary Tech",
+            "Proxima Dev",
+            "Sigma Networks",
+            "AeroCode",
+            "Delta Systems",
+            "Fusion Labs",
+            "OmniTech",
+            "Prime Solutions",
+            "LogicBloom",
+            "CyberNest",
+            "CloudHive",
+            "HyperNova",
+            "IntelliSoft",
+            "NextGen Digital",
+            "Orbit Systems",
+            "SecureMind",
+            "TechRoots",
+            "VisionCode",
+            "WaveLogic",
+            "ZenIT",
+            "MetaSoft",
+            "Digital Horizon"];
+
+        $parPage = 9;
+        $page = isset($_GET['page']) ? (int) $_GET['page'] : 1;
+
+        $pagination = new Pagination($entreprises, $parPage, $page);
+
+        echo $this -> twig -> render('annonces.twig', [
+            'entreprisesPage' => $pagination -> getItemsForPage(),
+            'page' => $pagination -> getPage(),
+            'totalPages' => $pagination -> getTotalPages()
         ]);
     }
 }

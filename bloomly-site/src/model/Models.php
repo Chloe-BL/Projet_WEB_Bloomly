@@ -47,5 +47,39 @@ class Upload
 
 class Pagination 
 {
+    private array $entreprise;
+    private int $parPage;
+    private int $page;
 
+    public function __construct(array $entreprise, int $parPage, int $page){
+        $this -> entreprise = $entreprise;
+        $this -> parPage = $parPage;
+        if ($page < 1) {  // Pour ne pas avoir de page négative ou nule
+            $page = 1;
+        }
+        $this -> page = $page;
+    }
+
+    public function getTotalEntreprise(){
+        return count($this->entreprise);
+    }
+
+    public function getTotalPages(){
+        return ceil($this -> getTotalEntreprise() / $this -> parPage);
+    }
+
+    public function getPage(){
+        if ($this -> page > $this -> getTotalPages()) { // Pour ne pas avoir une page supérieure
+            $this -> page = $this -> getTotalPages();
+        }
+        return $this -> page;
+    }
+
+    public function getDebut(){
+        return ($this -> getPage() - 1) * $this -> parPage;
+    }
+
+    public function getEntreprisesPage(){
+        return array_slice($this -> entreprise, $this -> getDebut(), $this -> parPage);
+    }
 }
