@@ -77,7 +77,9 @@ $entreprisesPage = array_slice($entreprises, $debut, $parPage);
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <link rel="stylesheet" href="../abdellah_style.css">
+        <link rel="stylesheet" href="http://bloomly-static.local/css/style.css">
+        <link rel="stylesheet" href="http://bloomly-static.local/css/chloe_style.css">
+        <link rel="stylesheet" href="http://bloomly-static.local/css/abdellah_style.css">
 
         <title>Annonces d'offres</title>
     </head>
