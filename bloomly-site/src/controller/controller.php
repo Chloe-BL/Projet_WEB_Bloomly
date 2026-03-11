@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ . '/../model/Upload.php'; //Charge la classe Upload (gestion de l'enregistrement de fichiers)
+require_once __DIR__ . '/../model/Models.php'; //Charge la classe Upload (gestion de l'enregistrement de fichiers)
 
 use Twig\Loader\FilesystemLoader; //Charge le loader de Twig
 use Twig\Environment; //Charge l'environnement de Twig
