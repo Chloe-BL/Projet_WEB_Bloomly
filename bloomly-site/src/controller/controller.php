@@ -48,7 +48,7 @@ class TestController
 
     public function liste(){
 
-        $type = $_GET['type'] ?? 'offres'; 
+        $type = $_GET['page'] ?? 'offres'; 
 
         $entreprises = ["NexoraTech",
             "SynaptIQ Solutions",

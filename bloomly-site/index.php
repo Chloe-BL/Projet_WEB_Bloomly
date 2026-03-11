@@ -19,7 +19,7 @@ elseif ($page === 'candidature') {
     $controller -> candidature();
 }
 
-elseif ($page === 'pilot_entreprise') {
+elseif ($page === 'pilot_accueil') {
     $controller -> liste();
 }
 
