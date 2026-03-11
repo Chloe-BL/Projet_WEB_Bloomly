@@ -15,14 +15,13 @@
         <p class="police">Vous pouvez modifier ou supprimer vos annonces à tout moment.</p>
 
         <div class="liste">
-    {% for entreprise in entreprisesPage %}
-        <div class="bloc-liste">
+    {% if items == offres}
+    {% for items in itemsPage %}
+    <div class="bloc-liste">
             <img src="../assets/annonce.png" alt="Image d'une annonce">
-            <p>{{entreprise}} </p>
+            <p>{{offres}} </p>
         </div>
-    {% endfor %}
-</div>
-
+    {% endfor %} 
     <div class="pagination">
         {% if page > 1 %}
             <a href="index.php?page=pilot_offres&p={{ page - 1 }}">Précédent</a>
@@ -47,7 +46,41 @@
         {% else %}
             <span class="disabled">Suivant</span>
         {% endif %}
+    </div>  
+    {% else %}
+    {% for items in itemsPage %}
+        <div class="bloc-liste">
+            <img src="../assets/annonce.png" alt="Image d'une annonce">
+            <p>{{entreprise}} </p>
+        </div>
+    {% endfor %}
+    <div class="pagination">
+        {% if page > 1 %}
+            <a href="index.php?page=pilot_entreprise&p={{ page - 1 }}">Précédent</a>
+            {#<a href="index.php?page={{page - 1}}">Précédent</a>#}
+        {% else %} 
+            <span class="disabled">Précédent</span>
+        {% endif %} 
+
+
+       {% for i in 1..totalPages %}  {# Pour i de 1 à la fin #}
+            {% if i == page %}
+                <span class="active-page"> {{i}}</span>
+            {% else %} 
+                <a href="index.php?page=pilot_entreprise&p={{ i }}"> {{ i }} </a>
+                {#<a href="index.php?page={{i}}"> {{i}}</a>#}
+            {% endif %}
+        {% endfor %}
+
+        {% if page < totalPages %}
+            <a href="index.php?page=pilot_entreprise&p={{ page + 1 }}">Suivant</a>
+            {#<a href="index.php?page={{page + 1}}">Suivant</a>#}
+        {% else %}
+            <span class="disabled">Suivant</span>
+        {% endif %}
+    {% endif %}
     </div>
+</div>
 
 {% endblock %}
    
