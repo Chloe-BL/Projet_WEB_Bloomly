@@ -1,0 +1,36 @@
+{% extends 'layout.twig'}
+
+<!doctype html>
+
+<html lang="fr">
+
+  <head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="http://bloomly-static.local/css/style.css">
+    <link rel="stylesheet" href="http://bloomly-static.local/css/ambre_style.css">
+
+    <title>{% blocktitle %}Candidature à une offre{% endblock %}</title>
+  </head>
+
+  
+{% block body %}
+        <h1 class="titre">Alternance en cybersécurité - Septembre 2026 </h1>
+        <h2 class="sous-titre">Entreprise : SecureFlow Systems</h2>
+
+      <div class="categ">
+    <label for="Lettre">Lettre de motivation: </label>
+    <br>
+    <form method="POST" enctype="multipart/form-data">
+    <textarea id="Lettre" name="Lettre" placeholder="Pourquoi vous ? Décrivez vous...." required> </textarea>
+    <br>
+    <label for="cv"> Insérer votre CV (2Mo max) </label>
+    <br>
+    <input type="file" id="cv" class="CV" name="cv" accept=".pdf" required />
+    </div>
+
+    <input type="submit" class="envoie" value="Je valide ma candidature">
+    </form>
+{% endblock %}
+ 

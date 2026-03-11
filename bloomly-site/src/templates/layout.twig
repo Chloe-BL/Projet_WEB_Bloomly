@@ -11,7 +11,7 @@
 
 
        
-        <title>Accueil</title>
+        {% blocktitle %}{{ title }}{% endblock %}
     </head>
     <body>
        <header class="mon-header">
@@ -37,7 +37,7 @@
         </header>
 
         {% block body %} {% endblock %}
-
+        </body>
 
     <footer class="mon-footer">
 
