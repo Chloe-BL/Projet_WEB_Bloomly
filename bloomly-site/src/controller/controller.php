@@ -99,7 +99,7 @@ class TestController
             "Digital Horizon"];
 
         $parPage = 9;
-        $page = isset($_GET['page']) ? (int) $_GET['page'] : 1;
+        $page = isset($_GET['p']) ? (int) $_GET['p'] : 1;
 
         $pagination = new Pagination($entreprises, $parPage, $page);
 
