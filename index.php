@@ -9,11 +9,11 @@ $twig = new \Twig\Environment($loader, [
     'debug' => true
 ]);
 
-$page = $_GET['page'] ?? 'index.html';
+$page = $_GET['page'] ?? 'index';
 
 $controller = new TaskController($twig);
 
-if ($page === 'index.html') {
+if ($page === 'index') {
     $controller->index();
 } 
 
