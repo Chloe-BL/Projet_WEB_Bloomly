@@ -1,13 +1,11 @@
 <?php
 
-require "vendor/autoload.php";
+// Ces lignes permettent de détecter d'afficher les possibles erreurs lors du développement
+error_reporting(E_ALL); 
+ini_set('display_errors', 1);
 
-use App\Controllers\TaskController;
-
-$loader = new \Twig\Loader\FilesystemLoader('templates');
-$twig = new \Twig\Environment($loader, [
-    'debug' => true
-]);
+require_once __DIR__ . '/vendor/autoload.php'; // Chargement de l'autoload de Composer pour Twig et autres dépendances
+require_once __DIR__ . '/src/controller/TestController.php'; // Chargement du contrôleur
 
 $page = $_GET['page'] ?? 'index';
 
