@@ -40,7 +40,7 @@
             {% endif %}
         {% endfor %}
 
-        {% if page < $totalPages %}
+        {% if page < totalPages %}
             <a href="?page={{page + 1}}">Suivant</a>
         {% else %}
             <span class="disabled">Suivant</span>
