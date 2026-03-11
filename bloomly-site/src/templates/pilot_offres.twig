@@ -1,0 +1,51 @@
+ {% extends 'layout.twig' %}
+
+{% block title %}Offres du pilote{% endblock %}
+
+
+{% block body %}
+
+        <nav class="navbar">
+            <a class="active">Vos annonces</a>
+            <a href="pilot_brouillons_off.html">Vos brouillons</a>
+            <a href="pilot_archives_off.html">Vos archives</a>
+        </nav>
+         <div class="sous-nav"></div>
+
+        <h1 class="police">Consulter vos annonces</h1>
+        <p class="police">Retrouvez ici l'ensemble des offres de stage que vous avez publiées.</p>
+        <p class="police">Vous pouvez modifier ou supprimer vos annonces à tout moment.</p>
+
+        <div class="liste">
+    {% for entreprise in entreprisesPage %}
+        <div class="bloc-liste">
+            <img src="../assets/annonce.png" alt="Image d'une annonce">
+            <p>{{entreprise}} </p>
+        </div>
+    {% endfor %}
+</div>
+
+    <div class="pagination">
+        {% if page > 1 %}
+            <a href="?page={{page - 1}}">Précédent</a>
+        {% else %} 
+            <span class="disabled">Précédent</span>
+        {% endif %} 
+
+        {% for i in 1.. totalPages %}  {# Pour i de 1 à la fin #}
+            {% if i === page}
+                <span class="active-page"> {{i}}</span>
+            {% else %} 
+                <a href="?page=<?= {{i}} ?>"> {{i}}</a>
+            {% endif %}
+        {% endfor %}
+
+        {% if page < $totalPages %}
+            <a href="?page={{page + 1}}">Suivant</a>
+        {% else %}
+            <span class="disabled">Suivant</span>
+        {% endif %}
+    </div>
+
+{% endblock %}
+   
