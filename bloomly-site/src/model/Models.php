@@ -45,3 +45,7 @@ class Upload
     }
 }
 
+class Pagination 
+{
+
+}
