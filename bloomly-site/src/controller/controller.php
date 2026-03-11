@@ -47,6 +47,9 @@ class TestController
 }
 
     public function liste(){
+
+        $type = $_GET['type'] ?? 'offres'; 
+
         $entreprises = ["NexoraTech",
             "SynaptIQ Solutions",
             "TechVortex",
@@ -54,33 +57,6 @@ class TestController
             "DataNova",
             "CloudBridge",
             "InnovaDev",
-            "CyberSphere",
-            "SoftWave",
-            "FutureLabs",
-            "AlphaCode",
-            "BlueMatrix",
-            "Quantum IT",
-            "NetFusion",
-            "DevSpark",
-            "InfoPulse",
-            "SkyWare",
-            "HexaDigital",
-            "CodeFactory",
-            "BrightSystems",
-            "NovaLink",
-            "SmartCore",
-            "ByteWorks",
-            "GreenSoft",
-            "InfraTech",
-            "OptimaWeb",
-            "DataCraft",
-            "PixelForge",
-            "Visionary Tech",
-            "Proxima Dev",
-            "Sigma Networks",
-            "AeroCode",
-            "Delta Systems",
-            "Fusion Labs",
             "OmniTech",
             "Prime Solutions",
             "LogicBloom",
@@ -98,15 +74,48 @@ class TestController
             "MetaSoft",
             "Digital Horizon"];
 
+        $offres = [
+            "Stage Développeur Web - NexoraTech",
+            "Stage Data Analyst - SynaptIQ Solutions",
+            "Stage Développeur Backend - TechVortex",
+            "Stage Cybersécurité - SecureFlow Systems",
+            "Stage Data Science - DataNova",
+            "Stage Cloud Computing - CloudBridge",
+            "Stage Développeur Full Stack - InnovaDev",
+            "Stage DevOps - OmniTech",
+            "Stage Développeur Java - Prime Solutions",
+            "Stage Développeur Frontend - LogicBloom",
+            "Stage Sécurité Informatique - CyberNest",
+            "Stage Architecte Cloud - CloudHive",
+            "Stage Intelligence Artificielle - HyperNova",
+            "Stage Développeur Python - IntelliSoft",
+            "Stage Développeur Mobile - NextGen Digital",
+            "Stage Infrastructure IT - Orbit Systems",
+            "Stage Analyste Sécurité - SecureMind",
+            "Stage Développeur PHP - TechRoots",
+            "Stage Développeur Logiciel - VisionCode",
+            "Stage Data Engineer - WaveLogic",
+            "Stage Support IT - ZenIT",
+            "Stage Développeur Node.js - MetaSoft",
+            "Stage Développeur React - Digital Horizon"
+        ];
+
+        if ($type === 'offres') {
+            $items = $offres;
+        } else {
+            $items = $entreprises;
+        }
+            
         $parPage = 9;
         $page = isset($_GET['p']) ? (int) $_GET['p'] : 1;
 
-        $pagination = new Pagination($entreprises, $parPage, $page);
+        $pagination = new Pagination($items, $parPage, $page);
 
         echo $this -> twig -> render('pilot_offres.twig', [
-            'entreprisesPage' => $pagination -> getEntreprisesPage(),
+            'itemsPage' => $pagination -> getItemsPage(),
             'page' => $pagination -> getPage(),
-            'totalPages' => $pagination -> getTotalPages()
+            'totalPages' => $pagination -> getTotalPages(),
+            'type' => $type
         ]);
     }
 }

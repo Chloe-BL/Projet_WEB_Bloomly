@@ -47,12 +47,12 @@ class Upload
 
 class Pagination 
 {
-    private array $entreprise;
+    private array $items;
     private int $parPage;
     private int $page;
 
-    public function __construct(array $entreprise, int $parPage, int $page){
-        $this -> entreprise = $entreprise;
+    public function __construct(array $items, int $parPage, int $page){
+        $this -> items = $items;
         $this -> parPage = $parPage;
         if ($page < 1) {  // Pour ne pas avoir de page négative ou nule
             $page = 1;
@@ -60,12 +60,12 @@ class Pagination
         $this -> page = $page;
     }
 
-    public function getTotalEntreprise(){
-        return count($this->entreprise);
+    public function getTotalItems(){
+        return count($this->items);
     }
 
     public function getTotalPages(){
-        return ceil($this -> getTotalEntreprise() / $this -> parPage);
+        return ceil($this -> getTotalItems() / $this -> parPage);
     }
 
     public function getPage(){
@@ -79,7 +79,7 @@ class Pagination
         return ($this -> getPage() - 1) * $this -> parPage;
     }
 
-    public function getEntreprisesPage(){
-        return array_slice($this -> entreprise, $this -> getDebut(), $this -> parPage);
+    public function getItemsPage(){
+        return array_slice($this -> items, $this -> getDebut(), $this -> parPage);
     }
 }

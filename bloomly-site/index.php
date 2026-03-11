@@ -19,6 +19,10 @@ elseif ($page === 'candidature') {
     $controller -> candidature();
 }
 
+elseif ($page === 'pilot_entreprise') {
+    $controller -> liste();
+}
+
 elseif ($page === 'pilot_offres') {
     $controller -> liste();
 }
