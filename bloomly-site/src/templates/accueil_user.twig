@@ -4,7 +4,7 @@
 
 
 {% block body %}
-{% if user == 'pilot'|| 'admin' %}
+{% if user == 'pilot' or user == 'admin' %}
 <h1>Bonjour ! Que voulez vous consulter ?</h1>
 
          <div class="container-flex">
@@ -19,7 +19,7 @@
             <h2>Consulter vos entreprises et apporter des modifications</h2>
         </div>
         </div>
-{% else %}
+{% elseif user == 'etudiant' %}
 <h1>Bonjour ! Que voulez vous consulter ?</h1>
 
          <div class="container-flex">
@@ -34,5 +34,5 @@
             <h2>Consulter nos entreprises</h2>
         </div>
         </div>
-
+{% endif %}
 {% endblock %}

@@ -62,7 +62,8 @@ class TestController
     }
 
     public function accueil_user(){
-        echo $this -> twig -> render('accueil_user.twig');
+        $user = 'etudiant';
+        echo $this -> twig -> render('accueil_user.twig', [ 'user' => $user ]);
     }
 
     public function choix_section(){
