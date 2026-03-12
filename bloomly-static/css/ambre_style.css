@@ -226,6 +226,20 @@ textarea {
   margin-left: 10px;
 }
 
+
+.acc {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #e1dec4;
+    border-radius: 20px;
+    text-decoration: none;
+    color: #07490a;
+    font-weight: bold;
+    margin-left: 1120px;
+    margin-bottom: 30px;
+}
+
+
 @media (max-width: 768px) {
    .container-flex {
         display: flex;

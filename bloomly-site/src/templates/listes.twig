@@ -10,7 +10,8 @@
     <nav class="navbar">
             <a class="active">Vos annonces</a>
         </nav>
-         <div class="sous-nav"></div>
+         <div class="sous-nav">
+         </div>
 
         <h1 class="police">Consulter vos annonces</h1>
         <p class="police">Retrouvez ici l'ensemble des offres de stage que vous avez publiées.</p>
@@ -48,6 +49,7 @@
         {% endif %}
     </div>  
     </div>
+    <a class="acc" href="index.php?page=accueil_user">Retour à l'accueil</a>
     {% else %}
     <nav class="navbar">
             <a class="active">Vos entreprises</a>
@@ -88,9 +90,11 @@
         {% else %}
             <span class="disabled">Suivant</span>
         {% endif %}
+    </div>
+    </div>
+    <a class="acc" href="index.php?page=accueil_user">Retour à l'accueil</a>
     {% endif %}
-    </div>
-    </div>
+
 
 {% endblock %}
    
