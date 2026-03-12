@@ -23,12 +23,8 @@ elseif ($page === 'candidature') {
     $controller -> candidature();
 }
 
-elseif ($page === 'pilot_accueil') {
-    $controller -> liste();
-}
-
-elseif ($page === 'pilot_offres') {
-    $controller -> liste();
+elseif ($page === 'connexion') {
+    $controller -> connexion();
 }
 
 else {

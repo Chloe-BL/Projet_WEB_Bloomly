@@ -134,4 +134,8 @@ class TestController
         }
     }
 
+    public function connexion(){
+        echo $this -> twig -> render('connexion.twig');
+    }
+
 }
