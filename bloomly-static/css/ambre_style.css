@@ -317,6 +317,18 @@ textarea {
     margin-bottom: 10px;
     margin-left: 95px;
    }
+
+   .acc {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #e1dec4;
+    border-radius: 20px;
+    text-decoration: none;
+    color: #07490a;
+    font-weight: bold;
+    margin-left: 120px;
+    margin-bottom: 30px;
+   }
 }
 
 /*Bonjour**/
