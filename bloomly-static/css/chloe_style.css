@@ -27,10 +27,10 @@ nav {
 }
 
 .navbar a {
-    color: #999c80; 
+    color: #999c80;
     text-decoration: none;
     font-size: 20px;
-    font-family : Century Gothic ;
+    font-family: Century Gothic;
 }
 
 .cache {
@@ -62,19 +62,19 @@ nav {
     height: 250px;
 }
 
-.ligne{
+.ligne {
     display: flex;
     gap: 60px;
 }
 
-.bloc{
+.bloc {
     flex: 2;
     padding: 20px;
 }
 
 /* Pour que ce soit sur la même ligne */
 .no-wrap {
-    white-space: nowrap; 
+    white-space: nowrap;
 }
 
 .button {
@@ -84,7 +84,7 @@ nav {
     border-radius: 20px;
 }
 
-.modifier{
+.modifier {
     display: inline-block;
     padding: 6px 14px;
     background-color: #c1c2bf;
@@ -93,8 +93,8 @@ nav {
     color: black;
 }
 
-.decaler{
-    margin-left : 20px;
+.decaler {
+    margin-left: 20px;
 }
 
 /*partie listes*/
@@ -130,7 +130,7 @@ nav {
     padding: 18px;
 }
 
-.ajouter{
+.ajouter {
     display: flex;
     justify-content: center;
     padding: 10px 20px;
@@ -168,12 +168,12 @@ nav {
 }
 
 .num {
-    padding : 20px;
-    margin-right : 180px;
+    padding: 20px;
+    margin-right: 180px;
 }
 
 .left {
-    margin-left : 880px;
+    margin-left: 880px;
     margin-bottom: 20px;
 }
 
@@ -185,15 +185,21 @@ nav {
     display: none;
 }
 
+.burger-2 {
+    display: flex;
+}
+
+
+
 /*Responsive*/
-@media (max-width: 768px){
+@media (max-width: 768px) {
     .nav {
         display: flex;
         justify-content: center;
         gap: 20px;
     }
 
-    .cache{
+    .cache {
         display: none;
         gap: 20px;
         gap: 12px;
@@ -206,26 +212,26 @@ nav {
     }
 
     .navbar a {
-        display : flex;
-        color: #999c80; 
+        display: flex;
+        color: #999c80;
         text-decoration: none;
         font-size: 20px;
-        font-family : Century Gothic ;
+        font-family: Century Gothic;
         padding: 6px 0;
     }
 
-    .burger{
+    .burger {
         display: block;
         font-size: 30px;
         cursor: pointer;
-        margin-right : 90%;
+        margin-right: 90%;
     }
 
     .sous-nav {
-        display : none;
+        display: none;
     }
 
-    #interrupteur:checked + .burger + .cache {
+    #interrupteur:checked+.burger+.cache {
         display: block;
     }
 
@@ -233,15 +239,16 @@ nav {
         display: none;
     }
 
-    .ligne{
+    .ligne {
         display: block;
         justify-content: center;
     }
 
-    .liste{
+    .liste {
         display: flex;
         flex-direction: column;
-        align-items: center; /* centre les blocs horizontalement */
+        align-items: center;
+        /* centre les blocs horizontalement */
         gap: 20px;
     }
 
@@ -259,7 +266,8 @@ nav {
         width: 85%;
         height: auto;
         display: block;
-        margin: 20px auto; /* centre l'image */
+        margin: 20px auto;
+        /* centre l'image */
     }
 
     .left {
