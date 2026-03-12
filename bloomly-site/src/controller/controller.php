@@ -61,11 +61,6 @@ class TestController
         ]);
     }
 
-    public function accueil_user(){
-        $user = 'etudiant';
-        echo $this -> twig -> render('accueil_user.twig', [ 'user' => $user ]);
-    }
-
     public function choix_section(){
         $section = $_GET['section'] ?? '';
 
@@ -136,6 +131,17 @@ class TestController
 
     public function connexion(){
         echo $this -> twig -> render('connexion.twig');
+    }
+
+    public function validationConnexion(){
+        $connect = isset($_GET['connect']) && $_GET['connect'] == 1;
+        $user = 'etudiant';
+        if ($connect == 1) {
+            echo $this -> twig -> render('accueil_user.twig', ['connect' => $connect, 'user' => $user]);
+        } 
+        else {
+            echo "Erreur de connexion";
+        }
     }
 
 }

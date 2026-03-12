@@ -32,8 +32,13 @@
             
             <div class="header-right">
                 <nav>
-                    <a class="mon-espaced"href="http://bloomly-site.local/page_de_inscr.html">S'inscrire</a>
-                    <a class="mon-espace" href="http://bloomly-site.local/page_de_cnx.html">Se connecter</a>
+                    {% if connect %}
+                        <a class = "mon-espaced" href="http://bloomly-site.local/admin_espace.html">Se déconnecter</a>
+                        <a class = "mon-espace" href="http://bloomly-site.local/index.html">Mon espace</a>
+                    {% else %}
+                        <a class = "mon-espaced" href="http://bloomly-site.local/page_de_inscr.html">S'inscrire</a>
+                        <a class = "mon-espace" href="http://bloomly-site.local/page_de_cnx.html">Se connecter</a>
+                    {% endif %}
                 </nav>
             </div>
 
