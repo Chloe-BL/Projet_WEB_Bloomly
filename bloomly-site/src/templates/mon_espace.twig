@@ -13,9 +13,9 @@
                 <a class="active">Mon Espace</a>
                 {% if user == 'admin' %}
                     <a href="http://bloomly-site.local/admin_files/comptepilote.html">Comptes Pilotes</a>                
-                    <a href="http://bloomly-site.local/admin_files/compteetudiant.html">Comptes Etudiants</a>
+                    <a href="index.php?page=choix_section&section=etudiants&user=admin">Mes Etudiants</a>
                 {% elseif user == 'pilot' %}
-                    <a href="http://bloomly-site.local/pilote_files/compteetudiant.html">Mes Etudiants</a>
+                    <a href="index.php?page=choix_section&section=etudiants">Mes Etudiants</a>
                 {% else %}
                     <a href="http://bloomly-site.local/edut_files/etudt_agenda.html">Mon Agenda</a>
                     <a href="http://bloomly-site.local/edut_files/etudt_wishlist.html">Ma Wishlist</a>

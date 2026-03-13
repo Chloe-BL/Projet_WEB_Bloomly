@@ -57,7 +57,8 @@ class TestController
             'itemsPage' => $pagination -> getItemsPage(),
             'page' => $pagination -> getPage(),
             'totalPages' => $pagination -> getTotalPages(),
-            'section' => $section
+            'section' => $section,
+            'user' => $_GET['user'] ?? ''
         ]);
     }
 
