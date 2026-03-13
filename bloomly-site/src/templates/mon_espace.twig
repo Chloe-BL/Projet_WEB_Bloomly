@@ -26,8 +26,11 @@
         
         <div class="contour">
             <h1>Mon espace</h1>
+
+            <br>
             <p>Retrouvez ici l'ensemble de vos informations personnelles</p>
 
+            <br>
             <div style="display:inline-block;vertical-align:top;">
                 <img src="http://bloomly-static.local/assets/profil.png" alt="Photo de profil" class="profil">
             </div>
@@ -35,37 +38,39 @@
             <div style="display:inline-block;"> <!-- Pour mettre les bloc à côté de l'image -->
                 <div class="ligne">
                     <div class="bloc">
-                        <p>Civilité</p>
+                        <h4>Civilité</h4>
                         <p>{{ civility }}</p>
                     </div>
 
                     <div class="bloc">
-                        <p class="no-wrap">Nom et Prénom</p>
+                        <h4 class="no-wrap">Nom et Prénom</h4>
                         <p>{{ nom}} {{ prenom }}</p>
                     </div>
+                </div>
 
+                <div class="ligne">
                     <div class="bloc">
-                        <p class="no-wrap">Numéro de téléphone</p> 
+                        <h4 class="no-wrap">Numéro de téléphone</h4>
                         <p>{{ telephone }}</p>
                     </div>
+                    <div class="bloc">
+                        <h4 class="no-wrap">Adresse mail</h4>
+                        <p>{{ email }}</p>
+                    </div>
                 </div>
 
                 <div class="ligne">
                     <div class="bloc">
-                        <p class="no-wrap">Adresse mail</p> 
-                        <p>{{ email }}</p>
-                    </div>
-                    <div class="bloc">
-                        <p class="no-wrap">Votre identifiant</p>
+                        <h4 class="no-wrap">Votre identifiant</h4>
                         <p class="no-wrap">{{ identifiant }}</p>
                     </div>
-                </div>
-                <div class="ligne">
-                {% if user == 'admin' %}
                     <div class="bloc">
-                        <a class="modifier" href="http://bloomly-site.local/comptes/modifier_compte.html">Modifier vos informations</a>
+                    {% if user == 'admin' %}
+                    <div class="no-wrap">
+                            <a class="modifier" href="http://bloomly-site.local/comptes/modifier_compte.html">Modifier vos informations</a>
                     </div>
-                {% endif %}
+                    {% endif %}
+                    </div>
                 </div>
             </div>
         </div>
