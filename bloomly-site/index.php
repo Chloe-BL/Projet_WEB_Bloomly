@@ -27,6 +27,10 @@ elseif ($page === 'validationConnexion'){
     $controller -> validationConnexion();
 }
 
+elseif ($page === 'mon_espace') {
+    $controller -> mon_espace();
+}
+
 else {
     echo "Page non trouvée";
 }

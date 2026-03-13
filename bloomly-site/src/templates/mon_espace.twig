@@ -1,0 +1,73 @@
+{% extends 'layout.twig' %}
+
+{% block title %}Mon Espace{% endblock %}
+
+
+{% block body %}
+
+<nav class="navbar">
+            <input type="checkbox" id="interrupteur">
+            <label for="interrupteur" class="burger">☰</label>
+
+            <div class="cache">
+                <a class="active">Mon Espace</a>
+                {% if user == 'admin' %}
+                    <a href="http://bloomly-site.local/admin_files/comptepilote.html">Comptes Pilotes</a>                
+                    <a href="http://bloomly-site.local/admin_files/compteetudiant.html">Comptes Etudiants</a>
+                {% elseif user == 'pilot' %}
+                    <a href="http://bloomly-site.local/pilote_files/compteetudiant.html">Mes Etudiants</a>
+                {% else %}
+                    <a href="http://bloomly-site.local/edut_files/etudt_agenda.html">Mon Agenda</a>
+                    <a href="http://bloomly-site.local/edut_files/etudt_wishlist.html">Ma Wishlist</a>
+                {% endif %}
+            </div>
+        </nav>
+        <div class="sous-nav"></div>
+        
+        <div class="contour">
+            <h1>Mon espace</h1>
+            <p>Retrouvez ici l'ensemble de vos informations personnelles</p>
+
+            <div style="display:inline-block;vertical-align:top;">
+                <img src="http://bloomly-static.local/assets/profil.png" alt="Photo de profil" class="profil">
+            </div>
+
+            <div style="display:inline-block;"> <!-- Pour mettre les bloc à côté de l'image -->
+                <div class="ligne">
+                    <div class="bloc">
+                        <p>Civilité</p>
+                        <p>{{ civility }}</p>
+                    </div>
+
+                    <div class="bloc">
+                        <p class="no-wrap">Nom et Prénom</p>
+                        <p>{{ nom}} {{ prenom }}</p>
+                    </div>
+
+                    <div class="bloc">
+                        <p class="no-wrap">Numéro de téléphone</p> 
+                        <p>{{ telephone }}</p>
+                    </div>
+                </div>
+
+                <div class="ligne">
+                    <div class="bloc">
+                        <p class="no-wrap">Adresse mail</p> 
+                        <p>{{ email }}</p>
+                    </div>
+                    <div class="bloc">
+                        <p class="no-wrap">Votre identifiant</p>
+                        <p class="no-wrap">{{ identifiant }}</p>
+                    </div>
+                </div>
+                <div class="ligne">
+                {% if user == 'admin' %}
+                    <div class="bloc">
+                        <a class="modifier" href="http://bloomly-site.local/comptes/modifier_compte.html">Modifier vos informations</a>
+                    </div>
+                {% endif %}
+                </div>
+            </div>
+        </div>
+
+{% endblock %}

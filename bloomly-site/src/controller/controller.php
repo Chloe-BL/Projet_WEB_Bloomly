@@ -144,4 +144,22 @@ class TestController
         }
     }
 
+    public function mon_espace(){
+        $user = 'admin';
+        $nom = 'Dupont';
+        $prenom = 'Jean';
+        $telephone = '0123456789';
+        $email = 'jean.dupont@example.com';
+        $identifiant = 'jean.dupont';
+
+        echo $this -> twig -> render('mon_espace.twig', [
+            'user' => $user,
+            'civility'=> 'Madame',
+            'nom' => $nom,
+            'prenom' => $prenom,
+            'telephone' => $telephone,
+            'email' => $email,
+            'identifiant' => $identifiant
+        ]);
+    }
 }
