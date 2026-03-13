@@ -41,15 +41,19 @@
         <h2>Bienvenue parmis nous !</h2><br>
         <p> Entrez votre identifiant et un mot de passe, nous vous confirmerons la création de votre compte par email.</p>
         <label>Adresse email</label>
-        <input type="text">
+        <input type="text" name="email" required>
         <br><br>
 
         <label>Identifiant</label>
-        <input type="text">
+        <input type="text" name="id" required>
         <br><br>
 
         <label>Mot de passe</label>
-        <input type="password">
+        <input type="password" minlenght="8" required>
+        <br><br>
+
+        <label>Confirmer le mot de passe</label>
+        <input type="password" minlenght="8" required>
         <br><br>
 
         <button class="btn-dark large">Inscription</button>
