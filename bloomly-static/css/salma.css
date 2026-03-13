@@ -162,6 +162,7 @@ input:focus, textarea:focus, select:focus {
  
     .form-box, .image-box {
         width: 100%;
+        margin-left: 10px;
     }
  
     .image-box {
