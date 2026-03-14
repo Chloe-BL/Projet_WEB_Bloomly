@@ -12,10 +12,10 @@
             <div class="cache">
                 <a class="active">Mon Espace</a>
                 {% if user == 'admin' %}
-                    <a href="http://bloomly-site.local/admin_files/comptepilote.html">Comptes Pilotes</a>                
+                    <a href="index.php?page=choix_section&section=pilots&user=admin">Comptes Pilotes</a>                
                     <a href="index.php?page=choix_section&section=etudiants&user=admin">Mes Etudiants</a>
                 {% elseif user == 'pilot' %}
-                    <a href="index.php?page=choix_section&section=etudiants">Mes Etudiants</a>
+                    <a href="index.php?page=choix_section&section=etudiants&user=pilot">Mes Etudiants</a>
                 {% else %}
                     <a href="http://bloomly-site.local/edut_files/etudt_agenda.html">Mon Agenda</a>
                     <a href="http://bloomly-site.local/edut_files/etudt_wishlist.html">Ma Wishlist</a>
@@ -35,33 +35,33 @@
                 <img src="http://bloomly-static.local/assets/profil.png" alt="Photo de profil" class="profil">
             </div>
 
-            <div style="display:inline-block;"> <!-- Pour mettre les bloc à côté de l'image -->
+            <div style="display:inline-block; vertical-align:top;"> <!-- Pour mettre les bloc à côté de l'image -->
                 <div class="ligne">
                     <div class="bloc">
-                        <h4>Civilité</h4>
+                        <h3>Civilité</h3>
                         <p>{{ civility }}</p>
                     </div>
 
                     <div class="bloc">
-                        <h4 class="no-wrap">Nom et Prénom</h4>
+                        <h3 class="no-wrap">Nom et Prénom</h3>
                         <p>{{ nom}} {{ prenom }}</p>
                     </div>
                 </div>
 
                 <div class="ligne">
                     <div class="bloc">
-                        <h4 class="no-wrap">Numéro de téléphone</h4>
+                        <h3 class="no-wrap">Numéro de téléphone</h3>
                         <p>{{ telephone }}</p>
                     </div>
                     <div class="bloc">
-                        <h4 class="no-wrap">Adresse mail</h4>
+                        <h3 class="no-wrap">Adresse mail</h3>
                         <p>{{ email }}</p>
                     </div>
                 </div>
 
                 <div class="ligne">
                     <div class="bloc">
-                        <h4 class="no-wrap">Votre identifiant</h4>
+                        <h3 class="no-wrap">Votre identifiant</h3>
                         <p class="no-wrap">{{ identifiant }}</p>
                     </div>
                     <div class="bloc">

@@ -68,8 +68,9 @@ nav {
 }
 
 .bloc {
-    flex: 2;
+    width: 260px;
     padding: 20px;
+    box-sizing: border-box;
 }
 
 /* Pour que ce soit sur la même ligne */

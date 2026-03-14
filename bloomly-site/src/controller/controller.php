@@ -218,4 +218,16 @@ class TestController
             'identifiant' => $identifiant
         ]);
     }
+
+    public function a_propos(){
+        echo $this -> twig -> render('a_propos.twig');
+    }
+
+    public function mentions_legales(){
+        echo $this -> twig -> render('mentions_legales.twig');
+    }
+
+    public function cookies(){
+        echo $this -> twig -> render('cookies.twig');
+    }
 }

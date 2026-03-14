@@ -31,6 +31,18 @@ elseif ($page === 'mon_espace') {
     $controller -> mon_espace();
 }
 
+elseif ($page === 'a_propos') {
+    $controller -> a_propos();
+}
+
+elseif ($page === 'mentions_legales') {
+    $controller -> mentions_legales();
+}
+
+elseif ($page === 'cookies') {
+    $controller -> cookies();
+}
+
 else {
     echo "Page non trouvée";
 }
