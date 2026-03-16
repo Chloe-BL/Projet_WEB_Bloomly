@@ -11,66 +11,77 @@
         <p> Entrez vos informations, nous vous confirmerons la création de votre compte par email.</p>
 
         <form method="POST" enctype="mutipart/form-data">
-        <div style="display:inline-block;"> <!-- Pour mettre les bloc à côté de l'image -->
-        <div class="ligne">
-        <div class="bloc">
-        <label for ="nom">Nom</label>
-        <input type = "text" name="nom" required>
-        </div>
+            <div style="display:inline-block;"> <!-- Pour mettre les bloc à côté de l'image -->
 
-        <div class="bloc">
-        <label for="prénom">Prénom</label>
-        <input type = "text" name="prénom" required>
-        </div>
-
-        <div class="bloc">
-        <p >Numéro de téléphone</label>
-        <input type = "text">
-        </div>
-        </div>
-
-        <label>Adresse email</label>
-        <input type="text" name="email" required>
-        <br><br>
-
-
-
-    <div class="image-box">
-    </div>
-    
-
-{% if section == 'etudiants' or section == 'pilots' %}
+                <div class="ligne">
 
                     <div class="bloc">
-                            <label for="age">Âge</label>
-                            <input id="age" name="age" type="number" min="0" max="120" step="1" />
-                        </div>
+                        <label for ="nom">Nom</label>
+                        <input type = "text" name="nom" required>
+                    </div>
+
+                    <div class="bloc">
+                        <label for="prénom">Prénom</label>
+                        <input type = "text" name="prénom" required>
+                    </div>
+                </div>
+
+                <div class="ligne">
+                    <div class="bloc">
+                        <label class="no-wrap" for="num">Numéro de téléphone</label>
+                        <input type = "text" name="num">
+                    </div>
+
+                    {% if section == 'etudiants' or section == 'pilots' %}
+                    <div class="bloc">
+                        <label for="age">Âge</label>
+                        <input id="age" name="age" type="number" min="0" max="120" step="1" />
+                    </div>
+                    {% endif %}
+                </div>
+
+                <div class="ligne">
+                    <div class="bloc2">
+                        <label>Adresse email</label>
+                        <input type="text" name="email" required>
+                        <br><br>
+                    </div>
+                </div>
                 
-        
+        {% if section == 'etudiants' %}
 
-{% elseif section == 'etudiants' %}
 
-                    <div class="ligne">
-                    <div class="bloc">
-                        <p >Recherche</p>
-                        <input type="checkbox"> Stage <br>
-                        <input type="checkbox"> Alternance
+            <p >Recherche</p><br>
+            <label class="ecart">
+                <input type="checkbox"> Stage 
+            </label>
+            
+            <label class="ecart">
+                <input type="checkbox"> Alternance 
+            </label>
+
+        {% endif %}
+
+                <div class="ligne">
+                    <div class="bloc2">
+                        <label>Mot de passe</label>
+                        <input type="password" minlength="8" required>
+                        <br><br>
                     </div>
+                </div>
+
+                <div class="ligne">
+                    <div class="bloc2">
+                        <label>Confirmer le mot de passe</label>
+                        <input type="password" minlength="8" required>
+                        <br><br>
                     </div>
-{% endif %}
-
-
-        <label>Mot de passe</label>
-        <input type="password" minlenght="8" required>
-        <br><br>
-
-        <label>Confirmer le mot de passe</label>
-        <input type="password" minlenght="8" required>
-        <br><br>
+                </div>
 
         <button class="btn-dark large">Inscription</button>
         </div>
     </form>
+</div>
 </div>
 
 

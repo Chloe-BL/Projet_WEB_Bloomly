@@ -186,6 +186,15 @@ nav {
     display: none;
 }
 
+.bloc2 {
+    width: 470px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.bloc2 input {
+    width: 100%;
+}
 
 
 /*Responsive*/

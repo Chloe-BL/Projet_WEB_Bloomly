@@ -123,8 +123,12 @@ h1 {
 }
 
 label {
-    margin-top: 15px;
     display: block;
+    margin-top: 15px
+}
+
+.ecart input {
+    width: 20%;
 }
 
 input {
@@ -132,7 +136,7 @@ input {
     border: 1px solid #999c80;
     border-radius: 10px;
     font-family: Century Gothic;
-    width: 60%;
+    width: 70%;
 }
 
 textarea,
