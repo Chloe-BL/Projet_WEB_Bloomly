@@ -1,4 +1,4 @@
- {% extends 'layout.twig' %}
+{% extends 'layout.twig' %}
 
 {% block title %}Vos Offres{% endblock %}
 
@@ -100,7 +100,7 @@
     <nav class="navbar">
             <a href="index.php?page=mon_espace">Mon espace</a>
             {% if user == 'admin' %}
-                <a href="index.php?page=choix_section&section=pilots&user=admin">Comptes Pilotes</a>                
+                <a href="index.php?page=choix_section&section=pilots&user={{ user }}">Comptes Pilotes</a>                
             {% endif %}
             <a class="active">Mes Etudiants</a>
         </nav>
