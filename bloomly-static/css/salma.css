@@ -10,7 +10,8 @@
 
 body {
     font-family: Century Gothic, sans-serif;
-    background-color: #fff0f2; /* couleur groupe */
+    background-color: #fff0f2;
+    /* couleur groupe */
     color: #000;
     min-height: 100vh;
 }
@@ -71,6 +72,7 @@ header {
     background-color: #d9d9d9;
     font-weight: bold;
 }
+
 /* ============================= */
 /*        SECTION PRINCIPALE     */
 /* ============================= */
@@ -110,12 +112,14 @@ h1 {
 /* ============================= */
 
 .form-box {
-    margin-left : 430px;
+    margin-top: 50px;
+    margin-left: 430px;
     width: 600px;
     background-color: white;
     padding: 30px;
     border-radius: 20px;
     box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
+    margin-bottom: 50px;
 }
 
 label {
@@ -123,15 +127,22 @@ label {
     display: block;
 }
 
-input, textarea, select {
-    width: 100%;
+input {
     padding: 8px;
     border: 1px solid #999c80;
     border-radius: 10px;
     font-family: Century Gothic;
+    width: 60%;
 }
 
-input:focus, textarea:focus, select:focus {
+textarea,
+select {
+    width: 80%;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
     outline: none;
     border-color: #afb779;
 }
@@ -159,26 +170,27 @@ input:focus, textarea:focus, select:focus {
         flex-direction: column;
         padding: 20px;
     }
- 
-    .form-box, .image-box {
+
+    .form-box,
+    .image-box {
         width: 100%;
         margin-left: 10px;
     }
- 
+
     .image-box {
         height: 200px;
         margin-top: 20px;
     }
- 
-    .mon-header, .mon-footer {
+
+    .mon-header,
+    .mon-footer {
         flex-direction: column;
         align-items: center;
         text-align: center;
         gap: 10px;
     }
- 
+
     .search-bar {
         width: 100%;
     }
 }
-

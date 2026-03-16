@@ -232,7 +232,14 @@ class TestController
     }
 
     public function inscription(){
-        echo $this -> twig -> render('inscription.twig');
+        $section = $_GET['section'] ?? '';
+        $user = $_GET['user'] ?? '';
+        $connect = 1;
+        echo $this -> twig -> render('inscription.twig' , [
+            'section' => $section,
+            'connect' => $connect,
+            'user' => $user
+        ]);
     }
 
 }
