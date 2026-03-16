@@ -250,7 +250,8 @@ class TestController
     public function inscription(){
         $section = $_GET['section'] ?? '';
         $user = $_GET['user'] ?? '';
-        $connect = 1;
+        $connect = $this -> getConnect();
+        
         echo $this -> twig -> render('inscription.twig' , [
             'section' => $section,
             'connect' => $connect,
