@@ -47,6 +47,10 @@ elseif ($page === 'inscription') {
     $controller -> inscription();
 }
 
+elseif ($page === 'accueil') {
+    $controller -> accueil();
+}
+
 else {
     echo "Page non trouvée";
 }

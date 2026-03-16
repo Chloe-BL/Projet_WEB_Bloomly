@@ -242,4 +242,8 @@ class TestController
         ]);
     }
 
+    public function accueil(){
+    echo $this -> twig -> render('accueil.twig');
+    }
+
 }
