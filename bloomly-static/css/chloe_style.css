@@ -280,4 +280,12 @@ nav {
         margin-left: 80px;
         margin-bottom: 20px;
     }
+
+    .bloc2 {
+        width: 380px;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+
+
 }
