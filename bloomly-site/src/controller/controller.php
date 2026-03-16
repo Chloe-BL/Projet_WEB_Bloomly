@@ -221,6 +221,7 @@ class TestController
         $telephone = '0123456789';
         $email = 'jean.dupont@example.com';
         $identifiant = 'jean.dupont';
+        $connect = $this -> getConnect();
 
         echo $this -> twig -> render('mon_espace.twig', [
             'user' => $user,
@@ -229,7 +230,8 @@ class TestController
             'prenom' => $prenom,
             'telephone' => $telephone,
             'email' => $email,
-            'identifiant' => $identifiant
+            'identifiant' => $identifiant,
+             'connect' => $connect
         ]);
     }
 
