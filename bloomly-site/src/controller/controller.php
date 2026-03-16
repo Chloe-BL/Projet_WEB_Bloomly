@@ -51,6 +51,8 @@ class TestController
         $parPage = 9;
         $page = isset($_GET['p']) ? (int) $_GET['p'] : 1;
 
+        $connect = $this -> getConnect();
+
         $pagination = new Pagination($items, $parPage, $page);
 
         echo $this -> twig -> render('listes.twig', [
@@ -58,7 +60,8 @@ class TestController
             'page' => $pagination -> getPage(),
             'totalPages' => $pagination -> getTotalPages(),
             'section' => $section,
-            'user' => $_GET['user'] ?? ''
+            'user' => $_GET['user'] ?? '',
+            'connect' => $connect
         ]);
     }
 
@@ -188,10 +191,21 @@ class TestController
         echo $this -> twig -> render('connexion.twig');
     }
 
+    public function getConnect(){
+        $connect = $_GET['connect'];
+
+        if ($connect == 'oui') {
+            $connect = true;
+        } else {
+            $connect = false;
+        }
+        return $connect;
+    }
+
     public function validationConnexion(){
-        $connect = isset($_GET['connect']) && $_GET['connect'] == 1;
+        $connect = $this -> getConnect();
         $user = 'etudiant';
-        if ($connect == 1) {
+        if ($connect) {
             echo $this -> twig -> render('accueil_user.twig', ['connect' => $connect, 'user' => $user]);
         } 
         else {

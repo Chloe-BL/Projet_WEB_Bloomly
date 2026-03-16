@@ -34,11 +34,11 @@
             <div class="header-right">
                 <nav>
                     {% if connect %}
-                        <a class = "mon-espaced" href="index.php?page=inscription">S'inscrire</a>
-                        <a class = "mon-espace" href="http://bloomly-site.local/page_de_cnx.html">Se connecter</a>
-                    {% else %}
-                        <a class = "mon-espaced" href="http://bloomly-site.local/admin_espace.html">Se déconnecter</a>
+                        <a class = "mon-espaced" href="index.php?page=accueil&connect=non">Se déconnecter</a>
                         <a class = "mon-espace" href="index.php?page=mon_espace">Mon espace</a>
+                    {% else %}
+                        <a class = "mon-espaced" href="index.php?page=inscription&connect=non">S'inscrire</a>
+                        <a class = "mon-espace" href="index.php?page=connexion&connect=non">Se connecter</a>
                     {% endif %}
                 </nav>
             </div>
