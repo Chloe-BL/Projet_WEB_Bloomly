@@ -100,7 +100,7 @@
     <nav class="navbar">
             <a href="index.php?page=mon_espace">Mon espace</a>
             {% if user == 'admin' %}
-                <a href="index.php?page=choix_section&section=pilots&user={{ user }}">Comptes Pilotes</a>                
+                <a href="index.php?page=choix_section&section=pilots&user=admin">Comptes Pilotes</a>                
             {% endif %}
             <a class="active">Mes Etudiants</a>
         </nav>
@@ -124,7 +124,7 @@
     {% endfor %}
     <div class="pagination">
         {% if page > 1 %}
-            <a href="index.php?page=choix_section&section=etudiants&p={{ page - 1 }}">Précédent</a>
+            <a href="index.php?page=choix_section&section=etudiants&user=admin&user=admin&p={{ page - 1 }}">Précédent</a>
             {#<a href="index.php?page={{page - 1}}">Précédent</a>#}
         {% else %} 
             <span class="disabled">Précédent</span>
@@ -135,13 +135,13 @@
             {% if i == page %}
                 <span class="active-page"> {{i}}</span>
             {% else %} 
-                <a href="index.php?page=choix_section&section=etudiants&p={{ i }}"> {{ i }} </a>
+                <a href="index.php?page=choix_section&section=etudiants&user=admin&p={{ i }}"> {{ i }} </a>
                 {#<a href="index.php?page={{i}}"> {{i}}</a>#}
             {% endif %}
         {% endfor %}
 
         {% if page < totalPages %}
-            <a href="index.php?page=choix_section&section=etudiants&p={{ page + 1 }}">Suivant</a>
+            <a href="index.php?page=choix_section&section=etudiants&user=admin&p={{ page + 1 }}">Suivant</a>
             {#<a href="index.php?page={{page + 1}}">Suivant</a>#}
         {% else %}
             <span class="disabled">Suivant</span>
@@ -155,9 +155,9 @@
     <nav class="navbar">
             <a href="index.php?page=mon_espace">Mon espace</a>
             {% if user == 'admin' %}
-                <a class="active">Comptes Pilotes</a>                
+                <a class="active">Comptes Pilotes</a>              
             {% endif %}
-            <a href="index.php?page=choix_section&section=etudiants&user={{ user }}">Mes Etudiants</a>
+                <a href="index.php?page=choix_section&section=etudiants&user=admin">Mes Etudiants</a>
         </nav>
         <div class="sous-nav"></div>
 
@@ -179,7 +179,7 @@
     {% endfor %}
     <div class="pagination">
         {% if page > 1 %}
-            <a href="index.php?page=choix_section&section=pilots&p={{ page - 1 }}">Précédent</a>
+            <a href="index.php?page=choix_section&section=pilots&user=admin&p={{ page - 1 }}">Précédent</a>
             {#<a href="index.php?page={{page - 1}}">Précédent</a>#}
         {% else %} 
             <span class="disabled">Précédent</span>
@@ -190,13 +190,13 @@
             {% if i == page %}
                 <span class="active-page"> {{i}}</span>
             {% else %} 
-                <a href="index.php?page=choix_section&section=pilots&p={{ i }}"> {{ i }} </a>
+                <a href="index.php?page=choix_section&section=pilots&user=admin&p={{ i }}"> {{ i }} </a>
                 {#<a href="index.php?page={{i}}"> {{i}}</a>#}
             {% endif %}
         {% endfor %}
 
         {% if page < totalPages %}
-            <a href="index.php?page=choix_section&section=pilots&p={{ page + 1 }}">Suivant</a>
+            <a href="index.php?page=choix_section&section=pilots&user=admin&p={{ page + 1 }}">Suivant</a>
             {#<a href="index.php?page={{page + 1}}">Suivant</a>#}
         {% else %}
             <span class="disabled">Suivant</span>
