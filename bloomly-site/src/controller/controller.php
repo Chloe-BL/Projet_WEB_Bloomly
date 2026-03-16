@@ -195,7 +195,7 @@ class TestController
             echo $this -> twig -> render('accueil_user.twig', ['connect' => $connect, 'user' => $user]);
         } 
         else {
-            echo "Erreur de connexion";
+            echo $this -> twig -> render('accueil_user.twig', ['connect' => $connect, 'user' => $user]);
         }
     }
 
