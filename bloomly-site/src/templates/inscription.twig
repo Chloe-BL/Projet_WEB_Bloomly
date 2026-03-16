@@ -1,0 +1,94 @@
+{% extends 'layout.twig' %}
+{% block title %}Inscription{% endblock %}
+
+
+{% block body %}
+
+{% if connect == 1 %}
+
+
+    <div class="form-box">
+        <h2>Bienvenue parmis nous !</h2><br>
+        <p> Entrez votre identifiant et un mot de passe, nous vous confirmerons la création de votre compte par email.</p>
+
+        <form method="POST" enctype="mutipart/form-data">
+        <div style="display:inline-block;"> <!-- Pour mettre les bloc à côté de l'image -->
+        <div class="ligne">
+        <div class="bloc">
+        <label for ="nom">Nom</label>
+        <input type = "text" name="nom" required>
+        </div>
+
+        <div class="bloc">
+        <label for="prénom">Prénom</label>
+        <input type = "text" name="prénom" required>
+        </div>
+
+        <div class="bloc">
+        <p class="no-wrap">Numéro de téléphone</label>
+        <input type = "text">
+        </div>
+        </div>
+
+        <label>Adresse email</label>
+        <input type="text" name="email" required>
+        <br><br>
+
+        <label>Identifiant</label>
+        <input type="text" name="id" required>
+        <br><br>
+
+        <div class="bloc">
+        <p class="no-wrap">Numéro de téléphone</label>
+        <input type = "text">
+        </div>
+
+        <label>Mot de passe</label>
+        <input type="password" minlenght="8" required>
+        <br><br>
+
+        <label>Confirmer le mot de passe</label>
+        <input type="password" minlenght="8" required>
+        <br><br>
+
+        <button class="btn-dark large">Inscription</button>
+    </div>
+
+    <div class="image-box">
+    </div>
+    
+
+{% elseif section == 'etudiants' and 'pilots' %}
+
+                    <div class="bloc">
+                        <div class="decaler"></div>
+                            <label for="age">Âge</label>
+                            <input id="age" name="age" type="number" min="0" max="120" step="1" />
+                        </div>
+                    </div>
+                
+        
+
+{% elseif section == 'etudiants' and 'pilots' %}
+
+                    <div class="ligne">
+                    <div class="bloc">
+                        <p class="decaler">Recherche</p>
+                        <input type="checkbox"> Stage <br>
+                        <input type="checkbox"> Alternance
+                    </div>
+
+                    
+                    <div class="left">
+                        <input type="submit" class "modifier" value="Créer le compte">
+                    </div>
+                </div>
+{% endif %}
+            </div>
+        </div>
+        </form>
+
+
+
+{% endblock %}
+

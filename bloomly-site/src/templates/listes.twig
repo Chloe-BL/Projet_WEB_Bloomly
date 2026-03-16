@@ -109,12 +109,18 @@
         <br>
         <h1 class="police">Consulter vos étudiants</h1>
         <p class="police">Retrouvez ici l'ensemble des profils étudiants que vous avez créés.</p>
+         <a class = "ajout" href= "index.php?page=inscription&section=etudiants">Ajouter un compte étudiant</a>
+        <div class="recherche-bar-profil">
+                    <span class="icon">🔍</span>
+                    <input type="text" placeholder="Rechercher des étudiants">
+                </div>
     <div class="liste">
     {% for item in itemsPage %}
     <div class="bloc-liste">
         <img src="http://bloomly-static.local/assets/profil.png" alt="Image d'un profil">
         <p>{{ item.prenom }} {{ item.nom }}</p>
     </div>
+
     {% endfor %}
     <div class="pagination">
         {% if page > 1 %}
@@ -158,6 +164,12 @@
         <br>
         <h1 class="police">Consulter vos Pilotes</h1>
         <p class="police">Retrouvez ici l'ensemble des profils pilotes que vous avez créés.</p>
+        <a class = "ajout" href= "index.php?page=inscription&section=pilots">Ajouter un compte pilote</a>
+                <div class="recherche-bar-profil">
+                    <span class="icon">🔍</span>
+                    <input type="text" placeholder="Rechercher des pilotes">
+                </div>
+            </div>
     <div class="liste">
     {% for item in itemsPage %}
     <div class="bloc-liste">

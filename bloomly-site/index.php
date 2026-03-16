@@ -43,6 +43,10 @@ elseif ($page === 'cookies') {
     $controller -> cookies();
 }
 
+elseif ($page === 'inscription') {
+    $controller -> inscription();
+}
+
 else {
     echo "Page non trouvée";
 }

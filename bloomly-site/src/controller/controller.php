@@ -230,4 +230,9 @@ class TestController
     public function cookies(){
         echo $this -> twig -> render('cookies.twig');
     }
+
+    public function inscription(){
+        echo $this -> twig -> render('inscription.twig');
+    }
+
 }
