@@ -25,7 +25,7 @@
     {% endfor %} 
     <div class="pagination">
         {% if page > 1 %}
-            <a href="index.php?page=choix_section&section=offres&p={{ page - 1 }}">Précédent</a>
+            <a href="index.php?page=choix_section&section=offres&connect=oui&p={{ page - 1 }}">Précédent</a>
             {#<a href="index.php?page={{page - 1}}">Précédent</a>#}
         {% else %} 
             <span class="disabled">Précédent</span>
@@ -36,13 +36,13 @@
             {% if i == page %}
                 <span class="active-page"> {{i}}</span>
             {% else %} 
-                <a href="index.php?page=choix_section&section=offres&p={{ i }}"> {{ i }} </a>
+                <a href="index.php?page=choix_section&section=offres&connect=oui&p={{ i }}"> {{ i }} </a>
                 {#<a href="index.php?page={{i}}"> {{i}}</a>#}
             {% endif %}
         {% endfor %}
 
         {% if page < totalPages %}
-            <a href="index.php?page=choix_section&section=offres&p={{ page + 1 }}">Suivant</a>
+            <a href="index.php?page=choix_section&section=offres&connect=oui&p={{ page + 1 }}">Suivant</a>
             {#<a href="index.php?page={{page + 1}}">Suivant</a>#}
         {% else %}
             <span class="disabled">Suivant</span>
@@ -69,7 +69,7 @@
     {% endfor %}
     <div class="pagination">
         {% if page > 1 %}
-            <a href="index.php?page=choix_section&section=entreprises&p={{ page - 1 }}">Précédent</a>
+            <a href="index.php?page=choix_section&section=entreprises&connect=oui&p={{ page - 1 }}">Précédent</a>
             {#<a href="index.php?page={{page - 1}}">Précédent</a>#}
         {% else %} 
             <span class="disabled">Précédent</span>
@@ -80,13 +80,13 @@
             {% if i == page %}
                 <span class="active-page"> {{i}}</span>
             {% else %} 
-                <a href="index.php?page=choix_section&section=entreprises&p={{ i }}"> {{ i }} </a>
+                <a href="index.php?page=choix_section&section=entreprises&connect=oui&p={{ i }}"> {{ i }} </a>
                 {#<a href="index.php?page={{i}}"> {{i}}</a>#}
             {% endif %}
         {% endfor %}
 
         {% if page < totalPages %}
-            <a href="index.php?page=choix_section&section=entreprises&p={{ page + 1 }}">Suivant</a>
+            <a href="index.php?page=choix_section&section=entreprises&connect=oui&p={{ page + 1 }}">Suivant</a>
             {#<a href="index.php?page={{page + 1}}">Suivant</a>#}
         {% else %}
             <span class="disabled">Suivant</span>
@@ -98,9 +98,9 @@
     {# SECTION ETUDIANTS #}
     {% elseif section == 'etudiants' %}
     <nav class="navbar">
-            <a href="index.php?page=mon_espace">Mon espace</a>
+            <a href="index.php?page=mon_espace&connect=oui">Mon espace</a>
             {% if user == 'admin' %}
-                <a href="index.php?page=choix_section&section=pilots&user=admin">Comptes Pilotes</a>                
+                <a href="index.php?page=choix_section&section=pilots&user=admin&connect=oui">Comptes Pilotes</a>                
             {% endif %}
             <a class="active">Mes Etudiants</a>
         </nav>
@@ -109,7 +109,7 @@
         <br>
         <h1 class="police">Consulter vos étudiants</h1>
         <p class="police">Retrouvez ici l'ensemble des profils étudiants que vous avez créés.</p>
-         <a class = "ajout" href= "index.php?page=inscription&section=etudiants&user=admin">Ajouter un compte étudiant</a>
+         <a class = "ajout" href= "index.php?page=inscription&section=etudiants&user=admin&connect=oui">Ajouter un compte étudiant</a>
         <div class="recherche-bar-profil">
                     <span class="icon">🔍</span>
                     <input type="text" placeholder="Rechercher des étudiants">
@@ -124,7 +124,7 @@
     {% endfor %}
     <div class="pagination">
         {% if page > 1 %}
-            <a href="index.php?page=choix_section&section=etudiants&user=admin&user=admin&p={{ page - 1 }}">Précédent</a>
+            <a href="index.php?page=choix_section&section=etudiants&user=admin&user=admin&connect=oui&p={{ page - 1 }}">Précédent</a>
             {#<a href="index.php?page={{page - 1}}">Précédent</a>#}
         {% else %} 
             <span class="disabled">Précédent</span>
@@ -135,36 +135,36 @@
             {% if i == page %}
                 <span class="active-page"> {{i}}</span>
             {% else %} 
-                <a href="index.php?page=choix_section&section=etudiants&user=admin&p={{ i }}"> {{ i }} </a>
+                <a href="index.php?page=choix_section&section=etudiants&user=admin&connect=oui&p={{ i }}"> {{ i }} </a>
                 {#<a href="index.php?page={{i}}"> {{i}}</a>#}
             {% endif %}
         {% endfor %}
 
         {% if page < totalPages %}
-            <a href="index.php?page=choix_section&section=etudiants&user=admin&p={{ page + 1 }}">Suivant</a>
+            <a href="index.php?page=choix_section&section=etudiants&user=admin&connect=oui&p={{ page + 1 }}">Suivant</a>
             {#<a href="index.php?page={{page + 1}}">Suivant</a>#}
         {% else %}
             <span class="disabled">Suivant</span>
         {% endif %}
     </div>
     </div>
-    <a class="acc" href="index.php?page=validationConnexion">Retour à l'accueil</a>
+    <a class="acc" href="index.php?page=validationConnexion&connect=oui">Retour à l'accueil</a>
 
     {# SECTION PILOTES #}
     {% elseif section == 'pilots' %}
     <nav class="navbar">
-            <a href="index.php?page=mon_espace">Mon espace</a>
+            <a href="index.php?page=mon_espace&connect=oui">Mon espace</a>
             {% if user == 'admin' %}
                 <a class="active">Comptes Pilotes</a>              
             {% endif %}
-                <a href="index.php?page=choix_section&section=etudiants&user=admin">Mes Etudiants</a>
+                <a href="index.php?page=choix_section&section=etudiants&user=admin&connect=oui">Mes Etudiants</a>
         </nav>
         <div class="sous-nav"></div>
 
         <br>
         <h1 class="police">Consulter vos Pilotes</h1>
         <p class="police">Retrouvez ici l'ensemble des profils pilotes que vous avez créés.</p>
-        <a class = "ajout" href= "index.php?page=inscription&section=pilots">Ajouter un compte pilote</a>
+        <a class = "ajout" href= "index.php?page=inscription&section=pilots&connect=oui">Ajouter un compte pilote</a>
                 <div class="recherche-bar-profil">
                     <span class="icon">🔍</span>
                     <input type="text" placeholder="Rechercher des pilotes">
@@ -179,7 +179,7 @@
     {% endfor %}
     <div class="pagination">
         {% if page > 1 %}
-            <a href="index.php?page=choix_section&section=pilots&user=admin&p={{ page - 1 }}">Précédent</a>
+            <a href="index.php?page=choix_section&section=pilots&user=admin&connect=oui&p={{ page - 1 }}">Précédent</a>
             {#<a href="index.php?page={{page - 1}}">Précédent</a>#}
         {% else %} 
             <span class="disabled">Précédent</span>
@@ -190,13 +190,13 @@
             {% if i == page %}
                 <span class="active-page"> {{i}}</span>
             {% else %} 
-                <a href="index.php?page=choix_section&section=pilots&user=admin&p={{ i }}"> {{ i }} </a>
+                <a href="index.php?page=choix_section&section=pilots&user=admin&connect=oui&p={{ i }}"> {{ i }} </a>
                 {#<a href="index.php?page={{i}}"> {{i}}</a>#}
             {% endif %}
         {% endfor %}
 
         {% if page < totalPages %}
-            <a href="index.php?page=choix_section&section=pilots&user=admin&p={{ page + 1 }}">Suivant</a>
+            <a href="index.php?page=choix_section&section=pilots&user=admin&connect=oui&p={{ page + 1 }}">Suivant</a>
             {#<a href="index.php?page={{page + 1}}">Suivant</a>#}
         {% else %}
             <span class="disabled">Suivant</span>
