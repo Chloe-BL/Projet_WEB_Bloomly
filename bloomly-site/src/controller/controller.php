@@ -182,6 +182,10 @@ class TestController
             $this -> liste($pilots, $section);
             return;
         }
+        elseif ($section === 'wishlist') {
+            $this -> liste($offres, $section);
+            return;
+        }
         else {
             echo "Erreur";
         }
@@ -284,8 +288,6 @@ class TestController
         ];
 
         $user = $_GET['user'] ?? '';
-        if ($user)
-
     }
 
 

@@ -205,73 +205,59 @@
     </div>
     <a class="acc" href="index.php?page=validationConnexion">Retour à l'accueil</a>
 
-    {% elseif section == 'wishlist' and user == 'etudiant' %}
+    {% elseif section == 'wishlist' %}
     <nav class="navbar">
             <input type="checkbox" id="interrupteur">
             <label for="interrupteur" class="burger">☰</label>
 
             <div class="cache">
                 <a href="index.php?page=mon_espace&connect=oui">Mes Espace</a>  
-                <a href=" ">Mon Agenda</a>
                 <a class="active">Ma Wishlist</a>  
+                {% if user == 'etudiant' %}
+                <a href=" ">Mon Agenda</a>
+                {% endif %}
             </div>
         </nav>
         <div class="sous-nav"></div>
-
-    
-        <h3 class="police">Consultez les offres que vous avez ajoutées à votre wishlist</h3>
-
-        <div class="liste">
-            <div class="bloc-liste">
-                <img src="http://bloomly-static.local/assets/annonce.png" alt="Image d'une annonce">
-                <p>Alternance en Cybersécurité</p>
-            </div>
-
-            <div class="bloc-liste">
-                <img src="http://bloomly-static.local/assets/annonce.png" alt="Image d'une annonce">
-                <p>Stage de 6 mois en Embarqué</p>
-            </div>
-
-            <div class="bloc-liste">
-                <img src="http://bloomly-static.local/assets/annonce.png" alt="Image d'une annonce">
-                <p>Stage de 3 mois en Datascience</p>
-            </div>
-        </div>
-            
-        <div class="liste">
-            <div class="bloc-liste">
-                <img src="http://bloomly-static.local/assets/annonce.png" alt="Image d'une annonce">
-                <p>Stage de 3 mois en Développement</p>
-            </div>
-
-            <div class="bloc-liste">
-                <img src="http://bloomly-static.local/assets/annonce.png" alt="Image d'une annonce">
-                <p>Stage en Développement Full Stack</p>
-            </div>
-
-            <div class="bloc-liste">
-                <img src="http://bloomly-static.local/assets/annonce.png" alt="Image d'une annonce">
-                <p>Alternance en Systèmes et Réseaux</p>
-            </div>
-        </div>
+        <br>
+        <h3 class="police">Consulter les offres que vous avez ajoutées à votre wishlist</h3>
 
         <div class="liste">
-            <div class="bloc-liste">
-                <img src="http://bloomly-static.local/assets/annonce.png" alt="Image d'une annonce">
-                <p>Stage en tests intrusion</p>
-            </div>
+    {% for item in itemsPage %}
 
-            <div class="bloc-liste">
-                <img src="http://bloomly-static.local/assets/annonce.png" alt="Image d'une annonce">
-                <p>Stage en Virtualisation</p>
-            </div>
-
-            <div class="bloc-liste">
-                <img src="http://bloomly-static.local/assets/annonce.png" alt="Image d'une annonce">
-                <p>Alternance en Infrastructure IT</p>
-            </div>
+        <div class="bloc-liste">
+            <img src="http://bloomly-static.local/assets/annonce.png" alt="Image d'une annonce">
+            <p>{{ item}}</p>
         </div>
-  </body>    
+    {% endfor %}
+
+    <div class="pagination">
+        {% if page > 1 %}
+            <a href="index.php?page=choix_section&section=wishlist&user=etudiant&connect=oui&p={{ page - 1 }}">Précédent</a>
+            {#<a href="index.php?page={{page - 1}}">Précédent</a>#}
+        {% else %} 
+            <span class="disabled">Précédent</span>
+        {% endif %} 
+
+       {% for i in 1..totalPages %}  {# Pour i de 1 à la fin #}
+            {% if i == page %}
+                <span class="active-page"> {{i}}</span>
+            {% else %} 
+                <a href="index.php?page=choix_section&section=wishlist&user=etudiant&connect=oui&p={{ i }}"> {{ i }} </a>
+                {#<a href="index.php?page={{i}}"> {{i}}</a>#}
+            {% endif %}
+        {% endfor %}
+
+        {% if page < totalPages %}
+            <a href="index.php?page=choix_section&section=wishlist&user=etudiant&connect=oui&p={{ page + 1 }}">Suivant</a>
+            {#<a href="index.php?page={{page + 1}}">Suivant</a>#}
+        {% else %}
+            <span class="disabled">Suivant</span>
+        {% endif %}
+    </div>
+    </div>
+    <a class="acc" href="index.php?page=validationConnexion&connect=oui">Retour à l'accueil</a>
+
 
     {% endif %}
 
