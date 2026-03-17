@@ -251,7 +251,7 @@ class TestController
         $section = $_GET['section'] ?? '';
         $user = $_GET['user'] ?? '';
         $connect = $this -> getConnect();
-        
+
         echo $this -> twig -> render('inscription.twig' , [
             'section' => $section,
             'connect' => $connect,
@@ -262,5 +262,32 @@ class TestController
     public function accueil(){
     echo $this -> twig -> render('accueil.twig');
     }
+
+    public function getUser(){
+
+        $admins = [
+            ["id" => 1, "prenom" => "Alice"],
+            ["id" => 2, "prenom" => "Bob"],
+            ["id" => 3, "prenom" => "Charlie"]
+        ];
+
+        $pilotes = [
+            ["id" => 4, "prenom" => "David"],
+            ["id" => 5, "prenom" => "Emma"],
+            ["id" => 6, "prenom" => "Lucas"]
+        ];
+
+        $etudiants = [
+            ["id" => 7, "prenom" => "Léa"],
+            ["id" => 8, "prenom" => "Noah"],
+            ["id" => 9, "prenom" => "Inès"]
+        ];
+
+        $user = $_GET['user'] ?? '';
+        if ($user)
+
+    }
+
+
 
 }
