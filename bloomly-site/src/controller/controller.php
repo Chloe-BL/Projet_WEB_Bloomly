@@ -208,7 +208,7 @@ class TestController
 
     public function validationConnexion(){
         $connect = $this -> getConnect();
-        $user = 'etudiant';
+        $user = $this -> getUser();
         if ($connect) {
             echo $this -> twig -> render('accueil_user.twig', ['connect' => $connect, 'user' => $user]);
         } 
@@ -218,7 +218,7 @@ class TestController
     }
 
     public function mon_espace(){
-        $user = 'etudiant';
+        $user = $this -> getUser();
         $civility = 'Madame';
         $nom = 'Dupont';
         $prenom = 'Jean';
@@ -269,8 +269,8 @@ class TestController
 
     public function getUser(){
 
-        $id = $_POST['id'] ?? ;
-        $mdp = $_POST['mdp'] ??;
+        $id = $_POST['id'] ??'';
+        $mdp = $_POST['mdp'] ??'';
 
         $admin = [
             ["id" => 1, "mdp" => "Alice"],
@@ -278,7 +278,7 @@ class TestController
             ["id" => 3, "mdp" => "Charlie"]
         ];
 
-        $pilots = [
+        $pilot = [
             ["id" => 4, "mdp" => "David"],
             ["id" => 5, "mdp" => "Emma"],
             ["id" => 6, "mdp" => "Lucas"]
@@ -290,19 +290,19 @@ class TestController
             ["id" => 9, "mdp" => "Inès"]
         ];
 
-        $this -> user -> rechercheUser($id, $mdp, $admin, $pilot, $etudiant);
+        $user = $this -> rechercheUser($id, $mdp, $admin, $pilot, $etudiant);
 
         if ($user === 1){
-            echo "connecté en tant qu'admin"
+            echo "connecté en tant qu'admin";
         }
         elseif ($user === 2){
-            echo "connecté en tant que pilot"
+            echo "connecté en tant que pilot";
         }
         elseif ($user === 3){
-            echo "connecté en tant qu'etudiant"
+            echo "connecté en tant qu'etudiant";
         }
         else {
-            echo "profil non trouvé..."
+            echo "profil non trouvé...";
         }
 
         return $user;
@@ -312,23 +312,22 @@ class TestController
 
         foreach ($admin as $user) {
             if ($user['id'] == $id && $user['mdp'] == $mdp) {
-                $user = 1;
+                return 1;
             }
         }
 
         foreach ($pilot as $user) {
             if ($user['id'] == $id && $user['mdp'] == $mdp) {
-                $user = 2;
+                return 2;
             }
         }
 
         foreach ($etudiant as $user) {
             if ($user['id'] == $id && $user['mdp'] == $mdp) {
-                $user = 3;
+                return 3;
             }
         }
-
-        return $user;
+        return 0;
     }
 
 
