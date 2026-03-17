@@ -269,25 +269,66 @@ class TestController
 
     public function getUser(){
 
-        $admins = [
-            ["id" => 1, "prenom" => "Alice"],
-            ["id" => 2, "prenom" => "Bob"],
-            ["id" => 3, "prenom" => "Charlie"]
+        $id = $_POST['id'] ?? ;
+        $mdp = $_POST['mdp'] ??;
+
+        $admin = [
+            ["id" => 1, "mdp" => "Alice"],
+            ["id" => 2, "mdp" => "Bob"],
+            ["id" => 3, "mdp" => "Charlie"]
         ];
 
-        $pilotes = [
-            ["id" => 4, "prenom" => "David"],
-            ["id" => 5, "prenom" => "Emma"],
-            ["id" => 6, "prenom" => "Lucas"]
+        $pilots = [
+            ["id" => 4, "mdp" => "David"],
+            ["id" => 5, "mdp" => "Emma"],
+            ["id" => 6, "mdp" => "Lucas"]
         ];
 
-        $etudiants = [
-            ["id" => 7, "prenom" => "Léa"],
-            ["id" => 8, "prenom" => "Noah"],
-            ["id" => 9, "prenom" => "Inès"]
+        $etudiant = [
+            ["id" => 7, "mdp" => "Léa"],
+            ["id" => 8, "mdp" => "Noah"],
+            ["id" => 9, "mdp" => "Inès"]
         ];
 
-        $user = $_GET['user'] ?? '';
+        $this -> user -> rechercheUser($id, $mdp, $admin, $pilot, $etudiant);
+
+        if ($user === 1){
+            echo "connecté en tant qu'admin"
+        }
+        elseif ($user === 2){
+            echo "connecté en tant que pilot"
+        }
+        elseif ($user === 3){
+            echo "connecté en tant qu'etudiant"
+        }
+        else {
+            echo "profil non trouvé..."
+        }
+
+        return $user;
+    }
+
+    public function rechercheUser($id, $mdp, $admin, $pilot, $etudiant){
+
+        foreach ($admin as $user) {
+            if ($user['id'] == $id && $user['mdp'] == $mdp) {
+                $user = 1;
+            }
+        }
+
+        foreach ($pilot as $user) {
+            if ($user['id'] == $id && $user['mdp'] == $mdp) {
+                $user = 2;
+            }
+        }
+
+        foreach ($etudiant as $user) {
+            if ($user['id'] == $id && $user['mdp'] == $mdp) {
+                $user = 3;
+            }
+        }
+
+        return $user;
     }
 
 
