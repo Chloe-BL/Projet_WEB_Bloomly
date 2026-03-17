@@ -5,22 +5,37 @@
 
 {% block body %}
 {{ message | raw}}
+<br>
+{% if user == 'etudiant' %}
     <h1 class="titre">Alternance en cybersécurité - Septembre 2026</h1>
     <h2 class="sous-titre">Entreprise : SecureFlow Systems</h2>
-
+{% else %}
+    <h1 class="titre">Soumettre une évaluation </h1>
+    <h2 class="sous-titre">Entreprise : NexoraTech</h2>
+{% endif %}
     <div class="categ">
         <form method="POST" enctype="multipart/form-data">
+        {% if user == 'etudiant'%}
             <label for="Lettre">Lettre de motivation :</label>
+        {% else %}
+            <label for="Avis">Appréciation : </label>
             <br>
-            <textarea id="Lettre" name="Lettre" placeholder="Pourquoi vous ? Décrivez-vous..." required></textarea>
+        {% endif %}
+            <textarea id="Lettre" name="Lettre" placeholder="Dites nous tout..." required></textarea>
             <br>
 
+        {% if user == 'etudiant' %}
             <label for="cv">Insérer votre CV (2Mo max)</label>
             <br>
             <input type="file" id="cv" class="CV" name="cv" accept=".pdf" required />
             <br>
-
             <input type="submit" class="envoie" value="Je valide ma candidature">
+        {% else %}
+            <p>Notez l'entreprise séléctionnée à l'aide des étoiles ci-dessous :</p>
+            </div>
+
+            <input type="submit" class="envoie" value="Je poste mon évaluation">
+        {% endif %}
         </form>
     </div>
 {% endblock %}
