@@ -208,13 +208,22 @@ class TestController
 
     public function validationConnexion(){
         $connect = $this -> getConnect();
-        $user = $this -> getUser();
+        
+        if (!empty($_POST['id']) && !empty($_POST['mdp'])) { //empty vérifie si les variables sont vides ou inexistantes
+            $user = $this -> getUser(); 
+        } 
+        else {
+            $user = $_GET['user']; 
+        }
+
+
         if ($connect) {
             echo $this -> twig -> render('accueil_user.twig', ['connect' => $connect, 'user' => $user]);
         } 
         else {
-            echo $this -> twig -> render('accueil_user.twig', ['connect' => $connect, 'user' => $user]);
+            echo "erreur";
         }
+        
     }
 
     public function mon_espace(){
@@ -291,19 +300,6 @@ class TestController
         ];
 
         $user = $this -> rechercheUser($id, $mdp, $admin, $pilot, $etudiant);
-
-        if ($user === 1){
-            echo "connecté en tant qu'admin";
-        }
-        elseif ($user === 2){
-            echo "connecté en tant que pilot";
-        }
-        elseif ($user === 3){
-            echo "connecté en tant qu'etudiant";
-        }
-        else {
-            echo "profil non trouvé...";
-        }
 
         return $user;
     }

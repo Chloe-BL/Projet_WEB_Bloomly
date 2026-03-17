@@ -49,7 +49,7 @@
         {% endif %}
     </div>  
     </div>
-    <a class="acc" href="index.php?page=validationConnexion">Retour à l'accueil</a>
+    <a class="acc" href="index.php?page=validationConnexion&connect=oui&user={{user}}">Retour à l'accueil</a>
 
     {# SECTION ENTREPRISES #}
     {% elseif section == 'entreprises' %}
@@ -93,7 +93,7 @@
         {% endif %}
     </div>
     </div>
-    <a class="acc" href="index.php?page=validationConnexion">Retour à l'accueil</a>
+    <a class="acc" href="index.php?page=validationConnexion&connect=oui">Retour à l'accueil</a>
     
     {# SECTION ETUDIANTS #}
     {% elseif section == 'etudiants' %}
@@ -203,7 +203,7 @@
         {% endif %}
     </div>
     </div>
-    <a class="acc" href="index.php?page=validationConnexion">Retour à l'accueil</a>
+    <a class="acc" href="index.php?page=validationConnexion&connect=oui">Retour à l'accueil</a>
 
     {% elseif section == 'wishlist' %}
     <nav class="navbar">

@@ -1,10 +1,10 @@
 {% extends 'layout.twig' %}
 
-{% block title %}Vos Offres{% endblock %}
+{% block title %}Accueil {{user}} {% endblock %}
 
 
 {% block body %}
-{% if user == 'pilot' or user == 'admin' %}
+{% if user == 1 or user == 2 %}
 <br>
 <h1>Bonjour ! Que voulez vous consulter ?</h1>
 
@@ -16,11 +16,11 @@
         </div>
          <div class="card">
             <img src="http://bloomly-static.local/assets/ent.png.png" alt="Illustration ent" class="img-acc-ent">
-            <a class="liens-accueil" href="?page=choix_section&section=entreprises">Vos entreprises</a>
+            <a class="liens-accueil" href="?page=choix_section&section=entreprises&connect=oui">Vos entreprises</a>
             <h2>Consulter vos entreprises et apporter des modifications</h2>
         </div>
         </div>
-{% elseif user == 'etudiant' %}
+{% elseif user == 3 %}
 <br>
 <h1>Bonjour ! Que voulez vous consulter ?</h1>
 
