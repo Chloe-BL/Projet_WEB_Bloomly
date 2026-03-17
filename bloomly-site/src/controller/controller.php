@@ -214,7 +214,7 @@ class TestController
     }
 
     public function mon_espace(){
-        $user = 'admin';
+        $user = 'etudiant';
         $civility = 'Madame';
         $nom = 'Dupont';
         $prenom = 'Jean';

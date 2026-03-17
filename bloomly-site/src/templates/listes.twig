@@ -204,6 +204,75 @@
     </div>
     </div>
     <a class="acc" href="index.php?page=validationConnexion">Retour à l'accueil</a>
+
+    {% elseif section == 'wishlist' and user == 'etudiant' %}
+    <nav class="navbar">
+            <input type="checkbox" id="interrupteur">
+            <label for="interrupteur" class="burger">☰</label>
+
+            <div class="cache">
+                <a href="index.php?page=mon_espace&connect=oui">Mes Espace</a>  
+                <a href=" ">Mon Agenda</a>
+                <a class="active">Ma Wishlist</a>  
+            </div>
+        </nav>
+        <div class="sous-nav"></div>
+
+    
+        <h3 class="police">Consultez les offres que vous avez ajoutées à votre wishlist</h3>
+
+        <div class="liste">
+            <div class="bloc-liste">
+                <img src="http://bloomly-static.local/assets/annonce.png" alt="Image d'une annonce">
+                <p>Alternance en Cybersécurité</p>
+            </div>
+
+            <div class="bloc-liste">
+                <img src="http://bloomly-static.local/assets/annonce.png" alt="Image d'une annonce">
+                <p>Stage de 6 mois en Embarqué</p>
+            </div>
+
+            <div class="bloc-liste">
+                <img src="http://bloomly-static.local/assets/annonce.png" alt="Image d'une annonce">
+                <p>Stage de 3 mois en Datascience</p>
+            </div>
+        </div>
+            
+        <div class="liste">
+            <div class="bloc-liste">
+                <img src="http://bloomly-static.local/assets/annonce.png" alt="Image d'une annonce">
+                <p>Stage de 3 mois en Développement</p>
+            </div>
+
+            <div class="bloc-liste">
+                <img src="http://bloomly-static.local/assets/annonce.png" alt="Image d'une annonce">
+                <p>Stage en Développement Full Stack</p>
+            </div>
+
+            <div class="bloc-liste">
+                <img src="http://bloomly-static.local/assets/annonce.png" alt="Image d'une annonce">
+                <p>Alternance en Systèmes et Réseaux</p>
+            </div>
+        </div>
+
+        <div class="liste">
+            <div class="bloc-liste">
+                <img src="http://bloomly-static.local/assets/annonce.png" alt="Image d'une annonce">
+                <p>Stage en tests intrusion</p>
+            </div>
+
+            <div class="bloc-liste">
+                <img src="http://bloomly-static.local/assets/annonce.png" alt="Image d'une annonce">
+                <p>Stage en Virtualisation</p>
+            </div>
+
+            <div class="bloc-liste">
+                <img src="http://bloomly-static.local/assets/annonce.png" alt="Image d'une annonce">
+                <p>Alternance en Infrastructure IT</p>
+            </div>
+        </div>
+  </body>    
+
     {% endif %}
 
 
