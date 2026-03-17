@@ -29,13 +29,14 @@
             <br>
             <input type="file" id="cv" class="CV" name="cv" accept=".pdf" required />
             <br>
-            <input type="submit" class="envoie" value="Je valide ma candidature">
+            <button type="submit" class="envoie" name = "action" value="etud">Je valide ma candidature </button>
+            </form>
         {% else %}
             <p>Notez l'entreprise séléctionnée à l'aide des étoiles ci-dessous :</p>
             </div>
-
-            <input type="submit" class="envoie" value="Je poste mon évaluation">
+            <button type="submit" class="envoie" name = "action" value="admin_pil">Je poste mon évaluation </button>
+            </form>
         {% endif %}
-        </form>
+       
     </div>
 {% endblock %}
