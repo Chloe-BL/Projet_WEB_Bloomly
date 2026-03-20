@@ -113,7 +113,7 @@ h1 {
 
 .form-box {
     margin-top: 50px;
-    margin-left: 430px;
+    margin: 50px auto;
     width: 600px;
     background-color: white;
     padding: 30px;
@@ -121,6 +121,7 @@ h1 {
     box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
     margin-bottom: 50px;
 }
+
 
 label {
     margin-top: 15px;
@@ -193,4 +194,79 @@ select:focus {
     .search-bar {
         width: 100%;
     }
+}
+/* ============================= */
+/*        PAGE COOKIES           */
+/* ============================= */
+
+.cookie-types {
+    background-color: white;
+    padding: 20px;
+    border-radius: 15px;
+    width: 60%;
+    margin: 20px auto;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
+
+.cookie-types li {
+    margin: 10px 0;
+}
+
+.cookie-preferences {
+    background-color: white;
+    padding: 25px;
+    border-radius: 20px;
+    width: 50%;
+    margin: 30px auto;
+    box-shadow: 0 0 20px rgba(0,0,0,0.15);
+    text-align: left;
+}
+
+.cookie-preferences label {
+    display: block;
+    margin: 10px 0;
+}
+
+.cookie-preferences input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+.cookie-preferences .btn {
+    margin-top: 20px;
+    background-color: #d9d9d9;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.cookie-preferences .btn:hover {
+    background-color: #a6a3a3;
+}
+/* ============================= */
+/*        PAGE A propos          */
+/* ============================= */
+.about-container {
+    padding: 40px;
+}
+
+.about-section {
+    background-color: white;
+    padding: 25px;
+    border-radius: 20px;
+    width: 60%;
+    margin: 20px auto;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
+
+.about-section h2 {
+    margin-bottom: 10px;
+}
+
+.about-section ul {
+    padding-left: 20px;
+}
+
+.about-section li {
+    margin: 8px 0;
 }

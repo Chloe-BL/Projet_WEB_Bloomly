@@ -1,18 +1,42 @@
 {% extends 'layout.twig' %}
 
-{% block title %}A propos de nous{% endblock %}
-
+{% block title %}À propos de nous{% endblock %}
 
 {% block body %}
 
-<main>
+<main class="about-container">
+
     <h1>À propos de nous</h1>
 
-    <p class="p-p">
-        Notre site est une plateforme web dédiée à la recherche et à la gestion des stages. Il centralise les offres proposées par les entreprises et facilite la mise en relation avec les étudiants. Conçu pour offrir une navigation simple et efficace, il permet à chaque utilisateur d’accéder aux fonctionnalités adaptées à son rôle. Cette solution moderne vise à simplifier le processus de recherche de stage tout en garantissant une expérience claire, structurée et professionnelle.
-    </p>
+    <section class="about-section">
+        <h2>Notre mission</h2>
+        <p>
+            Notre site est une plateforme dédiée à la recherche de stages. 
+            Nous aidons les étudiants à trouver des opportunités adaptées 
+            et les entreprises à recruter facilement.
+        </p>
+    </section>
+
+    <section class="about-section">
+        <h2>Ce que nous proposons</h2>
+        <ul>
+            <li>🔎 Recherche simplifiée de stages</li>
+            <li>🏢 Mise en relation avec les entreprises</li>
+            <li>📄 Gestion des candidatures</li>
+            <li>👤 Espace personnel pour chaque utilisateur</li>
+        </ul>
+    </section>
+
+    <section class="about-section">
+        <h2>Notre objectif</h2>
+        <p>
+            Offrir une plateforme moderne, simple et efficace pour 
+            faciliter la recherche de stage et améliorer l’expérience utilisateur.
+        </p>
+    </section>
 
     <div class="image-placeholder"></div>
+
 </main>
 
 {% endblock %}
