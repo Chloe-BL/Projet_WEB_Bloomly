@@ -93,7 +93,7 @@
     {% elseif section == 'etudiants' %}
     <nav class="navbar">
             <a href="index.php?page=mon_espace&connect=oui&user={{user}}">Mon espace</a>
-            {% if user == 'admin' %}
+            {% if user == 1 %}
                 <a href="index.php?page=choix_section&section=pilots&user={{user}}&connect=oui">Comptes Pilotes</a>                
             {% endif %}
             <a class="active">Mes Etudiants</a>
@@ -145,7 +145,7 @@
     {% elseif section == 'pilots' %}
     <nav class="navbar">
             <a href="index.php?page=mon_espace&connect=oui&user={{user}}">Mon espace</a>
-            {% if user == 'admin' %}
+            {% if user == 1 %}
                 <a class="active">Comptes Pilotes</a>              
             {% endif %}
                 <a href="index.php?page=choix_section&section=etudiants&user={{user}}&connect=oui">Mes Etudiants</a>

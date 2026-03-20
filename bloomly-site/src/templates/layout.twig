@@ -35,7 +35,7 @@
                 <nav>
                     {% if connect %}
                         <a class = "mon-espaced" href="index.php?page=accueil&connect=non">Se déconnecter</a>
-                        <a class = "mon-espace" href="index.php?page=mon_espace&connect=oui">Mon espace</a>
+                        <a class = "mon-espace" href="index.php?page=mon_espace&connect=oui&user={{user}}">Mon espace</a>
                     {% else %}
                         <a class = "mon-espaced" href="index.php?page=inscription&connect=non">S'inscrire</a>
                         <a class = "mon-espace" href="index.php?page=connexion&connect=non">Se connecter</a>

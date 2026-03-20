@@ -11,13 +11,13 @@
 
             <div class="cache">
                 <a class="active">Mon Espace</a>
-                {% if user == 'admin' %}
-                    <a href="index.php?page=choix_section&section=pilots&user=admin&connect=oui">Comptes Pilotes</a>                
-                    <a href="index.php?page=choix_section&section=etudiants&user=admin&connect=oui">Mes Etudiants</a>
-                {% elseif user == 'pilot' %}
-                    <a href="index.php?page=choix_section&section=etudiants&user=pilot&connect=oui">Mes Etudiants</a>
+                {% if user == 1 %}
+                    <a href="index.php?page=choix_section&section=pilots&user={{user}}&connect=oui">Comptes Pilotes</a>                
+                    <a href="index.php?page=choix_section&section=etudiants&user={{user}}&connect=oui">Mes Etudiants</a>
+                {% elseif user == 2 %}
+                    <a href="index.php?page=choix_section&section=etudiants&user={{user}}&connect=oui">Mes Etudiants</a>
                 {% else %}
-                    <a href="index.php?page=choix_section&section=wishlist&user=etudiant&connect=oui">Ma Wishlist</a>
+                    <a href="index.php?page=choix_section&section=wishlist&user={{user}}&connect=oui">Ma Wishlist</a>
                     <a href="http://bloomly-site.local/edut_files/etudt_agenda.html">Mon Agenda</a>
                 {% endif %}
             </div>
