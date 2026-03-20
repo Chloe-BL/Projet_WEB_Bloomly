@@ -92,13 +92,18 @@
     {# SECTION ETUDIANTS #}
     {% elseif section == 'etudiants' %}
     <nav class="navbar">
-            <a href="index.php?page=mon_espace&connect=oui&user={{user}}">Mon espace</a>
-            {% if user == 1 %}
+                <input type="checkbox" id="interrupteur">
+                <label for="interrupteur" class="burger">☰</label>
+
+                <div class="cache">
+                    <a href="index.php?page=mon_espace&connect=oui&user={{user}}">Mon espace</a>
+                    {% if user == 1 %}
                 <a href="index.php?page=choix_section&section=pilots&user={{user}}&connect=oui">Comptes Pilotes</a>                
             {% endif %}
-            <a class="active">Mes Etudiants</a>
+            <a class="active">Mes Etudiants</a>   
+                </div>
         </nav>
-        <div class="sous-nav"></div>
+            <div class="sous-nav"></div>
 
         <br>
         <h1 class="police">Consulter vos étudiants</h1>
@@ -143,14 +148,20 @@
 
     {# SECTION PILOTES #}
     {% elseif section == 'pilots' %}
-    <nav class="navbar">
-            <a href="index.php?page=mon_espace&connect=oui&user={{user}}">Mon espace</a>
-            {% if user == 1 %}
-                <a class="active">Comptes Pilotes</a>              
+        <nav class="navbar">
+                <input type="checkbox" id="interrupteur">
+                <label for="interrupteur" class="burger">☰</label>
+
+                <div class="cache">
+                    <a href="index.php?page=mon_espace&connect=oui&user={{user}}">Mon espace</a>
+                    {% if user == 1 %}
+                <a class="active">Comptes Pilotes</a>                 
             {% endif %}
-                <a href="index.php?page=choix_section&section=etudiants&user={{user}}&connect=oui">Mes Etudiants</a>
+             <a href="index.php?page=choix_section&section=etudiants&user={{user}}&connect=oui">Mes Etudiants</a>  
+                </div>
         </nav>
-        <div class="sous-nav"></div>
+            <div class="sous-nav"></div>
+   
 
         <br>
         <h1 class="police">Consulter vos Pilotes</h1>
