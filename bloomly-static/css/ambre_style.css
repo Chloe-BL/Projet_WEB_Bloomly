@@ -239,16 +239,7 @@ textarea {
     margin-bottom: 30px;
 }
 
-.ajout {
-    display: inline-block;
-    padding: 6px 14px;
-    margin-left: 41.5%;
-    background-color: #e1dec4;
-    border-radius: 15px;
-    text-decoration: none;
-    color: #07490a;
-    font-weight: bold;
-}
+
 
 
 /* tester github*/
@@ -341,6 +332,17 @@ textarea {
     margin-left: 120px;
     margin-bottom: 30px;
    }
+
+   .ajout {
+    display: inline-block;
+    padding: 6px 14px;
+    margin-left: 24%;
+    background-color: #e1dec4;
+    border-radius: 15px;
+    text-decoration: none;
+    color: #07490a;
+    font-weight: bold;
+    }
 }
 
 /*Bonjour**/
