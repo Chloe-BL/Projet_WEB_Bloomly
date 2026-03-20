@@ -195,6 +195,10 @@ class TestController
             $this -> liste($offres, $section);
             return;
         }
+        elseif ($section === 'agenda') {
+            $this -> liste($offres, $section);
+            return;
+        }
         else {
             echo "Erreur";
         }

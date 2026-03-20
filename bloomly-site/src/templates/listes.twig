@@ -201,8 +201,8 @@
             <div class="cache">
                 <a href="index.php?page=mon_espace&connect=oui&user={{user}}">Mon Espace</a>  
                 <a class="active">Ma Wishlist</a>  
-                {% if user == 'etudiant' %}
-                <a href="index.php?page=mon_agenda&connect=oui&user={{user}}">Mon Agenda</a>
+                {% if user == 3 %}
+                <a href="index.php?page=choix_section&section=agenda&connect=oui&user={{user}}">Mon Agenda</a>
                 {% endif %}
             </div>
         </nav>
@@ -243,6 +243,55 @@
     </div>
     <a class="acc" href="index.php?page=validationConnexion&connect=oui&user={{user}}">Retour à l'accueil</a>
 
+
+    {% elseif section == 'agenda' %}
+    <nav class="navbar">
+                <input type="checkbox" id="interrupteur">
+                <label for="interrupteur" class="burger">☰</label>
+
+                <div class="cache">
+                    <a href="index.php?page=mon_espace&connect=oui&user={{user}}">Mon Espace</a>           
+                    <a href="index.php?page=choix_section&section=wishlist&user={{user}}&connect=oui">Ma Wishlist</a>
+                    <a class="active">Mon Agenda</a>    
+                </div>
+            </nav>
+            <div class="sous-nav"></div>
+
+            <br>
+            <h3 class="police">Retrouvez ici l'ensemble des offres auxquelles vous avez postulé, leur descritpion et leurs dates de postulation.</h3>
+
+<div class="liste">
+    {% for item in itemsPage %}
+
+        <div class="bloc-petite-liste">
+            <p>{{ item}}</p>
+            <p>Date de candidature : {{date}}</p>
+        </div>
+    {% endfor %}
+
+    <div class="pagination">
+        {% if page > 1 %}
+            <a href="index.php?page=choix_section&section=agenda&user={{user}}&connect=oui&p={{ page - 1 }}">Précédent</a>
+        {% else %} 
+            <span class="disabled">Précédent</span>
+        {% endif %} 
+
+       {% for i in 1..totalPages %}  {# Pour i de 1 à la fin #}
+            {% if i == page %}
+                <span class="active-page"> {{i}}</span>
+            {% else %} 
+                <a href="index.php?page=choix_section&section=agenda&user={{user}}&connect=oui&p={{ i }}"> {{ i }} </a>
+            {% endif %}
+        {% endfor %}
+
+        {% if page < totalPages %}
+            <a href="index.php?page=choix_section&section=agenda&user={{user}}&connect=oui&p={{ page + 1 }}">Suivant</a>
+        {% else %}
+            <span class="disabled">Suivant</span>
+        {% endif %}
+    </div>
+    </div>
+    <a class="acc" href="index.php?page=validationConnexion&connect=oui&user={{user}}">Retour à l'accueil</a>
 
     {% endif %}
 
