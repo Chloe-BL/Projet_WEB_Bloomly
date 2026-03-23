@@ -9,7 +9,7 @@ abstract class BaseController
 
     public function __construct()
     {
-        $loader = new FilesystemLoader(__DIR__ . '/../../templates'); // Indique à Twig où se trouvent les templates
+        $loader = new FilesystemLoader(__DIR__ . '/../templates'); // Indique à Twig où se trouvent les templates
         $this->twig = new Environment($loader); // Crée une instance de l'environnement Twig
     }
 

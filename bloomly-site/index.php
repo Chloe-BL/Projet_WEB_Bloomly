@@ -18,51 +18,47 @@ require_once __DIR__ . '/src/outils/Pagination.php';
 require_once __DIR__ . '/src/outils/Upload.php';
  
 
-$page = $_GET['page'] ?? '/bloomly-site.local/index';
-
-$controller = new TestController();
+$page = $_GET['page'] ?? '/bloomly-site.local/index';                                                                                                   
 
 if ($page === 'accueil') {
-    $controller -> accueil();
+    (new PageController()) -> accueil();
 }
 
 elseif ($page === 'inscription') {
-    $controller -> inscription();
+    (new AuthController()) -> inscription();
 }
 
 elseif ($page === 'connexion') {
-    $controller -> connexion();
+    (new AuthController()) -> connexion();
 }
 
 elseif ($page === 'validationConnexion'){
-    $controller -> validationConnexion();
+    (new AuthController()) -> validationConnexion();
 }
 
 elseif ($page === 'choix_section') {
-    $controller -> choix_section();
+    (new SectionController())  -> choix_section();
 }
 
 elseif ($page === 'mon_espace') {
-    $controller -> mon_espace();
+    (new AuthController()) -> mon_espace();
 }
 
 elseif ($page === 'candidature') {
-    $controller -> candidature();
+    (new CandidatureController())  -> candidature();
 }
 
 elseif ($page === 'a_propos') {
-    $controller -> a_propos();
+    (new PageController()) -> a_propos();
 }
 
 elseif ($page === 'mentions_legales') {
-    $controller -> mentions_legales();
+    (new PageController()) -> mentions_legales();
 }
 
 elseif ($page === 'cookies') {
-    $controller -> cookies();
+    (new PageController()) -> cookies();
 }
-
-
 
 else {
     echo "Page non trouvée";

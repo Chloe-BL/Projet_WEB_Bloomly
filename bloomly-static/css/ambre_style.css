@@ -1,35 +1,34 @@
 h1 {
-    font-family : Century Gothic ;
+    font-family: Century Gothic;
     text-align: center;
 }
 
-body 
-{
+body {
     background-color: #fff0f2;
-    font-family : Century Gothic;
+    font-family: Century Gothic;
 }
 
 .container-flex {
-  display: flex;       
-  gap: 40px;           
-  margin-bottom: 35px;
-  margin-top: 35px;
-  margin-left: 10px;
-  margin-right: 10px;
+    display: flex;
+    gap: 40px;
+    margin-bottom: 35px;
+    margin-top: 35px;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 
 .card {
-  flex: 1;             
-  border: 4px solid #c06c84 ;
-  padding-top: 10px;
-  padding-bottom: 5px;
-  padding-left:15px;
-  padding-right: 15px;
-  text-align: center;
-  flex-direction: column;
-  display: flex;
-  justify-content: flex-end;
+    flex: 1;
+    border: 4px solid #c06c84;
+    padding-top: 10px;
+    padding-bottom: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    text-align: center;
+    flex-direction: column;
+    display: flex;
+    justify-content: flex-end;
 }
 
 .img-acc-off {
@@ -60,7 +59,7 @@ body
 
 
 a:hover {
-    color: #07490a ;
+    color: #07490a;
     font-weight: bold;
 }
 
@@ -74,10 +73,10 @@ a:hover {
 }
 
 .navbar a {
-    color: #999c80; 
+    color: #999c80;
     text-decoration: none;
     font-size: 20px;
-    font-family : Century Gothic ;
+    font-family: Century Gothic;
 }
 
 nav {
@@ -103,19 +102,19 @@ nav {
 }
 
 
-.cadre {       
-  background-color: #e9e0e1;   
-  border-radius: 10px;  
-  padding-top: 10px;
-  padding-bottom: 10px;
-  padding-left:30px;
-  padding-right: 30px;
+.cadre {
+    background-color: #e9e0e1;
+    border-radius: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
 }
 
 .sous-titre {
-  text-decoration: underline;
-  font-weight: 500;
-  margin-left: 40px;
+    text-decoration: underline;
+    font-weight: 500;
+    margin-left: 40px;
 }
 
 .titre {
@@ -124,7 +123,7 @@ nav {
 }
 
 .categ {
-    background-color: #fff0f2; 
+    background-color: #fff0f2;
     padding-left: 60px;
     padding-right: 60px;
     padding-top: 30px;
@@ -136,27 +135,27 @@ h4 {
 }
 
 .haut-offre {
-  display: flex;
-  justify-content: space-between; 
-  align-items: center;            
-  margin-bottom: 20px;
-  margin-right: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    margin-right: 20px;
 }
 
 .actions {
-  display: flex;
-  gap: 10px; 
+    display: flex;
+    gap: 10px;
 }
 
 .bouton {
-  padding: 8px 10px;
-  border-radius: 10px;
-  border: 3px solid #c06c84;
-  background-color: #d9dfb4;
-  font-family: Century Gothic;
-  color: black;
-  text-decoration: none;
-  font-weight: bold;
+    padding: 8px 10px;
+    border-radius: 10px;
+    border: 3px solid #c06c84;
+    background-color: #d9dfb4;
+    font-family: Century Gothic;
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
 }
 
 textarea {
@@ -173,14 +172,14 @@ textarea {
     font-family: Century Gothic;
 }
 
-.envoie{
-    margin-bottom: 40px;  
-    margin-left: 60px;    
-    background-color: #c06c84; 
-    color: #fff0f2; 
-    border: none;          
-    padding: 10px 35px;       
-    border-radius: 3px;      
+.envoie {
+    margin-bottom: 40px;
+    margin-left: 60px;
+    background-color: #c06c84;
+    color: #fff0f2;
+    border: none;
+    padding: 10px 35px;
+    border-radius: 3px;
     font-family: Century Gothic;
     font-size: 15px;
 }
@@ -190,8 +189,8 @@ textarea {
 }
 
 .num {
-    padding : 20px;
-    margin-right : 180px;
+    padding: 20px;
+    margin-right: 180px;
 }
 
 .creer {
@@ -199,7 +198,7 @@ textarea {
 }
 
 
-.recherche-bar-profil{
+.recherche-bar-profil {
     width: 300px;
     height: 35px;
     background: white;
@@ -211,7 +210,7 @@ textarea {
     margin-bottom: 20px;
 }
 
-.recherche-bar-profil input{
+.recherche-bar-profil input {
     border: none;
     outline: none;
     width: 80%;
@@ -219,11 +218,11 @@ textarea {
     justify-content: center;
 }
 
-.loupe{
-  font-size: 18px;
-  opacity: 0.6;
-  margin-right: 10px;
-  margin-left: 10px;
+.loupe {
+    font-size: 18px;
+    opacity: 0.6;
+    margin-right: 10px;
+    margin-left: 10px;
 }
 
 
@@ -239,111 +238,120 @@ textarea {
     margin-bottom: 30px;
 }
 
-
-
-
-/* tester github*/
-@media (max-width: 768px) {
-   .container-flex {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-   }
-
-    .container-flex div {
-        width: 85%;  
-   }
-
-    h1{
-    font-size : 20px;
-   }
-
-    h2{
-        font-size : 17px;
-   }
-
-    .liens-accueil {
-        font-size: 22px;
-   }
-
-    .haut-offre {
-    flex-direction: column;
-    text-align: center;  
-   }
- 
-   .actions {
-    flex-direction: column; 
-    width: 100%;   
-    text-align: center;      
-   }
-
-   .bouton {
-    text-align: center;
-   }
-
-
-   .recherche-bar-profil{
-    width: 300px;
-    height: 35px;
-    background: white;
-    border-radius: 25px;
-    display: flex;
-    align-items: center;
-    margin-left: 53px;
-    margin-top: 25px;
-    margin-bottom: 20px;
-   }
-
-    .recherche-bar-profil input{
-    border: none;
-    outline: none;
-    width: 80%;
-    background: white;
-    justify-content: center;
-   }
-
-    .loupe{
-    font-size: 18px;
-    opacity: 0.6;
-    margin-right: 10px;
-    margin-left: 10px;
-   }
-
-    .img-acc-off {
-    width: 65%;
-    margin-bottom: 30px;
-    margin-left: 65px;
-   }
-
-    .img-acc-ent {
-    width: 45%;
-    margin-bottom: 10px;
-    margin-left: 95px;
-   }
-
-   .acc {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #e1dec4;
-    border-radius: 20px;
-    text-decoration: none;
-    color: #07490a;
-    font-weight: bold;
-    margin-left: 120px;
-    margin-bottom: 30px;
-   }
-
-   .ajout {
+.ajout {
     display: inline-block;
     padding: 6px 14px;
-    margin-left: 24%;
+    margin-left: 41.5%;
     background-color: #e1dec4;
     border-radius: 15px;
     text-decoration: none;
     color: #07490a;
     font-weight: bold;
+}
+
+
+
+/* tester github*/
+@media (max-width: 768px) {
+    .container-flex {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .container-flex div {
+        width: 85%;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+
+    h2 {
+        font-size: 17px;
+    }
+
+    .liens-accueil {
+        font-size: 22px;
+    }
+
+    .haut-offre {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .actions {
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+    }
+
+    .bouton {
+        text-align: center;
+    }
+
+
+    .recherche-bar-profil {
+        width: 300px;
+        height: 35px;
+        background: white;
+        border-radius: 25px;
+        display: flex;
+        align-items: center;
+        margin-left: 53px;
+        margin-top: 25px;
+        margin-bottom: 20px;
+    }
+
+    .recherche-bar-profil input {
+        border: none;
+        outline: none;
+        width: 80%;
+        background: white;
+        justify-content: center;
+    }
+
+    .loupe {
+        font-size: 18px;
+        opacity: 0.6;
+        margin-right: 10px;
+        margin-left: 10px;
+    }
+
+    .img-acc-off {
+        width: 65%;
+        margin-bottom: 30px;
+        margin-left: 65px;
+    }
+
+    .img-acc-ent {
+        width: 45%;
+        margin-bottom: 10px;
+        margin-left: 95px;
+    }
+
+    .acc {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #e1dec4;
+        border-radius: 20px;
+        text-decoration: none;
+        color: #07490a;
+        font-weight: bold;
+        margin-left: 120px;
+        margin-bottom: 30px;
+    }
+
+    .ajout {
+        display: inline-block;
+        padding: 6px 14px;
+        margin-left: 24%;
+        background-color: #e1dec4;
+        border-radius: 15px;
+        text-decoration: none;
+        color: #07490a;
+        font-weight: bold;
     }
 }
 
 /*Bonjour**/
-

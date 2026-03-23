@@ -7,12 +7,12 @@ class PageController extends BaseController
         $this->render('accueil.twig');
     }
  
-    public function aPropos(): void
+    public function a_propos(): void
     {
         $this->render('a_propos.twig');
     }
  
-    public function mentionsLegales(): void
+    public function mentions_legales(): void
     {
         $this->render('mentions_legales.twig');
     }

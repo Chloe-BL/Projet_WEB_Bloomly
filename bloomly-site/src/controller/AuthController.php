@@ -62,7 +62,7 @@ class AuthController extends BaseController
 
     }
  
-    public function monEspace(): void
+    public function mon_espace(): void
 
     {
 

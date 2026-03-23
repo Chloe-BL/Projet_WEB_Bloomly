@@ -10,7 +10,7 @@ class SectionController extends BaseController
         $this->sectionModel = new SectionModel();
     }
 
-    public function choixSection(): void
+    public function choix_section(): void
     {
         $section = $_GET['section'] ?? '';
         $items = $this->sectionModel->getItemsBySection($section);
@@ -30,7 +30,7 @@ class SectionController extends BaseController
 
         $pagination = new Pagination($items, $parPage, $page);
 
-        $this->render('liste.twig', [
+        $this->render('listes.twig', [
             'itemsPage' => $pagination->getItemsPage(),
             'page' => $pagination->getPage(),
             'totalPages' => $pagination->getTotalPages(),
