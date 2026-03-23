@@ -3,7 +3,7 @@
 class SectionModel
 
 {
-    public function getItemsBySection(string $section): ?array{
+    public function getItemsBySection(string $section) {
 
         $entreprises = [
 

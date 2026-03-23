@@ -10,7 +10,7 @@ class SectionController extends BaseController
         $this->sectionModel = new SectionModel();
     }
 
-    public function choix_section(): void
+    public function choix_section()
     {
         $section = $_GET['section'] ?? '';
         $items = $this->sectionModel->getItemsBySection($section);
@@ -23,7 +23,7 @@ class SectionController extends BaseController
         $this->liste($items, $section);
     }
 
-    private function liste(array $items, string $section): void
+    private function liste(array $items, string $section)
     {
         $parPage = 9;
         $page = isset($_GET['p']) ? (int) $_GET['p'] : 1;

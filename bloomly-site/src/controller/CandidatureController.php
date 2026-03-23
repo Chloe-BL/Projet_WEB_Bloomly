@@ -2,7 +2,7 @@
  
 class CandidatureController extends BaseController
 {
-    public function candidature(): void
+    public function candidature()
     {
         $message = "";
         $user = $_GET['user'] ?? '';

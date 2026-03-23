@@ -2,7 +2,7 @@
 
 class ProfileModel
 {
-    public function getProfile(): array
+    public function getProfile()
     {
         return [
             'civility' => 'Madame',

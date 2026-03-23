@@ -2,7 +2,7 @@
 
 class UserModel
 {
-    public function getUser(string $id, string $mdp): int
+    public function getUser(string $id, string $mdp)
     {
         $admin = [
             ["id" => 1, "mdp" => "Alice"],
@@ -25,7 +25,7 @@ class UserModel
         return $this->rechercheUser($id, $mdp, $admin, $pilot, $etudiant);
     }
 
-    private function rechercheUser(string $id, string $mdp, array $admin, array $pilot, array $etudiant): int
+    private function rechercheUser(string $id, string $mdp, array $admin, array $pilot, array $etudiant)
     {
         foreach ($admin as $user) {
             if ($user['id'] == $id && $user['mdp'] == $mdp) {
