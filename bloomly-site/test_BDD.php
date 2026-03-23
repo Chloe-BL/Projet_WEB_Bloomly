@@ -8,4 +8,3 @@ $entreprises = $stmt->fetchAll();
 echo "<pre>";
 print_r($entreprises);
 echo "</pre>";
- 
