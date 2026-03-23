@@ -6,7 +6,7 @@
 {% block body %}
 {{ message | raw}}
 <br>
-{% if user == 'etudiant' %}
+{% if user == 3 %}
     <h1 class="titre">Alternance en cybersécurité - Septembre 2026</h1>
     <h2 class="sous-titre">Entreprise : SecureFlow Systems</h2>
 {% else %}
@@ -15,7 +15,7 @@
 {% endif %}
     <div class="categ">
         <form method="POST" enctype="multipart/form-data">
-        {% if user == 'etudiant'%}
+        {% if user ==   3 %}
             <label for="Lettre">Lettre de motivation :</label>
         {% else %}
             <label for="Avis">Appréciation : </label>
@@ -24,7 +24,7 @@
             <textarea id="Lettre" name="Lettre" placeholder="Dites nous tout..." required></textarea>
             <br>
 
-        {% if user == 'etudiant' %}
+        {% if user ==  3 %}
             <label for="cv">Insérer votre CV (2Mo max)</label>
             <br>
             <input type="file" id="cv" class="CV" name="cv" accept=".pdf" required />
