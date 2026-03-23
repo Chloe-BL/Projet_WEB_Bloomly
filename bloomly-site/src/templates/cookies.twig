@@ -1,20 +1,109 @@
 {% extends 'layout.twig' %}
-
+ 
 {% block title %}Politique des cookies{% endblock %}
-
+ 
 {% block body %}
-
+<main class="about-root">
+ 
+  <!-- Banniere -->
+  <div class="about-hero">
+    <div class="hero-bg-circle"></div>
+    <div class="hero-bg-circle2"></div>
+    <div class="eyebrow">Transparence &amp; confidentialité</div>
+    <h1 class="hero-title">Politique des<br><em>cookies</em></h1>
+    <div class="hero-divider"></div>
+    <p class="hero-desc">
+      Nous utilisons des cookies pour améliorer votre expérience sur notre plateforme. Voici tout ce que vous devez savoir sur leur usage.
+    </p>
+  </div>
+ 
+  <!-- Cartes -->
+  <div class="about-cards">
+ 
+    <div class="about-card">
+      <div class="card-icon icon-green">🍪</div>
+      <div class="card-label">C'est quoi ?</div>
+      <div class="card-title">Qu'est-ce qu'un cookie ?</div>
+      <p class="card-text">
+        Un cookie est un petit fichier texte déposé sur votre appareil lors de votre visite. Il permet au site de mémoriser vos préférences et d'améliorer votre navigation à chaque retour.
+      </p>
+    </div>
+ 
+    <div class="about-card">
+      <div class="card-icon icon-pink">🔒</div>
+      <div class="card-label">Vos droits</div>
+      <div class="card-title">Vous gardez le contrôle</div>
+      <p class="card-text">
+        Vous pouvez à tout moment accepter, refuser ou supprimer les cookies depuis les paramètres de votre navigateur. Votre choix est respecté sans impact sur vos données personnelles.
+      </p>
+    </div>
+ 
+    <div class="about-card card-wide">
+      <div class="card-wide-inner">
+        <div class="card-wide-text">
+          <div class="card-icon icon-sand">📋</div>
+          <div class="card-label">Types de cookies utilisés</div>
+          <div class="card-title">Ce que nous déposons</div>
+          <p class="card-text">
+            Nous utilisons uniquement des cookies essentiels au bon fonctionnement du site. Aucun cookie publicitaire ou de pistage tiers n'est utilisé sans votre consentement explicite.
+          </p>
+          <div class="team-chips">
+            <span class="chip">Essentiels</span>
+            <span class="chip">Session</span>
+            <span class="chip">Préférences</span>
+          </div>
+        </div>
+        <div class="card-wide-visual">
+          <svg viewBox="0 0 200 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Cookie circle -->
+            <circle cx="100" cy="80" r="55" fill="#fff0f2" stroke="#e8a0af" stroke-width="1.5"/>
+            <!-- Chips on cookie -->
+            <circle cx="80"  cy="65"  r="8" fill="#8a4a55" opacity="0.25"/>
+            <circle cx="115" cy="72"  r="6" fill="#afb779" opacity="0.35"/>
+            <circle cx="90"  cy="98"  r="7" fill="#8a4a55" opacity="0.2"/>
+            <circle cx="118" cy="100" r="5" fill="#afb779" opacity="0.3"/>
+            <circle cx="72"  cy="92"  r="5" fill="#c9b8bc" opacity="0.4"/>
+            <!-- Center icon -->
+            <text x="100" y="88" text-anchor="middle" font-size="28">🍪</text>
+            <!-- Orbiting dots -->
+            <circle cx="100" cy="18" r="4" fill="#afb779" opacity="0.5"/>
+            <circle cx="163" cy="55" r="3" fill="#e8a0af" opacity="0.5"/>
+            <circle cx="148" cy="145" r="4" fill="#afb779" opacity="0.4"/>
+            <circle cx="40"  cy="130" r="3" fill="#8a4a55" opacity="0.3"/>
+            <circle cx="30"  cy="55"  r="4" fill="#e1dec4" opacity="0.6"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+ 
+  </div>
+ 
+  <!-- Stats -->
+  <div class="about-stats">
+    <div class="stat-box">
+      <div class="stat-num">0</div>
+      <div class="stat-label">Cookie publicitaire</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-num">3</div>
+      <div class="stat-label">Types utilisés</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-num">100%</div>
+      <div class="stat-label">Sous votre contrôle</div>
+    </div>
+  </div>
 <main>
     <h1>Politique des cookies</h1>
-
+ 
     <section>
         <h2>Qu'est-ce qu'un cookie ?</h2>
         <p class="p-p">
-            Un cookie est un petit fichier stocké sur votre appareil pour améliorer votre expérience sur notre site. 
+            Un cookie est un petit fichier stocké sur votre appareil pour améliorer votre expérience sur notre site.
             Il permet de mémoriser vos préférences et de collecter des informations anonymes sur votre navigation.
         </p>
     </section>
-
+ 
     <section>
         <h2>Types de cookies utilisés</h2>
         <ul class="cookie-types">
@@ -23,7 +112,7 @@
             <li><strong>Marketing :</strong> Permettent de proposer du contenu adapté à vos intérêts.</li>
         </ul>
     </section>
-
+ 
     <section>
         <h2>Gérer vos préférences</h2>
         <p class="p-p">
@@ -42,15 +131,13 @@
             <button type="submit" class="btn">Enregistrer mes choix</button>
         </form>
     </section>
-
+ 
     <section>
         <h2>Pourquoi utilisons-nous des cookies ?</h2>
         <p class="p-p">
             Les cookies nous aident à améliorer notre site, à analyser l'utilisation et à proposer des offres et contenus adaptés à vos besoins.
         </p>
     </section>
-
-    <div class="image-placeholder"></div>
+ 
 </main>
-
 {% endblock %}
