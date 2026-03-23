@@ -13,7 +13,7 @@ require_once __DIR__ . '/src/controller/SectionController.php';
 require_once __DIR__ . '/src/controller/CandidatureController.php';
 require_once __DIR__ . '/src/model/UserModel.php';
 require_once __DIR__ . '/src/model/SectionModel.php';
-require_once __DIR__ . '/src/model/ProfileModel.php';
+require_once __DIR__ . '/src/model/ProfilModel.php';
 require_once __DIR__ . '/src/outils/Pagination.php';
 require_once __DIR__ . '/src/outils/Upload.php';
  
