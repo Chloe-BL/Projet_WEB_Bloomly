@@ -11,12 +11,12 @@ $page = $_GET['page'] ?? '/bloomly-site.local/index';
 
 $controller = new TestController();
 
-if ($page === 'choix_section') {
-    $controller -> choix_section();
+if ($page === 'accueil') {
+    $controller -> accueil();
 }
 
-elseif ($page === 'candidature') {
-    $controller -> candidature();
+elseif ($page === 'inscription') {
+    $controller -> inscription();
 }
 
 elseif ($page === 'connexion') {
@@ -27,8 +27,16 @@ elseif ($page === 'validationConnexion'){
     $controller -> validationConnexion();
 }
 
+elseif ($page === 'choix_section') {
+    $controller -> choix_section();
+}
+
 elseif ($page === 'mon_espace') {
     $controller -> mon_espace();
+}
+
+elseif ($page === 'candidature') {
+    $controller -> candidature();
 }
 
 elseif ($page === 'a_propos') {
@@ -43,13 +51,7 @@ elseif ($page === 'cookies') {
     $controller -> cookies();
 }
 
-elseif ($page === 'inscription') {
-    $controller -> inscription();
-}
 
-elseif ($page === 'accueil') {
-    $controller -> accueil();
-}
 
 else {
     echo "Page non trouvée";
