@@ -1,14 +1,18 @@
 <?php
- 
-require_once 'config/dataBase.php';
 
 class SectionModel
-
 {
+    private $pdo; // Peut-être le changer de classe
+
+    public function __construct()
+    {
+        require_once 'config/dataBase.php';
+        $this -> pdo = $pdo;
+    }
 
     public function getItemsBySection(string $section) {
 
-        $sql = "SELECT * FROM entreprise";
+        $sql = "SELECT nom FROM entreprise";
         $stmt = $this -> pdo -> query($sql);
         $entreprises = $stmt -> fetchAll();
  
