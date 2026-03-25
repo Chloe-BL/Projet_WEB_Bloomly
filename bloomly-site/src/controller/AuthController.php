@@ -14,12 +14,12 @@ class AuthController extends BaseController
         $this->profileModel = new ProfileModel();
     }
  
-    public function connexion(): void
+    public function connexion()
     {
         $this->render('connexion.twig');
     }
  
-    public function validationConnexion(): void
+    public function validationConnexion()
     {
         $connect = $this->getConnect();
         if (!empty($_POST['id']) && !empty($_POST['mdp'])) {
@@ -39,7 +39,7 @@ class AuthController extends BaseController
         }
     }
  
-    public function mon_espace(): void
+    public function mon_espace()
     {
         $user = $_GET['user'] ?? '';
         $profil = $this->profileModel->getProfile();
@@ -55,7 +55,7 @@ class AuthController extends BaseController
         ]);
     }
  
-    public function inscription(): void
+    public function inscription()
     {
         $section = $_GET['section'] ?? '';
         $user = $_GET['user'] ?? '';
