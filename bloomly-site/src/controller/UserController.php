@@ -31,6 +31,7 @@ class UserController extends BaseController
         $connect = $this->getConnect();
         if (!empty($_POST['id']) && !empty($_POST['mdp'])) {
             $user = $this -> userModel -> getUserType($_POST['id'], $_POST['mdp']);
+            
         } else {
             $user = getUser();
         }
