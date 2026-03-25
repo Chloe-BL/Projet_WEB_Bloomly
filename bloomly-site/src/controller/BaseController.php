@@ -13,7 +13,7 @@ abstract class BaseController
         $this->twig = new Environment($loader); // Crée une instance de l'environnement Twig
     }
 
-    protected function render(string $template, array $data = []): void
+    protected function render(string $template, array $data = [])
     {
         if (!isset($data['connect'])) {
             $data['connect'] = $this->getConnect();
