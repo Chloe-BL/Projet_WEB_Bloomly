@@ -32,17 +32,11 @@ class UserModel extends BaseModel
 
     public function getIdUser(string $id, string $mdp)
     {
-        $sql = "SELECT id_utilisateur FROM utilisateur WHERE id_utilisateur = $id AND mot_de_passe = $mdp";
-        $stmt = $this -> pdo -> prepare($sql);
-        $stmt ->execute([$id, $mdp]);
-        $utilisateur = $stmt -> fetch();
-        return $utilisateur['id'];
-    }
+        $sql = "SELECT id_utilisateur FROM utilisateur WHERE id_utilisateur = ? AND mot_de_passe = ?";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([$id, $mdp]);
+        $utilisateur = $stmt->fetch();
 
-    public function Cookie()
-    {
-        $user_actif = getIdUser($_POST['id'], $_POST['mdp']);
-        setcookie("user_id", $user_actif, time()+3600, "/");
-        header("Location : index.php?page=connexion&connect=non");
-        exit;
+        return $utilisateur['id_utilisateur'];
     }
+}

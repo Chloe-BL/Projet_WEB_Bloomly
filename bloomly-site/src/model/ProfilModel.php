@@ -1,20 +1,17 @@
 <?php
+require_once __DIR__ . '/BaseModel.php';
 
-class ProfileModel
+class ProfileModel extends BaseModel
 {
-    public function getProfile()
+    public function getProfile($user_actif)
     {
-        $sql = "SELECT prenom, nom, email, mot_de_passe, telephone, civilite FROM utilisateur WHERE id_utilisateur = $user_actif";
-        $stmt = $this -> pdo -> query($sql);
-        $utilisateur = $stmt -> fetchAll();
-        return $this->rechercheUser($id, $mdp, $utilisateur);
-        return [
-            'civility' => 'Madame',
-            'nom' => 'Dupont',
-            'prenom' => 'Jean',
-            'telephone' => '0123456789',
-            'email' => 'jean.dupont@example.com',
-            'identifiant' => 'jean.dupont'
-        ];
+        $sql = "SELECT prenom, nom, email, telephone, civilite, id_utilisateur
+                FROM utilisateur
+                WHERE id_utilisateur = ?";
+
+        $stmt = $this->pdo->prepare($sql); // Prépare la requête sécurisée
+        $stmt -> execute([$user_actif]); // Injecte l'id utilisateur dans la requête
+
+        return $stmt->fetch();
     }
 }

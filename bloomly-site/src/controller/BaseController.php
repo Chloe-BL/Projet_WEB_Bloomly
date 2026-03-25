@@ -6,7 +6,7 @@ use Twig\Loader\FilesystemLoader; //Charge le loader de Twig
 abstract class BaseController
 {
     protected Environment $twig; // Propriété pour stocker l'environnement Twig
-
+    
     public function __construct()
     {
         $loader = new FilesystemLoader(__DIR__ . '/../templates'); // Indique à Twig où se trouvent les templates

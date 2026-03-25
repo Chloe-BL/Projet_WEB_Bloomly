@@ -29,37 +29,45 @@ class UserController extends BaseController
     public function validationConnexion()
     {
         $connect = $this->getConnect();
+
         if (!empty($_POST['id']) && !empty($_POST['mdp'])) {
-            $user = $this -> userModel -> getUserType($_POST['id'], $_POST['mdp']);
-            
-        } else {
-            $user = getUser();
+            $user = $this->userModel->getUserType($_POST['id'], $_POST['mdp']);
+
+            if ($connect) {
+                $user_actif = $this->userModel->getIdUser($_POST['id'], $_POST['mdp']);
+                setcookie("user_id", $user_actif, time() + 3600, "/"); // stocke l'id dans un cookie (1h)
+            }
+        } 
+        else {
+            $user = $this -> getUser();
         }
 
         if ($connect) {
-            $this->render('accueil_user.twig');
-
-        } else {
+            $this->render('accueil_user.twig', ['user' => $user ]);
+        } 
+        else {
             echo "erreur";
         }
     }
  
     public function mon_espace()
     {
-        $profil = $this -> profileModel -> getProfile();
+        $user_actif = $_COOKIE['user_id'] ?? null; // récupère l'id utilisateur depuis le cookie
+        $profil = $this -> profileModel -> getProfile($user_actif); // récupère les infos du profil en base
+
         $this->render('mon_espace.twig', [
-            'civility' => $profil['civility'],
+            'civilite' => $profil['civilite'],
             'nom' => $profil['nom'],
             'prenom' => $profil['prenom'],
             'telephone' => $profil['telephone'],
             'email' => $profil['email'],
-            'identifiant' => $profil['identifiant'],
+            'identifiant' => $profil['id_utilisateur'],
         ]);
     }
  
     public function inscription()
     {
-        $section = getSection();
+        $section = $this -> getSection();
         $this->render('inscription.twig', [
             'section' => $section,
         ]);

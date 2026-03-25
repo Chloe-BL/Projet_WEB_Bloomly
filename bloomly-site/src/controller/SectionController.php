@@ -12,7 +12,7 @@ class SectionController extends BaseController
 
     public function choix_section()
     {
-        $section = getSection();
+        $section = $this -> getSection();
         $items = $this->sectionModel->getItemsBySection($section);
 
         if ($items === null) {
