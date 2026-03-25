@@ -11,9 +11,11 @@ require_once __DIR__ . '/src/controller/PageController.php';
 require_once __DIR__ . '/src/controller/AuthController.php';
 require_once __DIR__ . '/src/controller/SectionController.php';
 require_once __DIR__ . '/src/controller/CandidatureController.php';
+require_once __DIR__ . '/src/controller/FonctionnaliteController.php';
 require_once __DIR__ . '/src/model/UserModel.php';
 require_once __DIR__ . '/src/model/SectionModel.php';
 require_once __DIR__ . '/src/model/ProfilModel.php';
+require_once __DIR__ . '/src/model/FonctionnaliteModel.php';
 require_once __DIR__ . '/src/outils/Pagination.php';
 require_once __DIR__ . '/src/outils/Upload.php';
  
@@ -49,7 +51,7 @@ elseif ($page === 'candidature') {
 }
 
 elseif ($page === 'ajout') {
-    (new PageController()) -> ajout();
+    (new FonctionnaliteController()) -> ajout();
 }
 
 elseif ($page === 'a_propos') {

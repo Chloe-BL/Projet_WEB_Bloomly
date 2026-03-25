@@ -21,13 +21,4 @@ class PageController extends BaseController
     {
         $this->render('cookies.twig');
     }
-
-    public function ajout()
-    {
-        $section = $this -> getSection();
-
-        $this->render('ajout.twig',[
-        'section' => $section
-        ]);
-    }
 }
