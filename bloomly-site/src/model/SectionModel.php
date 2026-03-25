@@ -11,36 +11,6 @@ class SectionModel
     }
 
     public function getItemsBySection(string $section) {
-
-        $sql = "SELECT nom FROM entreprise";
-        $stmt = $this -> pdo -> query($sql);
-        $entreprises = $stmt -> fetchAll();
- 
-        $offres = [
-            "Stage Développeur Web - NexoraTech",
-            "Stage Data Analyst - SynaptIQ Solutions",
-            "Stage Développeur Backend - TechVortex",
-            "Stage Cybersécurité - SecureFlow Systems",
-            "Stage Data Science - DataNova",
-            "Stage Cloud Computing - CloudBridge",
-            "Stage Développeur Full Stack - InnovaDev",
-            "Stage DevOps - OmniTech",
-            "Stage Développeur Java - Prime Solutions",
-            "Stage Développeur Frontend - LogicBloom",
-            "Stage Sécurité Informatique - CyberNest",
-            "Stage Architecte Cloud - CloudHive",
-            "Stage Intelligence Artificielle - HyperNova",
-            "Stage Développeur Python - IntelliSoft",
-            "Stage Développeur Mobile - NextGen Digital",
-            "Stage Infrastructure IT - Orbit Systems",
-            "Stage Analyste Sécurité - SecureMind",
-            "Stage Développeur PHP - TechRoots",
-            "Stage Développeur Logiciel - VisionCode",
-            "Stage Data Engineer - WaveLogic",
-            "Stage Support IT - ZenIT",
-            "Stage Développeur Node.js - MetaSoft",
-            "Stage Développeur React - Digital Horizon"
-        ];
  
         $etudiants = [
             ["nom" => "Martin", "prenom" => "Lucas"],
@@ -90,10 +60,16 @@ class SectionModel
         ];
  
         if ($section === 'offres') {
+            $sql = "SELECT nom FROM entreprise";
+            $stmt = $this -> pdo -> query($sql);
+            $offres = $stmt -> fetchAll();
             return $offres;
         }
  
         if ($section === 'entreprises') {
+            $sql = "SELECT nom FROM entreprise";
+            $stmt = $this -> pdo -> query($sql);
+            $entreprises = $stmt -> fetchAll();
             return $entreprises;
         }
  
