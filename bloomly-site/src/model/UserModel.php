@@ -4,25 +4,8 @@ class UserModel
 {
     public function getUser(string $id, string $mdp)
     {
-        $admin = [
-            ["id" => 1, "mdp" => "Alice"],
-            ["id" => 2, "mdp" => "Bob"],
-            ["id" => 3, "mdp" => "Charlie"]
-        ];
-
-        $pilot = [
-            ["id" => 4, "mdp" => "David"],
-            ["id" => 5, "mdp" => "Emma"],
-            ["id" => 6, "mdp" => "Lucas"]
-        ];
-
-        $etudiant = [
-            ["id" => 7, "mdp" => "Léa"],
-            ["id" => 8, "mdp" => "Noah"],
-            ["id" => 9, "mdp" => "Inès"]
-        ];
-
-        return $this->rechercheUser($id, $mdp, $admin, $pilot, $etudiant);
+        
+        return $this->rechercheUser($id, $mdp, $utilisateur);
     }
 
     private function rechercheUser(string $id, string $mdp, array $admin, array $pilot, array $etudiant)
