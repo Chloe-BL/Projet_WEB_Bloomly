@@ -24,14 +24,10 @@ class PageController extends BaseController
 
     public function ajout()
     {
-        $section = $_GET['section'] ?? null;
-        $user = $_GET['user'] ?? null;
-        $connect = $this->getConnect();
+        $section = $_GET['section'] ?? null ;
 
-        if ($section && $user && $connect) {
-            $this->render('ajout.twig', ['section' => $section, 'user' => $user, 'connect' => $connect]);
-        } else {        
-            echo "Paramètres manquants pour l'ajout.";
-        }
+        $this->render('ajout.twig',[
+        'section' => $section
+        ]);
     }
 }
