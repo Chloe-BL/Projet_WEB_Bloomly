@@ -3,7 +3,7 @@ require_once __DIR__ . '/BaseModel.php';
 
 class UserModel extends BaseModel
 {
-    public function getUser(string $id, string $mdp)
+    public function getUserType(string $id, string $mdp)
     {
         $sql = "SELECT id_utilisateur, mot_de_passe, id_role FROM utilisateur";
         $stmt = $this -> pdo -> query($sql);

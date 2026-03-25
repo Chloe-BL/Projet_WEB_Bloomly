@@ -12,7 +12,7 @@ class SectionController extends BaseController
 
     public function choix_section()
     {
-        $section = $_GET['section'] ?? '';
+        $section = getSection();
         $items = $this->sectionModel->getItemsBySection($section);
 
         if ($items === null) {
@@ -35,8 +35,6 @@ class SectionController extends BaseController
             'page' => $pagination->getPage(),
             'totalPages' => $pagination->getTotalPages(),
             'section' => $section,
-            'user' => $_GET['user'] ?? '',
-            'connect' => $this->getConnect(),
             'date' => date('d/m/Y')
         ]);
     }

@@ -30,16 +30,13 @@ class UserController extends BaseController
     {
         $connect = $this->getConnect();
         if (!empty($_POST['id']) && !empty($_POST['mdp'])) {
-            $user = $this -> userModel -> getUser($_POST['id'], $_POST['mdp']);
+            $user = $this -> userModel -> getUserType($_POST['id'], $_POST['mdp']);
         } else {
-            $user = $_GET['user'] ?? 0;
+            $user = getUser();
         }
 
         if ($connect) {
-            $this->render('accueil_user.twig', [
-                'connect' => $connect,
-                'user' => $user
-            ]);
+            $this->render('accueil_user.twig');
 
         } else {
             echo "erreur";
@@ -48,34 +45,22 @@ class UserController extends BaseController
  
     public function mon_espace()
     {
-        $sql = "SELECT id_utilisateur, mot_de_passe, id_role FROM utilisateur";
-        $stmt = $this -> pdo -> query($sql);
-        $utilisateur = $stmt -> fetchAll();
-        return $this->rechercheUser($id, $mdp, $utilisateur);
-        
-        $user = $_GET['user'] ?? '';
-        $profil = $this->profileModel->getProfile();
+        $profil = $this -> profileModel -> getProfile();
         $this->render('mon_espace.twig', [
-            'user' => $user,
             'civility' => $profil['civility'],
             'nom' => $profil['nom'],
             'prenom' => $profil['prenom'],
             'telephone' => $profil['telephone'],
             'email' => $profil['email'],
             'identifiant' => $profil['identifiant'],
-            'connect' => $this->getConnect()
         ]);
     }
  
     public function inscription()
     {
-        $section = $_GET['section'] ?? '';
-        $user = $_GET['user'] ?? '';
-        $connect = $this->getConnect();
+        $section = getSection();
         $this->render('inscription.twig', [
             'section' => $section,
-            'user' => $user,
-            'connect' => $connect
         ]);
     }
 }

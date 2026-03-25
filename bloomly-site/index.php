@@ -6,6 +6,7 @@ ini_set('display_errors', 1);
 
 
 require_once __DIR__ . '/vendor/autoload.php'; // Chargement de l'autoload de Composer pour Twig et autres dépendances
+
 require_once __DIR__ . '/src/controller/BaseController.php';
 require_once __DIR__ . '/src/controller/PageController.php';
 require_once __DIR__ . '/src/controller/UserController.php';
