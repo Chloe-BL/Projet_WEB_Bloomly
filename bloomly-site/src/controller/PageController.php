@@ -24,7 +24,7 @@ class PageController extends BaseController
 
     public function ajout()
     {
-        $section = $_GET['section'] ?? null ;
+        $section = $this -> getSection();
 
         $this->render('ajout.twig',[
         'section' => $section

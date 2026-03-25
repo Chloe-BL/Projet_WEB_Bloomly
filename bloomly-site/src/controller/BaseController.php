@@ -26,13 +26,19 @@ abstract class BaseController
         echo $this->twig->render($template, $data);
     }
 
-    protected function getConnect(): bool
+    protected function getConnect()
     {
         return isset($_GET['connect']) && $_GET['connect'] === 'oui';
     }
 
-    protected function getUser(): string
+    protected function getUser()
     {
         return $_GET['user'] ?? '';
     }
+
+    protected function getSection()
+    {
+        return $_GET['section'] ?? '';
+    }
+
 }
