@@ -249,6 +249,13 @@ textarea {
     font-weight: bold;
 }
 
+.body_ecart {
+    margin-top: 30px;
+    margin-left: 60px;
+    margin-right: 60px;
+    margin-bottom: 30px;
+}
+
 
 
 /* tester github*/

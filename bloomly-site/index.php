@@ -48,6 +48,10 @@ elseif ($page === 'candidature') {
     (new CandidatureController())  -> candidature();
 }
 
+elseif ($page === 'ajout') {
+    (new PageController()) -> ajout();
+}
+
 elseif ($page === 'a_propos') {
     (new PageController()) -> a_propos();
 }
