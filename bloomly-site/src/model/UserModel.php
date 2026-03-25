@@ -29,4 +29,20 @@ class UserModel extends BaseModel
         }
         return 0;
     }
-}
+
+    public function getIdUser(string $id, string $mdp)
+    {
+        $sql = "SELECT id_utilisateur FROM utilisateur WHERE id_utilisateur = $id AND mot_de_passe = $mdp";
+        $stmt = $this -> pdo -> prepare($sql);
+        $stmt ->execute([$id, $mdp]);
+        $utilisateur = $stmt -> fetch();
+        return $utilisateur['id'];
+    }
+
+    public function Cookie()
+    {
+        $user_actif = getIdUser($_POST['id'], $_POST['mdp']);
+        setcookie("user_id", $user_actif, time()+3600, "/");
+        header("Location : index.php?page=connexion&connect=non");
+        exit;
+    }
