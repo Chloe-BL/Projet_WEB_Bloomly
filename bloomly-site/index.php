@@ -43,7 +43,7 @@ elseif ($page === 'choix_section') {
 }
 
 elseif ($page === 'mon_espace') {
-    (new AuthController()) -> mon_espace();
+    (new UserController()) -> mon_espace();
 }
 
 elseif ($page === 'candidature') {
