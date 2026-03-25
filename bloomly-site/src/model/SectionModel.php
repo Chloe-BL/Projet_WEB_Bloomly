@@ -76,10 +76,16 @@ class SectionModel extends BaseModel
         }
  
         if ($section === 'wishlist') {
+            $sql = "SELECT titre FROM offres";
+            $stmt = $this -> pdo -> query($sql);
+            $offres = $stmt -> fetchAll();
             return $offres;
         }
  
         if ($section === 'agenda') {
+            $sql = "SELECT titre FROM offres";
+            $stmt = $this -> pdo -> query($sql);
+            $offres = $stmt -> fetchAll();
             return $offres;
         }
  

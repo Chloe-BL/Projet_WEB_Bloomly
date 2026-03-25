@@ -8,7 +8,7 @@ ini_set('display_errors', 1);
 require_once __DIR__ . '/vendor/autoload.php'; // Chargement de l'autoload de Composer pour Twig et autres dépendances
 require_once __DIR__ . '/src/controller/BaseController.php';
 require_once __DIR__ . '/src/controller/PageController.php';
-require_once __DIR__ . '/src/controller/AuthController.php';
+require_once __DIR__ . '/src/controller/UserController.php';
 require_once __DIR__ . '/src/controller/SectionController.php';
 require_once __DIR__ . '/src/controller/CandidatureController.php';
 require_once __DIR__ . '/src/controller/FonctionnaliteController.php';
@@ -27,15 +27,15 @@ if ($page === 'accueil') {
 }
 
 elseif ($page === 'inscription') {
-    (new AuthController()) -> inscription();
+    (new UserController()) -> inscription();
 }
 
 elseif ($page === 'connexion') {
-    (new AuthController()) -> connexion();
+    (new UserController()) -> connexion();
 }
 
 elseif ($page === 'validationConnexion'){
-    (new AuthController()) -> validationConnexion();
+    (new UserController()) -> validationConnexion();
 }
 
 elseif ($page === 'choix_section') {

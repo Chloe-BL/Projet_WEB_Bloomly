@@ -41,6 +41,11 @@ class AuthController extends BaseController
  
     public function mon_espace()
     {
+        $sql = "SELECT id_utilisateur, mot_de_passe, id_role FROM utilisateur";
+        $stmt = $this -> pdo -> query($sql);
+        $utilisateur = $stmt -> fetchAll();
+        return $this->rechercheUser($id, $mdp, $utilisateur);
+        
         $user = $_GET['user'] ?? '';
         $profil = $this->profileModel->getProfile();
         $this->render('mon_espace.twig', [

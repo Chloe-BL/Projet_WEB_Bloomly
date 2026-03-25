@@ -228,7 +228,7 @@
 
         <div class="bloc-liste">
             <img src="http://bloomly-static.local/assets/annonce.png" alt="Image d'une annonce">
-            <p>{{ item}}</p>
+            <p>{{ item.titre}}</p>
         </div>
     {% endfor %}
 
@@ -277,7 +277,7 @@
     {% for item in itemsPage %}
 
         <div class="bloc-petite-liste">
-            <p>{{ item}}</p>
+            <p>{{ item.titre}}</p>
             <p>Date de candidature : {{date}}</p>
         </div>
     {% endfor %}

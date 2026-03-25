@@ -1,33 +1,32 @@
 <?php
+require_once __DIR__ . '/BaseModel.php';
 
-class UserModel 
+class UserModel extends BaseModel
 {
     public function getUser(string $id, string $mdp)
     {
-        
+        $sql = "SELECT id_utilisateur, mot_de_passe, id_role FROM utilisateur";
+        $stmt = $this -> pdo -> query($sql);
+        $utilisateur = $stmt -> fetchAll();
         return $this->rechercheUser($id, $mdp, $utilisateur);
     }
 
-    private function rechercheUser(string $id, string $mdp, array $admin, array $pilot, array $etudiant)
+    private function rechercheUser(string $id, string $mdp, array $utilisateur)
     {
-        foreach ($admin as $user) {
-            if ($user['id'] == $id && $user['mdp'] == $mdp) {
+        foreach ($utilisateur as $user) {
+            if ($user['id_utilisateur'] == $id && $user['mot_de_passe'] == $mdp &&  $user['id_role'] == 1) {
                 return 1;
             }
-        }
 
-        foreach ($pilot as $user) {
-            if ($user['id'] == $id && $user['mdp'] == $mdp) {
+            elseif($user['id_utilisateur'] == $id && $user['mot_de_passe'] == $mdp &&  $user['id_role'] == 2) {
                 return 2;
             }
-        }
-
-        foreach ($etudiant as $user) {
-            if ($user['id'] == $id && $user['mdp'] == $mdp) {
+            
+            elseif($user['id_utilisateur'] == $id && $user['mot_de_passe'] == $mdp &&  $user['id_role'] == 3) {
                 return 3;
             }
-        }
 
+        }
         return 0;
     }
 }
