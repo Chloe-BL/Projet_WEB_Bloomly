@@ -1,15 +1,9 @@
 <?php
 
-class SectionModel
+require_once __DIR__ . '/BaseModel.php';
+
+class SectionModel extends BaseModel
 {
-    private $pdo; // Peut-être le changer de classe
-
-    public function __construct()
-    {
-        require_once 'config/dataBase.php';
-        $this -> pdo = $pdo;
-    }
-
     public function getItemsBySection(string $section) {
  
         $etudiants = [
@@ -60,7 +54,7 @@ class SectionModel
         ];
  
         if ($section === 'offres') {
-            $sql = "SELECT nom FROM entreprise";
+            $sql = "SELECT titre FROM offres";
             $stmt = $this -> pdo -> query($sql);
             $offres = $stmt -> fetchAll();
             return $offres;

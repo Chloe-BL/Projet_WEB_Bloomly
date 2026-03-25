@@ -1,6 +1,6 @@
 <?php
 
-class UserModel
+class UserModel 
 {
     public function getUser(string $id, string $mdp)
     {
