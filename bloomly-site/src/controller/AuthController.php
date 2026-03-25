@@ -23,7 +23,7 @@ class AuthController extends BaseController
     {
         $connect = $this->getConnect();
         if (!empty($_POST['id']) && !empty($_POST['mdp'])) {
-            $user = $this->userModel->getUser($_POST['id'], $_POST['mdp']);
+            $user = $this -> userModel -> getUser($_POST['id'], $_POST['mdp']);
         } else {
             $user = $_GET['user'] ?? 0;
         }
