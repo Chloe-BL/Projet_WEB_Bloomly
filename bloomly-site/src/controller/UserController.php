@@ -1,15 +1,22 @@
 <?php
- 
-class AuthController extends BaseController
+
+use Twig\Environment; //Charge l'environnement de Twig
+use Twig\Loader\FilesystemLoader; //Charge le loader de Twig
+
+class UserController extends BaseController
 
 {
-
+    protected Environment $twig;
     private UserModel $userModel;
     private ProfileModel $profileModel;
     public function __construct()
     
     {
-        parent::__construct();
+        // on réecrit le constructeur de la classe mère
+        $loader = new FilesystemLoader(__DIR__ . '/../templates'); // Indique à Twig où se trouvent les templates
+        $this->twig = new Environment($loader);
+
+        // nouveau constructeur
         $this->userModel = new UserModel();
         $this->profileModel = new ProfileModel();
     }
