@@ -1,35 +1,16 @@
 <?php
  
+require_once 'config/dataBase.php';
+
 class SectionModel
 
 {
+
     public function getItemsBySection(string $section) {
 
-        $entreprises = [
-            "NexoraTech",
-            "SynaptIQ Solutions",
-            "TechVortex",
-            "SecureFlow Systems",
-            "DataNova",
-            "CloudBridge",
-            "InnovaDev",
-            "OmniTech",
-            "Prime Solutions",
-            "LogicBloom",
-            "CyberNest",
-            "CloudHive",
-            "HyperNova",
-            "IntelliSoft",
-            "NextGen Digital",
-            "Orbit Systems",
-            "SecureMind",
-            "TechRoots",
-            "VisionCode",
-            "WaveLogic",
-            "ZenIT",
-            "MetaSoft",
-            "Digital Horizon"
-        ];
+        $sql = "SELECT * FROM entreprise";
+        $stmt = $this -> pdo -> query($sql);
+        $entreprises = $stmt -> fetchAll();
  
         $offres = [
             "Stage Développeur Web - NexoraTech",
