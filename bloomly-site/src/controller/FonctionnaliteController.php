@@ -21,7 +21,7 @@ class FonctionnaliteController extends BaseController
         $this->profileModel = new ProfileModel();
         $this->fonctionModel = new FonctionnaliteModel();
     }
-    public function ajout()
+    public function ajout_ent()
     {
         $section = $this -> getSection();
 
@@ -30,17 +30,54 @@ class FonctionnaliteController extends BaseController
         ]);
     }
 
-    public function ValidationAjout(){
+    public function ValidationAjout_ent(){
 
         $connect = $this->getConnect();
         $user = $this->getUser();
         $section = $this -> getSection();
 
-        $params = $this -> fonctionModel -> ajout_BDD($_POST['nom'], 
+        $params = $this -> fonctionModel -> ajout_BDD_ent($_POST['nom'], 
                                                       $_POST['description'], 
                                                       $_POST['email_contact'], 
                                                       $_POST['telephone_contact'], 
                                                       $_POST['adresse']);
+        if ($connect) {
+            $this->render('listes.twig', ['section' => $section ]);
+        } 
+        else {
+            echo "erreur";
+        }
+
+        header("Location: index.php?page=choix_section&section=" . urlencode($section) . "&connect=oui&user=" . urlencode($user));
+
+            exit;
+    }
+
+    public function ajout_off()
+    {
+        $section = $this -> getSection();
+
+        $this->render('ajout.twig',[
+        'section' => $section
+        ]);
+    }
+
+    public function ValidationAjout_off(){
+
+        $connect = $this->getConnect();
+        $user = $this->getUser();
+        $section = $this -> getSection();
+
+        $params = $this -> fonctionModel -> ajout_BDD_off($_POST['titre'],  
+                                                      $_POST['description'], 
+                                                      $_POST['formation'], 
+                                                      $_POST['softskills'], 
+                                                      $_POST['competence'], 
+                                                      $_POST['date_debut'], 
+                                                      $_POST['duree'], 
+                                                      $_POST['lieu'], 
+                                                      $_POST['salaire'], 
+                                                      $_POST['date_pub']);
         if ($connect) {
             $this->render('listes.twig', ['section' => $section ]);
         } 

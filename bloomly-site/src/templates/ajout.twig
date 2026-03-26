@@ -9,7 +9,7 @@
         <h2>Ajouter une entreprise !</h2><br>
         <p> Entrez les informations, nous vous confirmerons l'ajout de l'entreprise par email.</p>
 
-        <form method="post" action="index.php?page=ValidationAjout&section=entreprises&connect=oui&user={{user}}">
+        <form method="post" action="index.php?page=ValidationAjout_ent&section=entreprises&connect=oui&user={{user}}">
             <div style="display:inline-block;"> <!-- Pour mettre les bloc à côté de l'image -->
 
 
@@ -34,7 +34,7 @@
 
 
                 </div>
-                <button type="submit" class="ajout" name = "form_action" value="ajj_ent">Ajouter</button>
+                <button type="submit" name = "form_action" value="ajj_ent">Ajouter</button>
                 </form>
                 </div>
                 
@@ -44,19 +44,19 @@
         <h2>Ajouter une offre !</h2><br>
         <p> Entrez les informations, nous vous confirmerons l'ajout de l'entreprise par email.</p>
 
-        <form method="POST" enctype="mutipart/form-data">
+        <form method="post" action="index.php?page=ValidationAjout_off&section=offres&connect=oui&user={{user}}">
             <div style="display:inline-block;"> <!-- Pour mettre les bloc à côté de l'image -->
 
 
                         <label for ="titre">Titre de l'offre</label>
                         <input type = "text" name="titre" required>
 
-                   
+                   <!--
                         <label for="nom">Nom de l'entreprise</label>
                         <input type = "text" name="nom" required>
 
-                        <label for="presentation">Présentation de l'entreprise</label>
-                        <input type = "text" name="presentation" required>
+                        <label for="description">Présentation de l'entreprise</label>
+                        <input type = "text" name="description" required>  -->
 
                         <h2>Description</h2><br>
                         <label for="description"></label>
@@ -66,15 +66,15 @@
                         <label for="formation">Formation</label>
                         <input type = "text" name="formation" required>
 
-                        <label for="savoir">Savoir</label>
-                        <input type = "text" name="savoir" required>
+                        <label for="softskills">Savoir</label>
+                        <input type = "text" name="softskills" required>
 
                         <label for="competence">Compétences</label>
                         <input type = "text" name="competence" required>
 
                         <h2>Modalités et informations clés</h2><br>                       
-                        <label for="date">Date de début</label>
-                        <input type = "text" name="date" required>   
+                        <label for="date_debut">Date de début</label>
+                        <input type = "text" name="date_debut" required>   
 
                         <label for="duree">Durée</label>
                         <input type = "text" name="duree" required>   
@@ -82,12 +82,15 @@
                         <label for="lieu">Lieu</label>
                         <input type = "text" name="lieu" required>   
 
-                        <label for="remuneration">Rémunération</label>
-                        <input type = "text" name="remuneration" required>     
+                        <label for="salaire">Rémunération</label>
+                        <input type = "text" name="salaire" required>     
 
-                        <label for="date">Date</label>
-                        <input type = "text" name="date" required>                 
+                        <label for="date_pub">Date</label>
+                        <input type = "text" name="date_pub" required>                 
+                
                 </div>
+                <button type="submit" class="ajout" name = "form_action" value="ajj_off">Ajouter</button>
+                </form>
                 </div>
 {% endif %}
 

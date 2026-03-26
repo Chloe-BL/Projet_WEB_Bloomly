@@ -51,12 +51,20 @@ elseif ($page === 'candidature') {
     (new CandidatureController())  -> candidature();
 }
 
-elseif ($page === 'ajout') {
-    (new FonctionnaliteController()) -> ajout();
+elseif ($page === 'ajout_ent') {
+    (new FonctionnaliteController()) -> ajout_ent();
 }
 
-elseif ($page === 'ValidationAjout'){
-    (new FonctionnaliteController()) -> ValidationAjout();
+elseif ($page === 'ajout_off') {
+    (new FonctionnaliteController()) -> ajout_off();
+}
+
+elseif ($page === 'ValidationAjout_ent'){
+    (new FonctionnaliteController()) -> ValidationAjout_ent();
+}
+
+elseif ($page === 'ValidationAjout_off'){
+    (new FonctionnaliteController()) -> ValidationAjout_off();
 }
 
 elseif ($page === 'a_propos') {

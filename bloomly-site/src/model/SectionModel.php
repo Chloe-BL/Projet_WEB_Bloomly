@@ -54,8 +54,10 @@ class SectionModel extends BaseModel
         ];
  
         if ($section === 'offres') {
-            $sql = "SELECT titre FROM offres";
-            $stmt = $this -> pdo -> query($sql);
+            $user_actif = $_COOKIE['user_id'] ?? null;
+            $sql = "SELECT titre FROM offres WHERE id_createur = ?";
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->execute([$user_actif]);
             $offres = $stmt -> fetchAll();
             return $offres;
         }
