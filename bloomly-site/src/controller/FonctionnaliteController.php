@@ -8,6 +8,7 @@ class FonctionnaliteController extends BaseController
 
     private UserModel $userModel;
     private ProfileModel $profileModel;
+    private FonctionnaliteModel $fonctionModel;
     public function __construct()
     
     {
@@ -18,6 +19,7 @@ class FonctionnaliteController extends BaseController
         // nouveau constructeur
         $this->userModel = new UserModel();
         $this->profileModel = new ProfileModel();
+        $this->fonctionModel = new FonctionnaliteModel();
     }
     public function ajout()
     {
@@ -32,14 +34,12 @@ class FonctionnaliteController extends BaseController
 
         $connect = $this->getConnect();
         $section = $this -> getSection();
-        $user_actif = $_COOKIE['user_id'] ?? null;
 
-        $params = $this -> userModel -> ajout_BDD($_POST['id_entreprise'], 
-                                                  $_POST['nom'], 
-                                                  $_POST['description'], 
-                                                  $_POST['email_contact'], 
-                                                  $_POST['telephone_contact'], 
-                                                  $_POST['adresse'], $user_actif);
+        $params = $this -> fonctionModel -> ajout_BDD($_POST['nom'], 
+                                                      $_POST['description'], 
+                                                      $_POST['email_contact'], 
+                                                      $_POST['telephone_contact'], 
+                                                      $_POST['adresse']);
         if ($connect) {
             $this->render('listes.twig', ['section' => $section ]);
         } 

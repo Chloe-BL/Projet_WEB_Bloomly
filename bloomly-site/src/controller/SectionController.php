@@ -20,7 +20,11 @@ class SectionController extends BaseController
             return;
         }
 
-        $this->liste($items, $section);
+        if ($section == 'entreprises') {
+            $items = $this->fonctionModel->afficheEntreprise();
+        }
+
+        return liste($items, $section);
     }
 
     private function liste(array $items, string $section)
