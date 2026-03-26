@@ -15,13 +15,4 @@ class FonctionnaliteModel extends BaseModel
         $stmt->execute([$nom, $description, $email_contact, $telephone_contact, $adresse, $user_actif]);
     }
 
-    public function afficheEntreprise(){
-        $user_actif = $_COOKIE['user_id'] ?? null;
-        $sql = "SELECT nom FROM entreprises WHERE id_createur = ?";
-
-        $stmt = $this->pdo->prepare($sql);
-        $stmt->execute([$user_actif]);
-
-        return $stmt->fetchAll();
-    }
 }

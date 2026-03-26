@@ -61,8 +61,10 @@ class SectionModel extends BaseModel
         }
  
         if ($section === 'entreprises') {
-            $sql = "SELECT nom FROM entreprise";
-            $stmt = $this -> pdo -> query($sql);
+            $user_actif = $_COOKIE['user_id'] ?? null;
+            $sql = "SELECT nom FROM entreprises WHERE id_createur = ?";
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->execute([$user_actif]);
             $entreprises = $stmt -> fetchAll();
             return $entreprises;
         }
