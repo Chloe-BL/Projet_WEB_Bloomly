@@ -55,6 +55,10 @@ elseif ($page === 'ajout') {
     (new FonctionnaliteController()) -> ajout();
 }
 
+elseif ($page === 'ValidationAjout'){
+    (new FonctionnalitController()) -> ValidationAjout();
+}
+
 elseif ($page === 'a_propos') {
     (new PageController()) -> a_propos();
 }
