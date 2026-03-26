@@ -32,7 +32,7 @@
         {% endif %} 
 
 
-       {% for i in 1..totalPages %}  {# Pour i de 1 à la fin #}
+       {% for i in 1..totalPages|default(1) %}  {# Pour i de 1 à la fin modifier pour bdd!!!#}
             {% if i == page %}
                 <span class="active-page"> {{i}}</span>
             {% else %} 
@@ -131,7 +131,7 @@
         {% endif %} 
 
 
-       {% for i in 1..totalPages %}  {# Pour i de 1 à la fin #}
+       {% for i in 1..totalPages|default(1) %}  {# Pour i de 1 à la fin Pour i de 1 à la fin modifier pour bdd!!#}
             {% if i == page %}
                 <span class="active-page"> {{i}}</span>
             {% else %} 
@@ -189,7 +189,7 @@
         {% endif %} 
 
 
-       {% for i in 1..totalPages %}  {# Pour i de 1 à la fin #}
+       {% for i in 1..totalPages|default(1) %}  {# Pour i de 1 à la fin Pour i de 1 à la fin modifier pour bdd!!#}
             {% if i == page %}
                 <span class="active-page"> {{i}}</span>
             {% else %} 
@@ -239,7 +239,7 @@
             <span class="disabled">Précédent</span>
         {% endif %} 
 
-       {% for i in 1..totalPages %}  {# Pour i de 1 à la fin #}
+       {% for i in 1..totalPages|default(1) %}  {# Pour i de 1 à la fin modifier pour bdd!!#}
             {% if i == page %}
                 <span class="active-page"> {{i}}</span>
             {% else %} 
