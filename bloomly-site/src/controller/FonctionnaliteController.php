@@ -33,6 +33,7 @@ class FonctionnaliteController extends BaseController
     public function ValidationAjout(){
 
         $connect = $this->getConnect();
+        $user = $this->getUser();
         $section = $this -> getSection();
 
         $params = $this -> fonctionModel -> ajout_BDD($_POST['nom'], 

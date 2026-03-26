@@ -74,7 +74,7 @@
         {% endif %} 
 
 
-       {% for i in 1..totalPages %}  {# Pour i de 1 à la fin #}
+       {% for i in 1..totalPages|default(1) %}  {# Pour i de 1 à la fin #}
             {% if i == page %}
                 <span class="active-page"> {{i}}</span>
             {% else %} 
