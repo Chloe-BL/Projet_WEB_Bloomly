@@ -13,7 +13,7 @@ class FonctionnaliteModel extends BaseModel
     }
 
 
-    public function ajout_BDD_off(string $titre, string $description, string $formation, string $softskills, string $competences, string $date_debut, string $duree, string $lieu, string $salaire, string $date_pub, $id_entreprise){
+    public function ajout_BDD_off(string $titre, string $description, string $formation, string $softskills, string $competences, string $date_debut, string $duree, string $lieu, string $salaire, string $date_pub,string $id_entreprise){
         $user_actif = $_COOKIE['user_id'] ?? null;
         $section = $_GET['section'] ?? null;
         $sql = "INSERT INTO $section (titre, description, formation, softskills, competences, date_debut, duree, lieu, salaire, date_pub, id_createur, id_entreprise) 
