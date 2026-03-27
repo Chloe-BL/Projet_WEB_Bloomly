@@ -57,5 +57,12 @@ class FonctionnaliteModel extends BaseModel
         return $stmt->execute([$user_actif, $id_offre, $titre]);
     }
 
+    public function getOffreById(string $id_offre)
+    {
+        $sql = "SELECT * FROM offres WHERE id = ?";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([$id_offre]);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
 
 }

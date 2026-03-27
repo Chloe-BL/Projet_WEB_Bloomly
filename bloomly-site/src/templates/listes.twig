@@ -20,8 +20,8 @@
     <div class="liste">
     {% for item in itemsPage %}
         <div class="bloc-liste">
-            <img src="http://bloomly-static.local/assets/annonce.png" alt="Image d'une annonce">
-            <p>{{item.titre}} </p>
+            <a href="index.php?page=Description&section=offres&connect=oui&user={{user}}&id_offre={{item.id}}p={{ page - 1 }}"><img src="http://bloomly-static.local/assets/annonce.png" alt="Image d'une annonce"></a>
+            <p>{{item.titre}}</p>
             <form method="post" action="index.php?page=AddFavoris&section=offres&user={{user}}&connect=oui">
                 <input type="hidden" name="id_offre" value="{{ item.id }}">
                 <input type="hidden" name="titre" value="{{ item.titre}}">

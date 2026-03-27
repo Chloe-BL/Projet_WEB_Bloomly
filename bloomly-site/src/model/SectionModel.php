@@ -77,7 +77,7 @@ class SectionModel extends BaseModel
  
         if ($section === 'agenda') {
             $user_actif = $_COOKIE['user_id'] ?? null;
-            $sql = "SELECT titre FROM wishlist WHERE id_utilisateur = ?";
+            $sql = "SELECT titre FROM agenda WHERE id_utilisateur = ?";
             $stmt = $this -> pdo -> prepare($sql);
             $stmt->execute([$user_actif]); 
             $offres = $stmt -> fetchAll();

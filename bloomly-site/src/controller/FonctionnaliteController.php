@@ -130,4 +130,24 @@ class FonctionnaliteController extends BaseController
         exit;
     }
 
+     public function description()
+    {
+        $id_offre = $_GET['id_offre'] ?? null;
+
+        $offre = $this -> fonctionModel->getOffreById($id_offre);
+
+        echo $this->render('description.twig', [
+                           'titre' => $offre['titre'],
+                           'description' => $offre['description'],
+                           'formation' => $offre['formation'],
+                           'soft_skill' => $offre['softskills'],
+                           'competences' => $offre['competences'],
+                           'date_debut' => $offre['date_debut'],
+                           'duree' => $offre['duree'],
+                           'lieu' => $offre['lieu'],
+                           'salaire' => $offre['salaire'],
+                           'date_pub' => $offre['date_pub'],
+                           'section' => $_GET['section'] ?? null
+                            ]);
+    }
 }

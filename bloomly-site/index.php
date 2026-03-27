@@ -67,6 +67,10 @@ elseif ($page === 'ajout_pilote') {
     (new UserController()) -> inscription();
 }
 
+elseif ($page === 'Description'){
+    (new FonctionnaliteController()) -> description();
+}
+
 elseif ($page === 'ValidationAjout_ent'){
     (new FonctionnaliteController()) -> ValidationAjout_ent();
 }

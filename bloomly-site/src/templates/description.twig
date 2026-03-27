@@ -6,18 +6,20 @@
 {% block body %}
 
     <div class="haut-offre">
-        <h1 class="titre">{{titre_description}}</h1>
+        <h1 class="titre">{{titre}}</h1>
         <div class="actions">
             <a class="bouton" href="?page=choix_section&section={{section}}">Retour</a>
             <a class="bouton" href="">Modifier</a>
             <a class="bouton" href="#">Supprimer</a>
+            <a class="bouton" href="?page=candidature&section={{section}}&user={{user}}&connect=oui">Postuler</a>
         </div>
     </div>
     
     <div class="container-flex">
         <div class="cadre">
-            <h2 class="sous-titre">{{soustitre_description}}</h2>
-            <p>{{description_entreprise}}</p>
+            <h1 class="titre">Description</h1>
+            <h2 class="sous-titre">{{description}}</h2>
+            <p>jsp</p>
         </div>
     </div>
 
@@ -27,7 +29,7 @@
         <p>Au sein de l’équipe de sécurité opérationnelle et sous la responsabilité du Responsable de la Sécurité des Systèmes d'Information (RSSI), vous participerez activement à la protection de nos actifs numériques.
         Vos principales tâches :
             <ul>
-                <li>{{missions}}</li>
+                <li>{{description}}</li>
             </ul>
         </p>
     </div>
@@ -40,7 +42,7 @@
         <p>{{formation}}</p>
     <br>
         <h4>Savoir-être :</h4>
-        <p>{{soft_skill}}</p>
+        <p>{{softskills}}</p>
     <br>
         <h4>Compétences :</h4>
         <p>{{competence}}</p>
@@ -50,7 +52,7 @@
         <hr color=#c06c84 size="2" width="95%" >
         <h1 class="titre">Modalités et informations clés</h1>
         <h4>Date de début :</h4>
-        <p>{{date}}</p>
+        <p>{{date_debut}}</p>
     <br>
         <h4>Durée :</h4>
         <p>{{duree}}</p>
@@ -62,7 +64,7 @@
         <p>{{salaire}}</p>
     <br>
         <h4>Date de publication :</h4>
-        <p>{{publication}}</p>
+        <p>{{date_pub}}</p>
     </div>
 
 {% endblock %}
