@@ -6,29 +6,6 @@ class SectionModel extends BaseModel
 {
     public function getItemsBySection(string $section) {
  
-        $etudiants = [
-            ["nom" => "Martin", "prenom" => "Lucas"],
-            ["nom" => "Nguyen", "prenom" => "Linh"],
-            ["nom" => "Diallo", "prenom" => "Aminata"],
-            ["nom" => "Garcia", "prenom" => "Carlos"],
-            ["nom" => "Kowalski", "prenom" => "Anna"],
-            ["nom" => "Benali", "prenom" => "Yassine"],
-            ["nom" => "Dubois", "prenom" => "Emma"],
-            ["nom" => "Santos", "prenom" => "Mateus"],
-            ["nom" => "Kim", "prenom" => "Jisoo"],
-            ["nom" => "Rossi", "prenom" => "Giulia"],
-            ["nom" => "Haddad", "prenom" => "Nour"],
-            ["nom" => "Moreau", "prenom" => "Gabriel"],
-            ["nom" => "Singh", "prenom" => "Arjun"],
-            ["nom" => "Ivanov", "prenom" => "Dmitri"],
-            ["nom" => "Fernandez", "prenom" => "Sofia"],
-            ["nom" => "Traoré", "prenom" => "Moussa"],
-            ["nom" => "Schmidt", "prenom" => "Lena"],
-            ["nom" => "Alvarez", "prenom" => "Diego"],
-            ["nom" => "Okafor", "prenom" => "Chinedu"],
-            ["nom" => "Tanaka", "prenom" => "Yuki"]
-
-        ];
  
         $pilots = [
             ["nom" => "Martin", "prenom" => "Lucas"],
@@ -72,6 +49,11 @@ class SectionModel extends BaseModel
         }
  
         if ($section === 'etudiants') {
+            $user_actif = $_COOKIE['user_id'] ?? null;
+            $sql = "SELECT nom, prenom FROM utilisateur WHERE id_createur = ? && id_role = ?";
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->execute([$user_actif, 3]);
+            $etudiants = $stmt -> fetchAll();
             return $etudiants;
         }
  

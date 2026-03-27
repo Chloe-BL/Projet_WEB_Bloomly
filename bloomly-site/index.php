@@ -59,12 +59,20 @@ elseif ($page === 'ajout_off') {
     (new FonctionnaliteController()) -> ajout_off();
 }
 
+elseif ($page === 'ajout_etudiant') {
+    (new UserController()) -> inscription();
+}
+
 elseif ($page === 'ValidationAjout_ent'){
     (new FonctionnaliteController()) -> ValidationAjout_ent();
 }
 
 elseif ($page === 'ValidationAjout_off'){
     (new FonctionnaliteController()) -> ValidationAjout_off();
+}
+
+elseif ($page === 'ValidationAjout_etudiant'){
+    (new FonctionnaliteController()) -> ValidationAjout_etudiant();
 }
 
 elseif ($page === 'a_propos') {

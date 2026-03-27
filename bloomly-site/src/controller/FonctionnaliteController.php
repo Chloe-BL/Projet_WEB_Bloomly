@@ -90,4 +90,28 @@ class FonctionnaliteController extends BaseController
             exit;
     }
 
+    public function ValidationAjout_etudiant(){
+
+        $connect = $this->getConnect();
+        $user = $this->getUser();
+        $section = $this -> getSection();
+
+        $params = $this -> fonctionModel -> ajout_BDD_etudiant($_POST['nom'],  
+                                                      $_POST['prenom'], 
+                                                      $_POST['email'], 
+                                                      $_POST['mdp'], 
+                                                      $_POST['num'], 
+                                                      $_POST['civilite'], );
+        if ($connect) {
+            $this->render('listes.twig', ['section' => $section ]);
+        } 
+        else {
+            echo "erreur";
+        }
+
+        header("Location: index.php?page=choix_section&section=" . urlencode($section) . "&connect=oui&user=" . urlencode($user));
+
+            exit;
+    }
+
 }

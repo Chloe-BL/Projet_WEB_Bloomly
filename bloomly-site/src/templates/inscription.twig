@@ -10,7 +10,7 @@
         <h2>Créer un compte !</h2><br>
         <p> Entrez les informations, nous vous confirmerons la création du compte par email.</p>
 
-        <form method="POST" enctype="mutipart/form-data">
+        <form method="POST" enctype="mutipart/form-data" action="index.php?page=ValidationAjout_etudiant&section={{section}}&connect=oui&user={{user}}">
             <div style="display:inline-block;"> <!-- Pour mettre les bloc à côté de l'image -->
 
                 <div class="ligne">
@@ -21,8 +21,24 @@
                     </div>
 
                     <div class="bloc">
-                        <label for="prénom">Prénom</label>
-                        <input type = "text" name="prénom" required>
+                        <label for="prenom">Prénom</label>
+                        <input type = "text" name="prenom" required>
+                    </div>
+                </div>
+
+                <div class="ligne">
+                    <div class="bloc2">
+                        <label for="email">Adresse email</label>
+                        <input type="text" name="email" required>
+                        <br><br>
+                    </div>
+                </div>
+
+                <div class="ligne">
+                    <div class="bloc2">
+                        <label for="mdp">Mot de passe</label>
+                        <input type="password" name="mdp" minlength="8" required>
+                        <br><br>
                     </div>
                 </div>
 
@@ -31,19 +47,12 @@
                         <label class="no-wrap" for="num">Numéro de téléphone</label>
                         <input type = "text" name="num">
                     </div>
-
-                    {% if section == 'etudiants' or section == 'pilots' %}
-                    <div class="bloc">
-                        <label for="age">Âge</label>
-                        <input id="age" name="age" type="number" min="0" max="120" step="1" />
-                    </div>
-                    {% endif %}
                 </div>
 
                 <div class="ligne">
                     <div class="bloc2">
-                        <label>Adresse email</label>
-                        <input type="text" name="email" required>
+                        <label for="civilite">Civilite</label>
+                        <input type="text" name="civilite" required>
                         <br><br>
                     </div>
                 </div>
@@ -62,21 +71,7 @@
 
         {% endif %}
 
-                <div class="ligne">
-                    <div class="bloc2">
-                        <label>Mot de passe</label>
-                        <input type="password" minlength="8" required>
-                        <br><br>
-                    </div>
-                </div>
-
-                <div class="ligne">
-                    <div class="bloc2">
-                        <label>Confirmer le mot de passe</label>
-                        <input type="password" minlength="8" required>
-                        <br><br>
-                    </div>
-                </div>
+                
 
         <button class="btn-dark large">Inscription</button>
         </div>
