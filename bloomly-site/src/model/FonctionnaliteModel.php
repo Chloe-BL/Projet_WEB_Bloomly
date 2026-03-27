@@ -48,12 +48,13 @@ class FonctionnaliteModel extends BaseModel
         return $stmt->fetchAll();
     }
 
-    public function ajoutBDDWishlist(string $id_offre)
+    public function ajoutBDDWishlist(string $id_offre, string $titre)
     {
-        $sql = "SELECT id_offre, titre FROM offres WHERE id_offres=?
-                VALUES(?)";
+        $user_actif = $_COOKIE['user_id'] ?? null;
+        $sql = "INSERT INTO wishlist (id_utilisateur, id_offre, titre)
+                VALUES(?,?,?)";
         $stmt = $this->pdo->prepare($sql);
-        return $stmt->execute([$id_offre]);
+        return $stmt->execute([$user_actif, $id_offre, $titre]);
     }
 
 

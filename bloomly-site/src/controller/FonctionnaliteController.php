@@ -124,7 +124,7 @@ class FonctionnaliteController extends BaseController
         $user = $this->getUser();
         $section = $this -> getSection();
 
-        $params = $this-> fonctionModel -> ajoutBDDWishlist($_POST['id_offre']);
+        $params = $this-> fonctionModel -> ajoutBDDWishlist($_POST['id_offre'], $_POST['titre']);
         
         header("Location: index.php?page=choix_section&section=" . urlencode($section) . "&connect=oui&user=" . urlencode($user));
         exit;

@@ -32,7 +32,7 @@ class SectionModel extends BaseModel
  
         if ($section === 'offres') {
             $user_actif = $_COOKIE['user_id'] ?? null;
-            $sql = "SELECT titre FROM offres WHERE id_createur = ?";
+            $sql = "SELECT id, titre FROM offres WHERE id_createur = ?";
             $stmt = $this->pdo->prepare($sql);
             $stmt->execute([$user_actif]);
             $offres = $stmt -> fetchAll();
