@@ -15,10 +15,10 @@
 {% endif %}
     <div class="categ">
     {% if user ==   3 %}
-        <form method="POST" enctype="multipart/form-data" action = "index.php?page=Ajout_Agenda&section={{section}}&connect=oui&user={{user}}=">
-        <input type="hidden" name="id_offre" value="{{ item.id }}">
-        <input type="hidden" name="titre" value="{{ item.titre}}">
-        
+        <form method="POST" enctype="multipart/form-data" action = "index.php?page=AddAgenda&section={{section}}&connect=oui&user={{user}}&id_offre={{id_offre}}&titre={{titre}}">
+            <input type="hidden" name="id_offre" value={{id_offre}}>
+            <input type="hidden" name="titre" value={{titre}}>
+
             <label for="Lettre">Lettre de motivation :</label>
         {% else %}
         <form method="POST" enctype="multipart/form-data" >

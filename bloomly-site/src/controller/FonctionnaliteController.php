@@ -137,7 +137,6 @@ class FonctionnaliteController extends BaseController
         $offre = $this -> fonctionModel->getOffreById($id_offre);
 
         echo $this->render('description.twig', [
-                           'titre' => $offre['titre'],
                            'description' => $offre['description'],
                            'formation' => $offre['formation'],
                            'soft_skill' => $offre['softskills'],
@@ -147,8 +146,21 @@ class FonctionnaliteController extends BaseController
                            'lieu' => $offre['lieu'],
                            'salaire' => $offre['salaire'],
                            'date_pub' => $offre['date_pub'],
-                           'section' => $_GET['section'] ?? null
+                           'section' => $_GET['section'] ?? null,
+                           'id_offre' =>  $_GET['id_offre'] ?? null,
+                           'titre' => $_GET['titre'] ?? null
                             ]);
+    }
+
+    public function AddAgenda(){
+        $connect = $this->getConnect();
+        $user = $this->getUser();
+        $section = $this -> getSection();
+
+        $params = $this-> fonctionModel -> ajoutBDDAgenda($_POST['id_offre'], $_POST['titre']);
+        
+        header("Location: index.php?page=choix_section&section=" . urlencode($section) . "&connect=oui&user=" . urlencode($user));
+        exit;
     }
 
 

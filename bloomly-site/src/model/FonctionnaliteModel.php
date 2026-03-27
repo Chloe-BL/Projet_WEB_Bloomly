@@ -65,5 +65,14 @@ class FonctionnaliteModel extends BaseModel
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
+    public function ajoutBDDAgenda(string $id_offre, string $titre)
+    {
+        $user_actif = $_COOKIE['user_id'] ?? null;
+        $sql = "INSERT INTO agenda (id_utilisateur, id_offre, titre)
+                VALUES(?,?,?)";
+        $stmt = $this->pdo->prepare($sql);
+        return $stmt->execute([$user_actif, $id_offre, $titre]);
+    }
+
 
 }
