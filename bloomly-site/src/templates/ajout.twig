@@ -90,11 +90,11 @@
 
                         <label for="ent">Choisissez une entreprise :</label>
                         <select id="ent" name="ent">
-                        <option value=""> Sélectionnez une entreprise </option>
+                                <option value="">Sélectionnez une entreprise</option>
                                 {% for ent in liste_ent %}
-                                        <option value="{{ ent.id_entreprise}}">{{ ent.nom }}</option>
+                                        <option value="{{ ent.id_entreprise }}">{{ ent.nom }}</option>
                                 {% endfor %}
-                        </select>                 
+                        </select>
                         
                 </div>
                 <button type="submit" class="ajout" name = "form_action" value="ajj_off">Ajouter</button>

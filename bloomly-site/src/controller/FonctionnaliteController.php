@@ -21,17 +21,17 @@ class FonctionnaliteController extends BaseController
         $this->profileModel = new ProfileModel();
         $this->fonctionModel = new FonctionnaliteModel();
     }
+    
     public function ajout_ent()
-    {
-        die ("je suis la");
+{
+    $section = $this->getSection();
+    $liste_ent = $this->fonctionModel->getAllEntreprises();
 
-        $section = $this -> getSection();
-        $liste_ent = $this -> fonctionModel -> getAllEntreprises();
-
-        $this->render('ajout.twig',[
-        'section' => $section],
-        ['liste_ent' => $liste_ent]);
-    }
+    $this->render('ajout.twig', [
+        'section' => $section,
+        'liste_ent' => $liste_ent
+    ]);
+}
 
     public function ValidationAjout_ent(){
 
