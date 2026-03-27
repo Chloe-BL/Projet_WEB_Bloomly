@@ -40,9 +40,8 @@ class FonctionnaliteModel extends BaseModel
 
     public function ajout_BDD_pilote(string $nom, string $prenom, string $email, string $mot_de_passe, string $telephone, string $civilite){
         $user_actif = $_COOKIE['user_id'] ?? null;
-        $section = 'utilisateur';
 
-        $sql = "INSERT INTO $section (nom, prenom, email, mot_de_passe, telephone, civilite, id_role, id_createur) 
+        $sql = "INSERT INTO utilisateur (nom, prenom, email, mot_de_passe, telephone, civilite, id_role, id_createur) 
                 VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         
         $stmt = $this->pdo->prepare($sql);

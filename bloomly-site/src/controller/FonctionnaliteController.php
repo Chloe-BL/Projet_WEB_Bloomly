@@ -78,16 +78,9 @@ class FonctionnaliteController extends BaseController
                                                       $_POST['lieu'], 
                                                       $_POST['salaire'], 
                                                       $_POST['date_pub']);
-        if ($connect) {
-            $this->render('listes.twig', ['section' => $section ]);
-        } 
-        else {
-            echo "erreur";
-        }
 
         header("Location: index.php?page=choix_section&section=" . urlencode($section) . "&connect=oui&user=" . urlencode($user));
-
-            exit;
+        exit;
     }
 
     public function ValidationAjout_etudiant(){
@@ -102,16 +95,10 @@ class FonctionnaliteController extends BaseController
                                                       $_POST['mdp'], 
                                                       $_POST['num'], 
                                                       $_POST['civilite'], );
-        if ($connect) {
-            $this->render('listes.twig', ['section' => $section ]);
-        } 
-        else {
-            echo "erreur";
-        }
+       
 
         header("Location: index.php?page=choix_section&section=" . urlencode($section) . "&connect=oui&user=" . urlencode($user));
-
-            exit;
+        exit;
     }
 
     public function ValidationAjout_pilote(){
@@ -126,15 +113,7 @@ class FonctionnaliteController extends BaseController
                                                       $_POST['mdp'], 
                                                       $_POST['num'], 
                                                       $_POST['civilite'], );
-        if ($connect) {
-            $this->render('listes.twig', ['section' => $section ]);
-        } 
-        else {
-            echo "erreur";
-        }
-
         header("Location: index.php?page=choix_section&section=" . urlencode($section) . "&connect=oui&user=" . urlencode($user));
-
-            exit;
+        exit;
     }
 }
