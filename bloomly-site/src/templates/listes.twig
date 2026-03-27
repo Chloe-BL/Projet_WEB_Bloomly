@@ -22,7 +22,7 @@
         <div class="bloc-liste">
             <img src="http://bloomly-static.local/assets/annonce.png" alt="Image d'une annonce">
             <p>{{item.titre}} </p>
-            <form method="post" action="#">
+            <form method="post" action="index.php?page=AddFavoris&section=offres&user={{user}}&connect=oui">
                 <input type="hidden" name="id_offre" value="{{ item.id_offre }}">
                 <button type="submit">Ajouter aux favoris</button>
             </form>

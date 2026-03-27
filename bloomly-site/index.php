@@ -83,6 +83,10 @@ elseif ($page === 'ValidationAjout_pilote'){
     (new FonctionnaliteController()) -> ValidationAjout_pilote();
 }
 
+elseif ($page === 'AddFavoris'){
+    (new FonctionnaliteController()) -> AddFavoris();
+}
+
 elseif ($page === 'a_propos') {
     (new PageController()) -> a_propos();
 }

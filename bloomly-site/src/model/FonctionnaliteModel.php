@@ -41,10 +41,20 @@ class FonctionnaliteModel extends BaseModel
         return $stmt->execute([$nom, $prenom, $email, $mot_de_passe, $telephone, $civilite, 2, $user_actif]);
     }
 
-    public function getAllEntreprises(): array
+    public function getAllEntreprises()
     {
         $sql = "SELECT id_entreprise, nom FROM entreprises";
         $stmt = $this->pdo->query($sql);
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $stmt->fetchAll();
     }
+
+    public function ajoutBDDWishlist(string $id_offre)
+    {
+        $sql = "SELECT id_offre, titre FROM offres WHERE id_offres=?
+                VALUES(?)";
+        $stmt = $this->pdo->prepare($sql);
+        return $stmt->execute([$id_offre]);
+    }
+
+
 }

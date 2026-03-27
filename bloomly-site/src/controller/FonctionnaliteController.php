@@ -118,5 +118,16 @@ class FonctionnaliteController extends BaseController
         exit;
     }
 
-    
+    public function AddFavoris(){
+        
+        $connect = $this->getConnect();
+        $user = $this->getUser();
+        $section = $this -> getSection();
+
+        $params = $this-> fonctionModel -> ajoutBDDWishlist($_POST['id_offre']);
+        
+        header("Location: index.php?page=choix_section&section=" . urlencode($section) . "&connect=oui&user=" . urlencode($user));
+        exit;
+    }
+
 }

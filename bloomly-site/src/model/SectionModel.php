@@ -67,8 +67,10 @@ class SectionModel extends BaseModel
         }
  
         if ($section === 'wishlist') {
-            $sql = "SELECT titre FROM wishlist";
-            $stmt = $this -> pdo -> query($sql);
+            $user_actif = $_COOKIE['user_id'] ?? null;
+            $sql = "SELECT titre FROM wishlist WHERE id_utilisateur = ?";
+            $stmt = $this -> pdo -> prepare($sql);
+            $stmt->execute([$user_actif]);
             $offres = $stmt -> fetchAll();
             return $offres;
         }
