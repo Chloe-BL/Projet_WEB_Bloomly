@@ -150,4 +150,6 @@ class FonctionnaliteController extends BaseController
                            'section' => $_GET['section'] ?? null
                             ]);
     }
+
+
 }

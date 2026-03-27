@@ -91,6 +91,10 @@ elseif ($page === 'AddFavoris'){
     (new FonctionnaliteController()) -> AddFavoris();
 }
 
+elseif ($page === 'AddAgenda'){
+    (new FonctionnaliteController()) -> AddAgenda();
+}
+
 elseif ($page === 'a_propos') {
     (new PageController()) -> a_propos();
 }

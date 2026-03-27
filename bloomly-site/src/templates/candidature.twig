@@ -14,10 +14,14 @@
     <h2 class="sous-titre">Entreprise : NexoraTech</h2>
 {% endif %}
     <div class="categ">
-        <form method="POST" enctype="multipart/form-data">
-        {% if user ==   3 %}
+    {% if user ==   3 %}
+        <form method="POST" enctype="multipart/form-data" action = "index.php?page=Ajout_Agenda&section={{section}}&connect=oui&user={{user}}=">
+        <input type="hidden" name="id_offre" value="{{ item.id }}">
+        <input type="hidden" name="titre" value="{{ item.titre}}">
+        
             <label for="Lettre">Lettre de motivation :</label>
         {% else %}
+        <form method="POST" enctype="multipart/form-data" >
             <label for="Avis">Appréciation : </label>
             <br>
         {% endif %}
