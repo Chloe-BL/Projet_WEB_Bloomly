@@ -1,7 +1,15 @@
 <?php
  
+ 
 class CandidatureController extends BaseController
 {
+    private $upload;
+
+public function setUpload($upload)
+{
+    $this->upload = $upload;
+}
+
     public function candidature()
     {
         $message = "";
@@ -13,7 +21,7 @@ class CandidatureController extends BaseController
             if ($action === 'etud') {
                 $lettre = htmlspecialchars($_POST['Lettre'] ?? '', ENT_QUOTES, 'UTF-8');
  
-                $upload = new Upload();
+                $upload = $this->upload ?? new Upload();
                 $validation = $upload->validerFichier($_FILES['cv']);
  
                 if ($validation === true) {
