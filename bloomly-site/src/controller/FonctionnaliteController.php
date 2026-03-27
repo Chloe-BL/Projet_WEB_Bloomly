@@ -23,11 +23,14 @@ class FonctionnaliteController extends BaseController
     }
     public function ajout_ent()
     {
+        die ("je suis la");
+
         $section = $this -> getSection();
+        $liste_ent = $this -> fonctionModel -> getAllEntreprises();
 
         $this->render('ajout.twig',[
-        'section' => $section
-        ]);
+        'section' => $section],
+        ['liste_ent' => $liste_ent]);
     }
 
     public function ValidationAjout_ent(){
@@ -77,7 +80,8 @@ class FonctionnaliteController extends BaseController
                                                       $_POST['duree'], 
                                                       $_POST['lieu'], 
                                                       $_POST['salaire'], 
-                                                      $_POST['date_pub']);
+                                                      $_POST['date_pub'],
+                                                      $_POST['ent']);
 
         header("Location: index.php?page=choix_section&section=" . urlencode($section) . "&connect=oui&user=" . urlencode($user));
         exit;
@@ -116,4 +120,6 @@ class FonctionnaliteController extends BaseController
         header("Location: index.php?page=choix_section&section=" . urlencode($section) . "&connect=oui&user=" . urlencode($user));
         exit;
     }
+
+    
 }

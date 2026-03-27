@@ -86,8 +86,16 @@
                         <input type = "text" name="salaire" required>     
 
                         <label for="date_pub">Date</label>
-                        <input type = "text" name="date_pub" required>                 
-                
+                        <input type = "text" name="date_pub" required>
+
+                        <label for="ent">Choisissez une entreprise :</label>
+                        <select id="ent" name="ent">
+                        <option value=""> Sélectionnez une entreprise </option>
+                                {% for ent in liste_ent %}
+                                        <option value="{{ ent.id_entreprise}}">{{ ent.nom }}</option>
+                                {% endfor %}
+                        </select>                 
+                        
                 </div>
                 <button type="submit" class="ajout" name = "form_action" value="ajj_off">Ajouter</button>
                 </form>
