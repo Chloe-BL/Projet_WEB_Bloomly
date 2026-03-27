@@ -61,7 +61,7 @@ class SectionModel extends BaseModel
             $user_actif = $_COOKIE['user_id'] ?? null;
             $sql = "SELECT nom, prenom FROM utilisateur WHERE id_createur = ? && id_role = ?";
             $stmt = $this->pdo->prepare($sql);
-            $stmt->execute([$user_actif, 3]);
+            $stmt->execute([$user_actif, 2]);
             $pilots = $stmt -> fetchAll();
             return $pilots;
         }

@@ -45,7 +45,7 @@ class FonctionnaliteModel extends BaseModel
                 VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         
         $stmt = $this->pdo->prepare($sql);
-        return $stmt->execute([$nom, $prenom, $email, $mot_de_passe, $telephone, $civilite, 3, $user_actif]);
+        return $stmt->execute([$nom, $prenom, $email, $mot_de_passe, $telephone, $civilite, 2, $user_actif]);
     }
 
 }

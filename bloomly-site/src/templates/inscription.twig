@@ -10,7 +10,13 @@
         <h2>Créer un compte !</h2><br>
         <p> Entrez les informations, nous vous confirmerons la création du compte par email.</p>
 
+        {% if section == 'etudiants' %}
         <form method="POST" enctype="mutipart/form-data" action="index.php?page=ValidationAjout_etudiant&section={{section}}&connect=oui&user={{user}}">
+       
+        {% elseif section == 'pilots' %}
+        <form method="POST" enctype="mutipart/form-data" action="index.php?page=ValidationAjout_pilote&section={{section}}&connect=oui&user={{user}}">
+        {% endif %}  
+
             <div style="display:inline-block;"> <!-- Pour mettre les bloc à côté de l'image -->
 
                 <div class="ligne">
@@ -57,19 +63,7 @@
                     </div>
                 </div>
                 
-        {% if section == 'etudiants' %}
 
-
-            <p >Recherche</p><br>
-            <label class="ecart">
-                <input type="checkbox"> Stage 
-            </label>
-            
-            <label class="ecart">
-                <input type="checkbox"> Alternance 
-            </label>
-
-        {% endif %}
 
                 
 

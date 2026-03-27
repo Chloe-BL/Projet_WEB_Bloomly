@@ -63,6 +63,10 @@ elseif ($page === 'ajout_etudiant') {
     (new UserController()) -> inscription();
 }
 
+elseif ($page === 'ajout_pilote') {
+    (new UserController()) -> inscription();
+}
+
 elseif ($page === 'ValidationAjout_ent'){
     (new FonctionnaliteController()) -> ValidationAjout_ent();
 }
@@ -73,6 +77,10 @@ elseif ($page === 'ValidationAjout_off'){
 
 elseif ($page === 'ValidationAjout_etudiant'){
     (new FonctionnaliteController()) -> ValidationAjout_etudiant();
+}
+
+elseif ($page === 'ValidationAjout_pilote'){
+    (new FonctionnaliteController()) -> ValidationAjout_pilote();
 }
 
 elseif ($page === 'a_propos') {
