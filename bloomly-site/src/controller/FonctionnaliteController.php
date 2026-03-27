@@ -130,4 +130,16 @@ class FonctionnaliteController extends BaseController
         exit;
     }
 
+    public function AddAgenda(){
+        
+    $connect = $this->getConnect();
+    $user = $this->getUser();
+    $section = $this -> getSection();
+    $params = $this->fonctionModel->ajoutBDDAgenda("1", "Test Titre");
+    #$params = $this-> fonctionModel -> ajoutBDDAgenda($_POST['id_offre'], $_POST['titre']);
+        
+    header("Location: index.php?page=choix_section&section=" . urlencode($section) . "&connect=oui&user=" . urlencode($user));
+    exit;
+    }
+
 }
