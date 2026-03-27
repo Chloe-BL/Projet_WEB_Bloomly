@@ -67,7 +67,7 @@ class SectionModel extends BaseModel
         }
  
         if ($section === 'wishlist') {
-            $sql = "SELECT titre FROM offres";
+            $sql = "SELECT titre FROM wishlist";
             $stmt = $this -> pdo -> query($sql);
             $offres = $stmt -> fetchAll();
             return $offres;
