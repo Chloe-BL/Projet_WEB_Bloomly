@@ -21,17 +21,13 @@ class FonctionnaliteController extends BaseController
         $this->profileModel = new ProfileModel();
         $this->fonctionModel = new FonctionnaliteModel();
     }
-    
     public function ajout_ent()
-{
-    $section = $this->getSection();
-    $liste_ent = $this->fonctionModel->getAllEntreprises();
-
-    $this->render('ajout.twig', [
-        'section' => $section,
-        'liste_ent' => $liste_ent
-    ]);
-}
+    {
+        $section = $this->getSection();
+        
+        $this->render('ajout.twig', [
+            'section' => $section]);
+    }
 
     public function ValidationAjout_ent(){
 
@@ -59,10 +55,11 @@ class FonctionnaliteController extends BaseController
     public function ajout_off()
     {
         $section = $this -> getSection();
+        $liste_ent = $this->fonctionModel->getAllEntreprises();
 
         $this->render('ajout.twig',[
-        'section' => $section
-        ]);
+        'section' => $section,
+        'liste_ent' => $liste_ent]);
     }
 
     public function ValidationAjout_off(){

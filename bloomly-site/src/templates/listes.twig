@@ -181,13 +181,13 @@
         <p>{{ item.prenom }} {{ item.nom }}</p>
     </div>
     {% endfor %}
-    <div class="pagination">
-        {% if page > 1 %}
-            <a href="index.php?page=choix_section&section=pilots&user={{user}}&connect=oui&p={{ page - 1 }}">Précédent</a>
-        {% else %} 
-            <span class="disabled">Précédent</span>
-        {% endif %} 
-
+        <div class="pagination">
+            {% if page > 1 %}
+                <a href="index.php?page=choix_section&section=pilots&user={{user}}&connect=oui&p={{ page - 1 }}">Précédent</a>
+            {% else %} 
+                <span class="disabled">Précédent</span>
+            {% endif %} 
+       
 
        {% for i in 1..totalPages|default(1) %}  {# Pour i de 1 à la fin Pour i de 1 à la fin modifier pour bdd!!#}
             {% if i == page %}
@@ -202,8 +202,8 @@
         {% else %}
             <span class="disabled">Suivant</span>
         {% endif %}
-    </div>
-    </div>
+        </div>
+        </div>
     <a class="acc" href="index.php?page=validationConnexion&connect=oui&user={{user}}">Retour à l'accueil</a>
 
     {% elseif section == 'wishlist' %}
