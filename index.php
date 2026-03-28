@@ -94,6 +94,9 @@ elseif ($page === 'mentions_legales') {
 elseif ($page === 'cookies') {
     (new PageController()) -> cookies();
 }
+elseif ($page === 'search') {
+    (new PageController())->search();
+}
 
 else {
     echo "Page non trouvée";

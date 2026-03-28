@@ -20,12 +20,22 @@
     <body>
        <header class="mon-header">
 
-            <div class="header-left">
-                <div class="search-bar">
-                    <span class="icon">🔍</span>
-                    <input type="text" placeholder="Rechercher ">
-                </div>
-            </div>
+        <div class="header-left">
+        <form method="get" action="index.php" class="search-bar">
+        <input type="hidden" name="page" value="search">
+        <span class="icon">🔍</span>
+        <input type="text" name="search" placeholder="Rechercher..." required>
+        <select name="type">
+            <option value="all">Tout</option>
+            <option value="entreprise">Entreprise</option>
+            <option value="offre">Offre</option>
+            <option value="etudiant">Étudiant</option>
+        </select>
+
+        <button type="submit">OK</button>
+
+    </form>
+</div>
 
             <div class="header-center">
                 <img src="http://bloomly-static.local/assets/logo_bloomly.png" alt="Logo Bloomly" >

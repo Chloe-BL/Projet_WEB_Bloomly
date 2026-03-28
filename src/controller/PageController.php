@@ -21,4 +21,17 @@ class PageController extends BaseController
     {
         $this->render('cookies.twig');
     }
+    public function search()
+    {
+    $search = $_GET['search'] ?? '';
+    $type = $_GET['type'] ?? 'all';
+
+    $model = new FonctionnaliteModel();
+
+    $resultats = $model->searchGlobal($search, $type);
+
+    $this->render('resultats.twig', [
+        'resultats' => $resultats
+    ]);
+}
 }
