@@ -11,10 +11,14 @@
         <p> Entrez les informations, nous vous confirmerons la création du compte par email.</p>
 
         {% if section == 'etudiants' %}
-        <form method="POST" enctype="mutlipart/form-data" action="index.php?page=AddAgenda&section={{section}}&connect=oui&user={{user}}">
+        <form method="POST" enctype="multipart/form-data" action="index.php?page=ValidationAjout_etudiant&section={{section}}&connect=oui&user={{user}}">
        
         {% elseif section == 'pilots' %}
-        <form method="POST" enctype="mutlipart/form-data" action="index.php?page=ValidationAjout_pilote&section={{section}}&connect=oui&user={{user}}">
+        <form method="POST" enctype="multipart/form-data" action="index.php?page=ValidationAjout_pilote&section={{section}}&connect=oui&user={{user}}">
+
+        {% elseif section == 'agenda' %}
+        <form method="POST" enctype="multipart/form-data" action="index.php?page=AddAgenda&section={{section}}&connect=oui&user={{user}}">
+
         {% endif %}  
 
             <div style="display:inline-block;"> <!-- Pour mettre les bloc à côté de l'image -->
