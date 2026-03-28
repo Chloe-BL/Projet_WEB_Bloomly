@@ -1,0 +1,22 @@
+{% extends "layout.twig" %}
+
+{% block title %}Résultats de recherche{% endblock %}
+
+{% block body %}
+
+<h1>Résultats de recherche</h1>
+
+{% if resultats is empty %}
+    <p>Aucun résultat trouvé.</p>
+{% else %}
+
+    {% for item in resultats %}
+        <div style="border:1px solid #ccc; padding:10px; margin:10px;">
+            <h3>{{ item.titre }}</h3>
+            <p>{{ item.info }}</p>
+        </div>
+    {% endfor %}
+
+{% endif %}
+
+{% endblock %}
