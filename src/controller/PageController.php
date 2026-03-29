@@ -26,9 +26,13 @@ class PageController extends BaseController
     $search = $_GET['search'] ?? '';
     $type = $_GET['type'] ?? 'all';
 
-    $model = new FonctionnaliteModel();
+    var_dump($search);
+    var_dump($type);
 
+    $model = new FonctionnaliteModel();
     $resultats = $model->searchGlobal($search, $type);
+
+    var_dump($resultats);
 
     $this->render('resultats.twig', [
         'resultats' => $resultats
