@@ -2,18 +2,15 @@
  function champsVide(form)
   {
     if(form.nom.value == "") {
-      alert("Erreur: Veuillez remplir tous les champs avant de soumettre votre formulaire !");
-      form.nom.focus();
+      alert("Erreur: Veuillez remplir le champs nom avant de soumettre votre formulaire !");
       return false;
     } 
     else if(form.prenom.value == "") {
-      alert("Erreur: Veuillez remplir tous les champs avant de soumettre votre formulaire !");
-      form.prenom.focus();
+      alert("Erreur: Veuillez remplir le champs prenom avant de soumettre votre formulaire !");
       return false;
     } 
     else if(form.email.value == "") {
-      alert("Erreur: Veuillez remplir tous les champs avant de soumettre votre formulaire !");
-      form.email.focus();
+      alert("Erreur: Veuillez remplir le champs email avant de soumettre votre formulaire !");
       return false;
     }
 }
