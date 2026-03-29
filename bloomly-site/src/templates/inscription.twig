@@ -4,20 +4,19 @@
 
 {% block body %}
 
-
 {#{% if section == 'etudiants' or section == 'pilots' %} #}
     <div class="form-box">
         <h2>Créer un compte !</h2><br>
         <p> Entrez les informations, nous vous confirmerons la création du compte par email.</p>
 
         {% if section == 'etudiants' %}
-        <form method="POST" enctype="multipart/form-data" action="index.php?page=ValidationAjout_etudiant&section={{section}}&connect=oui&user={{user}}">
+        <form method="POST" enctype="multipart/form-data" action="index.php?page=ValidationAjout_etudiant&section={{section}}&connect=oui&user={{user}}" onsubmit="return champsVide(this);">
        
         {% elseif section == 'pilots' %}
-        <form method="POST" enctype="multipart/form-data" action="index.php?page=ValidationAjout_pilote&section={{section}}&connect=oui&user={{user}}">
+        <form method="POST" enctype="multipart/form-data" action="index.php?page=ValidationAjout_pilote&section={{section}}&connect=oui&user={{user}}" onsubmit="return champsVide(this);">
 
         {% elseif section == 'agenda' %}
-        <form method="POST" enctype="multipart/form-data" action="index.php?page=AddAgenda&section={{section}}&connect=oui&user={{user}}">
+        <form method="POST" enctype="multipart/form-data" action="index.php?page=AddAgenda&section={{section}}&connect=oui&user={{user}}" onsubmit="return checkForm(this);">
 
         {% endif %}  
 
@@ -39,7 +38,7 @@
                 <div class="ligne">
                     <div class="bloc2">
                         <label for="email">Adresse email</label>
-                        <input type="text" name="email" required>
+                        <input type="text" name="email" >
                         <br><br>
                     </div>
                 </div>
