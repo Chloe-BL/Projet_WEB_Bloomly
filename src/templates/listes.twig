@@ -112,9 +112,16 @@
         <p class="police">Retrouvez ici l'ensemble des profils étudiants que vous avez créés.</p>
          <a class = "ajout" href= "index.php?page=inscription&section=etudiants&user={{user}}&connect=oui">Ajouter un compte étudiant</a>
         <div class="recherche-bar-profil">
-                    <span class="icon">🔍</span>
-                    <input type="text" placeholder="Rechercher des étudiants">
-                </div>
+    <form method="get" action="index.php">
+        <input type="hidden" name="page" value="search">
+        <input type="hidden" name="type" value="etudiant">
+        <input type="hidden" name="user" value="{{ user }}">
+        <input type="hidden" name="connect" value="oui">
+        <span class="icon">🔍</span>
+        <input type="text" name="search" placeholder="Rechercher des étudiants">
+        <button type="submit">OK</button>
+    </form>
+</div>
     <div class="liste">
     {% for item in itemsPage %}
     <div class="bloc-liste">
@@ -170,9 +177,16 @@
         <p class="police">Retrouvez ici l'ensemble des profils pilotes que vous avez créés.</p>
         <a class = "ajout" href= "index.php?page=inscription&section=pilots&user={{user}}&connect=oui">Ajouter un compte pilote</a>
                 <div class="recherche-bar-profil">
-                    <span class="icon">🔍</span>
-                    <input type="text" placeholder="Rechercher des pilotes">
-                </div>
+    <form method="get" action="index.php">
+        <input type="hidden" name="page" value="search">
+        <input type="hidden" name="type" value="pilote">
+        <input type="hidden" name="user" value="{{ user }}">
+        <input type="hidden" name="connect" value="oui">
+        <span class="icon">🔍</span>
+        <input type="text" name="search" placeholder="Rechercher des pilotes">
+        <button type="submit">OK</button>
+    </form>
+</div>
             </div>
     <div class="liste">
     {% for item in itemsPage %}
