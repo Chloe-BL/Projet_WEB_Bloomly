@@ -74,5 +74,69 @@ class FonctionnaliteModel extends BaseModel
         return $stmt->execute([$user_actif, $id_offre, $titre]);
     }
 
+public function searchGlobal($search, $type)
+    {
+    $search = "%$search%";
+ 
+    if ($type === 'entreprise') {
+        $sql = "SELECT nom AS titre, description, email_contact, telephone_contact
+                FROM entreprise
+                WHERE nom LIKE :search";
+    }
+ 
+    elseif ($type === 'offre') {
+        $sql = "SELECT titre, description, competences, salaire, date_pub
+                FROM offres
+                WHERE titre LIKE :search
+                OR description LIKE :search
+                OR competences LIKE :search";
+    }
+ 
+    elseif ($type === 'etudiant') {
+        $sql = "SELECT nom, prenom, email
+                FROM utilisateur
+                WHERE id_role = 3
+                AND (nom LIKE :search OR prenom LIKE :search OR email LIKE :search)";
+    }
+ 
+    elseif ($type === 'pilote') {
+        $sql = "SELECT nom, prenom
+                FROM utilisateur
+                WHERE id_role = 2
+                AND (nom LIKE :search OR prenom LIKE :search)";
+    }
+ 
+    elseif ($type === 'all') {
+        $sql = "
+            SELECT nom AS titre, description AS info, 'entreprise' AS type_result
+            FROM entreprise WHERE nom LIKE :search
+ 
+            UNION
+ 
+            SELECT titre AS titre, description AS info, 'offre' AS type_result
+            FROM offres WHERE titre LIKE :search OR competences LIKE :search
+ 
+            UNION
+ 
+            SELECT CONCAT(nom, ' ', prenom) AS titre, email AS info, 'etudiant' AS type_result
+            FROM utilisateur WHERE id_role = 3
+            AND (nom LIKE :search OR prenom LIKE :search)
+ 
+            UNION
+ 
+            SELECT CONCAT(nom, ' ', prenom) AS titre, email AS info, 'pilote' AS type_result
+            FROM utilisateur WHERE id_role = 2
+            AND (nom LIKE :search OR prenom LIKE :search)
+        ";
+    }
+ 
+    else {
+        return [];
+    }
+ 
+    $stmt = $this->pdo->prepare($sql);
+    $stmt->execute(['search' => $search]);
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
 
 }
