@@ -96,7 +96,7 @@ elseif ($page === 'SupprimerOff'){
 }
 
 elseif ($page === 'SupprimerEnt'){
-    (new FonctionnaliteController()) -> description_ent();
+    (new FonctionnaliteController()) -> supprimer_ent();
 }
 
 elseif ($page === 'modifier'){

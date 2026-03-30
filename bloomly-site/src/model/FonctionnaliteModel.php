@@ -209,7 +209,7 @@ class FonctionnaliteModel extends BaseModel
     }
 
     public function SupprimerEnt(string $id){
-        $section = $this -> getSection();
+        $section = $_GET['section'];
 
         $sql = "DELETE FROM $section WHERE id_entreprise = ? ";
         $stmt = $this->pdo->prepare($sql);
@@ -217,7 +217,7 @@ class FonctionnaliteModel extends BaseModel
     }
 
     public function SupprimerOff(string $id){
-        $section = $this -> getSection();
+        $section = $_GET['section'];
 
         $sql = "DELETE FROM $section WHERE id = ? ";
         $stmt = $this->pdo->prepare($sql);
