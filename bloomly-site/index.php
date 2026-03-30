@@ -99,6 +99,10 @@ elseif ($page === 'SupprimerEnt'){
     (new FonctionnaliteController()) -> supprimer_ent();
 }
 
+elseif ($page === 'SupprimerEtudiant'){
+    (new FonctionnaliteController()) -> supprimer_etudiant();
+}
+
 elseif ($page === 'modifier'){
     (new FonctionnaliteController()) -> modif_off();
 }

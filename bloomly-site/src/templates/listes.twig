@@ -68,7 +68,7 @@
  
         <h1 class="police">Consulter vos entreprises</h1>
         {% if user == '1' or user == '2' %}
-            <a class = "ajout" href= "index.php?page=ajout_ent&section=entreprises&user={{user}}&connect=oui">Ajouter une entreprise</a>
+            <a class = "ajout2" href= "index.php?page=ajout_ent&section=entreprises&user={{user}}&connect=oui">Ajouter une entreprise</a>
         {% endif %}
         <p class="police">Retrouvez ici l'ensemble des entreprises que vous avez publiées.</p>
     <div class="liste">
@@ -139,6 +139,9 @@
     <div class="bloc-liste">
         <img src="http://bloomly-static.local/assets/profil.png" alt="Image d'un profil">
         <p>{{ item.nom }} {{ item.prenom }}</p>
+        <div  class="poubelle" >
+                <a href="index.php?page=SupprimerEtudiant&section=etudiants&user={{user}}&connect=oui&id_etudiant={{item.id_utilisateur}}"><img src="http://bloomly-static.local/assets/poubelle.png" alt="Supprimer"></a>
+        </div>
     </div>
  
     {% endfor %}
