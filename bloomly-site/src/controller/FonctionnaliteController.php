@@ -175,6 +175,17 @@ class FonctionnaliteController extends BaseController
         exit;
     }
 
+    public function supprimer_wishlist(){
+        $id_offre = $_GET['id_offre'] ?? null;
+
+        $user = $_GET['user'] ?? '';
+        $section = $this -> getSection();
+        $this -> fonctionModel -> SupprimerWhishlist($id_offre);
+
+        header("Location: index.php?page=choix_section&section=" . urlencode($section) . "&connect=oui&user=" . urlencode($user));
+        exit;
+    }
+
     public function supprimer_ent(){
         $id_entreprise = $_GET['id_entreprise'] ?? null;
         $section = $this -> getSection();

@@ -224,6 +224,14 @@ class FonctionnaliteModel extends BaseModel
         return $stmt->execute([$id]);
     }
 
+    public function SupprimerWhishlist(string $id){
+        $user_actif = $_COOKIE['user_id'] ?? null;
+
+        $sql = "DELETE FROM wishlist WHERE id_offre = ? and id_utilisateur = ? ";
+        $stmt = $this->pdo->prepare($sql);
+        return $stmt->execute([$id, $user_actif]);
+    }
+
     public function ModifierOff(string $titre, string $description, string $formation, string $softskills, string $competences,  string $date_debut, string $duree, string $lieu, string $salaire, string $date_pub, string $id_entreprise){
     $user_actif = $_COOKIE['user_id'] ?? null;
     $section = $this -> getSection();
