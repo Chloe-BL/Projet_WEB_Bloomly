@@ -149,6 +149,22 @@ class FonctionnaliteController extends BaseController
                             ]);
     }
 
+    public function description_ent()
+    {
+        $id_entreprise = $_GET['id_entreprise'] ?? null;
+
+        $entreprise = $this -> fonctionModel -> getEntById($id_entreprise);
+
+        echo $this->render('description.twig', [
+                           'description' => $entreprise['description'],
+                           'email' => $entreprise['email_contact'],
+                           'telephone' => $entreprise['telephone_contact'],
+                           'adresse' => $entreprise['adresse'],
+                           'id_entreprise' =>  $_GET['id_entreprise'] ?? null,
+                           'nom' => $_GET['nom'] ?? null
+                            ]);
+    }
+
     public function supprimer_off(){
         $id_offre = $_GET['id_offre'] ?? null;
         $section = $this -> getSection();
@@ -158,20 +174,13 @@ class FonctionnaliteController extends BaseController
         exit;
     }
 
-    public function description_ent()
-    {
-        $id_entreprise = $_POST['id_entreprise'] ?? $_GET['id_entreprise'] ?? null;
+    public function supprimer_ent(){
+        $id_entreprise = $_GET['id_entreprise'] ?? null;
+        $section = $this -> getSection();
+        $this -> fonctionModel -> SupprimerEnt($id_entreprise);
 
-        if (!$id_entreprise) {
-            die("id_entreprise manquant");
-        }
-
-        $ent = $this -> fonctionModel -> getEntById($id_entreprise);
-
-        $delete_ent = $this -> fonctionModel -> SupprimerEnt($ent);
-
-        echo $this->render('description.twig', [
-                           'id_entreprise' => $ent['id_entreprise']]);
+        header("Location: index.php?page=choix_section&section=" . urlencode($section) . "&connect=oui&user=" . urlencode($user));
+        exit;
     }
 
     public function AddAgenda(){

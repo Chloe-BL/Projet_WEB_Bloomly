@@ -5,6 +5,7 @@
 
 {% block body %}
 
+{% if section == 'offres' %}
     <div class="haut-offre">
         <h1 class="titre">{{titre}}</h1>
         <div class="actions">
@@ -69,4 +70,44 @@
         <p>{{date_pub}}</p>
     </div>
 
+{% elseif section == 'entreprises' %}
+
+    <div class="haut-offre">
+        <h1 class="titre">{{nom}}</h1>
+        <div class="actions">
+            <a class="bouton" href="?page=choix_section&section={{section}}">Retour</a>
+            <a class="bouton" href="">Modifier</a>
+            <form method="post" action="index.php?page=SupprimerEnt&section=entreprises&user={{user}}&connect=oui&id_entreprise={{id_entreprise}}&nom={{nom}}&section=offres">
+                <button class="bouton" type="submit">Supprimer</button>
+            </form>
+            <a class="bouton" href="?page=candidature&section={{section}}&user={{user}}&connect=oui&id_nom={{id_entreprise}}&nom={{nom}}">Postuler</a>
+        </div>
+    </div>
+    
+    <div class="container-flex">
+        <div class="cadre">
+            <h1 class="titre">Description</h1>
+            <h2 class="sous-titre">{{description}}</h2>
+            <p>jsp</p>
+        </div>
+    </div>
+
+    <div class="categ">
+        <hr color=#c06c84 size="2" width="95%" >
+        <h1 class="titre">Contacts</h1>
+        <h4 >Adresse mail : </h4>
+        <p>{{email}}</p>
+    <br>
+        <h4 >Numéro de téléphone : </h4>
+        <p>{{telephone}}</p>
+    <br>
+    </div>
+
+    <div class="categ">
+        <hr color=#c06c84 size="2" width="95%" >
+        <h1 class="titre">Où somme nous ?</h1>
+        <h4 >Siège social : </h4>
+        <p>{{adresse}}</p>
+    <br>
+    </div>
 {% endblock %}

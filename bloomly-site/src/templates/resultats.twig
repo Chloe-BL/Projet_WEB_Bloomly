@@ -1,47 +1,53 @@
 {% extends "layout.twig" %}
-
+ 
 {% block title %}Résultats de recherche{% endblock %}
-
+ 
 {% block body %}
-
+ 
 <h1>Résultats pour "{{ search }}"</h1>
-
+ 
 {% if resultats is empty %}
-    <p>Aucun résultat trouvé.</p>
+<p style="text-align:center; margin-top:30px;">Aucun résultat trouvé.</p>
 {% else %}
-    {% for item in resultats %}
-        <div style="border:1px solid #ccc; padding:15px; margin:10px; border-radius:8px;">
-
-            {% if item.type_result == 'entreprise' or type == 'entreprise' %}
-                <span style="background:blue; color:white; padding:3px 8px; border-radius:4px;">Entreprise</span>
-                <h3>{{ item.nom ?? item.titre }}</h3>
-                <p>{{ item.description }}</p>
-                <p>📧 {{ item.email_contact }}</p>
-                <p>📞 {{ item.telephone_contact }}</p>
-
-            {% elseif item.type_result == 'offre' or type == 'offre' %}
-                <span style="background:green; color:white; padding:3px 8px; border-radius:4px;">Offre</span>
-                <h3>{{ item.titre }}</h3>
-                <p>{{ item.description }}</p>
-                <p>💰 {{ item.salaire }} € | 📅 {{ item.date_pub }}</p>
-                <p>🛠 {{ item.competences }}</p>
-
-            {% elseif item.type_result == 'etudiant' or type == 'etudiant' %}
-                <span style="background:orange; color:white; padding:3px 8px; border-radius:4px;">Étudiant</span>
-                <h3>{{ item.nom }} {{ item.prenom }}</h3>
-                <p>📧 {{ item.email }}</p>
-
-            {% elseif item.type_result == 'pilote' or type == 'pilote' %}
-                <span style="background:purple; color:white; padding:3px 8px; border-radius:4px;">Pilote</span>
-                <h3>{{ item.nom }} {{ item.prenom }}</h3>
-
-            {% else %}
-                <h3>{{ item.titre }}</h3>
-                <p>{{ item.info }}</p>
-            {% endif %}
-
-        </div>
-    {% endfor %}
+<div class="liste">
+        {% for item in resultats %}
+<div class="bloc-liste">
+ 
+                {% if item.type_result == 'entreprise' or type == 'entreprise' %}
+<img src="http://bloomly-static.local/assets/annonce.png" alt="Entreprise">
+<p><strong>{{ item.nom }}</strong></p>
+<p>{{ item.description }}</p>
+<p>📧 {{ item.email_contact }}</p>
+<p>📞 {{ item.telephone_contact }}</p>
+<p>👥 Stagiaires : {{ item.nb_stagiaires }}</p>
+<p>⭐ Moyenne : {{ item.moyenne_evaluation ?? 'Aucune' }}/5</p>
+ 
+                {% elseif item.type_result == 'offre' or type == 'offre' %}
+<img src="http://bloomly-static.local/assets/annonce.png" alt="Offre">
+<p><strong>{{ item.titre }}</strong></p>
+<p>🏢 {{ item.entreprise }}</p>
+<p>{{ item.description }}</p>
+<p>💰 {{ item.salaire }} € | 📅 {{ item.date_pub }}</p>
+<p>🛠 {{ item.competences }}</p>
+<p>👥 Candidats : {{ item.nb_candidats }}</p>
+ 
+                {% elseif item.type_result == 'etudiant' or type == 'etudiant' %}
+<img src="http://bloomly-static.local/assets/profil.png" alt="Étudiant">
+<p><strong>{{ item.nom }} {{ item.prenom }}</strong></p>
+<p>📧 {{ item.email }}</p>
+ 
+                {% elseif item.type_result == 'pilote' or type == 'pilote' %}
+<img src="http://bloomly-static.local/assets/profil.png" alt="Pilote">
+<p><strong>{{ item.nom }} {{ item.prenom }}</strong></p>
+ 
+                {% else %}
+<p><strong>{{ item.titre }}</strong></p>
+<p>{{ item.info }}</p>
+                {% endif %}
+ 
+            </div>
+        {% endfor %}
+</div>
 {% endif %}
-
+ 
 {% endblock %}
