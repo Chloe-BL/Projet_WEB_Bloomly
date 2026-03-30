@@ -232,6 +232,14 @@ class FonctionnaliteModel extends BaseModel
         return $stmt->execute([$id, $user_actif]);
     }
 
+    public function SupprimerEtudiant(string $id){
+        $user_actif = $_COOKIE['user_id'] ?? null;
+
+        $sql = "DELETE FROM utilisateur WHERE id_utilisateur = ? and id_createur = ? ";
+        $stmt = $this->pdo->prepare($sql);
+        return $stmt->execute([$id, $user_actif]);
+    }
+
     public function ModifierOff(string $titre, string $description, string $formation, string $softskills, string $competences,  string $date_debut, string $duree, string $lieu, string $salaire, string $date_pub, string $id_entreprise){
     $user_actif = $_COOKIE['user_id'] ?? null;
     $section = $this -> getSection();
