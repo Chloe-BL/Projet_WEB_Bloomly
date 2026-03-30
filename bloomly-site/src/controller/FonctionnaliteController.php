@@ -40,12 +40,7 @@ class FonctionnaliteController extends BaseController
                                                       $_POST['email_contact'], 
                                                       $_POST['telephone_contact'], 
                                                       $_POST['adresse']);
-        if ($connect) {
-            $this->render('listes.twig', ['section' => $section ]);
-        } 
-        else {
-            echo "erreur";
-        }
+
 
         header("Location: index.php?page=choix_section&section=" . urlencode($section) . "&connect=oui&user=" . urlencode($user));
 

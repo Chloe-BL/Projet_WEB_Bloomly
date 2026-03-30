@@ -1,11 +1,11 @@
 {% extends 'layout.twig' %}
-
+ 
 {% block title %}Vos Offres{% endblock %}
-
-
+ 
+ 
 {% block body %}
-
-        
+ 
+       
     {# SECTION OFFRES #}
     {% if section == 'offres' %}
     <nav class="navbar">
@@ -13,7 +13,7 @@
         </nav>
          <div class="sous-nav">
          </div>
-
+ 
         <h1 class="police">Consulter vos annonces</h1>
         <a class = "ajout" href= "index.php?page=ajout_off&section=offres&user={{user}}&connect=oui">Ajouter une offre</a>
         <p class="police">Retrouvez ici l'ensemble des offres de stage que vous avez publiées.</p>
@@ -28,23 +28,23 @@
                 <button type="submit">Ajouter aux favoris</button>
             </form>
         </div>
-    {% endfor %} 
+    {% endfor %}
     <div class="pagination">
         {% if page > 1 %}
             <a href="index.php?page=choix_section&section=offres&connect=oui&user={{user}}&p={{ page - 1 }}">Précédent</a>
-        {% else %} 
+        {% else %}
             <span class="disabled">Précédent</span>
-        {% endif %} 
-
-
+        {% endif %}
+ 
+ 
        {% for i in 1..totalPages|default(1) %}  {# Pour i de 1 à la fin modifier pour bdd!!!#}
             {% if i == page %}
                 <span class="active-page"> {{i}}</span>
-            {% else %} 
+            {% else %}
                 <a href="index.php?page=choix_section&section=offres&connect=oui&user={{user}}&p={{ i }}"> {{ i }} </a>
             {% endif %}
         {% endfor %}
-
+ 
         {% if page < totalPages %}
             <a href="index.php?page=choix_section&section=offres&connect=oui&user={{user}}&p={{ page + 1 }}">Suivant</a>
         {% else %}
@@ -53,14 +53,14 @@
     </div>  
     </div>
     <a class="acc" href="index.php?page=validationConnexion&connect=oui&user={{user}}">Retour à l'accueil</a>
-
+ 
     {# SECTION ENTREPRISES #}
     {% elseif section == 'entreprises' %}
     <nav class="navbar">
             <a class="active">Vos entreprises</a>
         </nav>
         <div class="sous-nav"></div>
-
+ 
         <h1 class="police">Consulter vos entreprises</h1>
         <a class = "ajout" href= "index.php?page=ajout_ent&section=entreprises&user={{user}}&connect=oui">Ajouter une entreprise</a>
         <p class="police">Retrouvez ici l'ensemble des entreprises que vous avez publiées.</p>
@@ -74,19 +74,19 @@
     <div class="pagination">
         {% if page > 1 %}
             <a href="index.php?page=choix_section&section=entreprises&connect=oui&user={{user}}&p={{ page - 1 }}">Précédent</a>
-        {% else %} 
+        {% else %}
             <span class="disabled">Précédent</span>
-        {% endif %} 
-
-
+        {% endif %}
+ 
+ 
        {% for i in 1..totalPages|default(1) %}  {# Pour i de 1 à la fin #}
             {% if i == page %}
                 <span class="active-page"> {{i}}</span>
-            {% else %} 
+            {% else %}
                 <a href="index.php?page=choix_section&section=entreprises&connect=oui&user={{user}}&p={{ i }}"> {{ i }} </a>
             {% endif %}
         {% endfor %}
-
+ 
         {% if page < totalPages %}
             <a href="index.php?page=choix_section&section=entreprises&connect=oui&user={{user}}&p={{ page + 1 }}">Suivant</a>
         {% else %}
@@ -95,55 +95,61 @@
     </div>
     </div>
     <a class="acc" href="index.php?page=validationConnexion&connect=oui&user={{user}}">Retour à l'accueil</a>
-    
+   
     {# SECTION ETUDIANTS #}
     {% elseif section == 'etudiants' %}
     <nav class="navbar">
                 <input type="checkbox" id="interrupteur">
                 <label for="interrupteur" class="burger">☰</label>
-
+ 
                 <div class="cache">
                     <a href="index.php?page=mon_espace&connect=oui&user={{user}}">Mon Espace</a>
                     {% if user == 1 %}
                 <a href="index.php?page=choix_section&section=pilots&user={{user}}&connect=oui">Comptes Pilotes</a>                
             {% endif %}
-            <a class="active">Mes Etudiants</a>   
+            <a class="active">Mes Etudiants</a>  
                 </div>
         </nav>
             <div class="sous-nav"></div>
-
+ 
         <br>
         <h1 class="police">Consulter vos étudiants</h1>
         <p class="police">Retrouvez ici l'ensemble des profils étudiants que vous avez créés.</p>
          <a class = "ajout" href= "index.php?page=inscription&section=etudiants&user={{user}}&connect=oui">Ajouter un compte étudiant</a>
-        <div class="recherche-bar-profil">
-                    <span class="icon">🔍</span>
-                    <input type="text" placeholder="Rechercher des étudiants">
-                </div>
+                <div class="recherche-bar-profil">
+              <form method="get" action="index.php">
+                <input type="hidden" name="page" value="search">
+                <input type="hidden" name="type" value="etudiant">
+                <input type="hidden" name="user" value="{{ user }}">
+                <input type="hidden" name="connect" value="oui">
+                <span class="icon">🔍</span>
+                <input type="text" name="search" placeholder="Rechercher des étudiants">
+                <button type="submit">OK</button>
+            </form>
     <div class="liste">
     {% for item in itemsPage %}
     <div class="bloc-liste">
         <img src="http://bloomly-static.local/assets/profil.png" alt="Image d'un profil">
         <p>{{ item.nom }} {{ item.prenom }}</p>
     </div>
-
+ 
     {% endfor %}
     <div class="pagination">
         {% if page > 1 %}
             <a href="index.php?page=choix_section&section=etudiants&user={{user}}&connect=oui&p={{ page - 1 }}">Précédent</a>
-        {% else %} 
+        {% else %}
             <span class="disabled">Précédent</span>
-        {% endif %} 
-
-
+        {% endif %}
+ 
+ 
        {% for i in 1..totalPages|default(1) %}  {# Pour i de 1 à la fin Pour i de 1 à la fin modifier pour bdd!!#}
             {% if i == page %}
                 <span class="active-page"> {{i}}</span>
-            {% else %} 
+            {% else %}
                 <a href="index.php?page=choix_section&section=etudiants&user={{user}}&connect=oui&p={{ i }}"> {{ i }} </a>
             {% endif %}
         {% endfor %}
-
+ 
         {% if page < totalPages %}
             <a href="index.php?page=choix_section&section=etudiants&user={{user}}&connect=oui&p={{ page + 1 }}">Suivant</a>
         {% else %}
@@ -152,32 +158,38 @@
     </div>
     </div>
     <a class="acc" href="index.php?page=validationConnexion&connect=oui&user={{user}}">Retour à l'accueil</a>
-
+ 
     {# SECTION PILOTES #}
     {% elseif section == 'pilots' %}
         <nav class="navbar">
                 <input type="checkbox" id="interrupteur">
                 <label for="interrupteur" class="burger">☰</label>
-
+ 
                 <div class="cache">
                     <a href="index.php?page=mon_espace&connect=oui&user={{user}}">Mon espace</a>
                     {% if user == 1 %}
-                <a class="active">Comptes Pilotes</a>                 
+                <a class="active">Comptes Pilotes</a>                
             {% endif %}
              <a href="index.php?page=choix_section&section=etudiants&user={{user}}&connect=oui">Mes Etudiants</a>  
                 </div>
         </nav>
             <div class="sous-nav"></div>
    
-
+ 
         <br>
         <h1 class="police">Consulter vos Pilotes</h1>
         <p class="police">Retrouvez ici l'ensemble des profils pilotes que vous avez créés.</p>
         <a class = "ajout" href= "index.php?page=inscription&section=pilots&user={{user}}&connect=oui">Ajouter un compte pilote</a>
-                <div class="recherche-bar-profil">
-                    <span class="icon">🔍</span>
-                    <input type="text" placeholder="Rechercher des pilotes">
-                </div>
+            <div class="recherche-bar-profil">
+            <form method="get" action="index.php">
+            <input type="hidden" name="page" value="search">
+            <input type="hidden" name="type" value="pilote">
+            <input type="hidden" name="user" value="{{ user }}">
+            <input type="hidden" name="connect" value="oui">
+            <span class="icon">🔍</span>
+            <input type="text" name="search" placeholder="Rechercher des pilotes">
+            <button type="submit">OK</button>
+        </form>
             </div>
     <div class="liste">
     {% for item in itemsPage %}
@@ -189,19 +201,19 @@
         <div class="pagination">
             {% if page > 1 %}
                 <a href="index.php?page=choix_section&section=pilots&user={{user}}&connect=oui&p={{ page - 1 }}">Précédent</a>
-            {% else %} 
+            {% else %}
                 <span class="disabled">Précédent</span>
-            {% endif %} 
+            {% endif %}
        
-
+ 
        {% for i in 1..totalPages|default(1) %}  {# Pour i de 1 à la fin Pour i de 1 à la fin modifier pour bdd!!#}
             {% if i == page %}
                 <span class="active-page"> {{i}}</span>
-            {% else %} 
+            {% else %}
                 <a href="index.php?page=choix_section&section=pilots&user={{user}}&connect=oui&p={{ i }}"> {{ i }} </a>
             {% endif %}
         {% endfor %}
-
+ 
         {% if page < totalPages %}
             <a href="index.php?page=choix_section&section=pilots&user={{user}}&connect=oui&p={{ page + 1 }}">Suivant</a>
         {% else %}
@@ -210,12 +222,12 @@
         </div>
         </div>
     <a class="acc" href="index.php?page=validationConnexion&connect=oui&user={{user}}">Retour à l'accueil</a>
-
+ 
     {% elseif section == 'wishlist' %}
     <nav class="navbar">
             <input type="checkbox" id="interrupteur">
             <label for="interrupteur" class="burger">☰</label>
-
+ 
             <div class="cache">
                 <a href="index.php?page=mon_espace&connect=oui&user={{user}}">Mon Espace</a>  
                 <a class="active">Ma Wishlist</a>  
@@ -227,31 +239,31 @@
         <div class="sous-nav"></div>
         <br>
         <h3 class="police">Consulter les offres que vous avez ajoutées à votre wishlist</h3>
-
+ 
         <div class="liste">
     {% for item in itemsPage %}
-
+ 
         <div class="bloc-liste">
             <img src="http://bloomly-static.local/assets/annonce.png" alt="Image d'une annonce">
             <p>{{ item.titre}}</p>
         </div>
     {% endfor %}
-
+ 
     <div class="pagination">
         {% if page > 1 %}
             <a href="index.php?page=choix_section&section=wishlist&user={{user}}&connect=oui&p={{ page - 1 }}">Précédent</a>
-        {% else %} 
+        {% else %}
             <span class="disabled">Précédent</span>
-        {% endif %} 
-
+        {% endif %}
+ 
        {% for i in 1..totalPages|default(1) %}  {# Pour i de 1 à la fin modifier pour bdd!!#}
             {% if i == page %}
                 <span class="active-page"> {{i}}</span>
-            {% else %} 
+            {% else %}
                 <a href="index.php?page=choix_section&section=wishlist&user={{user}}&connect=oui&p={{ i }}"> {{ i }} </a>
             {% endif %}
         {% endfor %}
-
+ 
         {% if page < totalPages %}
             <a href="index.php?page=choix_section&section=wishlist&user={{user}}&connect=oui&p={{ page + 1 }}">Suivant</a>
         {% else %}
@@ -260,48 +272,48 @@
     </div>
     </div>
     <a class="acc" href="index.php?page=validationConnexion&connect=oui&user={{user}}">Retour à l'accueil</a>
-
-
+ 
+ 
     {% elseif section == 'agenda' %}
     <nav class="navbar">
                 <input type="checkbox" id="interrupteur">
                 <label for="interrupteur" class="burger">☰</label>
-
+ 
                 <div class="cache">
-                    <a href="index.php?page=mon_espace&connect=oui&user={{user}}">Mon Espace</a>           
+                    <a href="index.php?page=mon_espace&connect=oui&user={{user}}">Mon Espace</a>          
                     <a href="index.php?page=choix_section&section=wishlist&user={{user}}&connect=oui">Ma Wishlist</a>
                     <a class="active">Mon Agenda</a>    
                 </div>
             </nav>
             <div class="sous-nav"></div>
-
+ 
             <br>
             <h3 class="police">Retrouvez ici l'ensemble des offres auxquelles vous avez postulé, leur descritpion et leurs dates de postulation.</h3>
-
+ 
 <div class="liste">
     {% for item in itemsPage %}
-
+ 
         <div class="bloc-petite-liste">
             <p>{{ item.titre}}</p>
             <p>Date de candidature : {{date}}</p>
         </div>
     {% endfor %}
-
+ 
     <div class="pagination">
         {% if page > 1 %}
             <a href="index.php?page=choix_section&section=agenda&user={{user}}&connect=oui&p={{ page - 1 }}">Précédent</a>
-        {% else %} 
+        {% else %}
             <span class="disabled">Précédent</span>
-        {% endif %} 
-
+        {% endif %}
+ 
        {% for i in 1..totalPages %}  {# Pour i de 1 à la fin #}
             {% if i == page %}
                 <span class="active-page"> {{i}}</span>
-            {% else %} 
+            {% else %}
                 <a href="index.php?page=choix_section&section=agenda&user={{user}}&connect=oui&p={{ i }}"> {{ i }} </a>
             {% endif %}
         {% endfor %}
-
+ 
         {% if page < totalPages %}
             <a href="index.php?page=choix_section&section=agenda&user={{user}}&connect=oui&p={{ page + 1 }}">Suivant</a>
         {% else %}
@@ -310,9 +322,9 @@
     </div>
     </div>
     <a class="acc" href="index.php?page=validationConnexion&connect=oui&user={{user}}">Retour à l'accueil</a>
-
+ 
     {% endif %}
-
-
+ 
+ 
 {% endblock %}
    
