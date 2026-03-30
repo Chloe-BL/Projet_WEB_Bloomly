@@ -161,7 +161,8 @@ class FonctionnaliteController extends BaseController
                            'telephone' => $entreprise['telephone_contact'],
                            'adresse' => $entreprise['adresse'],
                            'id_entreprise' =>  $_GET['id_entreprise'] ?? null,
-                           'nom' => $_GET['nom'] ?? null
+                           'nom' => $_GET['nom'] ?? null,
+                           'section' => $_GET['section'] ?? null
                             ]);
     }
 
@@ -200,7 +201,7 @@ class FonctionnaliteController extends BaseController
         $section = $this -> getSection();
         $liste_ent = $this->fonctionModel->getAllEntreprises();
 
-        $this->render('ajout.twig',[
+        $this->render('modifier.twig',[
         'section' => $section,
         'liste_ent' => $liste_ent]);
     }

@@ -7,7 +7,7 @@
 
 <form method="post" action="index.php?page=ValidationModif_off&section=offres&connect=oui&user={{user}}"> 
 
-{% else if section == 'offres' %}
+{% if section == 'offres' %}
 
         <input type="hidden" name="id_entreprise" value="<?= htmlspecialchars($id_entreprise) ?>">
         
@@ -78,7 +78,7 @@
             <input type="hidden" name="id_createur" value="<?= htmlspecialchars($id_createur) ?>">
             <input type="hidden" name="id_entreprise" value="<?= htmlspecialchars($id_entreprise) ?>">
 
-{% if section == 'entreprises' %}
+{% elseif section == 'entreprises' %}
     <input type="hidden" name="id_entreprise" value="<?= htmlspecialchars($id_entreprise) ?>">
     <div class="haut-offre">
         <input type="text" name="nom" class="titre" value="<?= htmlspecialchars($user['nom']) ?>">
@@ -111,7 +111,7 @@
     </div>
     <input type="hidden" name="id_createur" value="<?= htmlspecialchars($id_createur) ?>">
 
-{% else if section == 'etudiants' %}
+{% elseif section == 'etudiants' %}
 
             <input type="hidden" name="id_utilisateur" value="<?= htmlspecialchars($id_utilisateur) ?>">
 
@@ -152,7 +152,7 @@
                 <input type="hidden" name="id_role" value="<?= htmlspecialchars($id_role) ?>">
                 <input type="hidden" name="id_createur" value="<?= htmlspecialchars($id_createur) ?>">
 
-{% else if section == 'pilots' %}
+{% elseif section == 'pilots' %}
 
             <input type="hidden" name="id_utilisateur" value="<?= htmlspecialchars($id_utilisateur) ?>">
 
