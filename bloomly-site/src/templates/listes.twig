@@ -15,18 +15,23 @@
          </div>
  
         <h1 class="police">Consulter vos annonces</h1>
+        {% if user == '1' or user == '2' %}
         <a class = "ajout" href= "index.php?page=ajout_off&section=offres&user={{user}}&connect=oui">Ajouter une offre</a>
+        {% endif %}
         <p class="police">Retrouvez ici l'ensemble des offres de stage que vous avez publiées.</p>
     <div class="liste">
     {% for item in itemsPage %}
         <div class="bloc-liste">
             <a href="index.php?page=DescriptionOff&section=offres&connect=oui&user={{user}}&id_offre={{item.id}}&titre={{item.titre}}&p={{ page - 1 }}"><img src="http://bloomly-static.local/assets/annonce.png" alt="Image d'une annonce"></a>
             <p>{{item.titre}}</p>
+
+            {% if user == 3 %}
             <form method="post" action="index.php?page=AddFavoris&section=offres&user={{user}}&connect=oui">
                 <input type="hidden" name="id_offre" value="{{ item.id }}">
                 <input type="hidden" name="titre" value="{{ item.titre}}">
                 <button type="submit">Ajouter aux favoris</button>
             </form>
+            {% endif %}
         </div>
     {% endfor %}
     <div class="pagination">
@@ -62,7 +67,9 @@
         <div class="sous-nav"></div>
  
         <h1 class="police">Consulter vos entreprises</h1>
-        <a class = "ajout" href= "index.php?page=ajout_ent&section=entreprises&user={{user}}&connect=oui">Ajouter une entreprise</a>
+        {% if user == '1' or user == '2' %}
+            <a class = "ajout" href= "index.php?page=ajout_ent&section=entreprises&user={{user}}&connect=oui">Ajouter une entreprise</a>
+        {% endif %}
         <p class="police">Retrouvez ici l'ensemble des entreprises que vous avez publiées.</p>
     <div class="liste">
     {% for item in itemsPage %}

@@ -136,8 +136,8 @@ class FonctionnaliteController extends BaseController
         echo $this->render('description.twig', [
                            'description' => $offre['description'],
                            'formation' => $offre['formation'],
-                           'soft_skill' => $offre['softskills'],
-                           'competences' => $offre['competences'],
+                           'softskills' => $offre['softskills'],
+                           'competence' => $offre['competences'],
                            'date_debut' => $offre['date_debut'],
                            'duree' => $offre['duree'],
                            'lieu' => $offre['lieu'],
@@ -181,7 +181,7 @@ class FonctionnaliteController extends BaseController
         $user = $_GET['user'] ?? '';
         $section = $this -> getSection();
         $this -> fonctionModel -> SupprimerWhishlist($id_offre);
-        
+
         header("Location: index.php?page=choix_section&section=" . urlencode($section) . "&connect=oui&user=" . urlencode($user));
         exit;
     }

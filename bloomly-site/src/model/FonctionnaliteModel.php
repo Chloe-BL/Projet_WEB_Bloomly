@@ -227,11 +227,7 @@ class FonctionnaliteModel extends BaseModel
     public function SupprimerWhishlist(string $id){
         $user_actif = $_COOKIE['user_id'] ?? null;
 
-        $sql = "SELECT w.id_offre, o.titre
-            FROM wishlist w
-            JOIN offre o ON o.id_offre = w.id_offre
-            WHERE w.id_utilisateur = ?";
-    
+        $sql = "DELETE FROM wishlist WHERE id_offre = ? and id_utilisateur = ? ";
         $stmt = $this->pdo->prepare($sql);
         return $stmt->execute([$id, $user_actif]);
     }
