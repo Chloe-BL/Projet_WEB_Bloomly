@@ -181,7 +181,7 @@ class FonctionnaliteController extends BaseController
         $user = $_GET['user'] ?? '';
         $section = $this -> getSection();
         $this -> fonctionModel -> SupprimerWhishlist($id_offre);
-
+        
         header("Location: index.php?page=choix_section&section=" . urlencode($section) . "&connect=oui&user=" . urlencode($user));
         exit;
     }
