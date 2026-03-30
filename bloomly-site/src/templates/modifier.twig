@@ -5,79 +5,80 @@
  
 {% block body %}
 
-<form method="post" action="index.php?page=ValidationModif_off&section=offres&connect=oui&user={{user}}"> 
 
 {% if section == 'offres' %}
-
-        <input type="hidden" name="id_entreprise" value="<?= htmlspecialchars($id_entreprise) ?>">
-        
-        <label>Nom :</label>
-        <input type="text" name="nom" value="<?= htmlspecialchars($user['nom']) ?>">
-
-
+<form method="post" action="index.php?page=ValidationModif_off&section=offres&connect=oui&user={{user}}"> 
+        <input type="hidden" name="id" value={{id}}>
+        <br><br>
         <div class="haut-offre">
-            <input class="titre" type="text" name="titre" value="<?= htmlspecialchars($user['titre']) ?>">
-            <div class="actions">
-                <a class="bouton" href="?page=choix_section&section={{section}}">Retour</a>
-            </div>
+        <h2 class="titre">Titre de l'offre :</h2>
+        <br>
+        <input type="text" name="titre" value="{{offre.titre}}">
+        <div class="actions">
+            <a class="bouton" href="?page=choix_section&section={{section}}">Retour</a>
+            
         </div>
-
+    </div>
         
-        <div class="container-flex">
-                <div class="cadre">
-                    <h1 class="titre">Description entreprise </h1>
-                    <input type="text" name="description_ent" value="<?= htmlspecialchars($user['description_ent']) ?>">
-                    <p>jsp</p>
-                </div>
-            </div>
+        
 
             <div class="categ">
                 <hr color=#c06c84 size="2" width="95%" >
-                <h1 class="titre">Description</h1>
-                <input type="text" name="description" value="<?= htmlspecialchars($user['description']) ?>">
+                <h2 class="titre">Description</h2>
+                <input type="text" name="description" value="{{offre.description}}">
             </div>
 
 
             <div class="categ">
                 <hr color=#c06c84 size="2" width="95%" >
-                <h1 class="titre">Profil recherché</h1>
+                <h2 class="titre">Profil recherché</h2>
                 <h4 >Formation : </h4>
-                <input type="text" name="formation" value="<?= htmlspecialchars($user['formation']) ?>">
+                <input type="text" name="formation" value="{{offre.formation}}">
             <br>
                 <h4>Savoir-être :</h4>
-                <input type="text" name="softskills" value="<?= htmlspecialchars($user['softskills']) ?>">
+                <input type="text" name="softskills" value="{{offre.softskills}}">
             <br>
                 <h4>Compétences :</h4>
-                <input type="text" name="competences" value="<?= htmlspecialchars($user['competences']) ?>">
+                <input type="text" name="competences" value="{{offre.competences}}">
             </div>  
 
             <div class="categ">
                 <hr color=#c06c84 size="2" width="95%" >
-                <h1 class="titre">Modalités et informations clés</h1>
+                <h2 class="titre">Modalités et informations clés</h2>
                 <h4>Date de début :</h4>
-                <input type="text" name="formation" value="<?= htmlspecialchars($user['date_debut']) ?>">
+                <input type="text" name="formation" value="{{offre.date_debut}}">
             <br>
                 <h4>Durée :</h4>
-                <input type="text" name="formation" value="<?= htmlspecialchars($user['duree']) ?>">
+                <input type="text" name="formation" value="{{offre.duree}}">
             <br>
                 <h4>Lieu :</h4>
-                <input type="text" name="formation" value="<?= htmlspecialchars($user['lieu']) ?>">
+                <input type="text" name="formation" value="{{offre.lieu}}">
             <br>
                 <h4>Rémunération :</h4>
-                <input type="text" name="formation" value="<?= htmlspecialchars($user['salaire']) ?>">
+                <input type="text" name="formation" value="{{offre.salaire}}">
             <br>
                 <h4>Date de publication :</h4>
-                <input type="text" name="formation" value="<?= htmlspecialchars($user['date_pub']) ?>">
+                <input type="text" name="formation" value="{{offre.date_pub}}">
             </div>
 
             <label for="ent">Choisissez une entreprise :</label>
                 <select id="ent" name="ent">
-                    <option value="<?= htmlspecialchars($user['date_pub']) ?>">
+                {% for ent in liste_ent %}
+                    <option value="{{ ent.id_entreprise }}"
+                        <option value="{{ ent.id_entreprise }}" 
+                        {% if ent.id_entreprise == offre.ent %} selected {% endif %}>
+                        {{ ent.nom }}
+                    </option>
+                {% endfor %}
                 </select>
+                <br><br>
 
-            <input type="hidden" name="id_createur" value="<?= htmlspecialchars($id_createur) ?>">
-            <input type="hidden" name="id_entreprise" value="<?= htmlspecialchars($id_entreprise) ?>">
+        <input type="hidden" name="id_createur" value="{{offre.id_createur}}">
+        <input type="hidden" name="id_entreprise" value="{{offre.id_entreprise}}">
+             
+              <button type="submit">Enregistrer</button>
 
+           
 {% elseif section == 'entreprises' %}
     <input type="hidden" name="id_entreprise" value="<?= htmlspecialchars($id_entreprise) ?>">
     <div class="haut-offre">
@@ -195,7 +196,6 @@
 
 {% endif %}
 
-            <button type="submit" class="ajout" name = "form_action" value="ajj_off">Enregistrer</button>
             </form>
 
 {% endblock %}

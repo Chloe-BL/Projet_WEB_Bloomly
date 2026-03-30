@@ -210,11 +210,16 @@ class FonctionnaliteController extends BaseController
     public function modif_off()
     {
         $section = $this -> getSection();
+        $id_offre = $_GET['id_offre'] ?? null;
         $liste_ent = $this->fonctionModel->getAllEntreprises();
+
+        $offre_a_modifier = $this -> fonctionModel -> getOffreById($id_offre);
 
         $this->render('modifier.twig',[
         'section' => $section,
-        'liste_ent' => $liste_ent]);
+        'offre'   => $offre_a_modifier,
+        'liste_ent' => $liste_ent,
+        'user' => $this-> getUser()]);
     }
 
     public function ValidationModif_off(){

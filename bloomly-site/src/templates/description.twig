@@ -10,7 +10,7 @@
         <h1 class="titre">{{titre}}</h1>
         <div class="actions">
             <a class="bouton" href="?page=choix_section&section={{section}}">Retour</a>
-            <a class="bouton" href="?page=modifier&section={{section}}&user={{user}}&connect=oui&id_nom={{id_entreprise}}&nom={{nom}}">Modifier</a>
+            <a class="bouton" href="?page=modifier&section={{section}}&user={{user}}&connect=oui&id_offre={{id_offre}}&nom={{titre}}">Modifier</a>
             <form method="post" action="index.php?page=SupprimerOff&section=offres&user={{user}}&connect=oui&id_offre={{id_offre}}&titre={{titre}}&section=offres">
                 <button class="bouton" type="submit">Supprimer</button>
             </form>
@@ -18,23 +18,12 @@
         </div>
     </div>
     
+
     <div class="container-flex">
         <div class="cadre">
             <h1 class="titre">Description</h1>
-            <h2 class="sous-titre">{{description}}</h2>
-            <p>jsp</p>
+            {{description}}
         </div>
-    </div>
-
-    <div class="categ">
-        <hr color=#c06c84 size="2" width="95%" >
-        <h1 class="titre">Description</h1>
-        <p>Au sein de l’équipe de sécurité opérationnelle et sous la responsabilité du Responsable de la Sécurité des Systèmes d'Information (RSSI), vous participerez activement à la protection de nos actifs numériques.
-        Vos principales tâches :
-            <ul>
-                <li>{{description}}</li>
-            </ul>
-        </p>
     </div>
 
 
