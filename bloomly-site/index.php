@@ -95,6 +95,10 @@ elseif ($page === 'SupprimerOff'){
     (new FonctionnaliteController()) -> supprimer_off();
 }
 
+elseif ($page === 'SupprimerWishlist'){
+    (new FonctionnaliteController()) -> supprimer_wishlist();
+}
+
 elseif ($page === 'SupprimerEnt'){
     (new FonctionnaliteController()) -> supprimer_ent();
 }

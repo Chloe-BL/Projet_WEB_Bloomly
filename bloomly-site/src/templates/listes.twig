@@ -224,6 +224,7 @@
         </div>
     <a class="acc" href="index.php?page=validationConnexion&connect=oui&user={{user}}">Retour à l'accueil</a>
  
+    {# SECTION WISHLIST #}
     {% elseif section == 'wishlist' %}
     <nav class="navbar">
             <input type="checkbox" id="interrupteur">
@@ -247,6 +248,9 @@
         <div class="bloc-liste">
             <img src="http://bloomly-static.local/assets/annonce.png" alt="Image d'une annonce">
             <p>{{ item.titre}}</p>
+            <div  class="poubelle" >
+                <a href="index.php?page=SupprimerWishlist&section=wishlist&user={{user}}&connect=oui&id_offre={{item.id_offre}}&titre={{item.titre}}"><img src="http://bloomly-static.local/assets/poubelle.png" alt="Supprimer"></a>
+            </div>
         </div>
     {% endfor %}
  

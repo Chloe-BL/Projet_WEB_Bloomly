@@ -346,6 +346,10 @@ nav {
     min-width: 100%;
 }
 
+.poubelle {
+    height: 30px;
+    width: 25px;
+}
 
 /*Responsive*/
 @media (max-width: 768px) {
