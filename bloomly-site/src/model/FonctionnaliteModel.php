@@ -15,16 +15,15 @@ class FonctionnaliteModel extends BaseModel
         return $stmt->execute([$nom, $description, $email_contact, $telephone_contact, $adresse, $user_actif]);
     }
 
-    public function ajout_BDD_off(string $titre, string $description, string $formation, string $softskills, string $competences, string $date_debut, string $duree, string $lieu, string $salaire, string $date_pub){
+    public function ajout_BDD_off(string $titre, string $description, string $formation, string $softskills, string $competences, string $date_debut, string $duree, string $lieu, string $salaire, string $date_pub,string $id_entreprise){
+        $user_actif = $_COOKIE['user_id'] ?? null;
+        $section = $_GET['section'] ?? null;
 
-    $user_actif = $_COOKIE['user_id'] ?? null;
-    $section = $_GET['section'] ?? null;
-
-    $sql = "INSERT INTO $section (titre, description, formation, softskills, competences, date_debut, duree, lieu, salaire, date_pub, id_createur) 
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-        
-    $stmt = $this->pdo->prepare($sql);
-    return $stmt->execute([$titre, $description, $formation, $softskills, $competences, $date_debut, $duree, $lieu, $salaire, $date_pub, $user_actif]);
+        $sql = "INSERT INTO $section (titre, description, formation, softskills, competences, date_debut, duree, lieu, salaire, date_pub, id_createur, id_entreprise) 
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                
+        $stmt = $this->pdo->prepare($sql);
+        return $stmt->execute([$titre, $description, $formation, $softskills, $competences, $date_debut, $duree, $lieu, $salaire, $date_pub, $user_actif, $id_entreprise]);
     }
 
     public function ajout_BDD_etudiant(string $nom, string $prenom, string $email, string $mot_de_passe, string $telephone, string $civilite){
@@ -64,6 +63,14 @@ class FonctionnaliteModel extends BaseModel
         return $stmt->execute([$user_actif, $id_offre, $titre]);
     }
  
+    public function getEntById(string $id_entreprise)
+    {
+        $sql = "SELECT id_entreprise, nom FROM entreprises WHERE id_entreprise = ?";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([$id_entreprise]);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+ 
     public function getOffreById(string $id_offre)
     {
         $sql = "SELECT * FROM offres WHERE id = ?";
@@ -71,7 +78,7 @@ class FonctionnaliteModel extends BaseModel
         $stmt->execute([$id_offre]);
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
- 
+
     public function ajoutBDDAgenda(string $id_offre, string $titre)
     {
         $user_actif = $_COOKIE['user_id'] ?? null;
@@ -157,4 +164,20 @@ class FonctionnaliteModel extends BaseModel
     $stmt->execute(['search' => $search]);
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
+
+    public function SupprimerEnt(string $id){
+        $section = $this -> getSection();
+
+        $sql = "DELETE FROM $section WHERE id_entreprise = ? ";
+        $stmt = $this->pdo->prepare($sql);
+        return $stmt->execute([$id]);
+    }
+
+    public function SupprimerOff(string $id){
+        $section = $_GET['section'] ?? '';
+
+        $sql = "DELETE FROM $section WHERE id = ? ";
+        $stmt = $this->pdo->prepare($sql);
+        return $stmt->execute([$id]);
+    }
 };

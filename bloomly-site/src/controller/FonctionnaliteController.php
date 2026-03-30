@@ -1,5 +1,7 @@
 <?php
 
+require_once __DIR__ . '/BaseController.php';
+
 use Twig\Environment; //Charge l'environnement de Twig
 use Twig\Loader\FilesystemLoader; //Charge le loader de Twig
 
@@ -125,7 +127,7 @@ class FonctionnaliteController extends BaseController
         exit;
     }
 
-     public function description()
+     public function description_off()
     {
         $id_offre = $_GET['id_offre'] ?? null;
 
@@ -145,6 +147,31 @@ class FonctionnaliteController extends BaseController
                            'id_offre' =>  $_GET['id_offre'] ?? null,
                            'titre' => $_GET['titre'] ?? null
                             ]);
+    }
+
+    public function supprimer_off(){
+        $id_offre = $_GET['id_offre'] ?? null;
+        $section = $this -> getSection();
+        $this -> fonctionModel -> SupprimerOff($id_offre);
+
+        header("Location: index.php?page=choix_section&section=" . urlencode($section) . "&connect=oui&user=" . urlencode($user));
+        exit;
+    }
+
+    public function description_ent()
+    {
+        $id_entreprise = $_POST['id_entreprise'] ?? $_GET['id_entreprise'] ?? null;
+
+        if (!$id_entreprise) {
+            die("id_entreprise manquant");
+        }
+
+        $ent = $this -> fonctionModel -> getEntById($id_entreprise);
+
+        $delete_ent = $this -> fonctionModel -> SupprimerEnt($ent);
+
+        echo $this->render('description.twig', [
+                           'id_entreprise' => $ent['id_entreprise']]);
     }
 
     public function AddAgenda(){

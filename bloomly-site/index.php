@@ -67,8 +67,12 @@ elseif ($page === 'ajout_pilote') {
     (new UserController()) -> inscription();
 }
 
-elseif ($page === 'Description'){
-    (new FonctionnaliteController()) -> description();
+elseif ($page === 'DescriptionOff'){
+    (new FonctionnaliteController()) -> description_off();
+}
+
+elseif ($page === 'DescriptionEnt'){
+    (new FonctionnaliteController()) -> description_ent();
 }
 
 elseif ($page === 'ValidationAjout_ent'){
@@ -85,6 +89,14 @@ elseif ($page === 'ValidationAjout_etudiant'){
 
 elseif ($page === 'ValidationAjout_pilote'){
     (new FonctionnaliteController()) -> ValidationAjout_pilote();
+}
+
+elseif ($page === 'SupprimerOff'){
+    (new FonctionnaliteController()) -> supprimer_off();
+}
+
+elseif ($page === 'SupprimerEnt'){
+    (new FonctionnaliteController()) -> description_ent();
 }
 
 elseif ($page === 'AddFavoris'){
