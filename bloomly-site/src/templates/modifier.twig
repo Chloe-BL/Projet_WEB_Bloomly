@@ -1,0 +1,201 @@
+{% extends 'layout.twig' %}
+ 
+{% block title %}Vos Offres{% endblock %}
+ 
+ 
+{% block body %}
+
+<form method="post" action="index.php?page=ValidationModif_off&section=offres&connect=oui&user={{user}}"> 
+
+{% else if section == 'offres' %}
+
+        <input type="hidden" name="id_entreprise" value="<?= htmlspecialchars($id_entreprise) ?>">
+        
+        <label>Nom :</label>
+        <input type="text" name="nom" value="<?= htmlspecialchars($user['nom']) ?>">
+
+
+        <div class="haut-offre">
+            <input class="titre" type="text" name="titre" value="<?= htmlspecialchars($user['titre']) ?>">
+            <div class="actions">
+                <a class="bouton" href="?page=choix_section&section={{section}}">Retour</a>
+            </div>
+        </div>
+
+        
+        <div class="container-flex">
+                <div class="cadre">
+                    <h1 class="titre">Description entreprise </h1>
+                    <input type="text" name="description_ent" value="<?= htmlspecialchars($user['description_ent']) ?>">
+                    <p>jsp</p>
+                </div>
+            </div>
+
+            <div class="categ">
+                <hr color=#c06c84 size="2" width="95%" >
+                <h1 class="titre">Description</h1>
+                <input type="text" name="description" value="<?= htmlspecialchars($user['description']) ?>">
+            </div>
+
+
+            <div class="categ">
+                <hr color=#c06c84 size="2" width="95%" >
+                <h1 class="titre">Profil recherché</h1>
+                <h4 >Formation : </h4>
+                <input type="text" name="formation" value="<?= htmlspecialchars($user['formation']) ?>">
+            <br>
+                <h4>Savoir-être :</h4>
+                <input type="text" name="softskills" value="<?= htmlspecialchars($user['softskills']) ?>">
+            <br>
+                <h4>Compétences :</h4>
+                <input type="text" name="competences" value="<?= htmlspecialchars($user['competences']) ?>">
+            </div>  
+
+            <div class="categ">
+                <hr color=#c06c84 size="2" width="95%" >
+                <h1 class="titre">Modalités et informations clés</h1>
+                <h4>Date de début :</h4>
+                <input type="text" name="formation" value="<?= htmlspecialchars($user['date_debut']) ?>">
+            <br>
+                <h4>Durée :</h4>
+                <input type="text" name="formation" value="<?= htmlspecialchars($user['duree']) ?>">
+            <br>
+                <h4>Lieu :</h4>
+                <input type="text" name="formation" value="<?= htmlspecialchars($user['lieu']) ?>">
+            <br>
+                <h4>Rémunération :</h4>
+                <input type="text" name="formation" value="<?= htmlspecialchars($user['salaire']) ?>">
+            <br>
+                <h4>Date de publication :</h4>
+                <input type="text" name="formation" value="<?= htmlspecialchars($user['date_pub']) ?>">
+            </div>
+
+            <label for="ent">Choisissez une entreprise :</label>
+                <select id="ent" name="ent">
+                    <option value="<?= htmlspecialchars($user['date_pub']) ?>">
+                </select>
+
+            <input type="hidden" name="id_createur" value="<?= htmlspecialchars($id_createur) ?>">
+            <input type="hidden" name="id_entreprise" value="<?= htmlspecialchars($id_entreprise) ?>">
+
+{% if section == 'entreprises' %}
+    <input type="hidden" name="id_entreprise" value="<?= htmlspecialchars($id_entreprise) ?>">
+    <div class="haut-offre">
+        <input type="text" name="nom" class="titre" value="<?= htmlspecialchars($user['nom']) ?>">
+    </div>
+    
+    <div class="container-flex">
+        <div class="cadre">
+            <h1 class="titre">Description</h1>
+            <input type="text" name="description" value="<?= htmlspecialchars($user['description']) ?>">
+        </div>
+    </div>
+
+    <div class="categ">
+        <hr color=#c06c84 size="2" width="95%" >
+        <h1 class="titre">Contacts</h1>
+        <h4 >Adresse mail : </h4>
+        <input type="email" name="email_contact" value="<?= htmlspecialchars($user['email_contact']) ?>">
+    <br>
+        <h4 >Numéro de téléphone : </h4>
+        <input type="text" name="telephone_contact" value="<?= htmlspecialchars($user['telephone_contact']) ?>">
+    <br>
+    </div>
+
+    <div class="categ">
+        <hr color=#c06c84 size="2" width="95%" >
+        <h1 class="titre">Où somme nous ?</h1>
+        <h4 >Siège social : </h4>
+        <input type="text" name="adresse" value="<?= htmlspecialchars($user['adresse']) ?>">
+    <br>
+    </div>
+    <input type="hidden" name="id_createur" value="<?= htmlspecialchars($id_createur) ?>">
+
+{% else if section == 'etudiants' %}
+
+            <input type="hidden" name="id_utilisateur" value="<?= htmlspecialchars($id_utilisateur) ?>">
+
+            <div style="display:inline-block; vertical-align:top;"> <!-- Pour mettre les bloc à côté de l'image -->
+                <div class="ligne">
+                    <div class="bloc">
+                        <h3>Civilité</h3>
+                        <input type="text" name="civilite" value="<?= htmlspecialchars($user['civilite']) ?>">
+                    </div>
+
+                    <div class="bloc">
+                        <h3 class="no-wrap">Nom</h3>
+                        <input type="text" name="nom" value="<?= htmlspecialchars($user['nom']) ?>">
+
+                        <h3 class="no-wrap">Prénom</h3>
+                        <input type="text" name="prenom" value="<?= htmlspecialchars($user['prenom']) ?>">
+                    </div>
+                </div>
+
+                <div class="ligne">
+                    <div class="bloc">
+                        <h3 class="no-wrap">Numéro de téléphone</h3>
+                        <input type="text" name="telephone" value="<?= htmlspecialchars($user['telephone']) ?>">
+                    </div>
+                    <div class="bloc">
+                        <h3 class="no-wrap">Adresse mail</h3>
+                        <input type="email" name="email" value="<?= htmlspecialchars($user['email']) ?>">
+                    </div>
+                </div>
+
+                <div class="ligne">
+                    <div class="bloc">
+                        <h3 class="no-wrap">Votre identifiant</h3>
+                        <p class="no-wrap">{{ identifiant }}</p>
+                    </div>
+                </div>
+
+                <input type="hidden" name="id_role" value="<?= htmlspecialchars($id_role) ?>">
+                <input type="hidden" name="id_createur" value="<?= htmlspecialchars($id_createur) ?>">
+
+{% else if section == 'pilots' %}
+
+            <input type="hidden" name="id_utilisateur" value="<?= htmlspecialchars($id_utilisateur) ?>">
+
+            <div style="display:inline-block; vertical-align:top;"> <!-- Pour mettre les bloc à côté de l'image -->
+                <div class="ligne">
+                    <div class="bloc">
+                        <h3>Civilité</h3>
+                        <input type="text" name="civilite" value="<?= htmlspecialchars($user['civilite']) ?>">
+                    </div>
+
+                    <div class="bloc">
+                        <h3 class="no-wrap">Nom</h3>
+                        <input type="text" name="nom" value="<?= htmlspecialchars($user['nom']) ?>">
+
+                        <h3 class="no-wrap">Prénom</h3>
+                        <input type="text" name="prenom" value="<?= htmlspecialchars($user['prenom']) ?>">
+                    </div>
+                </div>
+
+                <div class="ligne">
+                    <div class="bloc">
+                        <h3 class="no-wrap">Numéro de téléphone</h3>
+                        <input type="text" name="telephone" value="<?= htmlspecialchars($user['telephone']) ?>">
+                    </div>
+                    <div class="bloc">
+                        <h3 class="no-wrap">Adresse mail</h3>
+                        <input type="email" name="email" value="<?= htmlspecialchars($user['email']) ?>">
+                    </div>
+                </div>
+
+                <div class="ligne">
+                    <div class="bloc">
+                        <h3 class="no-wrap">Votre identifiant</h3>
+                        <p class="no-wrap">{{ identifiant }}</p>
+                    </div>
+                </div>
+
+                <input type="hidden" name="id_role" value="<?= htmlspecialchars($id_role) ?>">
+                <input type="hidden" name="id_createur" value="<?= htmlspecialchars($id_createur) ?>">
+
+{% endif %}
+
+            <button type="submit" class="ajout" name = "form_action" value="ajj_off">Enregistrer</button>
+            </form>
+
+{% endblock %}

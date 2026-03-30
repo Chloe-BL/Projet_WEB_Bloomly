@@ -99,6 +99,10 @@ elseif ($page === 'SupprimerEnt'){
     (new FonctionnaliteController()) -> description_ent();
 }
 
+elseif ($page === 'ModifierOff'){
+    (new FonctionnaliteController()) -> modif_off();
+}
+
 elseif ($page === 'AddFavoris'){
     (new FonctionnaliteController()) -> AddFavoris();
 }

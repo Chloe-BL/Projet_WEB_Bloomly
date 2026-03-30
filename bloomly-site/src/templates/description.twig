@@ -10,7 +10,7 @@
         <h1 class="titre">{{titre}}</h1>
         <div class="actions">
             <a class="bouton" href="?page=choix_section&section={{section}}">Retour</a>
-            <a class="bouton" href="">Modifier</a>
+            <a class="bouton" href="?page=modifier&section={{section}}&user={{user}}&connect=oui&id_nom={{id_entreprise}}&nom={{nom}}">Modifier</a>
             <form method="post" action="index.php?page=SupprimerOff&section=offres&user={{user}}&connect=oui&id_offre={{id_offre}}&titre={{titre}}&section=offres">
                 <button class="bouton" type="submit">Supprimer</button>
             </form>
@@ -76,7 +76,7 @@
         <h1 class="titre">{{nom}}</h1>
         <div class="actions">
             <a class="bouton" href="?page=choix_section&section={{section}}">Retour</a>
-            <a class="bouton" href="">Modifier</a>
+            <a class="bouton" href="?page=modifier&section={{section}}&user={{user}}&connect=oui&id_nom={{id_entreprise}}&nom={{nom}}">Modifier</a>
             <form method="post" action="index.php?page=SupprimerEnt&section=entreprises&user={{user}}&connect=oui&id_entreprise={{id_entreprise}}&nom={{nom}}">
                 <button class="bouton" type="submit">Supprimer</button>
             </form>

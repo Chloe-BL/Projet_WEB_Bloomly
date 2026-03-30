@@ -110,18 +110,52 @@ class FonctionnaliteModel extends BaseModel
         }
     
         elseif ($type === 'offre') {
+            $entreprise = $_GET['entreprise'] ?? '';
+            $salaire_filtre = $_GET['salaire'] ?? '';
+            $date_debut = $_GET['date_debut'] ?? '';
+            $competences = $_GET['competences'] ?? '';
+        
+            $conditions = ["1=1"];
+            $params = [];
+        
+            if ($search !== '%%') {
+                $conditions[] = "(o.titre LIKE :search OR o.description LIKE :search)";
+                $params['search'] = $search;
+            }
+        
+            if ($competences) {
+                $conditions[] = "o.competences LIKE :competences";
+                $params['competences'] = "%$competences%";
+            }
+        
+            if ($entreprise) {
+                $conditions[] = "e.nom LIKE :entreprise";
+                $params['entreprise'] = "%$entreprise%";
+            }
+        
+            if ($salaire_filtre === 'smic_moins') {
+                $conditions[] = "o.salaire < 1426";
+            } elseif ($salaire_filtre === 'smic_plus') {
+                $conditions[] = "o.salaire >= 1426";
+            }
+        
+            if ($date_debut) {
+                $conditions[] = "o.date_debut >= :date_debut";
+                $params['date_debut'] = $date_debut;
+            }
+        
             $sql = "SELECT o.titre, o.description, o.competences, o.salaire, o.date_pub,
                     e.nom AS entreprise,
                     COUNT(DISTINCT a.id_utilisateur) AS nb_candidats
                     FROM offres o
                     LEFT JOIN entreprises e ON e.id_entreprise = o.id_entreprise
                     LEFT JOIN agenda a ON a.id_offre = o.id
-                    WHERE o.titre LIKE :search 
-                    OR o.description LIKE :search 
-                    OR o.competences LIKE :search
-                    OR o.salaire LIKE :search
-                    OR e.nom LIKE :search
+                    WHERE " . implode(" AND ", $conditions) . "
                     GROUP BY o.id";
+        
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->execute($params);
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
         }
     
         elseif ($type === 'etudiant') {
@@ -163,6 +197,7 @@ class FonctionnaliteModel extends BaseModel
                 AND (nom LIKE :search OR prenom LIKE :search)
             ";
         }
+        
     
         else {
             return [];
@@ -188,4 +223,15 @@ class FonctionnaliteModel extends BaseModel
         $stmt = $this->pdo->prepare($sql);
         return $stmt->execute([$id]);
     }
+
+    public function ModifierOff(string $titre, string $description, string $formation, string $softskills, string $competences,  string $date_debut, string $duree, string $lieu, string $salaire, string $date_pub, string $id_entreprise){
+    $user_actif = $_COOKIE['user_id'] ?? null;
+    $section = $this -> getSection();
+
+    $sql = "UPDATE $section SET (titre, description, formation, softskills, competences, date_debut, duree, lieu, salaire, date_pub, id_createur, id_entreprise) 
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    $stmt = $this->pdo->prepare($sql);
+    return $stmt->execute([$titre, $description, $formation, $softskills, $competences, $date_debut, $duree, $lieu, $salaire, $date_pub, $user_actif, $id_entreprise]);
+    }
+
 };

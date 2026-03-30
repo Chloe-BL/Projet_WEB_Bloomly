@@ -161,8 +161,7 @@ class FonctionnaliteController extends BaseController
                            'telephone' => $entreprise['telephone_contact'],
                            'adresse' => $entreprise['adresse'],
                            'id_entreprise' =>  $_GET['id_entreprise'] ?? null,
-                           'nom' => $_GET['nom'] ?? null,
-                           'section' => $_GET['section'] ?? null
+                           'nom' => $_GET['nom'] ?? null
                             ]);
     }
 
@@ -194,6 +193,40 @@ class FonctionnaliteController extends BaseController
         header("Location: index.php?page=choix_section&section=" . urlencode($section) . "&connect=oui&user=" . urlencode($user));
         exit;
     }
+
+
+    public function modif_off()
+    {
+        $section = $this -> getSection();
+        $liste_ent = $this->fonctionModel->getAllEntreprises();
+
+        $this->render('ajout.twig',[
+        'section' => $section,
+        'liste_ent' => $liste_ent]);
+    }
+
+    public function ValidationModif_off(){
+
+        $connect = $this->getConnect();
+        $user = $this->getUser();
+        $section = $this -> getSection();
+
+        $params = $this -> fonctionModel -> ajout_BDD_off($_POST['titre'],  
+                                                      $_POST['description'], 
+                                                      $_POST['formation'], 
+                                                      $_POST['softskills'], 
+                                                      $_POST['competence'], 
+                                                      $_POST['date_debut'], 
+                                                      $_POST['duree'], 
+                                                      $_POST['lieu'], 
+                                                      $_POST['salaire'], 
+                                                      $_POST['date_pub'],
+                                                      $_POST['ent']);
+
+        header("Location: index.php?page=choix_section&section=" . urlencode($section) . "&connect=oui&user=" . urlencode($user));
+        exit;
+    }
+
 
 
 }
