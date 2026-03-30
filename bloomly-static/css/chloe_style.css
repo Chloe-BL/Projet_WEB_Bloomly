@@ -269,6 +269,19 @@ nav {
     pointer-events: none;
 }
 
+.container2-flex {
+    display: flex;
+    gap: 40px;
+    margin-bottom: 35px;
+    margin-top: 35px;
+    margin-left: 60px;
+    margin-right: 20px;
+}
+
+.container2-flex a {
+    margin-left: 10px;
+}
+
 
 /* ===== RESPONSIVE ===== */
 
