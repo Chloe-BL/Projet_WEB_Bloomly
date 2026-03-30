@@ -95,16 +95,16 @@ elseif ($page === 'SupprimerOff'){
     (new FonctionnaliteController()) -> supprimer_off();
 }
 
-elseif ($page === 'SupprimerWishlist'){
-    (new FonctionnaliteController()) -> supprimer_wishlist();
-}
-
 elseif ($page === 'SupprimerEnt'){
     (new FonctionnaliteController()) -> supprimer_ent();
 }
 
 elseif ($page === 'modifier'){
     (new FonctionnaliteController()) -> modif_off();
+}
+
+elseif ($page === 'ValidationModif_off'){
+    (new FonctionnaliteController()) -> ValidationModif_off();
 }
 
 elseif ($page === 'AddFavoris'){

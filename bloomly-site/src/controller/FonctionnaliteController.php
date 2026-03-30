@@ -216,8 +216,8 @@ class FonctionnaliteController extends BaseController
         $offre_a_modifier = $this -> fonctionModel -> getOffreById($id_offre);
 
         $this->render('modifier.twig',[
-        'section' => $section,
         'offre'   => $offre_a_modifier,
+        'section' => $section,
         'liste_ent' => $liste_ent,
         'user' => $this-> getUser()]);
     }
@@ -227,18 +227,20 @@ class FonctionnaliteController extends BaseController
         $connect = $this->getConnect();
         $user = $this->getUser();
         $section = $this -> getSection();
+        $id_offre = $_POST['id_offre'] ?? null;
 
-        $params = $this -> fonctionModel -> ajout_BDD_off($_POST['titre'],  
+        $params = $this -> fonctionModel -> ModifierOff($_POST['titre'],  
                                                       $_POST['description'], 
                                                       $_POST['formation'], 
                                                       $_POST['softskills'], 
-                                                      $_POST['competence'], 
+                                                      $_POST['competences'], 
                                                       $_POST['date_debut'], 
                                                       $_POST['duree'], 
                                                       $_POST['lieu'], 
                                                       $_POST['salaire'], 
                                                       $_POST['date_pub'],
-                                                      $_POST['ent']);
+                                                      $_POST['ent'],
+                                                      $id_offre );
 
         header("Location: index.php?page=choix_section&section=" . urlencode($section) . "&connect=oui&user=" . urlencode($user));
         exit;

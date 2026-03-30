@@ -8,7 +8,7 @@
 
 {% if section == 'offres' %}
 <form method="post" action="index.php?page=ValidationModif_off&section=offres&connect=oui&user={{user}}"> 
-        <input type="hidden" name="id" value={{id}}>
+        <input type="hidden" name="id_offre" value="{{offre.id}}">
         <br><br>
         <div class="haut-offre">
         <h2 class="titre">Titre de l'offre :</h2>
@@ -46,19 +46,19 @@
                 <hr color=#c06c84 size="2" width="95%" >
                 <h2 class="titre">Modalités et informations clés</h2>
                 <h4>Date de début :</h4>
-                <input type="text" name="formation" value="{{offre.date_debut}}">
+                <input type="text" name="date_debut" value="{{offre.date_debut}}">
             <br>
                 <h4>Durée :</h4>
-                <input type="text" name="formation" value="{{offre.duree}}">
+                <input type="text" name="duree" value="{{offre.duree}}">
             <br>
                 <h4>Lieu :</h4>
-                <input type="text" name="formation" value="{{offre.lieu}}">
+                <input type="text" name="lieu" value="{{offre.lieu}}">
             <br>
                 <h4>Rémunération :</h4>
-                <input type="text" name="formation" value="{{offre.salaire}}">
+                <input type="text" name="salaire" value="{{offre.salaire}}">
             <br>
                 <h4>Date de publication :</h4>
-                <input type="text" name="formation" value="{{offre.date_pub}}">
+                <input type="text" name="date_pub" value="{{offre.date_pub}}">
             </div>
 
             <label for="ent">Choisissez une entreprise :</label>
@@ -80,15 +80,16 @@
 
            
 {% elseif section == 'entreprises' %}
-    <input type="hidden" name="id_entreprise" value="<?= htmlspecialchars($id_entreprise) ?>">
+<form method="post" action="index.php?page=ValidationModif_ent&section=entreprises&connect=oui&user={{user}}"> 
+       <input type="hidden" name="id_entreprise" value="{{entreprise.id_entreprise}}">
     <div class="haut-offre">
-        <input type="text" name="nom" class="titre" value="<?= htmlspecialchars($user['nom']) ?>">
+        <input type="text" name="nom" value="{{entreprise.nom}}">
     </div>
     
     <div class="container-flex">
         <div class="cadre">
             <h1 class="titre">Description</h1>
-            <input type="text" name="description" value="<?= htmlspecialchars($user['description']) ?>">
+            <input type="text" name="description" value="{{entreprise.description}}">
         </div>
     </div>
 
@@ -96,10 +97,10 @@
         <hr color=#c06c84 size="2" width="95%" >
         <h1 class="titre">Contacts</h1>
         <h4 >Adresse mail : </h4>
-        <input type="email" name="email_contact" value="<?= htmlspecialchars($user['email_contact']) ?>">
+        <input type="email" name="email_contact" value="{{entreprise.email_contact}}">
     <br>
         <h4 >Numéro de téléphone : </h4>
-        <input type="text" name="telephone_contact" value="<?= htmlspecialchars($user['telephone_contact']) ?>">
+        <input type="text" name="telephone_contact" value="{{entreprise.telephone_contact}}">
     <br>
     </div>
 
@@ -107,10 +108,10 @@
         <hr color=#c06c84 size="2" width="95%" >
         <h1 class="titre">Où somme nous ?</h1>
         <h4 >Siège social : </h4>
-        <input type="text" name="adresse" value="<?= htmlspecialchars($user['adresse']) ?>">
+        <input type="text" name="adresse" value="{{entreprise.adresse}}">
     <br>
     </div>
-    <input type="hidden" name="id_createur" value="<?= htmlspecialchars($id_createur) ?>">
+    <input type="hidden" name="id_createur" value="{{entreprise.id_createur}}">
 
 {% elseif section == 'etudiants' %}
 
