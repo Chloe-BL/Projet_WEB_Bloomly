@@ -77,7 +77,7 @@
         <div class="actions">
             <a class="bouton" href="?page=choix_section&section={{section}}">Retour</a>
             <a class="bouton" href="">Modifier</a>
-            <form method="post" action="index.php?page=SupprimerEnt&section=entreprises&user={{user}}&connect=oui&id_entreprise={{id_entreprise}}&nom={{nom}}&section=offres">
+            <form method="post" action="index.php?page=SupprimerEnt&section=entreprises&user={{user}}&connect=oui&id_entreprise={{id_entreprise}}&nom={{nom}}">
                 <button class="bouton" type="submit">Supprimer</button>
             </form>
             <a class="bouton" href="?page=candidature&section={{section}}&user={{user}}&connect=oui&id_nom={{id_entreprise}}&nom={{nom}}">Postuler</a>
@@ -88,7 +88,7 @@
         <div class="cadre">
             <h1 class="titre">Description</h1>
             <h2 class="sous-titre">{{description}}</h2>
-            <p>jsp</p>
+            <p>{{description}}</p>
         </div>
     </div>
 
@@ -110,4 +110,6 @@
         <p>{{adresse}}</p>
     <br>
     </div>
+
+{% endif %}
 {% endblock %}
