@@ -358,22 +358,51 @@ class FonctionnaliteController extends BaseController
         exit;
     }
 
+    public function modif_etu()
+    {
+        $section = $this -> getSection();
+        $id_etud = $_GET['id_etud'] ?? null;
+
+        $etud_modifier = $this -> fonctionModel -> getEtudById($id_etud);
+
+        $this->render('modifer_user.twig',[
+        'etudiant'   => $etud_modifier,
+        'section' => $section,
+        'user' => $this-> getUser()]);
+    }
+
     public function ValidationModif_etu(){
 
     $connect = $this->getConnect();
     $user = $this->getUser();
     $section = $this -> getSection();
+    $id_etud = $_POST['id_utilisateur'] ?? null;
 
-    $params = $this -> fonctionModel -> modif_BDD_etudiant($_POST['nom'],  
+    $params = $this -> fonctionModel -> ModifierEtudiant($_POST['nom'],  
                                                   $_POST['prenom'], 
                                                   $_POST['email'], 
-                                                  $_POST['mdp'], 
-                                                  $_POST['num'], 
-                                                  $_POST['civilite'], );
+                                                  $_POST['mot_de_passe'], 
+                                                  $_POST['telephone'], 
+                                                  $_POST['civilite'],
+                                                  $id_etud);
        
 
     header("Location: index.php?page=choix_section&section=" . urlencode($section) . "&connect=oui&user=" . urlencode($user));
     exit;
+    }
+
+
+    public function modif_pil()
+    {
+        $section = $this -> getSection();
+        $id_pil = $_GET['id_pil'] ?? null;
+
+        $pil_modifier = $this -> fonctionModel -> getPilById($id_pil);
+
+        $this->render('modifer_user.twig',[
+        'pilot'   => $pil_modifier,
+        'section' => $section,
+        'user' => $this-> getUser()]);
     }
 
     public function ValidationModif_pil(){
@@ -381,13 +410,15 @@ class FonctionnaliteController extends BaseController
         $connect = $this->getConnect();
         $user = $this->getUser();
         $section = $this -> getSection();
+        $id_pil = $_POST['id_utilisateur'] ?? null;
 
-        $params = $this -> fonctionModel -> modif_BDD_pilote($_POST['nom'],  
+        $params = $this -> fonctionModel -> ModifierPilote($_POST['nom'],  
                                                       $_POST['prenom'], 
                                                       $_POST['email'], 
-                                                      $_POST['mdp'], 
-                                                      $_POST['num'], 
-                                                      $_POST['civilite'], );
+                                                      $_POST['mot_de_passe'], 
+                                                      $_POST['telephone'], 
+                                                      $_POST['civilite'],
+                                                      $id_pil);
         header("Location: index.php?page=choix_section&section=" . urlencode($section) . "&connect=oui&user=" . urlencode($user));
         exit;
     }
