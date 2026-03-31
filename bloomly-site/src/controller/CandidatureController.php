@@ -87,14 +87,13 @@ public function setUpload($upload)
     }
 
     public function Afficheevaluation(string $message, string $user){
-        $this->render('candidature.twig', [
-            'message' => $message,
-            'user' => $user,
-            'connect' => $this->getConnect(),
-            'section' => $this -> getSection(),
-            'nom' => $_GET['nom'],
-            'id_nom' => $_GET['id_nom']
-        ]);
-
-    }
+    $this->render('candidature.twig', [
+        'message' => $message,
+        'user' => $user,
+        'connect' => $this->getConnect(),
+        'section' => $this->getSection(),
+        'nom' => $_GET['nom'] ?? '',
+        'id_nom' => $_GET['id_nom'] ?? null
+    ]);
+}
 }
