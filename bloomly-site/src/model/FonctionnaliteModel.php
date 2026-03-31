@@ -318,7 +318,7 @@ public function searchGlobal($search, $type)
         return $stmt->execute([$id, $user_actif]);
     }
 
-    public function ModifierOff(string $titre, string $description, string $formation, string $softskills, string $competences,  string $date_debut, string $duree, string $lieu, string $salaire, string $date_pub, string $id_entreprise){
+    public function ModifierOff(string $titre, string $description, string $formation, string $softskills, string $competences,  string $date_debut, string $duree, string $lieu, string $salaire, string $date_pub, string $id_entreprise, $id_offre){
 
     $user_actif = $_COOKIE['user_id'] ?? null;
    
@@ -326,6 +326,7 @@ public function searchGlobal($search, $type)
     $sql = "UPDATE offres SET titre =?, description=?, formation=?, softskills=?, competences=?, date_debut=?, duree=?, lieu=?, salaire=?, date_pub=?, id_createur=?, id_entreprise=? 
             WHERE id =?";
     $stmt = $this->pdo->prepare($sql);
+
     
     return $stmt->execute([$titre, $description, $formation, $softskills, $competences, $date_debut, $duree, $lieu, $salaire, $date_pub, $user_actif, $id_entreprise, $id_offre]);
     }
