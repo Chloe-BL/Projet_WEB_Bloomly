@@ -314,7 +314,7 @@
  
         <div class="bloc-petite-liste">
             <p>{{ item.titre}}</p>
-            <p>Date de candidature : {{item.date_candidature}}</p>
+            <p>Date de candidature : {{item.date_candidature | date("d/m/Y")}}</p>
         </div>
     {% endfor %}
  
