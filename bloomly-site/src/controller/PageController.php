@@ -4,7 +4,19 @@ class PageController extends BaseController
 {
     public function accueil()
     {
-        $this->render('accueil.twig');
+        $statistiqueModel = new StatistiqueModel();
+
+        $repartition = $statistiqueModel->getRepartitionDureeStages();
+        $topWishlist = $statistiqueModel->getTopWishlist();
+        $totalOffres = $statistiqueModel->getTotalOffres();
+        $moyenneCandidatures = $statistiqueModel->getMoyenneCandidatures();
+
+        echo $this->twig->render('accueil.twig', [
+            'repartition' => $repartition,
+            'topWishlist' => $topWishlist,
+            'totalOffres' => $totalOffres,
+            'moyenneCandidatures' => $moyenneCandidatures
+        ]);
     }
  
     public function a_propos()

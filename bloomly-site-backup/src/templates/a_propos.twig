@@ -1,0 +1,99 @@
+{% extends 'layout.twig' %}
+ 
+{% block title %}À propos de nous{% endblock %}
+ 
+{% block body %}
+ 
+<main class="about-root">
+ 
+  <!-- Banniere -->
+  <div class="about-hero">
+    <div class="hero-bg-circle"></div>
+    <div class="hero-bg-circle2"></div>
+    <div class="eyebrow">Notre plateforme</div>
+    <h1 class="hero-title">À propos<br>de <em>nous</em></h1>
+    <div class="hero-divider"></div>
+    <p class="hero-desc">
+      Une solution moderne pensée pour simplifier la mise en relation entre étudiants et entreprises autour de la recherche de stages.
+    </p>
+  </div>
+ 
+  <!-- Cartes -->
+  <div class="about-cards">
+ 
+    <div class="about-card">
+      <div class="card-icon icon-green">🎯</div>
+      <div class="card-label">Notre mission</div>
+      <div class="card-title">Centraliser les opportunités</div>
+      <p class="card-text">
+        Nous réunissons en un seul endroit toutes les offres de stage proposées par les entreprises, pour que chaque étudiant trouve sa voie sans perdre de temps.
+      </p>
+    </div>
+ 
+    <div class="about-card">
+      <div class="card-icon icon-pink">✦</div>
+      <div class="card-label">Nos valeurs</div>
+      <div class="card-title">Clarté &amp; professionnalisme</div>
+      <p class="card-text">
+        Chaque fonctionnalité est pensée pour offrir une navigation simple, structurée et adaptée au rôle de chaque utilisateur — étudiant, entreprise ou administrateur.
+      </p>
+    </div>
+ 
+    <div class="about-card card-wide">
+      <div class="card-wide-inner">
+        <div class="card-wide-text">
+          <div class="card-icon icon-sand">💡</div>
+          <div class="card-label">Notre approche</div>
+          <div class="card-title">Conçu pour chaque profil</div>
+          <p class="card-text">
+            Étudiants à la recherche de leur premier stage, entreprises souhaitant diffuser leurs offres, ou pilotes de la plateforme — chacun dispose d'un espace dédié, clair et efficace.
+          </p>
+          <div class="team-chips">
+            <span class="chip">Étudiants</span>
+            <span class="chip">Entreprises</span>
+            <span class="chip">Administrateurs</span>
+          </div>
+        </div>
+        <div class="card-wide-visual">
+          <svg viewBox="0 0 200 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="40" cy="80" r="28" fill="#fff0f2" stroke="#e8a0af" stroke-width="1.5"/>
+            <text x="40" y="75" text-anchor="middle" font-size="18">🎓</text>
+            <text x="40" y="92" text-anchor="middle" font-size="8" fill="#8a4a55" font-family="DM Sans, sans-serif">Étudiant</text>
+ 
+            <circle cx="160" cy="45" r="22" fill="#f8f7ee" stroke="#afb779" stroke-width="1.5"/>
+            <text x="160" y="40" text-anchor="middle" font-size="15">🏢</text>
+            <text x="160" y="55" text-anchor="middle" font-size="8" fill="#7c834f" font-family="DM Sans, sans-serif">Entreprise</text>
+ 
+            <circle cx="160" cy="115" r="22" fill="#fff0f2" stroke="#c9b8bc" stroke-width="1.5"/>
+            <text x="160" y="110" text-anchor="middle" font-size="15">⚙️</text>
+            <text x="160" y="125" text-anchor="middle" font-size="8" fill="#555" font-family="DM Sans, sans-serif">Admin</text>
+ 
+            <line x1="68" y1="70" x2="136" y2="50" stroke="#afb779" stroke-width="1" stroke-dasharray="4 3" opacity="0.7"/>
+            <line x1="68" y1="90" x2="136" y2="112" stroke="#e8a0af" stroke-width="1" stroke-dasharray="4 3" opacity="0.7"/>
+            <circle cx="102" cy="80" r="6" fill="#8a4a55" opacity="0.7"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+ 
+  </div>
+ 
+  <!-- Stats -->
+  <div class="about-stats">
+    <div class="stat-box">
+      <div class="stat-num">100%</div>
+      <div class="stat-label">Navigation intuitive</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-num">3</div>
+      <div class="stat-label">Profils utilisateurs</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-num">∞</div>
+      <div class="stat-label">Offres centralisées</div>
+    </div>
+  </div>
+ 
+</main>
+ 
+{% endblock %}

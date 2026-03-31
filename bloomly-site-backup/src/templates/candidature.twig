@@ -1,0 +1,46 @@
+{% extends 'layout.twig' %}
+
+{% block title %}Candidature à une offre{% endblock %}
+
+
+{% block body %}
+{{ message | raw}}
+<br>
+{% if user == 3 %}
+    <h1 class="titre">{{titre}}</h1>
+    <h2 class="sous-titre">{{nom}}</h2>
+{% else %}
+    <h1 class="titre">Soumettre une évaluation </h1>
+    <h2 class="sous-titre">Entreprise : {{nom}}</h2>
+{% endif %}
+    <div class="categ">
+    {% if user ==   3 %}
+        <form method="POST" enctype="multipart/form-data" action = "index.php?page=AddAgenda&section={{section}}&connect=oui&user={{user}}&id_offre={{id_offre}}&titre={{titre}}">
+            <input type="hidden" name="id_offre" value={{id_offre}}>
+            <input type="hidden" name="titre" value={{titre}}>
+
+            <label for="Lettre">Lettre de motivation :</label>
+        {% else %}
+        <form method="POST" enctype="multipart/form-data" >
+            <label for="Avis">Appréciation : </label>
+            <br>
+        {% endif %}
+            <textarea id="Lettre" name="Lettre" placeholder="Dites nous tout..." required></textarea>
+            <br>
+
+        {% if user ==  3 %}
+            <label for="cv">Insérer votre CV (2Mo max)</label>
+            <br>
+            <input type="file" id="cv" class="CV" name="cv" accept=".pdf" required />
+            <br>
+            <button type="submit" class="envoie" name = "action" value="etud">Je valide ma candidature </button>
+            </form>
+        {% else %}
+            <p>Notez l'entreprise séléctionnée à l'aide des étoiles ci-dessous :</p>
+            </div>
+            <button type="submit" class="envoie" name = "action" value="admin_pil">Je poste mon évaluation </button>
+            </form>
+        {% endif %}
+       
+    </div>
+{% endblock %}

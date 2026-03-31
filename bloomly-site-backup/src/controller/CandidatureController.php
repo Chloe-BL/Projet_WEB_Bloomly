@@ -1,7 +1,6 @@
 <?php
  
-require_once __DIR__ . '/PageController.php'; 
-
+ 
 class CandidatureController extends BaseController
 {
     private $upload;
@@ -38,12 +37,12 @@ public function setUpload($upload)
                 } else {
                     $message = $validation;
                 }
-            } elseif ($user === '2' || $user === '1') {
+            } elseif ($action === 'admin_pil') {
                 $lettre = htmlspecialchars($_POST['Lettre'] ?? '', ENT_QUOTES, 'UTF-8');
-                $note = isset($_POST['note']) ? (int) $_POST['note'] : 0;
-
-                $message .= "Appréciation : " . nl2br($lettre) . "<br>";
-                $message .= "Note : " . $note . "/4";
+                $message .= "Appréciation : " . nl2br($lettre);
             }
         }
  
+        if ()
+    }
+}

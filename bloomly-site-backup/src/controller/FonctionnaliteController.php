@@ -131,6 +131,11 @@ class FonctionnaliteController extends BaseController
 {
     $id_offre = $_GET['id_offre'] ?? null;
 
+<<<<<<< HEAD
+    if (!$id_offre) {
+        echo "Offre introuvable";
+        return;
+=======
         $offre = $this -> fonctionModel->getOffreById($id_offre);
 
         echo $this->render('description.twig', [
@@ -147,7 +152,31 @@ class FonctionnaliteController extends BaseController
                            'id_offre' =>  $_GET['id_offre'] ?? null,
                            'titre' => $_GET['titre'] ?? null
                             ]);
+>>>>>>> 1ffa09e2c4a6f50440b61aaa8f9c1788372cb5bb
     }
+
+    $offre = $this->fonctionModel->getOffreById($id_offre);
+
+    if (!$offre) {
+        echo "Offre introuvable";
+        return;
+    }
+
+    $this->render('description.twig', [
+        'description' => $offre['description'] ?? '',
+        'formation' => $offre['formation'] ?? '',
+        'softskills' => $offre['softskills'] ?? '',
+        'competence' => $offre['competences'] ?? '',
+        'date_debut' => $offre['date_debut'] ?? '',
+        'duree' => $offre['duree'] ?? '',
+        'lieu' => $offre['lieu'] ?? '',
+        'salaire' => $offre['salaire'] ?? '',
+        'date_pub' => $offre['date_pub'] ?? '',
+        'section' => $_GET['section'] ?? null,
+        'id_offre' => $id_offre,
+        'titre' => $offre['titre'] ?? ''
+    ]);
+}
 
     public function description_ent()
 {
@@ -185,7 +214,8 @@ class FonctionnaliteController extends BaseController
         exit;
     }
 
-
+<<<<<<< HEAD
+=======
     public function supprimer_wishlist(){
         $id_offre = $_GET['id_offre'] ?? null;
 
@@ -208,17 +238,7 @@ class FonctionnaliteController extends BaseController
         exit;
     }
 
-    public function supprimer_pilot(){
-        $id_pilote = $_GET['id_pilot'] ?? null;
-
-        $user = $_GET['user'] ?? '';
-        $section = $this -> getSection();
-        $this -> fonctionModel -> SupprimerPilot($id_pilote);
-
-        header("Location: index.php?page=choix_section&section=" . urlencode($section) . "&connect=oui&user=" . urlencode($user));
-        exit;
-    }
-
+>>>>>>> 1ffa09e2c4a6f50440b61aaa8f9c1788372cb5bb
     public function supprimer_ent(){
         $id_entreprise = $_GET['id_entreprise'] ?? null;
         $section = $this -> getSection();
@@ -238,9 +258,10 @@ class FonctionnaliteController extends BaseController
         header("Location: index.php?page=choix_section&section=" . urlencode($section) . "&connect=oui&user=" . urlencode($user));
         exit;
     }
+
+
 <<<<<<< HEAD
-
-
+=======
     public function modif_off()
     {
         $section = $this -> getSection();
@@ -280,70 +301,7 @@ class FonctionnaliteController extends BaseController
         exit;
     }
 
-    public function modif_ent()
-    {
-        $section = $this -> getSection();
-        $id_entreprise = $_GET['id_entreprise'] ?? null;
-        $liste_ent = $this->fonctionModel->getAllEntreprises();
 
-        $ent_modifier = $this -> fonctionModel -> getEntById($id_entreprise);
 
-        $this->render('modifier.twig',[
-        'entreprise'   => $ent_modifier,
-        'section' => $section,
-        'user' => $this-> getUser()]);
-    }
-
-    public function ValidationModif_ent(){
-
-        $connect = $this->getConnect();
-        $user = $this->getUser();
-        $section = $this -> getSection();
-        $id_entreprise = $_POST['id_entreprise'] ?? null;
-
-        $params = $this -> fonctionModel -> ModifierEnt($_POST['nom'], 
-                                                      $_POST['description'], 
-                                                      $_POST['email_contact'], 
-                                                      $_POST['telephone_contact'], 
-                                                      $_POST['adresse'],
-                                                      $id_entreprise);
-
-        header("Location: index.php?page=choix_section&section=" . urlencode($section) . "&connect=oui&user=" . urlencode($user));
-        exit;
-    }
-
-    public function ValidationModif_etu(){
-
-    $connect = $this->getConnect();
-    $user = $this->getUser();
-    $section = $this -> getSection();
-
-    $params = $this -> fonctionModel -> modif_BDD_etudiant($_POST['nom'],  
-                                                  $_POST['prenom'], 
-                                                  $_POST['email'], 
-                                                  $_POST['mdp'], 
-                                                  $_POST['num'], 
-                                                  $_POST['civilite'], );
-       
-
-    header("Location: index.php?page=choix_section&section=" . urlencode($section) . "&connect=oui&user=" . urlencode($user));
-    exit;
-    }
-
-    public function ValidationModif_pil(){
-
-        $connect = $this->getConnect();
-        $user = $this->getUser();
-        $section = $this -> getSection();
-
-        $params = $this -> fonctionModel -> modif_BDD_pilote($_POST['nom'],  
-                                                      $_POST['prenom'], 
-                                                      $_POST['email'], 
-                                                      $_POST['mdp'], 
-                                                      $_POST['num'], 
-                                                      $_POST['civilite'], );
-        header("Location: index.php?page=choix_section&section=" . urlencode($section) . "&connect=oui&user=" . urlencode($user));
-        exit;
-    }
-
+>>>>>>> 1ffa09e2c4a6f50440b61aaa8f9c1788372cb5bb
 }

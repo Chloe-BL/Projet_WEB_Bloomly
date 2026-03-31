@@ -9,7 +9,10 @@
     <div class="haut-offre">
         <h1 class='titre' >{{titre}}</h1>
         <div class="actions">
-
+<<<<<<< HEAD
+            <a class="bouton" href="?page=choix_section&section={{section}}">Retour</a>
+            <a class="bouton" href="">Modifier</a>
+=======
             <a class="bouton" href="?page=choix_section&section={{section}}&connect=oui&user={{user}}">Retour</a>
             <a class="bouton" href="?page=modifier_offre&section={{section}}&user={{user}}&connect=oui&id_offre={{id_offre}}&nom={{titre}}">Modifier</a>
 >>>>>>> 1ffa09e2c4a6f50440b61aaa8f9c1788372cb5bb
@@ -20,6 +23,9 @@
         </div>
     </div>
     
+<<<<<<< HEAD
+    <div class="container-flex">
+=======
 
     <div class="container2-flex">
 >>>>>>> 1ffa09e2c4a6f50440b61aaa8f9c1788372cb5bb
@@ -79,13 +85,17 @@
     <div class="haut-offre">
         <h1 class="titre">{{nom}}</h1>
         <div class="actions">
-
+<<<<<<< HEAD
+            <a class="bouton" href="?page=choix_section&section={{section}}">Retour</a>
+            <a class="bouton" href="">Modifier</a>
+            <form method="post" action="index.php?page=SupprimerEnt&section=entreprises&user={{user}}&connect=oui&id_entreprise={{id_entreprise}}&nom={{nom}}&section=offres">
+=======
             <a class="bouton" href="?page=choix_section&section={{section}}&connect=oui&user={{user}}">Retour</a>
-            <a class="bouton" href="?page=modifier_entreprise&section={{section}}&user={{user}}&connect=oui&id_entreprise={{id_entreprise}}&nom={{nom}}">Modifier</a>
+            <a class="bouton" href="?page=modifier_entreprise&section={{section}}&user={{user}}&connect=oui&id_nom={{id_entreprise}}&nom={{nom}}">Modifier</a>
             <form method="post" action="index.php?page=SupprimerEnt&section=entreprises&user={{user}}&connect=oui&id_entreprise={{id_entreprise}}&nom={{nom}}">
                 <input type="hidden" name="id_entreprise" value="{{ id_entreprise }}">
                 <input type="hidden" name="nom" value="{{ nom }}">
-
+>>>>>>> 1ffa09e2c4a6f50440b61aaa8f9c1788372cb5bb
                 <button class="bouton" type="submit">Supprimer</button>
             </form>
             <a class="bouton" href="?page=candidature&section={{section}}&user={{user}}&connect=oui&id_nom={{id_entreprise}}&nom={{nom}}">Evaluer</a>
@@ -113,7 +123,7 @@
 
     <div class="categ">
         <hr color=#c06c84 size="2" width="95%" >
-        <h1 class="titre">Où sommes nous ?</h1>
+        <h1 class="titre">Où somme nous ?</h1>
         <h4 >Siège social : </h4>
         <p>{{adresse}}</p>
     <br>
