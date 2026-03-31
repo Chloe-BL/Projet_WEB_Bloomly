@@ -57,6 +57,21 @@ function gererFormulaire(event) {
   return true;
 }
 
-document.addEventListener('DOMContentLoaded', function () {
-  initialiserEtoiles();
+document.addEventListener("DOMContentLoaded", () => {
+    const btnTop = document.getElementById("btnTop");
+
+    window.addEventListener("scroll", () => {
+        if (window.scrollY > 200) {
+            btnTop.style.display = "block";
+        } else {
+            btnTop.style.display = "none";
+        }
+    });
+
+    btnTop.addEventListener("click", () => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    });
 });
