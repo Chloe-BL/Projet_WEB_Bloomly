@@ -29,11 +29,13 @@ public function setUpload($upload)
     {
         $message = "";
         $user = $_GET['user'] ?? '';
- 
+        $id_offre = $_GET['id_offre'] ?? $_POST['id_offre'] ?? null;
+        $titre = $_GET['titre'] ?? $_POST['titre'] ?? null;
+        
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $action = $_POST['action'] ?? '';
  
-            if ($action === 'etud') {
+            if ($user === '3') {
                 $lettre = htmlspecialchars($_POST['Lettre'] ?? '', ENT_QUOTES, 'UTF-8');
  
                 $upload = $this->upload ?? new Upload();
@@ -44,7 +46,9 @@ public function setUpload($upload)
  
                     if ($nomFichier) {
                         $message = "Candidature envoyée avec succès.<br>";
-                        $message .= "CV téléversé : " . htmlspecialchars($nomFichier, ENT_QUO);
+                        $message .= "CV téléversé : " . htmlspecialchars($nomFichier, ENT_QUOTES, 'UTF-8');
+                        
+                        $this->fonctionModel->ajoutBDDAgenda($id_offre, $titre, $lettre);
 
                     } else {
                         $message = "Erreur lors de l'enregistrement du fichier.";
