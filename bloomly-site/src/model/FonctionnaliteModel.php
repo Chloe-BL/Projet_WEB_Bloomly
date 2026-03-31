@@ -88,6 +88,12 @@ class FonctionnaliteModel extends BaseModel
         return $stmt->execute([$user_actif, $id_offre, $titre]);
     }
  
+    public function getCompetences()
+    {
+        $sql = "SELECT DISTINCT competences FROM offres WHERE competences != ''";
+        $stmt = $this->pdo->query($sql);
+        return $stmt->fetchAll(PDO::FETCH_COLUMN);
+    }
     
     
     public function searchGlobal($search, $type)
@@ -95,32 +101,72 @@ class FonctionnaliteModel extends BaseModel
         $search = "%$search%";
     
         if ($type === 'entreprise') {
-            $sql = "SELECT e.nom, e.description, e.email_contact, e.telephone_contact,
-                    COUNT(DISTINCT a.id_utilisateur) AS nb_stagiaires,
-                    ROUND(AVG(ev.note), 1) AS moyenne_evaluation
-                    FROM entreprises e
-                    LEFT JOIN offres o ON o.id_entreprise = e.id_entreprise
-                    LEFT JOIN agenda a ON a.id_offre = o.id
-                    LEFT JOIN evaluation ev ON ev.id_entreprise = e.id_entreprise
-                    WHERE e.nom LIKE :search 
-                    OR e.description LIKE :search 
-                    OR e.email_contact LIKE :search
-                    OR e.telephone_contact LIKE :search
-                    GROUP BY e.id_entreprise";
+        $description = $_GET['description'] ?? '';
+        $email = $_GET['email'] ?? '';
+        $telephone = $_GET['telephone'] ?? '';
+        $nb_stagiaires_filtre = $_GET['nb_stagiaires'] ?? '';
+    
+        $conditions = ["1=1"];
+        $params = [];
+    
+        if ($search !== '%%' && $search !== '') {
+            $conditions[] = "e.nom LIKE :search";
+            $params['search'] = "%$search%";
         }
+    
+        if ($description) {
+            $conditions[] = "e.description LIKE :description";
+            $params['description'] = "%$description%";
+        }
+    
+        if ($email) {
+            $conditions[] = "e.email_contact LIKE :email";
+            $params['email'] = "%$email%";
+        }
+    
+        if ($telephone) {
+            $conditions[] = "e.telephone_contact LIKE :telephone";
+            $params['telephone'] = "%$telephone%";
+        }
+    
+        $having = "1=1";
+        if ($nb_stagiaires_filtre === 'moins100') {
+            $having = "nb_stagiaires < 100";
+        } elseif ($nb_stagiaires_filtre === 'plus100') {
+            $having = "nb_stagiaires >= 100";
+        } elseif ($nb_stagiaires_filtre === 'plus300') {
+            $having = "nb_stagiaires >= 300";
+        }
+    
+        $sql = "SELECT e.nom, e.description, e.email_contact, e.telephone_contact,
+                COUNT(DISTINCT a.id_utilisateur) AS nb_stagiaires,
+                ROUND(AVG(ev.note), 1) AS moyenne_evaluation
+                FROM entreprises e
+                LEFT JOIN offres o ON o.id_entreprise = e.id_entreprise
+                LEFT JOIN agenda a ON a.id_offre = o.id
+                LEFT JOIN evaluation ev ON ev.id_entreprise = e.id_entreprise
+                WHERE " . implode(" AND ", $conditions) . "
+                GROUP BY e.id_entreprise
+                HAVING $having";
+    
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute($params);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    } 
     
         elseif ($type === 'offre') {
             $entreprise = $_GET['entreprise'] ?? '';
             $salaire_filtre = $_GET['salaire'] ?? '';
             $date_debut = $_GET['date_debut'] ?? '';
             $competences = $_GET['competences'] ?? '';
+            $nb_candidats_filtre = $_GET['nb_candidats'] ?? '';
         
             $conditions = ["1=1"];
             $params = [];
         
-            if ($search !== '%%') {
+            if ($search !== '%%' && $search !== '') {
                 $conditions[] = "(o.titre LIKE :search OR o.description LIKE :search)";
-                $params['search'] = $search;
+                $params['search'] = "%$search%";
             }
         
             if ($competences) {
@@ -144,6 +190,15 @@ class FonctionnaliteModel extends BaseModel
                 $params['date_debut'] = $date_debut;
             }
         
+            $having = "1=1";
+            if ($nb_candidats_filtre === 'moins100') {
+                $having = "nb_candidats < 100";
+            } elseif ($nb_candidats_filtre === 'plus100') {
+                $having = "nb_candidats >= 100";
+            } elseif ($nb_candidats_filtre === 'plus300') {
+                $having = "nb_candidats >= 300";
+            }
+        
             $sql = "SELECT o.titre, o.description, o.competences, o.salaire, o.date_pub,
                     e.nom AS entreprise,
                     COUNT(DISTINCT a.id_utilisateur) AS nb_candidats
@@ -151,7 +206,8 @@ class FonctionnaliteModel extends BaseModel
                     LEFT JOIN entreprises e ON e.id_entreprise = o.id_entreprise
                     LEFT JOIN agenda a ON a.id_offre = o.id
                     WHERE " . implode(" AND ", $conditions) . "
-                    GROUP BY o.id";
+                    GROUP BY o.id
+                    HAVING $having";
         
             $stmt = $this->pdo->prepare($sql);
             $stmt->execute($params);
