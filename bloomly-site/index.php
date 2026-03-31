@@ -140,6 +140,10 @@ elseif ($page === 'AddAgenda'){
     (new FonctionnaliteController()) -> AddAgenda();
 }
 
+elseif ($page === 'AgendaEtud'){
+    (new FonctionnaliteController()) -> agenda_etu();
+}
+
 elseif ($page === 'a_propos') {
     (new PageController()) -> a_propos();
 }

@@ -293,6 +293,7 @@
  
  
     {% elseif section == 'agenda' %}
+        {% if user == 3 %}
     <nav class="navbar">
                 <input type="checkbox" id="interrupteur">
                 <label for="interrupteur" class="burger">☰</label>
@@ -341,8 +342,56 @@
     </div>
     <a class="acc" href="index.php?page=validationConnexion&connect=oui&user={{user}}">Retour à l'accueil</a>
 
-    
 
+        {% elseif user == 2 or 1 %}
+    <nav class="navbar">
+                <input type="checkbox" id="interrupteur">
+                <label for="interrupteur" class="burger">☰</label>
+ 
+                <div class="cache">
+                    <a href="index.php?page=description_etu&section=etudiants&connect=oui&user={{user}}&id_etud={{id_etud}}">Son Espace</a>          
+                    <a class="active">Son Agenda</a>    
+                </div>
+            </nav>
+            <div class="sous-nav"></div>
+ 
+            <br>
+            <h3 class="police">Retrouvez ici l'ensemble des offres auxquelles l'élève a postulé et leurs dates de candidature.</h3>
+ 
+<div class="liste">
+    {% for item in itemsPage %}
+ 
+        <div class="bloc-petite-liste">
+            <p>{{ item.titre}}</p>
+            <p>Date de candidature : {{date}}</p>
+        </div>
+    {% endfor %}
+ 
+    <div class="pagination">
+        {% if page > 1 %}
+            <a href="index.php?page=choix_section&section=agenda&user={{user}}&connect=oui&p={{ page - 1 }}">Précédent</a>
+        {% else %}
+            <span class="disabled">Précédent</span>
+        {% endif %}
+ 
+       {% for i in 1..totalPages %}  {# Pour i de 1 à la fin #}
+            {% if i == page %}
+                <span class="active-page"> {{i}}</span>
+            {% else %}
+                <a href="index.php?page=choix_section&section=agenda&user={{user}}&connect=oui&p={{ i }}"> {{ i }} </a>
+            {% endif %}
+        {% endfor %}
+ 
+        {% if page < totalPages %}
+            <a href="index.php?page=choix_section&section=agenda&user={{user}}&connect=oui&p={{ page + 1 }}">Suivant</a>
+        {% else %}
+            <span class="disabled">Suivant</span>
+        {% endif %}
+    </div>
+    </div>
+    <a class="acc" href="index.php?page=validationConnexion&connect=oui&user={{user}}">Retour à l'accueil</a>
+    
+    {% endif %}
     {% endif %}
  
  

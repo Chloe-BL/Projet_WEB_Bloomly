@@ -63,6 +63,8 @@ class SectionModel extends BaseModel
         }
  
         if ($section === 'agenda') {
+            $user = $_GET['user'] ?? null;        
+            if ($user === 3){
             $user_actif = $_COOKIE['user_id'] ?? null;
 
             $sql = "SELECT o.* FROM offres o 
@@ -72,6 +74,20 @@ class SectionModel extends BaseModel
             $stmt->execute([$user_actif]); 
             $offres = $stmt -> fetchAll();
             return $offres;
+            }
+
+            else {
+            $etu = $_GET['id_etud'] ?? null;
+            $sql = "SELECT o.* FROM offres o 
+                    INNER JOIN agenda a ON o.id = a.id_offre 
+                    WHERE a.id_utilisateur = ?";
+            $stmt = $this -> pdo -> prepare($sql);
+            $stmt->execute([$etu]); 
+            $offres = $stmt -> fetchAll();
+            return $offres;
+
+            }
+
         }
  
         return null;
