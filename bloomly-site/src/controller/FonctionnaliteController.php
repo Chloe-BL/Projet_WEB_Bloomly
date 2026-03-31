@@ -212,6 +212,17 @@ class FonctionnaliteController extends BaseController
                             ]);
     }
 
+    public function agenda_etu()
+    {
+        $id_etud = $_GET['id_etud'] ?? null;
+        $section = $this -> getSection();
+
+        echo $this->render('listes.twig',[ 
+                           'id_utilisateur' => $_GET['id_etud'] ?? null,
+                           'section' => $section
+                            ]);
+    }
+
     public function supprimer_off(){
         $id_offre = $_GET['id_offre'] ?? null;
         $section = $this -> getSection();

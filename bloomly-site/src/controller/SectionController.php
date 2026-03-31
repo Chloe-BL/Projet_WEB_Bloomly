@@ -29,6 +29,8 @@ class SectionController extends BaseController
         $parPage = 9;
         $page = isset($_GET['p']) ? (int) $_GET['p'] : 1;
 
+        $id_etud = $_GET['id_etud'] ?? null;
+
         $pagination = new Pagination($items, $parPage, $page);
 
         $this->render('listes.twig', [
@@ -36,7 +38,8 @@ class SectionController extends BaseController
             'page' => $pagination->getPage(),
             'totalPages' => $pagination->getTotalPages(),
             'section' => $section,
-            'date' => date('d/m/Y')
+            'date' => date('d/m/Y'),
+            'id_etud' => $id_etud
         ]);
     }
 }
