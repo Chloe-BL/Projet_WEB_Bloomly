@@ -94,13 +94,13 @@ class FonctionnaliteModel extends BaseModel {
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
-    public function ajoutBDDAgenda(string $id_offre, string $titre)
+    public function ajoutBDDAgenda(string $id_offre, string $titre, $lettre)
     {
         $user_actif = $_COOKIE['user_id'] ?? null;
-        $sql = "INSERT INTO agenda (id_utilisateur, id_offre, titre)
-                VALUES(?,?,?)";
+        $sql = "INSERT INTO agenda (id_utilisateur, id_offre, titre, lettre_motivation)
+                VALUES(?,?,?,?)";
         $stmt = $this->pdo->prepare($sql);
-        return $stmt->execute([$user_actif, $id_offre, $titre]);
+        return $stmt->execute([$user_actif, $id_offre, $titre, $lettre]);
     }
  
     public function getCompetences()
@@ -375,7 +375,7 @@ public function searchGlobal($search, $type)
 
     public function Favori($id_offre) {
         $user_actif = $_COOKIE['user_id'] ?? null;
-        
+
         $sql = "SELECT * FROM wishlist WHERE id_utilisateur = ? AND id_offre = ?";
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute([$user_actif, $id_offre]);

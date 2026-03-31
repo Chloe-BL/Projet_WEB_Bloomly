@@ -36,13 +36,14 @@ class SectionController extends BaseController
 
         $id_etud = $_GET['id_etud'] ?? null;
 
-        $pagination = new Pagination($items, $parPage, $page);
-
-        if ($section == 'offres'){
+        if ($section == 'offres') {
             foreach ($items as &$item) {
                 $item['favori'] = $this->fonctionModel->Favori($item['id']);
             }
+        unset($item);
         }
+
+        $pagination = new Pagination($items, $parPage, $page);
 
         $this->render('listes.twig', [
             'itemsPage' => $pagination->getItemsPage(),

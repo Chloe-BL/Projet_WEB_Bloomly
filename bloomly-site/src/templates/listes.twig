@@ -24,16 +24,15 @@
         <div class="bloc-liste">
             <a href="index.php?page=DescriptionOff&section=offres&connect=oui&user={{user}}&id_offre={{item.id}}&titre={{item.titre}}&p={{ page - 1 }}"><img src="http://bloomly-static.local/assets/annonce.png" alt="Image d'une annonce"></a>
             <p>{{item.titre}}</p>
-
-            {% if user == 3 %}
+            {% if user == '3' %}
             <form method="post" action="index.php?page=AddFavoris&section=offres&user={{user}}&connect=oui">
                 <input type="hidden" name="id_offre" value="{{ item.id }}">
                 <input type="hidden" name="titre" value="{{ item.titre}}">
-                
-                <button type="submit">
+                <button type="submit" style="background:none; border:none; outline:none; padding:0; cursor:pointer;">
+                <div class="fleur">
                     <img src = "{% if item.favori %}http://bloomly-static.local/assets/favoris.png{% else %}http://bloomly-static.local/assets/pasfavoris.png{% endif %}" alt="favori" >
+                </div>
                 </button>
-                
             </form>
             {% endif %}
         </div>

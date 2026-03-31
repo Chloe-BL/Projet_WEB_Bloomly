@@ -44,8 +44,8 @@ public function setUpload($upload)
  
                     if ($nomFichier) {
                         $message = "Candidature envoyée avec succès.<br>";
-                        $message .= "CV téléversé : " . htmlspecialchars($nomFichier, ENT_QUOTES, 'UTF-8') . "<br>";
-                        $message .= "Lettre de motivation : " . nl2br($lettre);
+                        $message .= "CV téléversé : " . htmlspecialchars($nomFichier, ENT_QUO);
+
                     } else {
                         $message = "Erreur lors de l'enregistrement du fichier.";
                     }

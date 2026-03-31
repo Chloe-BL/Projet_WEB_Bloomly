@@ -218,6 +218,11 @@ nav {
     font-family: Century Gothic;
 }
 
+.fleur {
+    margin-left: 200px;
+    width: 50px;
+    height: 50px;
+}
 
 /* ===== LISTE DES CARTES (entreprises / offres) ===== */
 
@@ -509,7 +514,7 @@ nav {
     gap: 18px;
 }
 
-.body_ecart form > div {
+.body_ecart form>div {
     display: flex !important;
     flex-direction: column;
     gap: 14px;
