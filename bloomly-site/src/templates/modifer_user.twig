@@ -6,94 +6,100 @@
 {% block body %}
 
 
-{% elseif section == 'etudiants' %}
+{% if section == 'etudiants' %}
 <form method="post" action="index.php?page=ValidationModif_etu&section=etudiants&connect=oui&user={{user}}"> 
-            <input type="hidden" name="id_utilisateur" value="{{id_utilisateur}}">
+            <input type="hidden" name="id_utilisateur" value="{{etudiant.id_utilisateur}}">
 
+        <div class="contour">
+           <div style="display:inline-block;vertical-align:top;">
+                <img src="http://bloomly-static.local/assets/profil.png" alt="Photo de profil" class="profil">
+            </div>
+
+          
             <div style="display:inline-block; vertical-align:top;"> <!-- Pour mettre les bloc à côté de l'image -->
                 <div class="ligne">
                     <div class="bloc">
                         <h3>Civilité</h3>
-                        <input type="text" name="civilite" value="{{civilite}}">
+                        <input type="text" name="civilite" value="{{etudiant.civilite}}">
                     </div>
 
                     <div class="bloc">
                         <h3 class="no-wrap">Nom</h3>
-                        <input type="text" name="nom" value="{{nom}}">
+                        <input type="text" name="nom" value="{{etudiant.nom}}">
 
                         <h3 class="no-wrap">Prénom</h3>
-                        <input type="text" name="prenom" value="{{prenom}}">
+                        <input type="text" name="prenom" value="{{etudiant.prenom}}">
                     </div>
                 </div>
 
                 <div class="ligne">
                     <div class="bloc">
                         <h3 class="no-wrap">Numéro de téléphone</h3>
-                        <input type="text" name="num" value="{{telephone}}">
+                        <input type="text" name="telephone" value="{{etudiant.telephone}}">
                     </div>
                     <div class="bloc">
                         <h3 class="no-wrap">Adresse mail</h3>
-                        <input type="email" name="email" value="{{email}}">
+                        <input type="email" name="email" value="{{etudiant.email}}">
                     </div>
                 </div>
+            </div>
 
-                <div class="ligne">
-                    <div class="bloc">
-                        <h3 class="no-wrap">Votre identifiant</h3>
-                        <p class="no-wrap">{{ identifiant }}</p>
-                    </div>
-                </div>
 
-                <input type="hidden" name="mdp" value="{{mot_de_passe}}">
-                <input type="hidden" name="id_role" value="{{id_role}}">
-                <input type="hidden" name="id_createur" value="{{id_createur}}">
+                <input type="hidden" name="mot_de_passe" value="{{etudiant.mot_de_passe}}">
+                <input type="hidden" name="id_role" value="{{etudiant.id_role}}">
+                <input type="hidden" name="id_createur" value="{{etudiant.id_createur}}">
 
-                <button type="submit">Enregistrer</button>
+             <div class="bloc">
+                <button type="submit" class="modifier">Enregistrer</button>
+             </div>
+        </div>
 
 {% elseif section == 'pilots' %}
 <form method="post" action="index.php?page=ValidationModif_pil&section=pilots&connect=oui&user={{user}}"> 
-            <input type="hidden" name="id_utilisateur" value="{{id_utilisateur}}">
+            <input type="hidden" name="id_utilisateur" value="{{pilot.id_utilisateur}}">
+
+<div class="contour">
+            <div style="display:inline-block;vertical-align:top;">
+                <img src="http://bloomly-static.local/assets/profil.png" alt="Photo de profil" class="profil">
+            </div>
 
             <div style="display:inline-block; vertical-align:top;"> <!-- Pour mettre les bloc à côté de l'image -->
                 <div class="ligne">
                     <div class="bloc">
                         <h3>Civilité</h3>
-                        <input type="text" name="civilite" value="{{civilite}}">
+                        <input type="text" name="civilite" value="{{pilot.civilite}}">
                     </div>
 
                     <div class="bloc">
                         <h3 class="no-wrap">Nom</h3>
-                        <input type="text" name="nom" value="{{nom}}">
+                        <input type="text" name="nom" value="{{pilot.nom}}">
 
                         <h3 class="no-wrap">Prénom</h3>
-                        <input type="text" name="prenom" value="{{prenom}}">
+                        <input type="text" name="prenom" value="{{pilot.prenom}}">
                     </div>
                 </div>
 
                 <div class="ligne">
                     <div class="bloc">
                         <h3 class="no-wrap">Numéro de téléphone</h3>
-                        <input type="text" name="num" value="{{telephone}}">
+                        <input type="text" name="telephone" value="{{pilot.telephone}}">
                     </div>
                     <div class="bloc">
                         <h3 class="no-wrap">Adresse mail</h3>
-                        <input type="email" name="email" value="{{email}}">
+                        <input type="email" name="email" value="{{pilot.email}}">
                     </div>
                 </div>
+            </div>
 
-                <div class="ligne">
-                    <div class="bloc">
-                        <h3 class="no-wrap">Votre identifiant</h3>
-                        <p class="no-wrap">{{ identifiant }}</p>
-                    </div>
-                </div>
 
-                <input type="hidden" name="mdp" value="{{mot_de_passe}}">
-                <input type="hidden" name="id_role" value="{{id_role}}">
-                <input type="hidden" name="id_createur" value="{{id_createur}}">
+                <input type="hidden" name="mot_de_passe" value="{{pilot.mot_de_passe}}">
+                <input type="hidden" name="id_role" value="{{pilot.id_role}}">
+                <input type="hidden" name="id_createur" value="{{pilot.id_createur}}">
 
-                <button type="submit">Enregistrer</button>
-
+            <div class="bloc">
+                <button type="submit" class="modifier">Enregistrer</button>
+            </div>
+</div>
 {% endif %}
 
             </form>

@@ -86,11 +86,11 @@ class FonctionnaliteModel extends BaseModel {
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
-    public function getPilById(string $id_etud)
+    public function getPilById(string $id_pil)
     {
         $sql = "SELECT * FROM utilisateur WHERE id_utilisateur = ?";
         $stmt = $this->pdo->prepare($sql);
-        $stmt->execute([$id_etud]);
+        $stmt->execute([$id_pil]);
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
@@ -343,25 +343,25 @@ public function searchGlobal($search, $type)
     return $stmt->execute([$nom, $description, $email_contact, $telephone_contact, $adresse, $id_entreprise]);
     }
 
-    public function modif_BDD_etudiant(string $nom, string $prenom, string $email, string $mot_de_passe, string $telephone, string $civilite){
+    public function ModifierEtudiant(string $nom, string $prenom, string $email, string $mot_de_passe, string $telephone, string $civilite, string $id){
     $user_actif = $_COOKIE['user_id'] ?? null;
     $section = 'utilisateur';
 
     $sql = "UPDATE utilisateur SET nom =?, prenom=?, email=?, mot_de_passe=?, telephone=?, civilite=?, id_role=?, id_createur=?
-            WHERE id =?";
+            WHERE id_utilisateur =?";
         
     $stmt = $this->pdo->prepare($sql);
-    return $stmt->execute([$nom, $prenom, $email, $mot_de_passe, $telephone, $civilite, 3, $user_actif]);
+    return $stmt->execute([$nom, $prenom, $email, $mot_de_passe, $telephone, $civilite, 3, $user_actif, $id]);
     }
 
-    public function modif_BDD_pilote(string $nom, string $prenom, string $email, string $mot_de_passe, string $telephone, string $civilite){
+    public function ModifierPilote(string $nom, string $prenom, string $email, string $mot_de_passe, string $telephone, string $civilite, string $id){
     $user_actif = $_COOKIE['user_id'] ?? null;
 
     $sql = "UPDATE utilisateur SET nom =?, prenom=?, email=?, mot_de_passe=?, telephone=?, civilite=?, id_role=?, id_createur=?
-            WHERE id =?";
+            WHERE id_utilisateur =?";
         
     $stmt = $this->pdo->prepare($sql);
-    return $stmt->execute([$nom, $prenom, $email, $mot_de_passe, $telephone, $civilite, 2, $user_actif]);
+    return $stmt->execute([$nom, $prenom, $email, $mot_de_passe, $telephone, $civilite, 2, $user_actif, $id]);
     }
 
     public function AddEvaluation(string $appreciation, int $note, int $idNom){ 

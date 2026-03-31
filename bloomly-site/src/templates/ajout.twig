@@ -10,7 +10,7 @@
         <p> Entrez les informations, nous vous confirmerons l'ajout de l'entreprise par email.</p>
 
         <form method="post" action="index.php?page=ValidationAjout_ent&section=entreprises&connect=oui&user={{user}}">
-            <div style="display:inline-block;"> <!-- Pour mettre les bloc à côté de l'image -->
+            <div class="ajout-formulaire"> <!-- Pour mettre les bloc à côté de l'image -->
 
 
                         <label for ="nom">Nom de l'entreprise</label>
@@ -18,7 +18,7 @@
 
                    
                         <label for="description">Description</label>
-                        <input type = "text" name="description" required>
+                        <textarea name="description" rows="4" required></textarea>
 
                         <h2>Informations de contact</h2><br>
                    
@@ -45,7 +45,7 @@
         <p> Entrez les informations, nous vous confirmerons l'ajout de l'entreprise par email.</p>
 
         <form method="post" action="index.php?page=ValidationAjout_off&section=offres&connect=oui&user={{user}}">
-            <div style="display:inline-block;"> <!-- Pour mettre les bloc à côté de l'image -->
+            <div class="ajout-formulaire"> <!-- Pour mettre les bloc à côté de l'image -->
 
 
                         <label for ="titre">Titre de l'offre</label>
@@ -56,11 +56,11 @@
                         <input type = "text" name="nom" required>
 
                         <label for="description">Présentation de l'entreprise</label>
-                        <input type = "text" name="description" required>  -->
+                        <textarea name="description" rows="4" required></textarea>  -->
 
                         <h2>Description</h2><br>
                         <label for="description"></label>
-                        <input type = "text" name="description" required>
+                        <textarea name="description" rows="4" required></textarea>
                     
                         <h2>Profil recherché</h2><br>
                         <label for="formation">Formation</label>
@@ -74,7 +74,7 @@
 
                         <h2>Modalités et informations clés</h2><br>                       
                         <label for="date_debut">Date de début</label>
-                        <input type = "text" name="date_debut" required>   
+                        <input type = "date" name="date_debut" required>   
 
                         <label for="duree">Durée</label>
                         <input type = "text" name="duree" required>   
@@ -86,7 +86,7 @@
                         <input type = "text" name="salaire" required>     
 
                         <label for="date_pub">Date</label>
-                        <input type = "text" name="date_pub" required>
+                        <input type = "date" name="date_pub" required>
 
                         <label for="ent">Choisissez une entreprise :</label>
                         <select id="ent" name="ent">
@@ -100,6 +100,7 @@
                 <button type="submit" class="ajout" name = "form_action" value="ajj_off">Ajouter</button>
                 </form>
                 </div>
+                
 {% endif %}
 
 {% endblock %}

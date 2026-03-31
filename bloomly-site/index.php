@@ -116,6 +116,10 @@ elseif ($page === 'SupprimerPilot'){
     (new FonctionnaliteController()) -> supprimer_pilot();
 }
 
+elseif ($page === 'SupprimerWishlist'){
+    (new FonctionnaliteController()) -> supprimer_wishlist();
+}
+
 elseif ($page === 'modifier_offre'){
     (new FonctionnaliteController()) -> modif_off();
 }
@@ -131,6 +135,23 @@ elseif ($page === 'modifier_entreprise'){
 elseif ($page === 'ValidationModif_ent'){
     (new FonctionnaliteController()) -> ValidationModif_ent();
 }
+
+elseif ($page === 'modifier_etu'){
+    (new FonctionnaliteController()) -> modif_etu();
+}
+
+elseif ($page === 'ValidationModif_etu'){
+    (new FonctionnaliteController()) -> ValidationModif_etu();
+}
+
+elseif ($page === 'modifier_pil'){
+    (new FonctionnaliteController()) -> modif_pil();
+}
+
+elseif ($page === 'ValidationModif_pil'){
+    (new FonctionnaliteController()) -> ValidationModif_pil();
+}
+
 
 elseif ($page === 'AddFavoris'){
     (new FonctionnaliteController()) -> AddFavoris();

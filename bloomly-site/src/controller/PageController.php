@@ -36,6 +36,8 @@ class PageController extends BaseController
 
 public function search()
 {
+    $id_entreprise = $_GET['id_entreprise'] ?? '';
+    $id = $_GET['id_offre'] ?? '';
     $search = $_GET['search'] ?? '';
     $type = $_GET['type'] ?? 'all';
     $entreprise = $_GET['entreprise'] ?? '';

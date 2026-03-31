@@ -29,7 +29,7 @@
                 <form method="get" action="index.php" class="search-bar">
                 <input type="hidden" name="page" value="search">
                 <span class="icon">🔍</span>
-                <input type="text" name="search" placeholder="Rechercher..." required>
+                <input type="text" name="search" placeholder="Rechercher..." value="{{ search is defined ? search|trim : '' }}"> 
                 <select name="type">
                 <option value="entreprise">Entreprise</option>
                 <option value="offre">Offre</option>
