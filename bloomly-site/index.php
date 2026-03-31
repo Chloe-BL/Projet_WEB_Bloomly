@@ -76,6 +76,14 @@ elseif ($page === 'DescriptionEnt'){
     (new FonctionnaliteController()) -> description_ent();
 }
 
+elseif ($page === 'description_etu'){
+    (new FonctionnaliteController()) -> description_etu();
+}
+
+elseif ($page === 'description_pil'){
+    (new FonctionnaliteController()) -> description_pil();
+}
+
 elseif ($page === 'ValidationAjout_ent'){
     (new FonctionnaliteController()) -> ValidationAjout_ent();
 }

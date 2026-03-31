@@ -80,7 +80,15 @@ class FonctionnaliteModel extends BaseModel {
 
     public function getEtudById(string $id_etud)
     {
-        $sql = "SELECT * FROM offres WHERE id = ?";
+        $sql = "SELECT * FROM utilisateur WHERE id_utilisateur = ?";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([$id_etud]);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
+    public function getPilById(string $id_etud)
+    {
+        $sql = "SELECT * FROM utilisateur WHERE id_utilisateur = ?";
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute([$id_etud]);
         return $stmt->fetch(PDO::FETCH_ASSOC);
@@ -103,39 +111,34 @@ class FonctionnaliteModel extends BaseModel {
     }
     
     
-    public function searchGlobal($search, $type)
-    {
-        $search = "%$search%";
-    
-        if ($type === 'entreprise') {
+public function searchGlobal($search, $type)
+{
+    if ($type === 'entreprise') {
         $description = $_GET['description'] ?? '';
         $email = $_GET['email'] ?? '';
         $telephone = $_GET['telephone'] ?? '';
         $nb_stagiaires_filtre = $_GET['nb_stagiaires'] ?? '';
-    
+ 
         $conditions = ["1=1"];
         $params = [];
-    
-        if ($search !== '%%' && $search !== '') {
+ 
+        if ($search !== '') {
             $conditions[] = "e.nom LIKE :search";
             $params['search'] = "%$search%";
         }
-    
         if ($description) {
             $conditions[] = "e.description LIKE :description";
             $params['description'] = "%$description%";
         }
-    
         if ($email) {
             $conditions[] = "e.email_contact LIKE :email";
             $params['email'] = "%$email%";
         }
-    
         if ($telephone) {
             $conditions[] = "e.telephone_contact LIKE :telephone";
             $params['telephone'] = "%$telephone%";
         }
-    
+ 
         $having = "1=1";
         if ($nb_stagiaires_filtre === 'moins100') {
             $having = "nb_stagiaires < 100";
@@ -144,7 +147,7 @@ class FonctionnaliteModel extends BaseModel {
         } elseif ($nb_stagiaires_filtre === 'plus300') {
             $having = "nb_stagiaires >= 300";
         }
-    
+ 
         $sql = "SELECT e.nom, e.description, e.email_contact, e.telephone_contact,
                 COUNT(DISTINCT a.id_utilisateur) AS nb_stagiaires,
                 ROUND(AVG(ev.note), 1) AS moyenne_evaluation
@@ -155,121 +158,124 @@ class FonctionnaliteModel extends BaseModel {
                 WHERE " . implode(" AND ", $conditions) . "
                 GROUP BY e.id_entreprise
                 HAVING $having";
-    
+ 
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute($params);
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
-    } 
-    
-        elseif ($type === 'offre') {
-            $entreprise = $_GET['entreprise'] ?? '';
-            $salaire_filtre = $_GET['salaire'] ?? '';
-            $date_debut = $_GET['date_debut'] ?? '';
-            $competences = $_GET['competences'] ?? '';
-            $nb_candidats_filtre = $_GET['nb_candidats'] ?? '';
-        
-            $conditions = ["1=1"];
-            $params = [];
-        
-            if ($search !== '%%' && $search !== '') {
-                $conditions[] = "(o.titre LIKE :search OR o.description LIKE :search)";
-                $params['search'] = "%$search%";
-            }
-        
-            if ($competences) {
-                $conditions[] = "o.competences LIKE :competences";
-                $params['competences'] = "%$competences%";
-            }
-        
-            if ($entreprise) {
-                $conditions[] = "e.nom LIKE :entreprise";
-                $params['entreprise'] = "%$entreprise%";
-            }
-        
-            if ($salaire_filtre === 'smic_moins') {
-                $conditions[] = "o.salaire < 1426";
-            } elseif ($salaire_filtre === 'smic_plus') {
-                $conditions[] = "o.salaire >= 1426";
-            }
-        
-            if ($date_debut) {
-                $conditions[] = "o.date_debut >= :date_debut";
-                $params['date_debut'] = $date_debut;
-            }
-        
-            $having = "1=1";
-            if ($nb_candidats_filtre === 'moins100') {
-                $having = "nb_candidats < 100";
-            } elseif ($nb_candidats_filtre === 'plus100') {
-                $having = "nb_candidats >= 100";
-            } elseif ($nb_candidats_filtre === 'plus300') {
-                $having = "nb_candidats >= 300";
-            }
-        
-            $sql = "SELECT o.titre, o.description, o.competences, o.salaire, o.date_pub,
-                    e.nom AS entreprise,
-                    COUNT(DISTINCT a.id_utilisateur) AS nb_candidats
-                    FROM offres o
-                    LEFT JOIN entreprises e ON e.id_entreprise = o.id_entreprise
-                    LEFT JOIN agenda a ON a.id_offre = o.id
-                    WHERE " . implode(" AND ", $conditions) . "
-                    GROUP BY o.id
-                    HAVING $having";
-        
-            $stmt = $this->pdo->prepare($sql);
-            $stmt->execute($params);
-            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+ 
+    elseif ($type === 'offre') {
+        $entreprise = $_GET['entreprise'] ?? '';
+        $salaire_filtre = $_GET['salaire'] ?? '';
+        $date_debut = $_GET['date_debut'] ?? '';
+        $competences = $_GET['competences'] ?? '';
+        $nb_candidats_filtre = $_GET['nb_candidats'] ?? '';
+ 
+        $conditions = ["1=1"];
+        $params = [];
+ 
+        if ($search !== '') {
+            $conditions[] = "(o.titre LIKE :search OR o.description LIKE :search)";
+            $params['search'] = "%$search%";
         }
-    
-        elseif ($type === 'etudiant') {
-            $sql = "SELECT nom, prenom, email 
-                    FROM utilisateur 
-                    WHERE id_role = 3 
-                    AND (nom LIKE :search OR prenom LIKE :search OR email LIKE :search)";
+        if ($competences) {
+            $conditions[] = "o.competences LIKE :competences";
+            $params['competences'] = "%$competences%";
         }
-    
-        elseif ($type === 'pilote') {
-            $sql = "SELECT nom, prenom 
-                    FROM utilisateur 
-                    WHERE id_role = 2 
-                    AND (nom LIKE :search OR prenom LIKE :search)";
+        if ($entreprise) {
+            $conditions[] = "e.nom LIKE :entreprise";
+            $params['entreprise'] = "%$entreprise%";
         }
-    
-        elseif ($type === 'all') {
-            $sql = "
-                SELECT nom AS titre, description AS info, 'entreprise' AS type_result 
-                FROM entreprises 
-                WHERE nom LIKE :search OR description LIKE :search
-    
-                UNION
-    
-                SELECT titre AS titre, description AS info, 'offre' AS type_result 
-                FROM offres 
-                WHERE titre LIKE :search OR description LIKE :search OR competences LIKE :search
-    
-                UNION
-    
-                SELECT CONCAT(nom, ' ', prenom) AS titre, email AS info, 'etudiant' AS type_result 
-                FROM utilisateur WHERE id_role = 3 
-                AND (nom LIKE :search OR prenom LIKE :search)
-    
-                UNION
-    
-                SELECT CONCAT(nom, ' ', prenom) AS titre, email AS info, 'pilote' AS type_result 
-                FROM utilisateur WHERE id_role = 2 
-                AND (nom LIKE :search OR prenom LIKE :search)
-            ";
+        if ($salaire_filtre === 'smic_moins') {
+            $conditions[] = "o.salaire < 1426";
+        } elseif ($salaire_filtre === 'smic_plus') {
+            $conditions[] = "o.salaire >= 1426";
         }
-        
-    
-        else {
-            return [];
+        if ($date_debut) {
+            $conditions[] = "o.date_debut >= :date_debut";
+            $params['date_debut'] = $date_debut;
         }
-    
+ 
+        $having = "1=1";
+        if ($nb_candidats_filtre === 'moins100') {
+            $having = "nb_candidats < 100";
+        } elseif ($nb_candidats_filtre === 'plus100') {
+            $having = "nb_candidats >= 100";
+        } elseif ($nb_candidats_filtre === 'plus300') {
+            $having = "nb_candidats >= 300";
+        }
+ 
+        $sql = "SELECT o.titre, o.description, o.competences, o.salaire, o.date_pub,
+                e.nom AS entreprise,
+                COUNT(DISTINCT a.id_utilisateur) AS nb_candidats
+                FROM offres o
+                LEFT JOIN entreprises e ON e.id_entreprise = o.id_entreprise
+                LEFT JOIN agenda a ON a.id_offre = o.id
+                WHERE " . implode(" AND ", $conditions) . "
+                GROUP BY o.id
+                HAVING $having";
+ 
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute($params);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+ 
+    elseif ($type === 'etudiant') {
+        $search = "%$search%";
+        $sql = "SELECT nom, prenom, email 
+                FROM utilisateur 
+                WHERE id_role = 3 
+                AND (nom LIKE :search OR prenom LIKE :search OR email LIKE :search)";
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute(['search' => $search]);
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+ 
+    elseif ($type === 'pilote') {
+        $search = "%$search%";
+        $sql = "SELECT nom, prenom 
+                FROM utilisateur 
+                WHERE id_role = 2 
+                AND (nom LIKE :search OR prenom LIKE :search)";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute(['search' => $search]);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+ 
+    elseif ($type === 'all') {
+        $search = "%$search%";
+        $sql = "
+            SELECT nom AS titre, description AS info, 'entreprise' AS type_result 
+            FROM entreprises 
+            WHERE nom LIKE :search OR description LIKE :search
+ 
+            UNION
+ 
+            SELECT titre AS titre, description AS info, 'offre' AS type_result 
+            FROM offres 
+            WHERE titre LIKE :search OR description LIKE :search OR competences LIKE :search
+ 
+            UNION
+ 
+            SELECT CONCAT(nom, ' ', prenom) AS titre, email AS info, 'etudiant' AS type_result 
+            FROM utilisateur WHERE id_role = 3 
+            AND (nom LIKE :search OR prenom LIKE :search)
+ 
+            UNION
+ 
+            SELECT CONCAT(nom, ' ', prenom) AS titre, email AS info, 'pilote' AS type_result 
+            FROM utilisateur WHERE id_role = 2 
+            AND (nom LIKE :search OR prenom LIKE :search)
+        ";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute(['search' => $search]);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+ 
+    else {
+        return [];
+    }
+} 
 
     public function SupprimerEnt(string $id){
         $section = $_GET['section'];

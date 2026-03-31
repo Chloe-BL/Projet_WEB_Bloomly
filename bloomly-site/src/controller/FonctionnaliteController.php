@@ -177,16 +177,38 @@ class FonctionnaliteController extends BaseController
      public function description_etu()
     {
         $id_etud = $_GET['id_etud'] ?? null;
+        $section = $this -> getSection();
  
         $etud = $this -> fonctionModel->getEtudById($id_etud);
  
-        echo $this->render('description.twig', [
-                           'nom' => $offre['description'],
-                           'prenom' => $offre['formation'],
-                           'email' => $offre['softskills'],
-                           'mdp' => $offre['competences'],
-                           'num' => $offre['date_debut'],
-                           'civilite' => $offre['duree']
+        echo $this->render('detail_user.twig', [
+                           'nom' => $etud['nom'],
+                           'prenom' => $etud['prenom'],
+                           'email' => $etud['email'],
+                           'mot_de_passe' => $etud['mot_de_passe'],
+                           'telephone' => $etud['telephone'],
+                           'civilite' => $etud['civilite'],
+                           'id_utilisateur' => $_GET['id_etud'] ?? null,
+                           'section' => $section
+                            ]);
+    }
+
+    public function description_pil()
+    {
+        $id_etud = $_GET['id_pilot'] ?? null;
+        $section = $this -> getSection();
+ 
+        $etud = $this -> fonctionModel->getEtudById($id_etud);
+ 
+        echo $this->render('detail_user.twig', [
+                           'nom' => $etud['nom'],
+                           'prenom' => $etud['prenom'],
+                           'email' => $etud['email'],
+                           'mot_de_passe' => $etud['mot_de_passe'],
+                           'telephone' => $etud['telephone'],
+                           'civilite' => $etud['civilite'],
+                           'id_utilisateur' => $_GET['id_pilot'] ?? null,
+                           'section' => $section
                             ]);
     }
 

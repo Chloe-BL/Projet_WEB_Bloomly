@@ -34,7 +34,7 @@ class StatistiqueModel extends BaseModel
         return $stmt->fetch(PDO::FETCH_ASSOC)['total'];
     }
 
-    public function getMoyenneCandidatures()
+   /* public function getMoyenneCandidatures()
 {
     $sql = "SELECT ROUND(COUNT(c.id_candidature) / COUNT(DISTINCT o.id), 2) AS moyenne
             FROM offres o
@@ -42,6 +42,6 @@ class StatistiqueModel extends BaseModel
     $stmt = $this->pdo->prepare($sql);
     $stmt->execute();
     return $stmt->fetch(PDO::FETCH_ASSOC)['moyenne'];
-}
+}*/
 
 }
