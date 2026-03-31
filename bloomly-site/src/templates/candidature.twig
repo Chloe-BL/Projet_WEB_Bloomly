@@ -7,11 +7,11 @@
 {{ message | raw}}
 <br>
 {% if user == 3 %}
-    <h1 class="titre">Alternance en cybersécurité - Septembre 2026</h1>
-    <h2 class="sous-titre">Entreprise : SecureFlow Systems</h2>
+    <h1 class="titre">{{titre}}</h1>
+    <h2 class="sous-titre">{{nom}}</h2>
 {% else %}
     <h1 class="titre">Soumettre une évaluation </h1>
-    <h2 class="sous-titre">Entreprise : NexoraTech</h2>
+    <h2 class="sous-titre">Entreprise : {{nom}}</h2>
 {% endif %}
     <div class="categ">
     {% if user ==   3 %}

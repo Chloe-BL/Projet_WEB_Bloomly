@@ -43,13 +43,6 @@ public function setUpload($upload)
             }
         }
  
-        $this->render('candidature.twig', [
-            'message' => $message,
-            'user' => $user,
-            'connect' => $this->getConnect(),
-            'section' => $this -> getSection(),
-            'id_offre' => $_GET['id_offre'],
-            'titre' => $_GET['titre']
-        ]);
+        if ()
     }
 }
