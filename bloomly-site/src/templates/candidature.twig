@@ -4,13 +4,23 @@
 
 
 {% block body %}
+
 {{ message | raw}}
 <br>
+
 {% if user == 3 %}
+<div class="haut-offre">
+
     <h1 class="titre">{{titre}}</h1>
+     <a class="acc2" href="?page=choix_section&section={{section}}&connect=oui&user={{user}}">Retour</a>
+</div>
     <h2 class="sous-titre">{{nom}}</h2>
 {% else %}
+<div class="haut-offre">
+
     <h1 class="titre">Soumettre une évaluation </h1>
+     <a class="acc2" href="?page=choix_section&section={{section}}&connect=oui&user={{user}}">Retour</a>
+</div>
     <h2 class="sous-titre">Entreprise : {{nom}}</h2>
 {% endif %}
     <div class="categ">
