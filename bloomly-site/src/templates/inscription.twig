@@ -10,13 +10,11 @@
         <p> Entrez les informations, nous vous confirmerons la création du compte par email.</p>
 
         {% if section == 'etudiants' %}
-        <form method="POST" enctype="multipart/form-data" action="index.php?page=ValidationAjout_etudiant&section={{section}}&connect=oui&user={{user}}" onsubmit="return champsVide(this);">
+        <form method="POST" enctype="multipart/form-data" action="index.php?page=ValidationAjout_etudiant&section={{section}}&connect=oui&user={{user}}" onsubmit="return validerFormulaireInscription(this);">
        
         {% elseif section == 'pilots' %}
-        <form method="POST" enctype="multipart/form-data" action="index.php?page=ValidationAjout_pilote&section={{section}}&connect=oui&user={{user}}" onsubmit="return champsVide(this);">
+        <form method="POST" enctype="multipart/form-data" action="index.php?page=ValidationAjout_pilote&section={{section}}&connect=oui&user={{user}}" onsubmit="return validerFormulaireInscription(this);">
 
-        {% elseif section == 'agenda' %}
-        <form method="POST" enctype="multipart/form-data" action="index.php?page=AddAgenda&section={{section}}&connect=oui&user={{user}}" onsubmit="return checkForm(this);">
 
         {% endif %}  
 
@@ -26,7 +24,7 @@
 
                     <div class="bloc">
                         <label for ="nom">Nom</label>
-                        <input type = "text" name="nom" required>
+                        <input type = "text" name="nom" id="nom" required>
                     </div>
 
                     <div class="bloc">
@@ -38,7 +36,7 @@
                 <div class="ligne">
                     <div class="bloc2">
                         <label for="email">Adresse email</label>
-                        <input type="text" name="email" >
+                        <input type="text" name="email" id="email">
                         <br><br>
                     </div>
                 </div>
