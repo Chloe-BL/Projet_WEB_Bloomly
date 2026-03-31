@@ -195,18 +195,18 @@ class FonctionnaliteController extends BaseController
 
     public function description_pil()
     {
-        $id_etud = $_GET['id_pilot'] ?? null;
+        $id_pil = $_GET['id_pilot'] ?? null;
         $section = $this -> getSection();
  
-        $etud = $this -> fonctionModel->getEtudById($id_etud);
+        $pil = $this -> fonctionModel->getPilById($id_pil);
  
         echo $this->render('detail_user.twig', [
-                           'nom' => $etud['nom'],
-                           'prenom' => $etud['prenom'],
-                           'email' => $etud['email'],
-                           'mot_de_passe' => $etud['mot_de_passe'],
-                           'telephone' => $etud['telephone'],
-                           'civilite' => $etud['civilite'],
+                           'nom' => $pil['nom'],
+                           'prenom' => $pil['prenom'],
+                           'email' => $pil['email'],
+                           'mot_de_passe' => $pil['mot_de_passe'],
+                           'telephone' => $pil['telephone'],
+                           'civilite' => $pil['civilite'],
                            'id_utilisateur' => $_GET['id_pilot'] ?? null,
                            'section' => $section
                             ]);

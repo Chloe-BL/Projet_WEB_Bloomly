@@ -6,8 +6,17 @@
 {% block body %}
 
 {% if section == 'offres' %}
-    <div class="haut-offre">
+<div class="haut-offre">
+    {% if connect == 'oui'%}
+        {% if user == 3 %}
         <h1 class='titre' >{{titre}}</h1>
+        <br>
+        <div class="actions">
+
+            <a class="bouton" href="?page=choix_section&section={{section}}&connect=oui&user={{user}}">Retour</a>
+        {% elseif user == 1 or 2 %}
+        <h1 class='titre' >{{titre}}</h1>
+        <br>
         <div class="actions">
 
             <a class="acc2" href="?page=choix_section&section={{section}}&connect=oui&user={{user}}">Retour</a>
@@ -17,8 +26,19 @@
             </form>
             <a class="acc2" href="?page=candidature&section={{section}}&user={{user}}&connect=oui&id_offre={{id_offre}}&titre={{titre}}">Postuler</a>
         </div>
+        {% endif %}
     </div>
     
+
+    {% elseif connect == '' %}
+        <h1 class='titre' >{{titre}}</h1>
+        <br>
+        <div class="actions">
+            <a class="bouton" href="index.php?page=search&type=offre&connect={{connect}}&user={{user}}">Retour</a>
+        </div>
+    </div>
+    {% endif %} 
+    </div>  
 
     <div class="container2-flex">
         <div class="cadre">
@@ -74,8 +94,18 @@
 
 {% elseif section == 'entreprises' %}
 
-    <div class="haut-offre">
+<div class="haut-offre">
+    {% if connect == 'oui'%}
+         {% if user == 3 %}
         <h1 class="titre">{{nom}}</h1>
+        <br>
+        <div class="actions">
+
+            <a class="bouton" href="?page=choix_section&section={{section}}&connect=oui&user={{user}}">Retour</a>
+        
+         {% elseif user == 1 or 2 %}
+        <h1 class="titre">{{nom}}</h1>
+        <br>
         <div class="actions">
 
             <a class="acc2" href="?page=choix_section&section={{section}}&connect=oui&user={{user}}">Retour</a>
@@ -88,8 +118,20 @@
             </form>
             <a class="acc2" href="?page=candidature&section={{section}}&user={{user}}&connect=oui&id_nom={{id_entreprise}}&nom={{nom}}">Evaluer</a>
         </div>
-    </div>
+        {% endif %}
+        </div>
     
+    
+    
+    {% elseif connect == '' %}
+        <h1 class='titre' >{{titre}}</h1>
+        <br>
+        <div class="actions">
+            <a class="bouton" href="index.php?page=search&type=entreprise&connect={{connect}}&user={{user}}">Retour</a>
+        </div>
+    </div>
+    {% endif %}  
+    </div>
     <div class="container-flex">
         <div class="cadre">
             <h1 class="titre">Description</h1>
@@ -116,6 +158,6 @@
         <p>{{adresse}}</p>
     <br>
     </div>
-    
+
 {% endif %}
 {% endblock %}

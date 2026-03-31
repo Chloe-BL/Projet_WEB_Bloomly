@@ -36,8 +36,6 @@ class PageController extends BaseController
 
 public function search()
 {
-    $id_entreprise = $_GET['id_entreprise'] ?? '';
-    $id = $_GET['id_offre'] ?? '';
     $search = $_GET['search'] ?? '';
     $type = $_GET['type'] ?? 'all';
     $entreprise = $_GET['entreprise'] ?? '';
@@ -77,8 +75,11 @@ public function search()
         'telephone' => $telephone,
         'nb_candidats' => $nb_candidats,
         'nb_stagiaires' => $nb_stagiaires,
-        'liste_competences' => $liste_competences
-    ]);
+        'liste_competences' => $liste_competences,
+        'resultats' => $resultats,
+        'connect' => $_GET['connect'] ?? null,
+        'user' => $_GET['user'] ?? null,
+        ]);
 }
 
 };
