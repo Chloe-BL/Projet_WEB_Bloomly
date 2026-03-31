@@ -289,8 +289,6 @@ class FonctionnaliteController extends BaseController
         exit;
     }
 
-
-    /*
     public function ValidationModif_etu(){
 
     $connect = $this->getConnect();
@@ -323,6 +321,6 @@ class FonctionnaliteController extends BaseController
                                                       $_POST['civilite'], );
         header("Location: index.php?page=choix_section&section=" . urlencode($section) . "&connect=oui&user=" . urlencode($user));
         exit;
-    }*/
+    }
 
 }
