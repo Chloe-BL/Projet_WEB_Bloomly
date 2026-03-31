@@ -148,7 +148,7 @@ public function searchGlobal($search, $type)
             $having = "nb_stagiaires >= 300";
         }
  
-        $sql = "SELECT e.nom, e.description, e.email_contact, e.telephone_contact,
+        $sql = "SELECT e.id_entreprise, e.nom, e.description, e.email_contact, e.telephone_contact,
                 COUNT(DISTINCT a.id_utilisateur) AS nb_stagiaires,
                 ROUND(AVG(ev.note), 1) AS moyenne_evaluation
                 FROM entreprises e
@@ -205,7 +205,7 @@ public function searchGlobal($search, $type)
             $having = "nb_candidats >= 300";
         }
  
-        $sql = "SELECT o.titre, o.description, o.competences, o.salaire, o.date_pub,
+        $sql = "SELECT o.id, o.titre, o.description, o.competences, o.salaire, o.date_pub,
                 e.nom AS entreprise,
                 COUNT(DISTINCT a.id_utilisateur) AS nb_candidats
                 FROM offres o
@@ -245,27 +245,27 @@ public function searchGlobal($search, $type)
     elseif ($type === 'all') {
         $search = "%$search%";
         $sql = "
-            SELECT nom AS titre, description AS info, 'entreprise' AS type_result 
+            SELECT id_entreprise AS id, nom AS titre, description AS info, 'entreprise' AS type_result 
             FROM entreprises 
-            WHERE nom LIKE :search OR description LIKE :search
+            WHERE nom LIKE :search OR description LIKE :search 
  
             UNION
  
-            SELECT titre AS titre, description AS info, 'offre' AS type_result 
+            SELECT id AS id, titre AS titre, description AS info, 'offre' AS type_result 
             FROM offres 
-            WHERE titre LIKE :search OR description LIKE :search OR competences LIKE :search
+            WHERE titre LIKE :search OR description LIKE :search OR competences LIKE :search 
  
             UNION
  
-            SELECT CONCAT(nom, ' ', prenom) AS titre, email AS info, 'etudiant' AS type_result 
+            SELECT id_utilisateur AS id, CONCAT(nom, ' ', prenom) AS titre, email AS info, 'etudiant' AS type_result 
             FROM utilisateur WHERE id_role = 3 
-            AND (nom LIKE :search OR prenom LIKE :search)
+            AND (nom LIKE :search OR prenom LIKE :search) 
  
             UNION
  
-            SELECT CONCAT(nom, ' ', prenom) AS titre, email AS info, 'pilote' AS type_result 
+            SELECT id_utilisateur AS id, CONCAT(nom, ' ', prenom) AS titre, email AS info, 'pilote' AS type_result 
             FROM utilisateur WHERE id_role = 2 
-            AND (nom LIKE :search OR prenom LIKE :search)
+            AND (nom LIKE :search OR prenom LIKE :search) 
         ";
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute(['search' => $search]);
