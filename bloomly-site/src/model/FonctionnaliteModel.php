@@ -78,6 +78,14 @@ class FonctionnaliteModel extends BaseModel {
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
+    public function getEtudById(string $id_etud)
+    {
+        $sql = "SELECT * FROM offres WHERE id = ?";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([$id_etud]);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
     public function ajoutBDDAgenda(string $id_offre, string $titre)
     {
         $user_actif = $_COOKIE['user_id'] ?? null;

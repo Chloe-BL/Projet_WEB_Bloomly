@@ -1,0 +1,135 @@
+{% extends 'layout.twig' %}
+
+{% block title %}Description utilisateur{% endblock %}
+
+
+{% block body %}
+
+{% if section == 'etudiants' %}
+<nav class="navbar">
+            <input type="checkbox" id="interrupteur">
+            <label for="interrupteur" class="burger">☰</label>
+
+            <div class="cache">
+                <a class="active">Ses Informations</a>
+                <a href="index.php?page=choix_section&section=etudiants&user={{user}}&connect=oui&id_etud={{id_utilisateur}}">Son Agenda</a>                
+            </div>
+        </nav>
+        <div class="sous-nav"></div>
+    
+
+    <div class="contour">
+            <h1>Son espace</h1>
+
+            <br>
+            <p>Retrouvez ici l'ensemble des informations de votre étudiant</p>
+
+            <br>
+            <div style="display:inline-block;vertical-align:top;">
+                <img src="http://bloomly-static.local/assets/profil.png" alt="Photo de profil" class="profil">
+            </div>
+
+            <div style="display:inline-block; vertical-align:top;"> <!-- Pour mettre les bloc à côté de l'image -->
+                <div class="ligne">
+                    <div class="bloc">
+                        <h3>Civilité</h3>
+                        <p>{{ civilite }}</p>
+                    </div>
+
+                    <div class="bloc">
+                        <h3 class="no-wrap">Nom et Prénom</h3>
+                        <p>{{ nom}} {{ prenom }}</p>
+                    </div>
+                </div>
+
+                <div class="ligne">
+                    <div class="bloc">
+                        <h3 class="no-wrap">Numéro de téléphone</h3>
+                        <p>{{ telephone }}</p>
+                    </div>
+                    <div class="bloc">
+                        <h3 class="no-wrap">Adresse mail</h3>
+                        <p>{{ email }}</p>
+                    </div>
+                </div>
+
+                <div class="ligne">
+                    <div class="bloc">
+                        <h3 class="no-wrap">Votre identifiant</h3>
+                        <p class="no-wrap">{{ identifiant }}</p>
+                    </div>
+                    <div class="bloc">
+                    <div class="no-wrap">
+                            <a class="modifier" href="index.php?page=choix_section&section=etudiants&user={{user}}&connect=oui&id_etud={{id_utilisateur}}">Modifier les informations</a>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+  
+
+{% elseif section == 'pilots' %}
+
+<nav class="navbar">
+            <input type="checkbox" id="interrupteur">
+            <label for="interrupteur" class="burger">☰</label>
+
+            <div class="cache">
+                <a class="active">Ses Informations</a>            
+            </div>
+        </nav>
+        <div class="sous-nav"></div>
+    
+
+    <div class="contour">
+            <h1>Son espace</h1>
+
+            <br>
+            <p>Retrouvez ici l'ensemble des informations de votre pilote</p>
+
+            <br>
+            <div style="display:inline-block;vertical-align:top;">
+                <img src="http://bloomly-static.local/assets/profil.png" alt="Photo de profil" class="profil">
+            </div>
+
+            <div style="display:inline-block; vertical-align:top;"> <!-- Pour mettre les bloc à côté de l'image -->
+                <div class="ligne">
+                    <div class="bloc">
+                        <h3>Civilité</h3>
+                        <p>{{ civilite }}</p>
+                    </div>
+
+                    <div class="bloc">
+                        <h3 class="no-wrap">Nom et Prénom</h3>
+                        <p>{{ nom}} {{ prenom }}</p>
+                    </div>
+                </div>
+
+                <div class="ligne">
+                    <div class="bloc">
+                        <h3 class="no-wrap">Numéro de téléphone</h3>
+                        <p>{{ telephone }}</p>
+                    </div>
+                    <div class="bloc">
+                        <h3 class="no-wrap">Adresse mail</h3>
+                        <p>{{ email }}</p>
+                    </div>
+                </div>
+
+                <div class="ligne">
+                    <div class="bloc">
+                        <h3 class="no-wrap">Votre identifiant</h3>
+                        <p class="no-wrap">{{ identifiant }}</p>
+                    </div>
+                    <div class="bloc">
+                    <div class="no-wrap">
+                            <a class="modifier" href="index.php?page=choix_section&section=pilots&user={{user}}&connect=oui&&id_pil={{id_utilisateur}}">Modifier les informations</a>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+{% endif %}
+{% endblock %}

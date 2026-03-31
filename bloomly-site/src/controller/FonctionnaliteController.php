@@ -174,6 +174,22 @@ class FonctionnaliteController extends BaseController
     ]);
 }
 
+     public function description_etu()
+    {
+        $id_etud = $_GET['id_etud'] ?? null;
+ 
+        $etud = $this -> fonctionModel->getEtudById($id_etud);
+ 
+        echo $this->render('description.twig', [
+                           'nom' => $offre['description'],
+                           'prenom' => $offre['formation'],
+                           'email' => $offre['softskills'],
+                           'mdp' => $offre['competences'],
+                           'num' => $offre['date_debut'],
+                           'civilite' => $offre['duree']
+                            ]);
+    }
+
     public function supprimer_off(){
         $id_offre = $_GET['id_offre'] ?? null;
         $section = $this -> getSection();
