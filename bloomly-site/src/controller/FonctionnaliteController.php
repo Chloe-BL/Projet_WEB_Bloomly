@@ -208,7 +208,7 @@ class FonctionnaliteController extends BaseController
                            'telephone' => $pil['telephone'],
                            'civilite' => $pil['civilite'],
                            'id_utilisateur' => $_GET['id_pilot'] ?? null,
-                           'section' => $section
+                           'section' => $section,
                             ]);
     }
 
