@@ -1,8 +1,7 @@
 <?php
 require_once __DIR__ . '/BaseModel.php';
 
-class FonctionnaliteModel extends BaseModel 
-{
+class FonctionnaliteModel extends BaseModel {
     public function ajout_BDD_ent(string $nom, string $description, string $email_contact, string $telephone_contact, string $adresse){
 
         $user_actif = $_COOKIE['user_id'] ?? null;
@@ -351,4 +350,12 @@ class FonctionnaliteModel extends BaseModel
     return $stmt->execute([$nom, $prenom, $email, $mot_de_passe, $telephone, $civilite, 2, $user_actif]);
     }
 
+    public function AddEvaluation(string $appreciation, int $note, int $idNom){ 
+        $user_actif = $_COOKIE['user_id'] ?? null;
+        $sql = "INSERT INTO evaluation ( note, id_entreprise, id_utilisateur, date_evaluation, appreciation) 
+                VALUES (?, ?, ?,NOW(), ?)"; 
+
+        $stmt = $this->pdo->prepare($sql); 
+        return $stmt->execute([$note, $idNom, $user_actif, $appreciation]); 
+    }
 };

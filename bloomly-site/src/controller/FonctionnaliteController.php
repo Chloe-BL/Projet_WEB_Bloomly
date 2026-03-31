@@ -14,9 +14,7 @@ class FonctionnaliteController extends BaseController
     public function __construct()
     
     {
-        // on réecrit le constructeur de la classe mère
-        $loader = new FilesystemLoader(__DIR__ . '/../templates'); // Indique à Twig où se trouvent les templates
-        $this->twig = new Environment($loader);
+        parent::__construct();
 
         // nouveau constructeur
         $this->userModel = new UserModel();
