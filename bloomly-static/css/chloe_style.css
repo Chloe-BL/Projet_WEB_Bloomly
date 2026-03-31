@@ -209,6 +209,16 @@ nav {
     cursor: pointer;
 }
 
+.acc2 {
+    padding: 6px 14px;
+    background-color: #b6b99a;
+    border-radius: 15px;
+    text-decoration: none;
+    color: #000000;
+    font-family: Century Gothic;
+}
+
+
 /* ===== LISTE DES CARTES (entreprises / offres) ===== */
 
 .liste {

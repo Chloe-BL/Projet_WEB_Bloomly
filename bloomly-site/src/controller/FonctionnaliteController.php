@@ -392,4 +392,16 @@ class FonctionnaliteController extends BaseController
         exit;
     }
 
+    Public function Favori() {
+        $id_offre = $_POST['id_offre'] ;
+        if ($this -> fonctionModel -> Favoris($id_offre)) {
+        $this -> fonctionModel -> SupprimerWishlist($id_offre) ;
+        }
+        else {
+        $this -> fonctionModel -> AddWishlist($id_offre) ;
+        }
+        header("Location: index.php?page=choix_section&section=" . urlencode($section) . "&connect=oui&user=" . urlencode($user));
+        exit;
+    }
+
 }

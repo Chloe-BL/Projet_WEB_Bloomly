@@ -6,7 +6,7 @@
 {% block body %}
  
        
-    {# SECTION OFFRES #}
+{# SECTION OFFRES  ============================================================================================================================ #}
     {% if section == 'offres' %}
     <nav class="navbar">
             <a class="active">Vos annonces</a>
@@ -29,7 +29,16 @@
             <form method="post" action="index.php?page=AddFavoris&section=offres&user={{user}}&connect=oui">
                 <input type="hidden" name="id_offre" value="{{ item.id }}">
                 <input type="hidden" name="titre" value="{{ item.titre}}">
-                <button type="submit">Ajouter aux favoris</button>
+                
+                <button type="submit">
+                <img 
+                {% if item.favori %}
+                src = "http://bloomly-static.local/assets/favoris.png"
+                {% else %}
+                src = "http://bloomly-static.local/assets/pasfavoris.png"
+                {% endif %}
+                >
+                </button>
             </form>
             {% endif %}
         </div>
@@ -59,7 +68,7 @@
     </div>
     <a class="acc" href="index.php?page=validationConnexion&connect=oui&user={{user}}">Retour à l'accueil</a>
  
-    {# SECTION ENTREPRISES #}
+{# SECTION ENTREPRISES =========================================================================================================================== #}
     {% elseif section == 'entreprises' %}
     <nav class="navbar">
             <a class="active">Vos entreprises</a>
@@ -103,7 +112,7 @@
     </div>
     <a class="acc" href="index.php?page=validationConnexion&connect=oui&user={{user}}">Retour à l'accueil</a>
    
-    {# SECTION ETUDIANTS #}
+{# SECTION ETUDIANTS ============================================================================================================================#}
     {% elseif section == 'etudiants' %}
     <nav class="navbar">
                 <input type="checkbox" id="interrupteur">
@@ -170,7 +179,7 @@
     </div>
     <a class="acc" href="index.php?page=validationConnexion&connect=oui&user={{user}}">Retour à l'accueil</a>
  
-    {# SECTION PILOTES #}
+{# SECTION PILOTES ============================================================================================================================#}
     {% elseif section == 'pilots' %}
         <nav class="navbar">
                 <input type="checkbox" id="interrupteur">
@@ -237,7 +246,7 @@
         </div>
     <a class="acc" href="index.php?page=validationConnexion&connect=oui&user={{user}}">Retour à l'accueil</a>
  
-    {# SECTION WISHLIST #}
+{# SECTION WISHLIST ============================================================================================================================#}
     {% elseif section == 'wishlist' %}
     <nav class="navbar">
             <input type="checkbox" id="interrupteur">
@@ -291,7 +300,7 @@
     </div>
     <a class="acc" href="index.php?page=validationConnexion&connect=oui&user={{user}}">Retour à l'accueil</a>
  
- 
+ {# SECTION AGENDA ============================================================================================================================#}
     {% elseif section == 'agenda' %}
         {% if user == 3 %}
     <nav class="navbar">
