@@ -65,4 +65,5 @@ public function setUpload($upload)
                 $this -> fonctionModel -> AddEvaluation($lettre, $note, $idnom);
             }
         }
+    }
  
