@@ -40,7 +40,10 @@ public function setUpload($upload)
                 }
             } elseif ($user === '2' || $user === '1') {
                 $lettre = htmlspecialchars($_POST['Lettre'] ?? '', ENT_QUOTES, 'UTF-8');
-                $message .= "Appréciation : " . nl2br($lettre);
+                $note = isset($_POST['note']) ? (int) $_POST['note'] : 0;
+
+                $message .= "Appréciation : " . nl2br($lettre) . "<br>";
+                $message .= "Note : " . $note . "/4";
             }
         }
  

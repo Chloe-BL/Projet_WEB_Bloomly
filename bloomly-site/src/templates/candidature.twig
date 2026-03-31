@@ -36,9 +36,20 @@
             <button type="submit" class="envoie" name = "action" value="etud">Je valide ma candidature </button>
             </form>
         {% else %}
-            <p>Notez l'entreprise séléctionnée à l'aide des étoiles ci-dessous :</p>
-            </div>
-            <button type="submit" class="envoie" name = "action" value="admin_pil">Je poste mon évaluation </button>
+            <form method="POST" id="form-evaluation" onsubmit="return gererFormulaire(event)">
+                <input type="hidden" name="action" value="admin_pil">
+                <input type="hidden" name="note" id="note" value="0">
+                <p>Notez l'entreprise :</p>
+                <br>
+
+                <div class="stars">
+                    <img src="http://bloomly-static.local/assets/etoile_grise.png" class="star" data-value="1">
+                    <img src="http://bloomly-static.local/assets/etoile_grise.png" class="star" data-value="2">
+                    <img src="http://bloomly-static.local/assets/etoile_grise.png" class="star" data-value="3">
+                    <img src="http://bloomly-static.local/assets/etoile_grise.png" class="star" data-value="4">
+                </div>
+                <br>
+                <button class='modifier' type="submit">Envoyer</button>
             </form>
         {% endif %}
        
