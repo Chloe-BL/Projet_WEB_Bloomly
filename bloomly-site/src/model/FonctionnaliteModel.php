@@ -280,17 +280,25 @@ public function searchGlobal($search, $type)
     public function SupprimerEnt(string $id){
         $section = $_GET['section'];
 
-        $sql = "DELETE FROM $section WHERE id_entreprise = ? ";
-        $stmt = $this->pdo->prepare($sql);
-        return $stmt->execute([$id]);
+        $sql1 = "DELETE FROM offres WHERE id_entreprise = ?";
+        $stmt1 = $this->pdo->prepare($sql1);
+        $stmt1->execute([$id]);
+
+        $sql2 = "DELETE FROM $section WHERE id = ?";
+        $stmt2 = $this->pdo->prepare($sql2);
+        return $stmt2->execute([$id]);
     }
 
     public function SupprimerOff(string $id){
         $section = $_GET['section'];
 
-        $sql = "DELETE FROM $section WHERE id = ? ";
-        $stmt = $this->pdo->prepare($sql);
-        return $stmt->execute([$id]);
+        $sql1 = "DELETE FROM wishlist WHERE id_offre = ?";
+        $stmt1 = $this->pdo->prepare($sql1);
+        $stmt1->execute([$id]);
+
+        $sql2 = "DELETE FROM offres WHERE id = ?";
+        $stmt2 = $this->pdo->prepare($sql2);
+        return $stmt2->execute([$id]);
     }
 
     public function SupprimerWhishlist(string $id){
