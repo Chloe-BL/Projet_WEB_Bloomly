@@ -197,6 +197,17 @@ class FonctionnaliteController extends BaseController
         exit;
     }
 
+    public function supprimer_pilot(){
+        $id_pilote = $_GET['id_pilot'] ?? null;
+
+        $user = $_GET['user'] ?? '';
+        $section = $this -> getSection();
+        $this -> fonctionModel -> SupprimerPilot($id_pilote);
+
+        header("Location: index.php?page=choix_section&section=" . urlencode($section) . "&connect=oui&user=" . urlencode($user));
+        exit;
+    }
+
     public function supprimer_ent(){
         $id_entreprise = $_GET['id_entreprise'] ?? null;
         $section = $this -> getSection();

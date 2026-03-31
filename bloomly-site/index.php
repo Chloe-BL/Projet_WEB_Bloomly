@@ -103,6 +103,10 @@ elseif ($page === 'SupprimerEtudiant'){
     (new FonctionnaliteController()) -> supprimer_etudiant();
 }
 
+elseif ($page === 'SupprimerPilot'){
+    (new FonctionnaliteController()) -> supprimer_pilot();
+}
+
 elseif ($page === 'modifier_offre'){
     (new FonctionnaliteController()) -> modif_off();
 }

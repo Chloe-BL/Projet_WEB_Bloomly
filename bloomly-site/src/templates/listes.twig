@@ -206,7 +206,10 @@
     {% for item in itemsPage %}
     <div class="bloc-liste">
         <img src="http://bloomly-static.local/assets/profil.png" alt="Image d'un profil">
-        <p>{{ item.prenom }} {{ item.nom }}</p>
+        <p>{{ item.nom }} {{ item.prenom }}</p>
+        <div  class="poubelle" >
+                <a href="index.php?page=SupprimerPilot&section=pilots&user={{user}}&connect=oui&id_pilot={{item.id_utilisateur}}"><img src="http://bloomly-static.local/assets/poubelle.png" alt="Supprimer"></a>
+        </div>
     </div>
     {% endfor %}
         <div class="pagination">
