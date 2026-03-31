@@ -22,7 +22,7 @@ class PageController extends BaseController
         $this->render('cookies.twig');
     }
 
-    public function search()
+public function search()
 {
     $search = $_GET['search'] ?? '';
     $type = $_GET['type'] ?? 'all';
@@ -33,18 +33,22 @@ class PageController extends BaseController
     $description = $_GET['description'] ?? '';
     $email = $_GET['email'] ?? '';
     $telephone = $_GET['telephone'] ?? '';
+    $nb_candidats = $_GET['nb_candidats'] ?? '';
+    $nb_stagiaires = $_GET['nb_stagiaires'] ?? '';
  
     $model = new FonctionnaliteModel();
  
-    // Si type offre ou entreprise ET aucun filtre avancé rempli
-    // → on affiche juste le formulaire sans résultats
-    $filtres_remplis = $entreprise || $competences || $salaire || $date_debut || $description || $email || $telephone || $search;
+    $filtres_remplis = $entreprise || $competences || $salaire || $date_debut 
+                    || $description || $email || $telephone || $search
+                    || $nb_candidats || $nb_stagiaires;
  
     if (($type === 'offre' || $type === 'entreprise') && !$filtres_remplis) {
-        $resultats = []; // pas de résultats, juste le formulaire
+        $resultats = [];
     } else {
         $resultats = $model->searchGlobal($search, $type);
     }
+ 
+    $liste_competences = $model->getCompetences();
  
     $this->render('resultats.twig', [
         'resultats' => $resultats,
@@ -56,7 +60,11 @@ class PageController extends BaseController
         'date_debut' => $date_debut,
         'description' => $description,
         'email' => $email,
-        'telephone' => $telephone
+        'telephone' => $telephone,
+        'nb_candidats' => $nb_candidats,
+        'nb_stagiaires' => $nb_stagiaires,
+        'liste_competences' => $liste_competences
     ]);
 }
+
 };
