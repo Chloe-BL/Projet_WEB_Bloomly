@@ -65,7 +65,7 @@
         <h1 class="titre">{{nom}}</h1>
         <div class="actions">
             <a class="bouton" href="?page=choix_section&section={{section}}&connect=oui&user={{user}}">Retour</a>
-            <a class="bouton" href="?page=modifier_entreprise&section={{section}}&user={{user}}&connect=oui&id_nom={{id_entreprise}}&nom={{nom}}">Modifier</a>
+            <a class="bouton" href="?page=modifier_entreprise&section={{section}}&user={{user}}&connect=oui&id_entreprise={{id_entreprise}}&nom={{nom}}">Modifier</a>
             <form method="post" action="index.php?page=SupprimerEnt&section=entreprises&user={{user}}&connect=oui&id_entreprise={{id_entreprise}}&nom={{nom}}">
                 <input type="hidden" name="id_entreprise" value="{{ id_entreprise }}">
                 <input type="hidden" name="nom" value="{{ nom }}">
@@ -96,7 +96,7 @@
 
     <div class="categ">
         <hr color=#c06c84 size="2" width="95%" >
-        <h1 class="titre">Où somme nous ?</h1>
+        <h1 class="titre">Où sommes nous ?</h1>
         <h4 >Siège social : </h4>
         <p>{{adresse}}</p>
     <br>

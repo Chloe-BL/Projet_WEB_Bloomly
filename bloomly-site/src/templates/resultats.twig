@@ -1,58 +1,81 @@
 {% extends "layout.twig" %}
- 
 {% block title %}Résultats de recherche{% endblock %}
- 
 {% block body %}
  
-<h1>Résultats de recherche</h1>
- 
+{# FORMULAIRE AVANCÉ POUR LES OFFRES #}
 {% if type == 'offre' %}
 <div class="contour">
 <form method="get" action="index.php">
 <input type="hidden" name="page" value="search">
 <input type="hidden" name="type" value="offre">
-<input type="hidden" name="connect" value="{{ connect }}">
-<input type="hidden" name="user" value="{{ user }}">
 <div class="ligne">
 <div class="bloc">
-<label>Nom de l'entreprise</label>
-<input type="text" name="entreprise" value="{{ app.request.get('entreprise') ?? '' }}" placeholder="Ex: Google">
+<label><strong>Nom de l'entreprise</strong></label>
+<input type="text" name="entreprise" value="{{ entreprise }}">
 </div>
 <div class="bloc">
-<label>Titre de l'offre</label>
-<input type="text" name="search" value="{{ search }}" placeholder="Ex: Développeur">
+<label><strong>Titre de l'offre</strong></label>
+<input type="text" name="search" value="{{ search }}">
 </div>
 <div class="bloc">
-<label>Compétences requises</label>
-<input type="text" name="competences" value="{{ app.request.get('competences') ?? '' }}" placeholder="Ex: PHP, HTML...">
+<label><strong>Compétences requises</strong></label>
+<input type="text" name="competences" value="{{ competences }}" placeholder="Ex: PHP, HTML...">
 </div>
 </div>
- 
-        <div class="ligne">
+<div class="ligne">
 <div class="bloc">
-<label>Rémunération</label>
+<label><strong>Rémunération</strong></label>
 <p><input type="radio" name="salaire" value=""> Aucune</p>
 <p><input type="radio" name="salaire" value="smic_moins"> &lt; SMIC</p>
 <p><input type="radio" name="salaire" value="smic_plus"> &gt; SMIC</p>
 </div>
 <div class="bloc">
-<label>Date de début</label>
-<input type="date" name="date_debut">
+<label><strong>Dates</strong></label>
+<input type="date" name="date_debut" value="{{ date_debut }}">
 </div>
+</div>
+<button class="large" type="submit">Rechercher</button>
+</form>
 </div>
  
-        <button class="large" type="submit">Rechercher</button>
+{# FORMULAIRE AVANCÉ POUR LES ENTREPRISES #}
+{% elseif type == 'entreprise' %}
+<div class="contour">
+<form method="get" action="index.php">
+<input type="hidden" name="page" value="search">
+<input type="hidden" name="type" value="entreprise">
+<div class="ligne">
+<div class="bloc">
+<label><strong>Nom de l'entreprise</strong></label>
+<input type="text" name="search" value="{{ search }}">
+</div>
+<div class="bloc">
+<label><strong>Description</strong></label>
+<input type="text" name="description" value="{{ description ?? '' }}">
+</div>
+</div>
+<div class="ligne">
+<div class="bloc">
+<label><strong>Email</strong></label>
+<input type="text" name="email" value="{{ email ?? '' }}">
+</div>
+<div class="bloc">
+<label><strong>Téléphone</strong></label>
+<input type="text" name="telephone" value="{{ telephone ?? '' }}">
+</div>
+</div>
+<button class="large" type="submit">Rechercher</button>
 </form>
 </div>
 {% endif %}
  
+{# RÉSULTATS #}
 {% if resultats is empty %}
 <p style="text-align:center; margin-top:30px;">Aucun résultat trouvé.</p>
 {% else %}
 <div class="liste">
         {% for item in resultats %}
 <div class="bloc-liste">
- 
                 {% if item.type_result == 'entreprise' or type == 'entreprise' %}
 <img src="http://bloomly-static.local/assets/annonce.png" alt="Entreprise">
 <p><strong>{{ item.nom }}</strong></p>
@@ -84,8 +107,7 @@
 <p><strong>{{ item.titre }}</strong></p>
 <p>{{ item.info }}</p>
                 {% endif %}
- 
-            </div>
+</div>
         {% endfor %}
 </div>
 {% endif %}

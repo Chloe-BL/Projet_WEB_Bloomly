@@ -103,12 +103,20 @@ elseif ($page === 'SupprimerEtudiant'){
     (new FonctionnaliteController()) -> supprimer_etudiant();
 }
 
-elseif ($page === 'modifier'){
+elseif ($page === 'modifier_offre'){
     (new FonctionnaliteController()) -> modif_off();
 }
 
 elseif ($page === 'ValidationModif_off'){
     (new FonctionnaliteController()) -> ValidationModif_off();
+}
+
+elseif ($page === 'modifier_entreprise'){
+    (new FonctionnaliteController()) -> modif_ent();
+}
+
+elseif ($page === 'ValidationModif_ent'){
+    (new FonctionnaliteController()) -> ValidationModif_ent();
 }
 
 elseif ($page === 'AddFavoris'){

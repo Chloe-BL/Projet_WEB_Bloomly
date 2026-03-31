@@ -257,6 +257,72 @@ class FonctionnaliteController extends BaseController
         exit;
     }
 
+    public function modif_ent()
+    {
+        $section = $this -> getSection();
+        $id_entreprise = $_GET['id_entreprise'] ?? null;
+        $liste_ent = $this->fonctionModel->getAllEntreprises();
 
+        $ent_modifier = $this -> fonctionModel -> getEntById($id_entreprise);
+
+        $this->render('modifier.twig',[
+        'entreprise'   => $ent_modifier,
+        'section' => $section,
+        'user' => $this-> getUser()]);
+    }
+
+    public function ValidationModif_ent(){
+
+        $connect = $this->getConnect();
+        $user = $this->getUser();
+        $section = $this -> getSection();
+        $id_entreprise = $_POST['id_entreprise'] ?? null;
+
+        $params = $this -> fonctionModel -> ModifierEnt($_POST['nom'], 
+                                                      $_POST['description'], 
+                                                      $_POST['email_contact'], 
+                                                      $_POST['telephone_contact'], 
+                                                      $_POST['adresse'],
+                                                      $id_entreprise);
+
+        header("Location: index.php?page=choix_section&section=" . urlencode($section) . "&connect=oui&user=" . urlencode($user));
+        exit;
+    }
+
+
+    /*
+    public function ValidationModif_etu(){
+
+    $connect = $this->getConnect();
+    $user = $this->getUser();
+    $section = $this -> getSection();
+
+    $params = $this -> fonctionModel -> modif_BDD_etudiant($_POST['nom'],  
+                                                  $_POST['prenom'], 
+                                                  $_POST['email'], 
+                                                  $_POST['mdp'], 
+                                                  $_POST['num'], 
+                                                  $_POST['civilite'], );
+       
+
+    header("Location: index.php?page=choix_section&section=" . urlencode($section) . "&connect=oui&user=" . urlencode($user));
+    exit;
+    }
+
+    public function ValidationModif_pil(){
+
+        $connect = $this->getConnect();
+        $user = $this->getUser();
+        $section = $this -> getSection();
+
+        $params = $this -> fonctionModel -> modif_BDD_pilote($_POST['nom'],  
+                                                      $_POST['prenom'], 
+                                                      $_POST['email'], 
+                                                      $_POST['mdp'], 
+                                                      $_POST['num'], 
+                                                      $_POST['civilite'], );
+        header("Location: index.php?page=choix_section&section=" . urlencode($section) . "&connect=oui&user=" . urlencode($user));
+        exit;
+    }*/
 
 }

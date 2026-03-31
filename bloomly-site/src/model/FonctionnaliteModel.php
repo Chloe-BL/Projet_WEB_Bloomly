@@ -253,4 +253,38 @@ class FonctionnaliteModel extends BaseModel
     return $stmt->execute([$titre, $description, $formation, $softskills, $competences, $date_debut, $duree, $lieu, $salaire, $date_pub, $user_actif, $id_entreprise, $id_offre]);
     }
 
+    
+    public function ModifierEnt(string $nom, string $description, string $email_contact, string $telephone_contact, string $adresse, $id_entreprise){
+
+    $user_actif = $_COOKIE['user_id'] ?? null;
+   
+
+    $sql = "UPDATE entreprises SET nom =?, description=?, email_contact=?, telephone_contact=?, adresse=?
+            WHERE id_entreprise =?";
+    $stmt = $this->pdo->prepare($sql);
+    
+    return $stmt->execute([$nom, $description, $email_contact, $telephone_contact, $adresse, $id_entreprise]);
+    }
+
+    /*public function modif_BDD_etudiant(string $nom, string $prenom, string $email, string $mot_de_passe, string $telephone, string $civilite){
+    $user_actif = $_COOKIE['user_id'] ?? null;
+    $section = 'utilisateur';
+
+    $sql = "UPDATE utilisateur SET nom =?, prenom=?, email=?, mot_de_passe=?, telephone=?, civilite=?, id_role=?, id_createur=?
+            WHERE id =?";
+        
+    $stmt = $this->pdo->prepare($sql);
+    return $stmt->execute([$nom, $prenom, $email, $mot_de_passe, $telephone, $civilite, 3, $user_actif]);
+    }
+
+    public function modif_BDD_pilote(string $nom, string $prenom, string $email, string $mot_de_passe, string $telephone, string $civilite){
+    $user_actif = $_COOKIE['user_id'] ?? null;
+
+    $sql = "UPDATE utilisateur SET nom =?, prenom=?, email=?, mot_de_passe=?, telephone=?, civilite=?, id_role=?, id_createur=?
+            WHERE id =?";
+        
+    $stmt = $this->pdo->prepare($sql);
+    return $stmt->execute([$nom, $prenom, $email, $mot_de_passe, $telephone, $civilite, 2, $user_actif]);
+    }*/
+
 };

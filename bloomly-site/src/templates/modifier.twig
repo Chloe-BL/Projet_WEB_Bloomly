@@ -82,8 +82,13 @@
 {% elseif section == 'entreprises' %}
 <form method="post" action="index.php?page=ValidationModif_ent&section=entreprises&connect=oui&user={{user}}"> 
        <input type="hidden" name="id_entreprise" value="{{entreprise.id_entreprise}}">
+       <br> <br>
     <div class="haut-offre">
+        <h2 class="titre">Nom de l'entreprise :</h2>
         <input type="text" name="nom" value="{{entreprise.nom}}">
+        <div class="actions">
+            <a class="bouton" href="?page=choix_section&section={{section}}">Retour</a>   
+        </div>
     </div>
     
     <div class="container-flex">
@@ -112,35 +117,36 @@
     <br>
     </div>
     <input type="hidden" name="id_createur" value="{{entreprise.id_createur}}">
+    <button type="submit">Enregistrer</button>
 
 {% elseif section == 'etudiants' %}
-
-            <input type="hidden" name="id_utilisateur" value="<?= htmlspecialchars($id_utilisateur) ?>">
+<form method="post" action="index.php?page=ValidationModif_etu&section=etudiants&connect=oui&user={{user}}"> 
+            <input type="hidden" name="id_utilisateur" value="{{id_utilisateur}}">
 
             <div style="display:inline-block; vertical-align:top;"> <!-- Pour mettre les bloc à côté de l'image -->
                 <div class="ligne">
                     <div class="bloc">
                         <h3>Civilité</h3>
-                        <input type="text" name="civilite" value="<?= htmlspecialchars($user['civilite']) ?>">
+                        <input type="text" name="civilite" value="{{civilite}}">
                     </div>
 
                     <div class="bloc">
                         <h3 class="no-wrap">Nom</h3>
-                        <input type="text" name="nom" value="<?= htmlspecialchars($user['nom']) ?>">
+                        <input type="text" name="nom" value="{{nom}}">
 
                         <h3 class="no-wrap">Prénom</h3>
-                        <input type="text" name="prenom" value="<?= htmlspecialchars($user['prenom']) ?>">
+                        <input type="text" name="prenom" value="{{prenom}}">
                     </div>
                 </div>
 
                 <div class="ligne">
                     <div class="bloc">
                         <h3 class="no-wrap">Numéro de téléphone</h3>
-                        <input type="text" name="telephone" value="<?= htmlspecialchars($user['telephone']) ?>">
+                        <input type="text" name="num" value="{{telephone}}">
                     </div>
                     <div class="bloc">
                         <h3 class="no-wrap">Adresse mail</h3>
-                        <input type="email" name="email" value="<?= htmlspecialchars($user['email']) ?>">
+                        <input type="email" name="email" value="{{email}}">
                     </div>
                 </div>
 
@@ -151,37 +157,38 @@
                     </div>
                 </div>
 
-                <input type="hidden" name="id_role" value="<?= htmlspecialchars($id_role) ?>">
-                <input type="hidden" name="id_createur" value="<?= htmlspecialchars($id_createur) ?>">
+                <input type="hidden" name="mdp" value="{{mot_de_passe}}">
+                <input type="hidden" name="id_role" value="{{id_role}}">
+                <input type="hidden" name="id_createur" value="{{id_createur}}">
 
 {% elseif section == 'pilots' %}
-
-            <input type="hidden" name="id_utilisateur" value="<?= htmlspecialchars($id_utilisateur) ?>">
+<form method="post" action="index.php?page=ValidationModif_pil&section=pilots&connect=oui&user={{user}}"> 
+            <input type="hidden" name="id_utilisateur" value="{{id_utilisateur}}">
 
             <div style="display:inline-block; vertical-align:top;"> <!-- Pour mettre les bloc à côté de l'image -->
                 <div class="ligne">
                     <div class="bloc">
                         <h3>Civilité</h3>
-                        <input type="text" name="civilite" value="<?= htmlspecialchars($user['civilite']) ?>">
+                        <input type="text" name="civilite" value="{{civilite}}">
                     </div>
 
                     <div class="bloc">
                         <h3 class="no-wrap">Nom</h3>
-                        <input type="text" name="nom" value="<?= htmlspecialchars($user['nom']) ?>">
+                        <input type="text" name="nom" value="{{nom}}">
 
                         <h3 class="no-wrap">Prénom</h3>
-                        <input type="text" name="prenom" value="<?= htmlspecialchars($user['prenom']) ?>">
+                        <input type="text" name="prenom" value="{{prenom}}">
                     </div>
                 </div>
 
                 <div class="ligne">
                     <div class="bloc">
                         <h3 class="no-wrap">Numéro de téléphone</h3>
-                        <input type="text" name="telephone" value="<?= htmlspecialchars($user['telephone']) ?>">
+                        <input type="text" name="num" value="{{telephone}}">
                     </div>
                     <div class="bloc">
                         <h3 class="no-wrap">Adresse mail</h3>
-                        <input type="email" name="email" value="<?= htmlspecialchars($user['email']) ?>">
+                        <input type="email" name="email" value="{{email}}">
                     </div>
                 </div>
 
@@ -192,8 +199,9 @@
                     </div>
                 </div>
 
-                <input type="hidden" name="id_role" value="<?= htmlspecialchars($id_role) ?>">
-                <input type="hidden" name="id_createur" value="<?= htmlspecialchars($id_createur) ?>">
+                <input type="hidden" name="mdp" value="{{mot_de_passe}}">
+                <input type="hidden" name="id_role" value="{{id_role}}">
+                <input type="hidden" name="id_createur" value="{{id_createur}}">
 
 {% endif %}
 
