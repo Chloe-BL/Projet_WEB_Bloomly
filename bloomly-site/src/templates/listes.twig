@@ -137,7 +137,7 @@
     <div class="liste">
     {% for item in itemsPage %}
     <div class="bloc-liste">
-        <img src="http://bloomly-static.local/assets/profil.png" alt="Image d'un profil">
+        <a href="index.php?page=description_etu&section=etudiants&connect=oui&user={{user}}&id_etud={{item.id_utilisateur}}"><img src="http://bloomly-static.local/assets/profil.png" alt="Image d'un profil"></a>
         <p>{{ item.nom }} {{ item.prenom }}</p>
         <div  class="poubelle" >
                 <a href="index.php?page=SupprimerEtudiant&section=etudiants&user={{user}}&connect=oui&id_etudiant={{item.id_utilisateur}}"><img src="http://bloomly-static.local/assets/poubelle.png" alt="Supprimer"></a>
@@ -205,7 +205,7 @@
     <div class="liste">
     {% for item in itemsPage %}
     <div class="bloc-liste">
-        <img src="http://bloomly-static.local/assets/profil.png" alt="Image d'un profil">
+        <a href="index.php?page=description_pil&section=pilots&connect=oui&user={{user}}&id_pilot={{item.id_utilisateur}}"><img src="http://bloomly-static.local/assets/profil.png" alt="Image d'un profil"></a>
         <p>{{ item.nom }} {{ item.prenom }}</p>
         <div  class="poubelle" >
                 <a href="index.php?page=SupprimerPilot&section=pilots&user={{user}}&connect=oui&id_pilot={{item.id_utilisateur}}"><img src="http://bloomly-static.local/assets/poubelle.png" alt="Supprimer"></a>
@@ -340,7 +340,9 @@
     </div>
     </div>
     <a class="acc" href="index.php?page=validationConnexion&connect=oui&user={{user}}">Retour à l'accueil</a>
- 
+
+    
+
     {% endif %}
  
  

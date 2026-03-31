@@ -43,5 +43,4 @@ class StatistiqueModel extends BaseModel
         $stmt->execute();
         return $stmt->fetch(PDO::FETCH_ASSOC)['moyenne'];
     }
-
 }

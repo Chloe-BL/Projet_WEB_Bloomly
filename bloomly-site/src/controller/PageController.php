@@ -9,13 +9,13 @@ class PageController extends BaseController
         $repartition = $statistiqueModel->getRepartitionDureeStages();
         $topWishlist = $statistiqueModel->getTopWishlist();
         $totalOffres = $statistiqueModel->getTotalOffres();
-        $moyenneCandidatures = $statistiqueModel->getMoyenneCandidatures();
+       // $moyenneCandidatures = $statistiqueModel->getMoyenneCandidatures();
 
         echo $this->twig->render('accueil.twig', [
             'repartition' => $repartition,
             'topWishlist' => $topWishlist,
             'totalOffres' => $totalOffres,
-            'moyenneCandidatures' => $moyenneCandidatures
+            //'moyenneCandidatures' => $moyenneCandidatures
         ]);
     }
  
