@@ -372,4 +372,14 @@ public function searchGlobal($search, $type)
         $stmt = $this->pdo->prepare($sql); 
         return $stmt->execute([$note, $idNom, $user_actif, $appreciation]); 
     }
+
+    public function Favori($id_offre) {
+        $user_actif = $_COOKIE['user_id'] ?? null;
+        
+        $sql = "SELECT * FROM wishlist WHERE id_utilisateur = ? AND id_offre = ?";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([$user_actif, $id_offre]);
+        return $stmt->fetch() ? true : false; // si il y a une offre qui colle, alors true, sinon false
+    }
+
 };

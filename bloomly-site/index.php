@@ -154,7 +154,7 @@ elseif ($page === 'ValidationModif_pil'){
 
 
 elseif ($page === 'AddFavoris'){
-    (new FonctionnaliteController()) -> AddFavoris();
+    (new FonctionnaliteController()) -> Favori();
 }
 
 elseif ($page === 'AddAgenda'){

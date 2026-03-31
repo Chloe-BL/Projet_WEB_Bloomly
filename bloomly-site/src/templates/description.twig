@@ -19,12 +19,12 @@
         <br>
         <div class="actions">
 
-            <a class="bouton" href="?page=choix_section&section={{section}}&connect=oui&user={{user}}">Retour</a>
-            <a class="bouton" href="?page=modifier_offre&section={{section}}&user={{user}}&connect=oui&id_offre={{id_offre}}&nom={{titre}}">Modifier</a>
+            <a class="acc2" href="?page=choix_section&section={{section}}&connect=oui&user={{user}}">Retour</a>
+            <a class="acc2" href="?page=modifier_offre&section={{section}}&user={{user}}&connect=oui&id_offre={{id_offre}}&nom={{titre}}">Modifier</a>
             <form method="post" action="index.php?page=SupprimerOff&section=offres&user={{user}}&connect=oui&id_offre={{id_offre}}&titre={{titre}}&section=offres">
-                <button class="bouton" type="submit">Supprimer</button>
+                <button class="acc2" type="submit">Supprimer</button>
             </form>
-            <a class="bouton" href="?page=candidature&section={{section}}&user={{user}}&connect=oui&id_offre={{id_offre}}&titre={{titre}}">Postuler</a>
+            <a class="acc2" href="?page=candidature&section={{section}}&user={{user}}&connect=oui&id_offre={{id_offre}}&titre={{titre}}">Postuler</a>
         </div>
         {% endif %}
     </div>
@@ -108,15 +108,15 @@
         <br>
         <div class="actions">
 
-            <a class="bouton" href="?page=choix_section&section={{section}}&connect=oui&user={{user}}">Retour</a>
-            <a class="bouton" href="?page=modifier_entreprise&section={{section}}&user={{user}}&connect=oui&id_entreprise={{id_entreprise}}&nom={{nom}}">Modifier</a>
+            <a class="acc2" href="?page=choix_section&section={{section}}&connect=oui&user={{user}}">Retour</a>
+            <a class="acc2" href="?page=modifier_entreprise&section={{section}}&user={{user}}&connect=oui&id_entreprise={{id_entreprise}}&nom={{nom}}">Modifier</a>
             <form method="post" action="index.php?page=SupprimerEnt&section=entreprises&user={{user}}&connect=oui&id_entreprise={{id_entreprise}}&nom={{nom}}">
                 <input type="hidden" name="id_entreprise" value="{{ id_entreprise }}">
                 <input type="hidden" name="nom" value="{{ nom }}">
 
-                <button class="bouton" type="submit">Supprimer</button>
+                <button class="acc2" type="submit">Supprimer</button>
             </form>
-            <a class="bouton" href="?page=candidature&section={{section}}&user={{user}}&connect=oui&id_nom={{id_entreprise}}&nom={{nom}}">Evaluer</a>
+            <a class="acc2" href="?page=candidature&section={{section}}&user={{user}}&connect=oui&id_nom={{id_entreprise}}&nom={{nom}}">Evaluer</a>
         </div>
         {% endif %}
         </div>

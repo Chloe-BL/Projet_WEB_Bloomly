@@ -1,13 +1,18 @@
 <?php
 
+use Twig\Environment; //Charge l'environnement de Twig
+use Twig\Loader\FilesystemLoader; //Charge le loader de Twig
+
 class SectionController extends BaseController
 {
     private SectionModel $sectionModel;
+    private FonctionnaliteModel $fonctionModel;
 
     public function __construct()
     {
         parent::__construct();
         $this->sectionModel = new SectionModel();
+        $this->fonctionModel = new FonctionnaliteModel();
     }
 
     public function choix_section()
@@ -32,6 +37,12 @@ class SectionController extends BaseController
         $id_etud = $_GET['id_etud'] ?? null;
 
         $pagination = new Pagination($items, $parPage, $page);
+
+        if ($section == 'offres'){
+            foreach ($items as &$item) {
+                $item['favori'] = $this->fonctionModel->Favori($item['id']);
+            }
+        }
 
         $this->render('listes.twig', [
             'itemsPage' => $pagination->getItemsPage(),
