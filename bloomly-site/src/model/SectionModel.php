@@ -37,7 +37,7 @@ class SectionModel extends BaseModel
             }
 
             else {
-                $sql = "SELECT id_entreprise, nom FROM entreprisess WHERE id_createur = ?";
+                $sql = "SELECT id_entreprise, nom FROM entreprises WHERE id_createur = ?";
                 $stmt = $this->pdo->prepare($sql);
                 $stmt->execute([$user_actif]);
                 $entreprises = $stmt -> fetchAll();
