@@ -94,6 +94,23 @@ class FonctionnaliteModel extends BaseModel {
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
+    public function getOffreParEntreprises(string $id_entreprise)
+    {
+        $sql = "SELECT titre, duree FROM offres WHERE id_entreprise= ?";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([$id_entreprise]);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function getEvalParEntreprises(string $id_entreprise)
+    {
+        $sql = "SELECT note, appreciation FROM evaluation WHERE id_entreprise= ?";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([$id_entreprise]);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+
     public function ajoutBDDAgenda(string $id_offre, string $titre, $lettre)
     {
         $user_actif = $_COOKIE['user_id'] ?? null;

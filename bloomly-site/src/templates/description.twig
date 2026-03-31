@@ -128,6 +128,7 @@
 
     <div class="categ">
         <hr color=#c06c84 size="2" width="95%" >
+        <br>
         <h1 class="titre">Contacts</h1>
         <h4 >Adresse mail : </h4>
         <p>{{email}}</p>
@@ -139,6 +140,29 @@
 
     <div class="categ">
         <hr color=#c06c84 size="2" width="95%" >
+         <br>
+        <h1 class="titre">Offres de stage</h1>
+        {% for offre in offres %} 
+            <strong> Stage de {{offre.duree}} mois</strong> <br>{{offre.titre }} <br>
+            <br>
+        {% endfor %}
+
+    </div>
+
+    <div class="categ">
+        <hr color=#c06c84 size="2" width="95%" >
+         <br>
+        <h1 class="titre">Evaluations associées</h1>
+        {% for evaluation in evaluations %}
+            <p> Note : {{evaluation.note}} /5 </p> <br>
+            <p>  « {{evaluation.appreciation}} »</p>
+        {% endfor %}
+
+    </div>
+
+    <div class="categ">
+        <hr color=#c06c84 size="2" width="95%" >
+        <br>
         <h1 class="titre">Où sommes nous ?</h1>
         <h4 >Siège social : </h4>
         <p>{{adresse}}</p>

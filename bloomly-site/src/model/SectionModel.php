@@ -28,10 +28,21 @@ class SectionModel extends BaseModel
  
         if ($section === 'entreprises') {
             $user_actif = $_COOKIE['user_id'] ?? null;
-            $sql = "SELECT * FROM entreprises WHERE id_createur = ?";
-            $stmt = $this->pdo->prepare($sql);
-            $stmt->execute([$user_actif]);
-            $entreprises = $stmt -> fetchAll();
+            $user = $_GET['user'] ?? null;
+
+            if ($user === '3') {
+                $sql = "SELECT id_entreprise, nom FROM entreprises";
+                $stmt = $this->pdo->query($sql);
+                $entreprises = $stmt -> fetchAll();
+            }
+
+            else {
+                $sql = "SELECT id_entreprise, nom FROM entreprisess WHERE id_createur = ?";
+                $stmt = $this->pdo->prepare($sql);
+                $stmt->execute([$user_actif]);
+                $entreprises = $stmt -> fetchAll();
+            }
+
             return $entreprises;
         }
  

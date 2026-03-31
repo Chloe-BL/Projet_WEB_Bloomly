@@ -147,9 +147,14 @@ class FonctionnaliteController extends BaseController
                             ]);
     }
 
+
     public function description_ent()
 {
     $id_entreprise = $_GET['id_entreprise'] ?? null;
+    $entreprise = $this->fonctionModel->getEntById($id_entreprise);
+    $offre_a_afficher = $this -> fonctionModel -> getOffreParEntreprises($id_entreprise);
+    $evaluation = $this-> fonctionModel -> getEvalParEntreprises($id_entreprise) ;
+
 
     if (!$id_entreprise) {
         echo "Entreprise introuvable";
@@ -170,9 +175,13 @@ class FonctionnaliteController extends BaseController
         'adresse' => $entreprise['adresse'] ?? '',
         'section' => $_GET['section'] ?? null,
         'id_entreprise' => $id_entreprise,
-        'nom' => $entreprise['nom'] ?? ''
+        'nom' => $entreprise['nom'] ?? '',
+        'offres'   => $offre_a_afficher,
+        'entreprise' => $entreprise,
+        'evaluations' => $evaluation
     ]);
 }
+
 
      public function description_etu()
     {
