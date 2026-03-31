@@ -236,7 +236,6 @@ class FonctionnaliteController extends BaseController
         header("Location: index.php?page=choix_section&section=" . urlencode($section) . "&connect=oui&user=" . urlencode($user));
         exit;
     }
-<<<<<<< HEAD
 
 
     public function modif_off()
