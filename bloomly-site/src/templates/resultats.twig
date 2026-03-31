@@ -1,8 +1,11 @@
 {% extends "layout.twig" %}
+
 {% block title %}Résultats de recherche{% endblock %}
+
 {% block body %}
- 
+
 {# FORMULAIRE AVANCÉ POUR LES OFFRES #}
+
 {% if type == 'offre' %}
 <div class="contour">
 <form method="get" action="index.php">
@@ -21,8 +24,10 @@
 <label><strong>Compétences requises</strong></label>
 <select name="competences">
 <option value="">Toutes</option>
+
                     {% for comp in liste_competences %}
 <option value="{{ comp }}" {% if comp == competences %}selected{% endif %}>{{ comp }}</option>
+
                     {% endfor %}
 </select>
 </div>
@@ -49,82 +54,100 @@
 <button class="large" type="submit">Rechercher</button>
 </form>
 </div>
- 
+
 {# FORMULAIRE AVANCÉ POUR LES ENTREPRISES #}
-{% elseif type == 'entreprise' %}
-<div class="contour">
-<form method="get" action="index.php">
-<input type="hidden" name="page" value="search">
-<input type="hidden" name="type" value="entreprise">
-<div class="ligne">
-<div class="bloc">
-<label><strong>Nom</strong></label>
-<input type="text" name="search" value="{{ search }}">
-</div>
-<div class="bloc">
-<label><strong>Description</strong></label>
-<input type="text" name="description" value="{{ description }}">
-</div>
-</div>
-<div class="ligne">
-<div class="bloc">
-<label><strong>Email</strong></label>
-<input type="text" name="email" value="{{ email }}">
-</div>
-<div class="bloc">
-<label><strong>Téléphone</strong></label>
-<input type="text" name="telephone" value="{{ telephone }}">
-</div>
-<div class="bloc">
-<label><strong>Nombre de stagiaires</strong></label>
-<p><input type="radio" name="nb_stagiaires" value="" {% if nb_stagiaires == '' %}checked{% endif %}> Tous</p>
-<p><input type="radio" name="nb_stagiaires" value="moins100" {% if nb_stagiaires == 'moins100' %}checked{% endif %}> &lt; 100</p>
-<p><input type="radio" name="nb_stagiaires" value="plus100" {% if nb_stagiaires == 'plus100' %}checked{% endif %}> &gt; 100</p>
-<p><input type="radio" name="nb_stagiaires" value="plus300" {% if nb_stagiaires == 'plus300' %}checked{% endif %}> &gt; 300</p>
-</div>
-</div>
-<button class="large" type="submit">Rechercher</button>
-</form>
-</div>
-{% endif %}
- 
+
+    {% elseif type == 'entreprise' %}
+        <div class="contour">
+            <form method="get" action="index.php">
+            <input type="hidden" name="page" value="search">
+            <input type="hidden" name="type" value="entreprise">
+                <div class="ligne">
+                    <div class="bloc">
+                    <label><strong>Nom</strong></label>
+                    <input type="text" name="search" value="{{ search }}">
+                    </div>
+                    <div class="bloc">
+                    <label><strong>Description</strong></label>
+                    <input type="text" name="description" value="{{ description }}">
+                    </div>
+                </div>
+                <div class="ligne">
+                    <div class="bloc">
+                    <label><strong>Email</strong></label>
+                    <input type="text" name="email" value="{{ email }}">
+                    </div>
+                <div class="bloc">
+                    <label><strong>Téléphone</strong></label>
+                    <input type="text" name="telephone" value="{{ telephone }}">
+                    </div>
+                <div class="bloc">
+                    <label><strong>Nombre de stagiaires</strong></label>
+                    <p><input type="radio" name="nb_stagiaires" value="" {% if nb_stagiaires == '' %}checked{% endif %}> Tous</p>
+                    <p><input type="radio" name="nb_stagiaires" value="moins100" {% if nb_stagiaires == 'moins100' %}checked{% endif %}> &lt; 100</p>
+                    <p><input type="radio" name="nb_stagiaires" value="plus100" {% if nb_stagiaires == 'plus100' %}checked{% endif %}> &gt; 100</p>
+                    <p><input type="radio" name="nb_stagiaires" value="plus300" {% if nb_stagiaires == 'plus300' %}checked{% endif %}> &gt; 300</p>
+                    </div>
+                </div>
+            <button class="large" type="submit">Rechercher</button>
+            </form>
+        </div>
+
+    {% endif %}
+
 {# RÉSULTATS #}
+
 {% if resultats is empty %}
 <p style="text-align:center; margin-top:30px;">Aucun résultat trouvé.</p>
+
 {% else %}
 <div class="liste">
+
         {% for item in resultats %}
-<div class="bloc-liste">
+    <div class="bloc-liste">
+
                 {% if item.type_result == 'entreprise' or type == 'entreprise' %}
-<img src="http://bloomly-static.local/assets/annonce.png" alt="Entreprise">
-<p><strong>{{ item.nom }}</strong></p>
-<p>{{ item.description }}</p>
-<p>📧 {{ item.email_contact }}</p>
-<p>📞 {{ item.telephone_contact }}</p>
-<p>👥 Stagiaires : {{ item.nb_stagiaires }}</p>
-<p>⭐ Moyenne : {{ item.moyenne_evaluation ?? 'Aucune' }}/5</p>
-                {% elseif item.type_result == 'offre' or type == 'offre' %}
-<img src="http://bloomly-static.local/assets/annonce.png" alt="Offre">
-<p><strong>{{ item.titre }}</strong></p>
-<p>🏢 {{ item.entreprise }}</p>
-<p>{{ item.description }}</p>
-<p>💰 {{ item.salaire }} € | 📅 {{ item.date_pub }}</p>
-<p>🛠 {{ item.competences }}</p>
-<p>👥 Candidats : {{ item.nb_candidats }}</p>
+                    <a href="index.php?page=DescriptionEnt&section=entreprises&id_entreprise={{item.id_entreprise}}&connect={{ connect }}&user={{ user }}">
+                    <img src="http://bloomly-static.local/assets/annonce.png" alt="Entreprise"></a>
+                        <p><strong>{{ item.nom }}</strong></p>
+                        <p>{{ item.description }}</p>
+                        <p>📧 {{ item.email_contact }}</p>
+                        <p>📞 {{ item.telephone_contact }}</p>
+                        <p>👥 Stagiaires : {{ item.nb_stagiaires }}</p>
+                        <p>⭐ Moyenne : {{ item.moyenne_evaluation ?? 'Aucune' }}/5</p>
+            
+
+               {% elseif item.type_result == 'offre' or type == 'offre' %}
+                    <a href="index.php?page=DescriptionOff&section=offres&id_offre={{item.id}}&connect={{ connect }}&user={{ user }}">
+                    <img src="http://bloomly-static.local/assets/annonce.png" alt="Offre"></a>
+                        <p><strong>{{ item.titre }}</strong></p>
+                        <p>🏢 {{ item.entreprise }}</p>
+                        <p>{{ item.description }}</p>
+                        <p>💰 {{ item.salaire }} € | 📅 {{ item.date_pub }}</p>
+                        <p>🛠 {{ item.competences }}</p>
+                        <p>👥 Candidats : {{ item.nb_candidats }}</p>
+           
+
                 {% elseif item.type_result == 'etudiant' or type == 'etudiant' %}
-<img src="http://bloomly-static.local/assets/profil.png" alt="Étudiant">
-<p><strong>{{ item.nom }} {{ item.prenom }}</strong></p>
-<p>📧 {{ item.email }}</p>
+                    <img src="http://bloomly-static.local/assets/profil.png" alt="Étudiant">
+                    <p><strong>{{ item.nom }} {{ item.prenom }}</strong></p>
+                    <p>📧 {{ item.email }}</p>
+
                 {% elseif item.type_result == 'pilote' or type == 'pilote' %}
-<img src="http://bloomly-static.local/assets/profil.png" alt="Pilote">
-<p><strong>{{ item.nom }} {{ item.prenom }}</strong></p>
+                    <img src="http://bloomly-static.local/assets/profil.png" alt="Pilote">
+                    <p><strong>{{ item.nom }} {{ item.prenom }}</strong></p>
+
                 {% else %}
-<p><strong>{{ item.titre }}</strong></p>
-<p>{{ item.info }}</p>
+                    <p><strong>{{ item.titre }}</strong></p>
+                    <p>{{ item.info }}</p>
+
                 {% endif %}
 </div>
+
         {% endfor %}
 </div>
+
 {% endif %}
+
+{% endblock %} 
  
-{% endblock %}
