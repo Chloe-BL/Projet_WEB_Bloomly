@@ -1,6 +1,7 @@
 <?php
  
- 
+require_once __DIR__ . '/PageController.php'; 
+
 class CandidatureController extends BaseController
 {
     private $upload;
@@ -37,12 +38,39 @@ public function setUpload($upload)
                 } else {
                     $message = $validation;
                 }
-            } elseif ($action === 'admin_pil') {
+            } elseif ($user === '2' || $user === '1') {
                 $lettre = htmlspecialchars($_POST['Lettre'] ?? '', ENT_QUOTES, 'UTF-8');
                 $message .= "Appréciation : " . nl2br($lettre);
             }
         }
  
-        if ()
+        if ($user === '3'){
+            $this -> Affichecandidature($message, $user);
+        }
+        else {
+            $this -> Afficheevaluation($message, $user);
+        }
+    }
+
+    public function Affichecandidature(string $message, string $user ) {
+        $this->render('candidature.twig', [
+            'message' => $message,
+            'user' => $user,
+            'connect' => $this->getConnect(),
+            'section' => $this -> getSection(),
+            'id_offre' => $_GET['id_offre'],
+            'titre' => $_GET['titre']
+        ]);
+    }
+
+    public function Afficheevaluation(string $message, string $user){
+        $this->render('candidature.twig', [
+            'message' => $message,
+            'user' => $user,
+            'connect' => $this->getConnect(),
+            'section' => $this -> getSection(),
+            'nom' => $_GET['nom'],
+            'id_nom' => $_GET['id_nom']
+        ]);
     }
 }

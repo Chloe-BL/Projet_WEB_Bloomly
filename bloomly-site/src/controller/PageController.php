@@ -36,26 +36,4 @@ class PageController extends BaseController
             'type' => $type
         ]);
     }
-
-    public function candidature() {
-        $this->render('candidature.twig', [
-            'message' => $message,
-            'user' => $user,
-            'connect' => $this->getConnect(),
-            'section' => $this -> getSection(),
-            'id_offre' => $_GET['id_offre'],
-            'titre' => $_GET['titre']
-        ]);
-    }
-
-    public function evaluation(){
-        $this->render('candidature.twig', [
-            'message' => $message,
-            'user' => $user,
-            'connect' => $this->getConnect(),
-            'section' => $this -> getSection(),
-            'nom' => $_GET['nom'],
-            'id_nom' => $_GET['id_nom']
-        ]);
-    }
 };
