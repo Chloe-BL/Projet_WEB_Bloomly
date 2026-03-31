@@ -1,0 +1,202 @@
+{% extends 'layout.twig' %}
+ 
+{% block title %}Vos Offres{% endblock %}
+ 
+ 
+{% block body %}
+
+
+{% if section == 'offres' %}
+<form method="post" action="index.php?page=ValidationModif_off&section=offres&connect=oui&user={{user}}"> 
+        <input type="hidden" name="id_offre" value="{{offre.id}}">
+        <br><br>
+        <div class="haut-offre">
+        <h2 class="titre">Titre de l'offre :</h2>
+        <br>
+        <input type="text" name="titre" value="{{offre.titre}}">
+        <div class="actions">
+            <a class="bouton" href="?page=choix_section&section={{section}}">Retour</a>
+            
+        </div>
+    </div>
+        
+        
+
+            <div class="categ">
+                <hr color=#c06c84 size="2" width="95%" >
+                <h2 class="titre">Description</h2>
+                <input type="text" name="description" value="{{offre.description}}">
+            </div>
+
+
+            <div class="categ">
+                <hr color=#c06c84 size="2" width="95%" >
+                <h2 class="titre">Profil recherché</h2>
+                <h4 >Formation : </h4>
+                <input type="text" name="formation" value="{{offre.formation}}">
+            <br>
+                <h4>Savoir-être :</h4>
+                <input type="text" name="softskills" value="{{offre.softskills}}">
+            <br>
+                <h4>Compétences :</h4>
+                <input type="text" name="competences" value="{{offre.competences}}">
+            </div>  
+
+            <div class="categ">
+                <hr color=#c06c84 size="2" width="95%" >
+                <h2 class="titre">Modalités et informations clés</h2>
+                <h4>Date de début :</h4>
+                <input type="text" name="date_debut" value="{{offre.date_debut}}">
+            <br>
+                <h4>Durée :</h4>
+                <input type="text" name="duree" value="{{offre.duree}}">
+            <br>
+                <h4>Lieu :</h4>
+                <input type="text" name="lieu" value="{{offre.lieu}}">
+            <br>
+                <h4>Rémunération :</h4>
+                <input type="text" name="salaire" value="{{offre.salaire}}">
+            <br>
+                <h4>Date de publication :</h4>
+                <input type="text" name="date_pub" value="{{offre.date_pub}}">
+            </div>
+
+            <label for="ent">Choisissez une entreprise :</label>
+                <select id="ent" name="ent">
+                {% for ent in liste_ent %}
+                    <option value="{{ ent.id_entreprise }}"
+                        <option value="{{ ent.id_entreprise }}" 
+                        {% if ent.id_entreprise == offre.ent %} selected {% endif %}>
+                        {{ ent.nom }}
+                    </option>
+                {% endfor %}
+                </select>
+                <br><br>
+
+        <input type="hidden" name="id_createur" value="{{offre.id_createur}}">
+        <input type="hidden" name="id_entreprise" value="{{offre.id_entreprise}}">
+             
+              <button type="submit">Enregistrer</button>
+
+           
+{% elseif section == 'entreprises' %}
+<form method="post" action="index.php?page=ValidationModif_ent&section=entreprises&connect=oui&user={{user}}"> 
+       <input type="hidden" name="id_entreprise" value="{{entreprise.id_entreprise}}">
+    <div class="haut-offre">
+        <input type="text" name="nom" value="{{entreprise.nom}}">
+    </div>
+    
+    <div class="container-flex">
+        <div class="cadre">
+            <h1 class="titre">Description</h1>
+            <input type="text" name="description" value="{{entreprise.description}}">
+        </div>
+    </div>
+
+    <div class="categ">
+        <hr color=#c06c84 size="2" width="95%" >
+        <h1 class="titre">Contacts</h1>
+        <h4 >Adresse mail : </h4>
+        <input type="email" name="email_contact" value="{{entreprise.email_contact}}">
+    <br>
+        <h4 >Numéro de téléphone : </h4>
+        <input type="text" name="telephone_contact" value="{{entreprise.telephone_contact}}">
+    <br>
+    </div>
+
+    <div class="categ">
+        <hr color=#c06c84 size="2" width="95%" >
+        <h1 class="titre">Où somme nous ?</h1>
+        <h4 >Siège social : </h4>
+        <input type="text" name="adresse" value="{{entreprise.adresse}}">
+    <br>
+    </div>
+    <input type="hidden" name="id_createur" value="{{entreprise.id_createur}}">
+
+{% elseif section == 'etudiants' %}
+
+            <input type="hidden" name="id_utilisateur" value="<?= htmlspecialchars($id_utilisateur) ?>">
+
+            <div style="display:inline-block; vertical-align:top;"> <!-- Pour mettre les bloc à côté de l'image -->
+                <div class="ligne">
+                    <div class="bloc">
+                        <h3>Civilité</h3>
+                        <input type="text" name="civilite" value="<?= htmlspecialchars($user['civilite']) ?>">
+                    </div>
+
+                    <div class="bloc">
+                        <h3 class="no-wrap">Nom</h3>
+                        <input type="text" name="nom" value="<?= htmlspecialchars($user['nom']) ?>">
+
+                        <h3 class="no-wrap">Prénom</h3>
+                        <input type="text" name="prenom" value="<?= htmlspecialchars($user['prenom']) ?>">
+                    </div>
+                </div>
+
+                <div class="ligne">
+                    <div class="bloc">
+                        <h3 class="no-wrap">Numéro de téléphone</h3>
+                        <input type="text" name="telephone" value="<?= htmlspecialchars($user['telephone']) ?>">
+                    </div>
+                    <div class="bloc">
+                        <h3 class="no-wrap">Adresse mail</h3>
+                        <input type="email" name="email" value="<?= htmlspecialchars($user['email']) ?>">
+                    </div>
+                </div>
+
+                <div class="ligne">
+                    <div class="bloc">
+                        <h3 class="no-wrap">Votre identifiant</h3>
+                        <p class="no-wrap">{{ identifiant }}</p>
+                    </div>
+                </div>
+
+                <input type="hidden" name="id_role" value="<?= htmlspecialchars($id_role) ?>">
+                <input type="hidden" name="id_createur" value="<?= htmlspecialchars($id_createur) ?>">
+
+{% elseif section == 'pilots' %}
+
+            <input type="hidden" name="id_utilisateur" value="<?= htmlspecialchars($id_utilisateur) ?>">
+
+            <div style="display:inline-block; vertical-align:top;"> <!-- Pour mettre les bloc à côté de l'image -->
+                <div class="ligne">
+                    <div class="bloc">
+                        <h3>Civilité</h3>
+                        <input type="text" name="civilite" value="<?= htmlspecialchars($user['civilite']) ?>">
+                    </div>
+
+                    <div class="bloc">
+                        <h3 class="no-wrap">Nom</h3>
+                        <input type="text" name="nom" value="<?= htmlspecialchars($user['nom']) ?>">
+
+                        <h3 class="no-wrap">Prénom</h3>
+                        <input type="text" name="prenom" value="<?= htmlspecialchars($user['prenom']) ?>">
+                    </div>
+                </div>
+
+                <div class="ligne">
+                    <div class="bloc">
+                        <h3 class="no-wrap">Numéro de téléphone</h3>
+                        <input type="text" name="telephone" value="<?= htmlspecialchars($user['telephone']) ?>">
+                    </div>
+                    <div class="bloc">
+                        <h3 class="no-wrap">Adresse mail</h3>
+                        <input type="email" name="email" value="<?= htmlspecialchars($user['email']) ?>">
+                    </div>
+                </div>
+
+                <div class="ligne">
+                    <div class="bloc">
+                        <h3 class="no-wrap">Votre identifiant</h3>
+                        <p class="no-wrap">{{ identifiant }}</p>
+                    </div>
+                </div>
+
+                <input type="hidden" name="id_role" value="<?= htmlspecialchars($id_role) ?>">
+                <input type="hidden" name="id_createur" value="<?= htmlspecialchars($id_createur) ?>">
+
+{% endif %}
+
+            </form>
+
+{% endblock %}

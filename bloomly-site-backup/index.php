@@ -17,7 +17,6 @@ require_once __DIR__ . '/src/model/UserModel.php';
 require_once __DIR__ . '/src/model/SectionModel.php';
 require_once __DIR__ . '/src/model/ProfilModel.php';
 require_once __DIR__ . '/src/model/FonctionnaliteModel.php';
-require_once __DIR__ . '/src/model/StatistiqueModel.php';
 require_once __DIR__ . '/src/outils/Pagination.php';
 require_once __DIR__ . '/src/outils/Upload.php';
  
@@ -68,11 +67,11 @@ elseif ($page === 'ajout_pilote') {
     (new UserController()) -> inscription();
 }
 
-elseif ($page === 'DescriptionOff'){
+elseif ($page === 'description_off'){
     (new FonctionnaliteController()) -> description_off();
 }
 
-elseif ($page === 'DescriptionEnt'){
+elseif ($page === 'description_ent'){
     (new FonctionnaliteController()) -> description_ent();
 }
 
@@ -104,24 +103,12 @@ elseif ($page === 'SupprimerEtudiant'){
     (new FonctionnaliteController()) -> supprimer_etudiant();
 }
 
-elseif ($page === 'SupprimerPilot'){
-    (new FonctionnaliteController()) -> supprimer_pilot();
-}
-
-elseif ($page === 'modifier_offre'){
+elseif ($page === 'modifier'){
     (new FonctionnaliteController()) -> modif_off();
 }
 
 elseif ($page === 'ValidationModif_off'){
     (new FonctionnaliteController()) -> ValidationModif_off();
-}
-
-elseif ($page === 'modifier_entreprise'){
-    (new FonctionnaliteController()) -> modif_ent();
-}
-
-elseif ($page === 'ValidationModif_ent'){
-    (new FonctionnaliteController()) -> ValidationModif_ent();
 }
 
 elseif ($page === 'AddFavoris'){
