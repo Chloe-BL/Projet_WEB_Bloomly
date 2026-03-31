@@ -31,14 +31,9 @@
                 <input type="hidden" name="titre" value="{{ item.titre}}">
                 
                 <button type="submit">
-                <img 
-                {% if item.favori %}
-                src = "http://bloomly-static.local/assets/favoris.png"
-                {% else %}
-                src = "http://bloomly-static.local/assets/pasfavoris.png"
-                {% endif %}
-                >
+                    <img src = "{% if item.favori %}http://bloomly-static.local/assets/favoris.png{% else %}http://bloomly-static.local/assets/pasfavoris.png{% endif %}" alt="favori" >
                 </button>
+                
             </form>
             {% endif %}
         </div>

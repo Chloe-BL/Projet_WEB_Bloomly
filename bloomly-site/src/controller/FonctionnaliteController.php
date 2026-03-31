@@ -425,11 +425,15 @@ class FonctionnaliteController extends BaseController
 
     Public function Favori() {
         $id_offre = $_POST['id_offre'] ;
-        if ($this -> fonctionModel -> Favoris($id_offre)) {
-        $this -> fonctionModel -> SupprimerWishlist($id_offre) ;
+        $titre = $_POST['titre'] ;
+        $section = $_GET['section'] ;
+        $user = $_GET['user'];
+
+        if ($this -> fonctionModel -> Favori($id_offre)) {
+        $this -> fonctionModel -> SupprimerWhishlist($id_offre) ;
         }
         else {
-        $this -> fonctionModel -> AddWishlist($id_offre) ;
+        $this -> fonctionModel -> ajoutBDDWishlist($id_offre, $titre) ;
         }
         header("Location: index.php?page=choix_section&section=" . urlencode($section) . "&connect=oui&user=" . urlencode($user));
         exit;
