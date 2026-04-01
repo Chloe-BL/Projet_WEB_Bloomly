@@ -1,11 +1,10 @@
 {% extends 'layout.twig' %}
-        
-{# SECTION OFFRES  ============================================================================================================================ #}
-{% block title %}Offres{% endblock %}
- 
- 
+
+{% block title %}{{section}}{% endblock %}
 {% block body %}
-    {% if section == 'offres' %}
+
+{# SECTION OFFRES  ============================================================================================================================ #}
+{% if section == 'offres' %}
     <nav class="navbar">
     {% if user == '1' or user == '2' %}
             <a class="active">Vos annonces</a>
@@ -68,19 +67,11 @@
     </div>  
     </div>
     <a class="acc" href="index.php?page=validationConnexion&connect=oui&user={{user}}">Retour à l'accueil</a>
-{% endblock %}
 
 {# SECTION ENTREPRISES =========================================================================================================================== #}  
-{% block title %}Entreprises{% endblock %}
-{% block body %}
-
 {% elseif section == 'entreprises' %}
     <nav class="navbar">
-
         {% if user == '1' or user == '2' %}
-        {% block title %}Vos Entreprises{% endblock %}
- 
-        {% block body %}  
             <a class="active">Vos entreprises</a>
         {% else %}
             <a class="active">Nos entreprises</a>
@@ -131,12 +122,9 @@
     </div>
     </div>
     <a class="acc" href="index.php?page=validationConnexion&connect=oui&user={{user}}">Retour à l'accueil</a>
-{% endblock %}
 
 {# SECTION ETUDIANTS ============================================================================================================================#}
-{% block title %}Etudiants{% endblock %}
-{% block body %}
-    {% elseif section == 'etudiants' %}
+{% elseif section == 'etudiants' %}
     <nav class="navbar">
                 <input type="checkbox" id="interrupteur">
                 <label for="interrupteur" class="burger">☰</label>
@@ -201,12 +189,10 @@
     </div>
     </div>
     <a class="acc" href="index.php?page=validationConnexion&connect=oui&user={{user}}">Retour à l'accueil</a>
-{% endblock %}
 
 {# SECTION PILOTES ============================================================================================================================#}
-{% block title %}Pilotes{% endblock %}
-{% block body %}
-    {% elseif section == 'pilots' %}
+{% elseif section == 'pilots' %}
+
         <nav class="navbar">
                 <input type="checkbox" id="interrupteur">
                 <label for="interrupteur" class="burger">☰</label>
@@ -271,12 +257,9 @@
         </div>
         </div>
     <a class="acc" href="index.php?page=validationConnexion&connect=oui&user={{user}}">Retour à l'accueil</a>
-{% endblock %}
 
 {# SECTION WISHLIST ============================================================================================================================#}
-{% block title %}Wishlist{% endblock %}
-{% block body %}
-    {% elseif section == 'wishlist' %}
+{% elseif section == 'wishlist' %}
     <nav class="navbar">
             <input type="checkbox" id="interrupteur">
             <label for="interrupteur" class="burger">☰</label>
@@ -328,13 +311,10 @@
     </div>
     </div>
     <a class="acc" href="index.php?page=validationConnexion&connect=oui&user={{user}}">Retour à l'accueil</a>
-{% endblock %}
 
 {# SECTION AGENDA ============================================================================================================================#}
-{% block title %}Agenda{% endblock %}
-{% block body %} 
-    {% elseif section == 'agenda' %}
-        {% if user == 3 %}
+{% elseif section == 'agenda' %}
+        {% if user == '3' %}
     <nav class="navbar">
                 <input type="checkbox" id="interrupteur">
                 <label for="interrupteur" class="burger">☰</label>
@@ -384,7 +364,7 @@
     <a class="acc" href="index.php?page=validationConnexion&connect=oui&user={{user}}">Retour à l'accueil</a>
 
 
-        {% elseif user == 2 or 1 %}
+        {% elseif user == '2' or user == '1' %}
     <nav class="navbar">
                 <input type="checkbox" id="interrupteur">
                 <label for="interrupteur" class="burger">☰</label>
@@ -404,7 +384,7 @@
  
         <div class="bloc-petite-liste">
             <p>{{ item.titre}}</p>
-            <p>Date de candidature : {{date}}</p>
+            <p>Date de candidature : {{ item.date_candidature | date("d/m/Y")}}</p>
         </div>
     {% endfor %}
  
