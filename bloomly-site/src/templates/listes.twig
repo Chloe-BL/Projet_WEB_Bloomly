@@ -334,7 +334,7 @@
             <a class="accc" href="index.php?page=validationConnexion&connect=oui&user={{user}}">Retour à l'accueil</a>
  
             <br>
-            <h3 class="police">Retrouvez ici l'ensemble des offres auxquelles vous avez postulé, leur descritpion et leurs dates de postulation.</h3>
+            <h3 class="police">Retrouvez ici l'ensemble des offres auxquelles vous avez postulé, leur descritpion et leurs dates de candidature.</h3>
  
 <div class="liste">
     {% for item in itemsPage %}
@@ -392,6 +392,20 @@
         <div class="bloc-petite-liste">
             <p>{{ item.titre}}</p>
             <p>Date de candidature : {{ item.date_candidature | date("d/m/Y")}}</p>
+
+            <div class="actions">
+                <button class="acc2" onclick="afficherLM({{ loop.index }})">Voir LM</button>
+
+                {% if item.chemin_cv %}
+                    <a class="acc2" href="/{{ item.chemin_cv }}" target="_blank" class="btn">Voir CV</a>
+                {% else %}
+                    <button class = "acc2" disabled>Pas de CV</button>
+                {% endif %}
+            </div>
+
+                <div id="lm-{{ loop.index }}" style="display:none;">
+                    <p>TEST LM : {{ item.lettre_motivation }}</p>
+                </div>
         </div>
     {% endfor %}
  

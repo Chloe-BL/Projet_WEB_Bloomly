@@ -111,13 +111,13 @@ class FonctionnaliteModel extends BaseModel {
     }
 
 
-    public function ajoutBDDAgenda(string $id_offre, string $titre, $lettre)
+    public function ajoutBDDAgenda(string $id_offre, string $titre, $lettre, string $chemin_cv)
     {
         $user_actif = $_COOKIE['user_id'] ?? null;
-        $sql = "INSERT INTO agenda (id_utilisateur, id_offre, titre, lettre_motivation)
-                VALUES(?,?,?,?)";
+        $sql = "INSERT INTO agenda (id_utilisateur, id_offre, titre, lettre_motivation, chemin_cv)
+                VALUES(?,?,?,?,?)";
         $stmt = $this->pdo->prepare($sql);
-        return $stmt->execute([$user_actif, $id_offre, $titre, $lettre]);
+        return $stmt->execute([$user_actif, $id_offre, $titre, $lettre, $chemin_cv]);
     }
  
     public function getCompetences()

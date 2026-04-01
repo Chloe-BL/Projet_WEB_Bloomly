@@ -6,7 +6,7 @@ class Upload
     private int $tailleMax = 2097152; // 2 Mo
     private array $typesAutorises = ['application/pdf'];
 
-    public function __construct(string $dossier = 'uploads/')
+    public function __construct(string $dossier = __DIR__ . '/../../uploads/')
     {
         $this->dossier = $dossier;
     }
@@ -34,8 +34,11 @@ class Upload
             mkdir($this->dossier, 0777, true);
         }
 
-        $nomFichier = basename($fichier['name']);
+        $extension = pathinfo($fichier['name'], PATHINFO_EXTENSION);
+        $nomFichier = uniqid('cv_', true) . '.' . $extension;
         $cheminFinal = $this->dossier . $nomFichier;
+
+        echo $cheminFinal;
 
         if (move_uploaded_file($fichier['tmp_name'], $cheminFinal)) {
             return $nomFichier;

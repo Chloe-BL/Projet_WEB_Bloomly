@@ -89,7 +89,7 @@ class SectionModel extends BaseModel
 
             else {
             $etu = $_GET['id_etud'] ?? null;
-            $sql = "SELECT o.* FROM offres o 
+            $sql = "SELECT o.*, a.lettre_motivation, a.chemin_cv, a.date_candidature FROM offres o 
                     INNER JOIN agenda a ON o.id = a.id_offre 
                     WHERE a.id_utilisateur = ?";
             $stmt = $this -> pdo -> prepare($sql);

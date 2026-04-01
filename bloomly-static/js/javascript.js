@@ -186,3 +186,19 @@ function validerFormulaireInscription(form) {
   alert("L'utilisateur a bien été crée !")
   return true;
 }
+
+// Javascript pour récupérer LM et CV =================================================================================================================
+function afficherLM(index) {
+  const element = document.getElementById('lm-' + index);
+
+  if (!element) {
+    console.log("Element non trouvé :", index);
+    return;
+  }
+
+  if (element.style.display === "none" || element.style.display === "") {
+    element.style.display = "block";
+  } else {
+    element.style.display = "none";
+  }
+}

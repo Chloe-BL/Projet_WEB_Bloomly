@@ -47,8 +47,9 @@ public function setUpload($upload)
                     if ($nomFichier) {
                         $message = "Candidature envoyée avec succès.<br>";
                         $message .= "CV téléversé : " . htmlspecialchars($nomFichier, ENT_QUOTES, 'UTF-8');
-                        
-                        $this->fonctionModel->ajoutBDDAgenda($id_offre, $titre, $lettre);
+                        $cheminCv = 'uploads/' . $nomFichier;
+
+                        $this->fonctionModel->ajoutBDDAgenda($id_offre, $titre, $lettre, $cheminCv);
 
                     } else {
                         $message = "Erreur lors de l'enregistrement du fichier.";
@@ -86,7 +87,7 @@ public function setUpload($upload)
             'connect' => $this->getConnect(),
             'section' => $this -> getSection(),
             'id_offre' => $_GET['id_offre'],
-            'titre' => $_GET['titre']
+            'titre' => $_GET['titre'],
         ]);
     }
 
