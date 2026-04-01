@@ -6,7 +6,7 @@
 {% block body %}
 {% if user == 1 or user == 2 %}
 <br>
-<h1>Bonjour ! Que voulez vous consulter ?</h1>
+<h1>Bonjour {{prenom}} ! Que voulez vous consulter ?</h1>
 
          <div class="container-flex">
          <div class="card">
@@ -22,7 +22,7 @@
         </div>
 {% elseif user == 3 %}
 <br>
-<h1>Bonjour ! Que voulez vous consulter ?</h1>
+<h1>Bonjour {{prenom}} ! Que voulez vous consulter ?</h1>
 
          <div class="container-flex">
          <div class="card">

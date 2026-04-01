@@ -1,7 +1,10 @@
 {% extends 'layout.twig' %}
 
-{% block title %}Candidature à une offre{% endblock %}
-
+{{% if user == 3 %}}
+    {% block title %}Candidature{% endblock %}
+{% else %}
+    {% block title %}Evaluation{% endblock %}
+{% endif %}
 
 {% block body %}
 
