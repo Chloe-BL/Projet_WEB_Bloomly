@@ -1,3 +1,4 @@
+ 
 /* ============================= */
 /*            GLOBAL             */
 /* ============================= */
@@ -415,10 +416,9 @@ select:focus {
         flex-direction: column;
         padding: 20px;
     }
-        .form-box, .image-box {
-        width: 100%;
-        .form-box,
-        .image-box {
+ 
+    .form-box,
+    .image-box {
         width: 95%;
         margin-left: 10px;
     }
@@ -427,8 +427,6 @@ select:focus {
         height: 200px;
         margin-top: 20px;
     }
- 
-    .mon-header, .mon-footer {
  
     .mon-header,
     .mon-footer {
@@ -473,6 +471,4 @@ select:focus {
         width: 250px;
         height: 250px;
     }
-}
-}
 }
