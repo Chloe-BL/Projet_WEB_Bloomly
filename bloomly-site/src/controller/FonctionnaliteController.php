@@ -21,7 +21,7 @@ class FonctionnaliteController extends BaseController
         $this->profileModel = new ProfileModel();
         $this->fonctionModel = new FonctionnaliteModel();
     }
-    public function ajout_ent()
+    public function ajout_ent()// Méthode pour afficher le formulaire d'ajout d'entreprise
     {
         $section = $this->getSection();
         
@@ -29,7 +29,7 @@ class FonctionnaliteController extends BaseController
             'section' => $section]);
     }
 
-    public function ValidationAjout_ent(){
+    public function ValidationAjout_ent(){// Méthode pour traiter le formulaire d'ajout d'entreprise
 
         $connect = $this->getConnect();
         $user = $this->getUser();
@@ -47,7 +47,7 @@ class FonctionnaliteController extends BaseController
             exit;
     }
 
-    public function ajout_off()
+    public function ajout_off() // Méthode pour afficher le formulaire d'ajout d'offre
     {
         $section = $this -> getSection();
         $liste_ent = $this->fonctionModel->getAllEntreprises();
@@ -57,7 +57,7 @@ class FonctionnaliteController extends BaseController
         'liste_ent' => $liste_ent]);
     }
 
-    public function ValidationAjout_off(){
+    public function ValidationAjout_off(){ // Méthode pour traiter le formulaire d'ajout d'offre
 
         $connect = $this->getConnect();
         $user = $this->getUser();
@@ -79,7 +79,7 @@ class FonctionnaliteController extends BaseController
         exit;
     }
 
-    public function ValidationAjout_etudiant(){
+    public function ValidationAjout_etudiant(){// Méthode pour traiter le formulaire d'ajout d'étudiant
 
         $connect = $this->getConnect();
         $user = $this->getUser();
@@ -97,7 +97,7 @@ class FonctionnaliteController extends BaseController
         exit;
     }
 
-    public function ValidationAjout_pilote(){
+    public function ValidationAjout_pilote(){ // Méthode pour traiter le formulaire d'ajout de pilote
 
         $connect = $this->getConnect();
         $user = $this->getUser();
@@ -113,7 +113,7 @@ class FonctionnaliteController extends BaseController
         exit;
     }
 
-    public function AddFavoris(){
+    public function AddFavoris(){ // Méthode pour ajouter une offre aux favoris
         
         $connect = $this->getConnect();
         $user = $this->getUser();
@@ -121,7 +121,7 @@ class FonctionnaliteController extends BaseController
 
         $params = $this-> fonctionModel -> ajoutBDDWishlist($_POST['id_offre'], $_POST['titre']);
         
-        header("Location: index.php?page=choix_section&section=" . urlencode($section) . "&connect=oui&user=" . urlencode($user));
+        header("Location: index.php?page=choix_section&section=" . urlencode($section) . "&connect=oui&user=" . urlencode($user)); // Redirige vers la page de choix de section après l'ajout aux favoris
         exit;
     }
 
@@ -163,7 +163,7 @@ class FonctionnaliteController extends BaseController
         return;
     }
 
-    $entreprise = $this->fonctionModel->getEntById($id_entreprise);
+    $entreprise = $this->fonctionModel->getEntById($id_entreprise); // Récupère les détails de l'entreprise à partir du modèle
 
     if (!$entreprise) {
         echo "Entreprise introuvable";
@@ -185,7 +185,7 @@ class FonctionnaliteController extends BaseController
 }
 
 
-     public function description_etu()
+     public function description_etu() //comme entreprise pour etudiant 
     {
         $id_etud = $_GET['id_etud'] ?? null;
         $section = $this -> getSection();

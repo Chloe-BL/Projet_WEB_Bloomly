@@ -30,12 +30,12 @@ class UserController extends BaseController
     {
         $connect = $this->getConnect();
 
-        if (!empty($_POST['id']) && !empty($_POST['mdp'])) {
+        if (!empty($_POST['id']) && !empty($_POST['mdp'])) { // Vérifie que les champs d'identifiant et de mot de passe ne sont pas vides
             $user = $this->userModel->getUserType($_POST['id'], $_POST['mdp']);
             $prenom = $this->profileModel->getPrenom($_POST['id'], $_POST['mdp']);
 
             if ($connect) {
-                $user_actif = $this->userModel->getIdUser($_POST['id'], $_POST['mdp']);
+                $user_actif = $this->userModel->getIdUser($_POST['id'], $_POST['mdp']); // Récupère l'id de l'utilisateur à partir du modèle
                 setcookie("user_id", $user_actif, time() + 3600, "/"); // stocke l'id dans un cookie (1h)
                 setcookie("prenom", $prenom, time() + 3600, "/");
             }

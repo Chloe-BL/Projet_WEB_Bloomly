@@ -7,13 +7,13 @@ abstract class BaseController
 {
     protected Environment $twig; // Propriété pour stocker l'environnement Twig
     
-    public function __construct()
+    public function __construct() // Constructeur pour initialiser Twig
     {
         $loader = new FilesystemLoader(__DIR__ . '/../templates'); // Indique à Twig où se trouvent les templates
         $this->twig = new Environment($loader); // Crée une instance de l'environnement Twig
     }
 
-    protected function render(string $template, array $data = [])
+    protected function render(string $template, array $data = [])// Méthode pour rendre un template Twig avec des données   
     {
         if (!isset($data['connect'])) {
             $data['connect'] = $this->getConnect();

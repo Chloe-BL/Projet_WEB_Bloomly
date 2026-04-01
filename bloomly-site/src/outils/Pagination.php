@@ -6,7 +6,7 @@ class Pagination
     private int $parPage;
     private int $page;
 
-    public function __construct(array $items, int $parPage, int $page){
+    public function __construct(array $items, int $parPage, int $page){ 
         $this -> items = $items;
         $this -> parPage = $parPage;
         if ($page < 1) {  // Pour ne pas avoir de page négative ou nule

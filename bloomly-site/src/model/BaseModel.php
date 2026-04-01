@@ -7,6 +7,6 @@ abstract class BaseModel
     public function __construct()
     {
         require __DIR__ . '/../../config/dataBase.php';
-        $this->pdo = $pdo;
+        $this->pdo = $pdo; // creer un objet pdo pour communiquer avec la BDD
     }
 }

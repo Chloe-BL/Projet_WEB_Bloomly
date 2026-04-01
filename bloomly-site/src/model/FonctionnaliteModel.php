@@ -10,8 +10,8 @@ class FonctionnaliteModel extends BaseModel {
         $sql = "INSERT INTO $section (nom, description, email_contact, telephone_contact, adresse, id_createur) 
                 VALUES (?, ?, ?, ?, ?, ?)";
         
-        $stmt = $this->pdo->prepare($sql);
-        return $stmt->execute([$nom, $description, $email_contact, $telephone_contact, $adresse, $user_actif]);
+        $stmt = $this->pdo->prepare($sql); // Prépare la requête SQL pour éviter les injections SQL
+        return $stmt->execute([$nom, $description, $email_contact, $telephone_contact, $adresse, $user_actif]); // Exécute la requête avec les données fournies
     }
 
     public function ajout_BDD_off(string $titre, string $description, string $formation, string $softskills, string $competences, string $date_debut, string $duree, string $lieu, string $salaire, string $date_pub,string $id_entreprise){
@@ -49,8 +49,8 @@ class FonctionnaliteModel extends BaseModel {
     public function getAllEntreprises()
     {
         $sql = "SELECT id_entreprise, nom FROM entreprises";
-        $stmt = $this->pdo->query($sql);
-        return $stmt->fetchAll();
+        $stmt = $this->pdo->query($sql); // Exécute la requête SQL
+        return $stmt->fetchAll(); // Récupère tous les résultats et les retourne sous forme de tableau
     }
  
     public function ajoutBDDWishlist(string $id_offre, string $titre)
@@ -67,7 +67,7 @@ class FonctionnaliteModel extends BaseModel {
         $sql = "SELECT * FROM entreprises WHERE id_entreprise = ?";
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute([$id_entreprise]);
-        return $stmt->fetch(PDO::FETCH_ASSOC);
+        return $stmt->fetch(PDO::FETCH_ASSOC); // Récupère les détails de l'entreprise sous forme de tableau associatif
     }
  
     public function getOffreById(string $id_offre)
@@ -122,7 +122,8 @@ class FonctionnaliteModel extends BaseModel {
  
     public function getCompetences()
     {
-        $sql = "SELECT DISTINCT competences FROM offres WHERE competences != ''";
+        $sql = "SELECT DISTINCT competences FROM offres WHERE competences != ''"; 
+
         $stmt = $this->pdo->query($sql);
         return $stmt->fetchAll(PDO::FETCH_COLUMN);
     }
@@ -297,7 +298,7 @@ public function searchGlobal($search, $type, $connect)
     public function SupprimerEnt(string $id){
         $section = $_GET['section'];
 
-        $sql1 = "DELETE FROM offres WHERE id_entreprise = ?";
+        $sql1 = "DELETE FROM offres WHERE id_entreprise = ?"; // Supprime les offres associées à l'entreprise 
         $stmt1 = $this->pdo->prepare($sql1);
         $stmt1->execute([$id]);
 
@@ -306,7 +307,7 @@ public function searchGlobal($search, $type, $connect)
         return $stmt2->execute([$id]);
     }
 
-    public function SupprimerOff(string $id){
+    public function SupprimerOff(string $id){ // Supprime une offre et les favoris associés
         $section = $_GET['section'];
 
         $sql1 = "DELETE FROM wishlist WHERE id_offre = ?";
@@ -318,7 +319,7 @@ public function searchGlobal($search, $type, $connect)
         return $stmt2->execute([$id]);
     }
 
-    public function SupprimerWhishlist(string $id){
+    public function SupprimerWhishlist(string $id){ 
         $user_actif = $_COOKIE['user_id'] ?? null;
 
         $sql = "DELETE FROM wishlist WHERE id_offre = ? and id_utilisateur = ? ";
@@ -344,38 +345,29 @@ public function searchGlobal($search, $type, $connect)
     }
 
     public function ModifierOff(string $titre, string $description, string $formation, string $softskills, string $competences,  string $date_debut, string $duree, string $lieu, string $salaire, string $date_pub, string $id_entreprise, $id_offre){
-
     $user_actif = $_COOKIE['user_id'] ?? null;
-   
 
     $sql = "UPDATE offres SET titre =?, description=?, formation=?, softskills=?, competences=?, date_debut=?, duree=?, lieu=?, salaire=?, date_pub=?, id_createur=?, id_entreprise=? 
             WHERE id =?";
     $stmt = $this->pdo->prepare($sql);
-
-    
     return $stmt->execute([$titre, $description, $formation, $softskills, $competences, $date_debut, $duree, $lieu, $salaire, $date_pub, $user_actif, $id_entreprise, $id_offre]);
     }
 
     
-    public function ModifierEnt(string $nom, string $description, string $email_contact, string $telephone_contact, string $adresse, $id_entreprise){
-
+    public function ModifierEnt(string $nom, string $description, string $email_contact, string $telephone_contact, string $adresse, $id_entreprise){ // Modifie les détails d'une entreprise
     $user_actif = $_COOKIE['user_id'] ?? null;
    
-
-    $sql = "UPDATE entreprises SET nom =?, description=?, email_contact=?, telephone_contact=?, adresse=?
+    $sql = "UPDATE entreprises SET nom =?, description=?, email_contact=?, telephone_contact=?, adresse=? 
             WHERE id_entreprise =?";
     $stmt = $this->pdo->prepare($sql);
-    
     return $stmt->execute([$nom, $description, $email_contact, $telephone_contact, $adresse, $id_entreprise]);
     }
 
     public function ModifierEtudiant(string $nom, string $prenom, string $email, string $mot_de_passe, string $telephone, string $civilite, string $id){
     $user_actif = $_COOKIE['user_id'] ?? null;
     $section = 'utilisateur';
-
     $sql = "UPDATE utilisateur SET nom =?, prenom=?, email=?, mot_de_passe=?, telephone=?, civilite=?, id_role=?, id_createur=?
             WHERE id_utilisateur =?";
-        
     $stmt = $this->pdo->prepare($sql);
     return $stmt->execute([$nom, $prenom, $email, $mot_de_passe, $telephone, $civilite, 3, $user_actif, $id]);
     }

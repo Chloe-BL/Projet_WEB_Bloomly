@@ -25,20 +25,20 @@ public function setUpload($upload)
     $this->upload = $upload;
 }
 
-    public function candidature()
+    public function candidature() // Méthode pour gérer les candidatures et évaluations
     {
         $message = "";
         $user = $_GET['user'] ?? '';
         $id_offre = $_GET['id_offre'] ?? $_POST['id_offre'] ?? null;
         $titre = $_GET['titre'] ?? $_POST['titre'] ?? null;
         
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $action = $_POST['action'] ?? '';
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') { // Vérifie si le formulaire a été soumis
+            $action = $_POST['action'] ?? ''; // Récupère l'action du formulaire (candidature ou évaluation)
  
             if ($user === '3') {
                 $lettre = htmlspecialchars($_POST['Lettre'] ?? '', ENT_QUOTES, 'UTF-8');
  
-                $upload = $this->upload ?? new Upload();
+                $upload = $this->upload ?? new Upload(); // Utilise l'instance d'Upload injectée ou crée une nouvelle instance
                 $validation = $upload->validerFichier($_FILES['cv']);
  
                 if ($validation === true) {
@@ -60,7 +60,7 @@ public function setUpload($upload)
             } elseif ($user === '2' || $user === '1') {
                 $lettre = htmlspecialchars($_POST['Lettre'] ?? '', ENT_QUOTES, 'UTF-8');
 
-                $note = isset($_POST['note']) ? (int) $_POST['note'] : 0;
+                $note = isset($_POST['note']) ? (int) $_POST['note'] : 0; // Récupère la note et la convertit en entier
                 $idnom = $_POST['id_nom'] ?? null;
                 $lettre = $_POST['Lettre'] ?? null;
 

@@ -4,7 +4,7 @@ require_once __DIR__ . '/BaseModel.php';
 
 class SectionModel extends BaseModel
 {
-    public function getItemsBySection(string $section) {
+    public function getItemsBySection(string $section) { // Récupère les éléments d'une section spécifique en fonction de l'utilisateur actif
  
         if ($section === 'offres') {
             $user_actif = $_COOKIE['user_id'] ?? null;
@@ -76,7 +76,7 @@ class SectionModel extends BaseModel
         if ($section === 'agenda') {
             $user = $_GET['user'] ?? null;     
 
-            if ($user === '3'){
+            if ($user === '3'){ // Si l'utilisateur est un étudiant, affiche les offres auxquelles il a postulé
             $user_actif = $_COOKIE['user_id'] ?? null;
 
             $sql = "SELECT * FROM agenda WHERE id_utilisateur = ?";
@@ -87,9 +87,9 @@ class SectionModel extends BaseModel
             return $agenda;
             }
 
-            else {
-            $etu = $_GET['id_etud'] ?? null;
-            $sql = "SELECT o.*, a.lettre_motivation, a.chemin_cv, a.date_candidature FROM offres o 
+            else { // Si l'utilisateur est un pilot ou un admin, affiche les candidatures reçues pour les offres qu'il a créées
+            $etu = $_GET['id_etud'] ?? null; 
+            $sql = "SELECT o.*, a.lettre_motivation, a.chemin_cv, a.date_candidature FROM offres o  
                     INNER JOIN agenda a ON o.id = a.id_offre 
                     WHERE a.id_utilisateur = ?";
             $stmt = $this -> pdo -> prepare($sql);
