@@ -126,12 +126,13 @@ class FonctionnaliteController extends BaseController
     }
 
      public function description_off()
-{
-    $id_offre = $_GET['id_offre'] ?? null;
+    {
+        $id_offre = $_GET['id_offre'] ?? null;
 
         $offre = $this -> fonctionModel->getOffreById($id_offre);
 
         echo $this->render('description.twig', [
+                           'titre' => $offre['titre'],
                            'description' => $offre['description'],
                            'formation' => $offre['formation'],
                            'softskills' => $offre['softskills'],
@@ -143,7 +144,8 @@ class FonctionnaliteController extends BaseController
                            'date_pub' => $offre['date_pub'],
                            'section' => $_GET['section'] ?? null,
                            'id_offre' =>  $_GET['id_offre'] ?? null,
-                           'titre' => $_GET['titre'] ?? null
+                           'user' => $this->getUser(),     
+                           'connect' => $this->getConnect()
                             ]);
     }
 

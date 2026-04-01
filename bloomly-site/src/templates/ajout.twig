@@ -88,8 +88,8 @@
                         <label for="date_pub">Date</label>
                         <input type = "date" name="date_pub" required>
 
-                        <label for="ent">Choisissez une entreprise :</label>
-                        <select id="ent" name="ent">
+                        <label for="ent" class="selection">Choisissez une entreprise :</label>
+                        <select id="ent" name="ent" class="selection">
                                 <option value="">Sélectionnez une entreprise</option>
                                 {% for ent in liste_ent %}
                                         <option value="{{ ent.id_entreprise }}">{{ ent.nom }}</option>

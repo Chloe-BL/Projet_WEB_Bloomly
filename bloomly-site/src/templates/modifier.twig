@@ -15,7 +15,7 @@
         <br>
         <input type="text" name="titre" value="{{offre.titre}}">
         <div class="actions">
-            <a class="bouton" href="?page=choix_section&section={{section}}&user={{user}}&connect=oui">Retour</a>
+            <a class="acc2" href="?page=choix_section&section={{section}}&user={{user}}&connect=oui">Retour</a>
             
         </div>
     </div>
@@ -61,8 +61,8 @@
                 <input type="text" name="date_pub" value="{{offre.date_pub}}">
             </div>
 
-            <label for="ent">Choisissez une entreprise :</label>
-                <select id="ent" name="ent">
+            <label for="ent" class="selection">Choisissez une entreprise :</label>
+                <select id="ent" name="ent" class="selection">
                 {% for ent in liste_ent %}
                     <option value="{{ ent.id_entreprise }}"
                         <option value="{{ ent.id_entreprise }}" 
@@ -87,7 +87,7 @@
         <h2 class="titre">Nom de l'entreprise :</h2>
         <input type="text" name="nom" value="{{entreprise.nom}}">
         <div class="actions">
-            <a class="bouton" href="?page=choix_section&section={{section}}&user={{user}}&connect=oui">Retour</a>   
+            <a class="acc2" href="?page=choix_section&section={{section}}&user={{user}}&connect=oui">Retour</a>   
         </div>
     </div>
     
