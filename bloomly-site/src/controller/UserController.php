@@ -37,10 +37,12 @@ class UserController extends BaseController
             if ($connect) {
                 $user_actif = $this->userModel->getIdUser($_POST['id'], $_POST['mdp']);
                 setcookie("user_id", $user_actif, time() + 3600, "/"); // stocke l'id dans un cookie (1h)
+                setcookie("prenom", $prenom, time() + 3600, "/");
             }
         } 
         else {
             $user = $this -> getUser();
+            $prenom = $_COOKIE['prenom'] ?? '';
         }
 
         if ($connect) {

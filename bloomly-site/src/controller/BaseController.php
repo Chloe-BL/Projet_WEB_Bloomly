@@ -23,6 +23,9 @@ abstract class BaseController
             $data['user'] = $_GET['user'] ?? '';
         }
 
+        if (!isset($data['prenom'])) {
+            $data['prenom'] = $_COOKIE['prenom'] ?? '';
+        }
         echo $this->twig->render($template, $data);
     }
 
