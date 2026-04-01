@@ -38,8 +38,6 @@ class Upload
         $nomFichier = uniqid('cv_', true) . '.' . $extension;
         $cheminFinal = $this->dossier . $nomFichier;
 
-        echo $cheminFinal;
-
         if (move_uploaded_file($fichier['tmp_name'], $cheminFinal)) {
             return $nomFichier;
         }
