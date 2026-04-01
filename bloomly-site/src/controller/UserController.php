@@ -32,6 +32,7 @@ class UserController extends BaseController
 
         if (!empty($_POST['id']) && !empty($_POST['mdp'])) {
             $user = $this->userModel->getUserType($_POST['id'], $_POST['mdp']);
+            $prenom = $this->profileModel->getPrenom($_POST['id'], $_POST['mdp']);
 
             if ($connect) {
                 $user_actif = $this->userModel->getIdUser($_POST['id'], $_POST['mdp']);
@@ -43,7 +44,7 @@ class UserController extends BaseController
         }
 
         if ($connect) {
-            $this->render('accueil_user.twig', ['user' => $user ]);
+            $this->render('accueil_user.twig', ['user' => $user , 'prenom' => $prenom]);
         } 
         else {
             echo "erreur";

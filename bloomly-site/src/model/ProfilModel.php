@@ -14,4 +14,14 @@ class ProfileModel extends BaseModel
 
         return $stmt->fetch();
     }
+
+    public function getPrenom($id, $mdp)
+    {
+        $sql = "SELECT prenom FROM utilisateur WHERE id_utilisateur = ? AND mot_de_passe = ?";
+
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([$id, $mdp]);
+
+        return $stmt->fetchColumn();
+    }
 }
