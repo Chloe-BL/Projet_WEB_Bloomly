@@ -36,6 +36,7 @@ class PageController extends BaseController
 
 public function search()
 {
+    $connect = $_GET['connect'] ?? null;
     $search = $_GET['search'] ?? '';
     $type = $_GET['type'] ?? 'all';
     $entreprise = $_GET['entreprise'] ?? '';
@@ -57,7 +58,7 @@ public function search()
     if (($type === 'offre' || $type === 'entreprise') && !$filtres_remplis) {
         $resultats = [];
     } else {
-        $resultats = $model->searchGlobal($search, $type);
+        $resultats = $model->searchGlobal($search, $type, $connect);
     }
  
     $liste_competences = $model->getCompetences();

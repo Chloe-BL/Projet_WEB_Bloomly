@@ -1,5 +1,0 @@
-User-agent: *
-Disallow: /src/
-Disallow: /vendor/
-
-Sitemap: http://bloomly-site.local/sitemap.xml

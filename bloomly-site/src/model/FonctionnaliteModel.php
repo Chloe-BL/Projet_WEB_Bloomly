@@ -128,7 +128,7 @@ class FonctionnaliteModel extends BaseModel {
     }
     
     
-public function searchGlobal($search, $type)
+public function searchGlobal($search, $type, $connect)
 {
     if ($type === 'entreprise') {
         $description = $_GET['description'] ?? '';

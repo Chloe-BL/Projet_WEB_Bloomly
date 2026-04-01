@@ -15,7 +15,7 @@
 
             <a class="acc2" href="?page=choix_section&section={{section}}&connect=oui&user={{user}}">Retour</a>
             <a class="acc2" href="?page=candidature&section={{section}}&user={{user}}&connect=oui&id_offre={{id_offre}}&titre={{titre}}">Postuler</a>
-        {% elseif user == 1 or 2 %}
+        {% elseif user == 1 or user == 2 %}
         <h1 class='titre' >{{titre}}</h1>
         <br>
         <div class="actions">
@@ -34,7 +34,7 @@
         <h1 class='titre' >{{titre}}</h1>
         <br>
         <div class="actions">
-            <a class="bouton" href="index.php?page=search&type=offre&connect={{connect}}&user={{user}}">Retour</a>
+            <a class="acc2" href="index.php?page=search&type=offre&connect={{connect}}&user={{user}}">Retour</a>
         </div>
     </div>
     {% endif %} 
@@ -90,7 +90,7 @@
 
             <a class="acc2" href="?page=choix_section&section={{section}}&connect=oui&user={{user}}">Retour</a>
         
-         {% elseif user == 1 or 2 %}
+         {% elseif user == 1 or user == 2 %}
         <h1 class="titre">{{nom}}</h1>
         <br>
         <div class="actions">
@@ -111,10 +111,10 @@
     
     
     {% elseif connect == '' %}
-        <h1 class='titre' >{{titre}}</h1>
+        <h1 class='titre' >{{nom}}</h1>
         <br>
         <div class="actions">
-            <a class="bouton" href="index.php?page=search&type=entreprise&connect={{connect}}&user={{user}}">Retour</a>
+            <a class="acc2" href="index.php?page=search&type=entreprise&connect={{connect}}&user={{user}}">Retour</a>
         </div>
     </div>
     {% endif %}  
@@ -154,7 +154,7 @@
          <br>
         <h1 class="titre">Evaluations associées</h1>
         {% for evaluation in evaluations %}
-            <p> Note : {{evaluation.note}} /5 </p> <br>
+            <p> Note : {{evaluation.note}} /4 </p> <br>
             <p>  « {{evaluation.appreciation}} »</p>
         {% endfor %}
 
