@@ -287,6 +287,33 @@ textarea {
     margin-bottom: 15px;
 }
 
+.agenda1 {
+    outline: none;      
+    border: none;
+    padding: 4px 10px;
+    background-color: #fff3fa;
+    border-radius: 15px;
+    text-decoration: none;
+    color: #323e02;
+    font-family: Century Gothic;
+    margin-left: 30px;
+    margin-bottom: 20px;
+}
+
+.agenda2 {
+    outline: none;      
+    border: none;
+    padding: 4px 10px;
+    background-color: #e8e9da;
+    border-radius: 15px;
+    text-decoration: none;
+    color: #470128;
+    font-family: Century Gothic;
+    margin-left: 15px;
+    margin-bottom: 20px;
+}
+
+
 
 /* tester github*/
 @media (max-width: 768px) {

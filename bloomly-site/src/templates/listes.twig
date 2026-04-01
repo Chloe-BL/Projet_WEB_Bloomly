@@ -394,12 +394,12 @@
             <p>Date de candidature : {{ item.date_candidature | date("d/m/Y")}}</p>
 
             <div class="actions">
-                <button class="acc2" onclick="afficherLM({{ loop.index }})">Voir LM</button>
+                <button class="agenda1" onclick="afficherLM({{ loop.index }})">Voir LM</button>
 
                 {% if item.chemin_cv %}
-                    <a class="acc2" href="/{{ item.chemin_cv }}" target="_blank" class="btn">Voir CV</a>
+                    <a class="agenda2" href="/{{ item.chemin_cv }}" target="_blank" class="btn">Voir CV</a>
                 {% else %}
-                    <button class = "acc2" disabled>Pas de CV</button>
+                    <button class = "agenda2" disabled>Pas de CV</button>
                 {% endif %}
             </div>
 
